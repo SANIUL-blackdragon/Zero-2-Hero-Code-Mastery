@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mastery Lab - Complete Learning Path</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-default {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        
+        .badge-secondary {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .badge-green {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .badge-blue {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .badge-purple {
+            background-color: #8b5cf6;
+            color: white;
+        }
+        
+        .badge-orange {
+            background-color: #f59e0b;
+            color: white;
+        }
+        
+        .badge-red {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #5a67d8;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #667eea;
+            border: 1px solid #667eea;
+        }
+        
+        .btn-outline:hover {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .code-editor {
+            background-color: #1f2937;
+            color: #f9fafb;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 200px;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+        
+        .output-area {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: white;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .chapter-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .chapter-item:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .chapter-item.active {
+            background-color: #eef2ff;
+            border-left: 4px solid #667eea;
+        }
+        
+        .project-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .mastery-level {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .mastery-level:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .level-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .level-circle.completed {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .level-circle.locked {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .filter-section {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .skill-tag.active {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="bg-white/20 p-4 rounded-full">
+                    <i class="fas fa-book-open text-4xl"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                JavaScript Mastery Lab
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-8">
+                Complete JavaScript Learning Path - From Fundamentals to Expert-Level Mastery
+            </p>
+            
+            <!-- Progress Overview -->
+            <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Overall Progress</span>
+                    <span class="text-2xl font-bold" id="overall-progress">52%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 52%"></div>
+                </div>
+                <div class="flex justify-between text-sm opacity-80 mt-2">
+                    <span>Begin your journey</span>
+                    <span>JavaScript Master</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center mb-8 bg-white rounded-lg shadow-sm p-2">
+            <button class="tab-btn px-6 py-3 rounded-md font-medium transition-all duration-200 bg-indigo-100 text-indigo-700" data-tab="overview">
+                <i class="fas fa-bullseye mr-2"></i>Overview
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-md font-medium transition-all duration-200 text-gray-600 hover:text-indigo-700" data-tab="chapters">
+                <i class="fas fa-book-open mr-2"></i>Chapters
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-md font-medium transition-all duration-200 text-gray-600 hover:text-indigo-700" data-tab="projects">
+                <i class="fas fa-code mr-2"></i>Projects
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-md font-medium transition-all duration-200 text-gray-600 hover:text-indigo-700" data-tab="mastery">
+                <i class="fas fa-trophy mr-2"></i>Mastery Path
+            </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <!-- Mastery Levels -->
+            <div class="card p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-trophy mr-3 text-indigo-600"></i>
+                    Mastery Levels
+                </h2>
+                <p class="text-gray-600 mb-6">Track your progression through 5 levels of JavaScript mastery</p>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center bg-green-500">
+                            <span class="text-white text-2xl">✓</span>
+                        </div>
+                        <h3 class="font-semibold">Beginner</h3>
+                        <p class="text-sm text-gray-600">Completed</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center bg-blue-500">
+                            <span class="text-white text-2xl">✓</span>
+                        </div>
+                        <h3 class="font-semibold">Intermediate</h3>
+                        <p class="text-sm text-gray-600">Completed</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center bg-purple-500">
+                            <span class="text-white text-2xl">✓</span>
+                        </div>
+                        <h3 class="font-semibold">Advanced</h3>
+                        <p class="text-sm text-gray-600">In Progress</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center bg-gray-300">
+                            <span class="text-gray-600 font-bold">4</span>
+                        </div>
+                        <h3 class="font-semibold">Expert</h3>
+                        <p class="text-sm text-gray-600">Locked</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center bg-gray-300">
+                            <span class="text-gray-600 font-bold">5</span>
+                        </div>
+                        <h3 class="font-semibold">Master</h3>
+                        <p class="text-sm text-gray-600">Locked</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Areas -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="card p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-brain text-3xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-center">Core Fundamentals</h3>
+                    <p class="text-gray-600 text-sm">
+                        Master JavaScript syntax, data types, functions, scope, closures, and object-oriented programming.
+                    </p>
+                </div>
+                <div class="card p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-tachometer-alt text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-center">Performance & Memory</h3>
+                    <p class="text-gray-600 text-sm">
+                        Optimize applications, understand garbage collection, memory leaks, and performance profiling.
+                    </p>
+                </div>
+                <div class="card p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-center">Security</h3>
+                    <p class="text-gray-600 text-sm">
+                        Build secure applications, prevent XSS/CSRF, implement authentication and authorization.
+                    </p>
+                </div>
+                <div class="card p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-tools text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-center">Modern Tooling</h3>
+                    <p class="text-gray-600 text-sm">
+                        Master bundlers, transpilers, testing frameworks, and CI/CD pipelines.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Learning Philosophy -->
+            <div class="card p-6">
+                <h2 class="text-2xl font-bold mb-4">Learning Approach</h2>
+                <p class="text-gray-600 mb-6">How this lab helps you achieve JavaScript mastery</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <i class="fas fa-code text-4xl text-indigo-600 mx-auto mb-4"></i>
+                        <h3 class="font-semibold mb-2">Project-Based Learning</h3>
+                        <p class="text-gray-600">
+                            Build real applications that force mastery of advanced concepts through practical implementation.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-brain text-4xl text-purple-600 mx-auto mb-4"></i>
+                        <h3 class="font-semibold mb-2">Deep Understanding</h3>
+                        <p class="text-gray-600">
+                            Go beyond syntax to understand JavaScript internals, V8 engine, and browser architecture.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-users text-4xl text-green-600 mx-auto mb-4"></i>
+                        <h3 class="font-semibold mb-2">Production Ready</h3>
+                        <p class="text-gray-600">
+                            Learn professional practices, testing, debugging, and deployment strategies used in industry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapters Tab -->
+        <div id="chapters" class="tab-content">
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Chapter List -->
+                <div class="card lg:col-span-1">
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold mb-4">Learning Path</h2>
+                        <p class="text-gray-600 mb-4">11 comprehensive chapters covering all aspects of JavaScript</p>
+                    </div>
+                    <div class="px-4 pb-4 max-h-96 overflow-y-auto">
+                        <div class="space-y-2" id="chapter-list">
+                            <!-- Chapters will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter Details -->
+                <div class="card lg:col-span-2">
+                    <div class="p-6" id="chapter-details">
+                        <!-- Chapter details will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects" class="tab-content">
+            <!-- Search and Filter -->
+            <div class="card p-6 mb-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-search mr-3 text-indigo-600"></i>
+                    Search & Filter Projects
+                </h2>
+                
+                <!-- Search Input -->
+                <div class="relative mb-4">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="project-search" placeholder="Search projects by title, description, or skills..." 
+                           class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                <!-- Filter Toggle -->
+                <button id="filter-toggle" class="btn btn-outline w-full justify-between mb-4">
+                    <span><i class="fas fa-filter mr-2"></i>Advanced Filters</span>
+                    <span id="filter-chevron">▼</span>
+                </button>
+
+                <!-- Advanced Filters -->
+                <div id="advanced-filters" class="hidden">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Difficulty</label>
+                            <div class="flex flex-wrap gap-2" id="difficulty-filters">
+                                <span class="skill-tag" data-difficulty="Easy">Easy</span>
+                                <span class="skill-tag" data-difficulty="Medium">Medium</span>
+                                <span class="skill-tag" data-difficulty="Hard">Hard</span>
+                                <span class="skill-tag" data-difficulty="Expert">Expert</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Status</label>
+                            <div class="flex flex-wrap gap-2" id="status-filters">
+                                <span class="skill-tag" data-status="completed">Completed</span>
+                                <span class="skill-tag" data-status="in-progress">In Progress</span>
+                                <span class="skill-tag" data-status="locked">Locked</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-4 border-t">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="easy-count">0</div>
+                        <div class="text-sm text-gray-600">Easy Projects</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="advanced-count">0</div>
+                        <div class="text-sm text-gray-600">Advanced</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600" id="completed-count">0</div>
+                        <div class="text-sm text-gray-600">Completed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-orange-600" id="progress-count">0</div>
+                        <div class="text-sm text-gray-600">In Progress</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Mastery Path Tab -->
+        <div id="mastery" class="tab-content">
+            <div class="card p-6">
+                <h2 class="text-2xl font-bold mb-4">Your Mastery Journey</h2>
+                <p class="text-gray-600 mb-6">Track your progression through the stages of JavaScript mastery</p>
+                
+                <div class="space-y-4" id="mastery-path">
+                    <!-- Mastery levels will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Structure
+        const chapters = [
+            {
+                id: 1,
+                title: 'Core JavaScript Mastery',
+                description: 'Deep understanding of language mechanics and internals',
+                icon: 'fas fa-brain',
+                level: 'Beginner',
+                progress: 100,
+                projects: [
+                    {
+                        title: 'Prototype Chain Explorer',
+                        description: 'Interactive visualization of JavaScript prototype chains',
+                        difficulty: 'Easy',
+                        skills: ['Prototypes', 'Objects', 'Inheritance'],
+                        status: 'completed'
+                    },
+                    {
+                        title: 'Closure Patterns Lab',
+                        description: 'Master closures through practical patterns and anti-patterns',
+                        difficulty: 'Medium',
+                        skills: ['Closures', 'Scope', 'Memory Management'],
+                        status: 'completed'
+                    },
+                    {
+                        title: 'Event Loop Deep Dive',
+                        description: 'Build a visual event loop simulator',
+                        difficulty: 'Hard',
+                        skills: ['Event Loop', 'Microtasks', 'Macrotasks', 'Concurrency'],
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: 'DOM & Browser APIs',
+                description: 'Master browser internals and advanced web APIs',
+                icon: 'fas fa-code',
+                level: 'Intermediate',
+                progress: 100,
+                projects: [
+                    {
+                        title: 'Web Components Workshop',
+                        description: 'Build custom elements with Shadow DOM',
+                        difficulty: 'Medium',
+                        skills: ['Web Components', 'Shadow DOM', 'Custom Elements'],
+                        status: 'completed'
+                    },
+                    {
+                        title: 'Canvas Animation Engine',
+                        description: 'Create a performant 2D animation system',
+                        difficulty: 'Hard',
+                        skills: ['Canvas API', 'Animation', 'Performance'],
+                        status: 'completed'
+                    },
+                    {
+                        title: 'Browser API Explorer',
+                        description: 'Comprehensive browser API mastery project',
+                        difficulty: 'Hard',
+                        skills: ['Geolocation', 'Storage', 'Fetch API', 'Service Workers'],
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: 'Async & Real-Time Systems',
+                description: 'Build scalable real-time applications',
+                icon: 'fas fa-bolt',
+                level: 'Advanced',
+                progress: 65,
+                projects: [
+                    {
+                        title: 'WebSocket Collaboration Platform',
+                        description: 'Real-time collaborative code editor',
+                        difficulty: 'Hard',
+                        skills: ['WebSockets', 'CRDT', 'Real-time'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'Promise Queue System',
+                        description: 'Advanced async patterns and concurrency control',
+                        difficulty: 'Expert',
+                        skills: ['Promises', 'Async Patterns', 'Concurrency'],
+                        status: 'locked'
+                    },
+                    {
+                        title: 'Streaming Data Processor',
+                        description: 'Build real-time data streaming pipeline',
+                        difficulty: 'Expert',
+                        skills: ['Streams', 'Backpressure', 'Real-time Processing'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: 'Framework Architecture',
+                description: 'Deep dive into modern JavaScript frameworks',
+                icon: 'fas fa-rocket',
+                level: 'Expert',
+                progress: 25,
+                projects: [
+                    {
+                        title: 'Custom React Renderer',
+                        description: 'Build your own React-like library from scratch',
+                        difficulty: 'Expert',
+                        skills: ['Virtual DOM', 'Fiber', 'Reconciliation'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'State Management System',
+                        description: 'Implement Redux-like state management',
+                        difficulty: 'Expert',
+                        skills: ['State Management', 'Immutable Updates', 'Middleware'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 5,
+                title: 'Memory & Performance',
+                description: 'Master memory management and performance optimization',
+                icon: 'fas fa-tachometer-alt',
+                level: 'Advanced',
+                progress: 40,
+                projects: [
+                    {
+                        title: 'Memory Leak Detector',
+                        description: 'Build tools to detect and fix memory leaks',
+                        difficulty: 'Hard',
+                        skills: ['Memory Management', 'Garbage Collection', 'Profiling'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'Performance Profiler',
+                        description: 'Create comprehensive performance analysis tools',
+                        difficulty: 'Expert',
+                        skills: ['Performance Optimization', 'Profiling', 'Benchmarking'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 6,
+                title: 'Security & Best Practices',
+                description: 'Build secure applications and understand security patterns',
+                icon: 'fas fa-shield-alt',
+                level: 'Advanced',
+                progress: 30,
+                projects: [
+                    {
+                        title: 'Security Scanner',
+                        description: 'Build tools to detect XSS, CSRF, and other vulnerabilities',
+                        difficulty: 'Hard',
+                        skills: ['XSS Prevention', 'CSRF Protection', 'Security Headers'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'Auth System Builder',
+                        description: 'Implement JWT, OAuth, and session management',
+                        difficulty: 'Expert',
+                        skills: ['Authentication', 'Authorization', 'JWT', 'OAuth'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 7,
+                title: 'Testing & Debugging',
+                description: 'Master testing methodologies and debugging techniques',
+                icon: 'fas fa-bug',
+                level: 'Intermediate',
+                progress: 55,
+                projects: [
+                    {
+                        title: 'Test Framework Builder',
+                        description: 'Build your own testing framework from scratch',
+                        difficulty: 'Hard',
+                        skills: ['Unit Testing', 'Integration Testing', 'Test Runners'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'DevTools Mastery',
+                        description: 'Advanced debugging with Chrome DevTools',
+                        difficulty: 'Medium',
+                        skills: ['DevTools', 'Debugging', 'Performance Analysis'],
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: 8,
+                title: 'Modern Tooling & CI/CD',
+                description: 'Master build tools, bundlers, and deployment pipelines',
+                icon: 'fas fa-tools',
+                level: 'Intermediate',
+                progress: 45,
+                projects: [
+                    {
+                        title: 'Custom Bundler',
+                        description: 'Build your own module bundler like Webpack',
+                        difficulty: 'Expert',
+                        skills: ['Module Bundling', 'Tree Shaking', 'Code Splitting'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'CI/CD Pipeline Builder',
+                        description: 'Set up complete CI/CD for JavaScript projects',
+                        difficulty: 'Hard',
+                        skills: ['CI/CD', 'Automation', 'Deployment', 'Testing'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 9,
+                title: 'Server-Side JavaScript',
+                description: 'Master Node.js and server-side JavaScript development',
+                icon: 'fas fa-server',
+                level: 'Advanced',
+                progress: 60,
+                projects: [
+                    {
+                        title: 'Express Framework Builder',
+                        description: 'Build your own Express-like framework',
+                        difficulty: 'Expert',
+                        skills: ['HTTP', 'Middleware', 'Routing', 'Streams'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'Real-time Server',
+                        description: 'Build scalable WebSocket server with clustering',
+                        difficulty: 'Hard',
+                        skills: ['Node.js', 'Clustering', 'WebSockets', 'Scalability'],
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: 10,
+                title: 'Design Patterns',
+                description: 'Master JavaScript design patterns and architectural patterns',
+                icon: 'fas fa-layer-group',
+                level: 'Advanced',
+                progress: 35,
+                projects: [
+                    {
+                        title: 'Pattern Library',
+                        description: 'Implement all major JS design patterns',
+                        difficulty: 'Hard',
+                        skills: ['Design Patterns', 'Architecture', 'Best Practices'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'Architecture Patterns',
+                        description: 'Build systems using MVC, MVVM, and other patterns',
+                        difficulty: 'Expert',
+                        skills: ['Architecture Patterns', 'MVC', 'MVVM', 'Flux'],
+                        status: 'locked'
+                    }
+                ]
+            },
+            {
+                id: 11,
+                title: 'Functional & Reactive Programming',
+                description: 'Master functional programming and reactive paradigms',
+                icon: 'fas fa-project-diagram',
+                level: 'Expert',
+                progress: 20,
+                projects: [
+                    {
+                        title: 'Functional Library',
+                        description: 'Build your own functional programming library',
+                        difficulty: 'Expert',
+                        skills: ['Functional Programming', 'Immutability', 'Composition'],
+                        status: 'in-progress'
+                    },
+                    {
+                        title: 'RxJS Implementation',
+                        description: 'Build your own reactive programming library',
+                        difficulty: 'Expert',
+                        skills: ['Reactive Programming', 'Observables', 'Streams'],
+                        status: 'locked'
+                    }
+                ]
+            }
+        ];
+
+        const masteryLevels = [
+            { name: 'Beginner', completed: true },
+            { name: 'Intermediate', completed: true },
+            { name: 'Advanced', completed: false },
+            { name: 'Expert', completed: false },
+            { name: 'Master', completed: false }
+        ];
+
+        // State Management
+        let selectedChapter = chapters[0];
+        let filteredProjects = [];
+        let activeFilters = {
+            search: '',
+            difficulty: [],
+            status: [],
+            chapter: []
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            renderChapterList();
+            renderChapterDetails(selectedChapter);
+            renderProjects();
+            renderMasteryPath();
+            updateStats();
+            setupEventListeners();
+        });
+
+        // Tab Management
+        function initializeTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetTab = btn.getAttribute('data-tab');
+                    
+                    // Update button states
+                    tabBtns.forEach(b => {
+                        b.classList.remove('bg-indigo-100', 'text-indigo-700');
+                        b.classList.add('text-gray-600', 'hover:text-indigo-700');
+                    });
+                    btn.classList.add('bg-indigo-100', 'text-indigo-700');
+                    btn.classList.remove('text-gray-600', 'hover:text-indigo-700');
+                    
+                    // Update content visibility
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        }
+
+        // Chapter Rendering
+        function renderChapterList() {
+            const chapterList = document.getElementById('chapter-list');
+            chapterList.innerHTML = chapters.map(chapter => `
+                <div class="chapter-item p-4 rounded-lg border-2 border-transparent ${selectedChapter.id === chapter.id ? 'active' : ''}" 
+                     onclick="selectChapter(${chapter.id})">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0">
+                            <i class="${chapter.icon} h-6 w-6 text-indigo-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold">${chapter.title}</h3>
+                            <p class="text-sm text-gray-600 mt-1">${chapter.description}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="badge badge-secondary">${chapter.level}</span>
+                                <span class="text-sm text-gray-500">${chapter.progress}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectChapter(chapterId) {
+            selectedChapter = chapters.find(c => c.id === chapterId);
+            renderChapterList();
+            renderChapterDetails(selectedChapter);
+        }
+
+        function renderChapterDetails(chapter) {
+            const detailsContainer = document.getElementById('chapter-details');
+            detailsContainer.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <h2 class="text-2xl font-bold flex items-center gap-2 mb-2">
+                            <i class="${chapter.icon}"></i>
+                            ${chapter.title}
+                        </h2>
+                        <p class="text-gray-600">${chapter.description}</p>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium">Chapter Progress</span>
+                            <span class="text-sm font-medium">${chapter.progress}%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${chapter.progress}%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold mb-3">Projects</h3>
+                        <div class="space-y-3">
+                            ${chapter.projects.map(project => `
+                                <div class="border-l-4 border-l-indigo-500 pl-4 py-2">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold">${project.title}</h4>
+                                        <span class="badge ${getStatusBadgeClass(project.status)}">
+                                            ${formatStatus(project.status)}
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-3">${project.description}</p>
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        ${project.skills.map(skill => `
+                                            <span class="badge badge-default">${skill}</span>
+                                        `).join('')}
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="badge ${getDifficultyBadgeClass(project.difficulty)}">
+                                            ${project.difficulty}
+                                        </span>
+                                        <button class="btn ${project.status === 'locked' ? 'btn-outline' : 'btn-primary'}" 
+                                                ${project.status === 'locked' ? 'disabled' : ''}>
+                                            ${project.status === 'completed' ? 'Review' : 'Start'}
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Projects Management
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            const allProjects = chapters.flatMap(chapter => 
+                chapter.projects.map(project => ({
+                    ...project,
+                    chapterId: chapter.id,
+                    chapterTitle: chapter.title
+                }))
+            );
+
+            filteredProjects = filterProjects(allProjects);
+            
+            container.innerHTML = filteredProjects.map(project => `
+                <div class="card project-card p-6" onclick="selectProject('${project.title}')">
+                    <div class="space-y-3">
+                        <div>
+                            <h3 class="text-lg font-semibold">${project.title}</h3>
+                            <p class="text-gray-600 text-sm">${project.description}</p>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="badge ${getDifficultyBadgeClass(project.difficulty)}">
+                                ${project.difficulty}
+                            </span>
+                            <span class="badge ${getStatusBadgeClass(project.status)}">
+                                ${formatStatus(project.status)}
+                            </span>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-1">
+                            ${project.skills.map(skill => `
+                                <span class="badge badge-default">${skill}</span>
+                            `).join('')}
+                        </div>
+                        
+                        <button class="btn w-full ${project.status === 'locked' ? 'btn-outline' : 'btn-primary'}" 
+                                ${project.status === 'locked' ? 'disabled' : ''}>
+                            ${project.status === 'completed' ? 'Review Project' : 
+                              project.status === 'in-progress' ? 'Continue' : 'Start Project'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProjects(projects) {
+            return projects.filter(project => {
+                // Search filter
+                if (activeFilters.search) {
+                    const searchLower = activeFilters.search.toLowerCase();
+                    const matchesSearch = 
+                        project.title.toLowerCase().includes(searchLower) ||
+                        project.description.toLowerCase().includes(searchLower) ||
+                        project.skills.some(skill => skill.toLowerCase().includes(searchLower));
+                    if (!matchesSearch) return false;
+                }
+
+                // Difficulty filter
+                if (activeFilters.difficulty.length > 0 && !activeFilters.difficulty.includes(project.difficulty)) {
+                    return false;
+                }
+
+                // Status filter
+                if (activeFilters.status.length > 0 && !activeFilters.status.includes(project.status)) {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
+        function selectProject(projectTitle) {
+            alert(`Opening project: ${projectTitle}\n\nIn a full implementation, this would show the detailed project interface with step-by-step guidance, interactive coding exercises, and progress tracking.`);
+        }
+
+        // Mastery Path
+        function renderMasteryPath() {
+            const container = document.getElementById('mastery-path');
+            container.innerHTML = masteryLevels.map((level, index) => `
+                <div class="mastery-level">
+                    <div class="level-circle ${level.completed ? 'completed' : 'locked'}">
+                        ${level.completed ? '<i class="fas fa-check"></i>' : index + 1}
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold">${level.name}</h3>
+                        <p class="text-gray-600">
+                            ${getMasteryLevelDescription(level.name)}
+                        </p>
+                    </div>
+                    ${level.completed ? '<span class="badge badge-green">Completed</span>' : ''}
+                </div>
+            `).join('');
+        }
+
+        function getMasteryLevelDescription(levelName) {
+            const descriptions = {
+                'Beginner': 'Master the fundamentals of JavaScript syntax and basic concepts',
+                'Intermediate': 'Build complex applications with modern JavaScript features',
+                'Advanced': 'Create sophisticated systems with advanced patterns and architectures',
+                'Expert': 'Contribute to frameworks and build production-grade applications',
+                'Master': 'Lead JavaScript architecture, optimize at scale, and innovate in the ecosystem'
+            };
+            return descriptions[levelName] || '';
+        }
+
+        // Statistics
+        function updateStats() {
+            const allProjects = chapters.flatMap(chapter => chapter.projects);
+            
+            document.getElementById('easy-count').textContent = 
+                allProjects.filter(p => p.difficulty === 'Easy').length;
+            document.getElementById('advanced-count').textContent = 
+                allProjects.filter(p => p.difficulty === 'Hard' || p.difficulty === 'Expert').length;
+            document.getElementById('completed-count').textContent = 
+                allProjects.filter(p => p.status === 'completed').length;
+            document.getElementById('progress-count').textContent = 
+                allProjects.filter(p => p.status === 'in-progress').length;
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('project-search').addEventListener('input', (e) => {
+                activeFilters.search = e.target.value;
+                renderProjects();
+            });
+
+            // Filter toggle
+            document.getElementById('filter-toggle').addEventListener('click', () => {
+                const filters = document.getElementById('advanced-filters');
+                const chevron = document.getElementById('filter-chevron');
+                
+                if (filters.classList.contains('hidden')) {
+                    filters.classList.remove('hidden');
+                    chevron.textContent = '▲';
+                } else {
+                    filters.classList.add('hidden');
+                    chevron.textContent = '▼';
+                }
+            });
+
+            // Difficulty filters
+            document.querySelectorAll('[data-difficulty]').forEach(filter => {
+                filter.addEventListener('click', () => {
+                    const difficulty = filter.getAttribute('data-difficulty');
+                    toggleFilter('difficulty', difficulty);
+                    filter.classList.toggle('active');
+                    renderProjects();
+                });
+            });
+
+            // Status filters
+            document.querySelectorAll('[data-status]').forEach(filter => {
+                filter.addEventListener('click', () => {
+                    const status = filter.getAttribute('data-status');
+                    toggleFilter('status', status);
+                    filter.classList.toggle('active');
+                    renderProjects();
+                });
+            });
+        }
+
+        function toggleFilter(type, value) {
+            const index = activeFilters[type].indexOf(value);
+            if (index > -1) {
+                activeFilters[type].splice(index, 1);
+            } else {
+                activeFilters[type].push(value);
+            }
+        }
+
+        // Utility Functions
+        function getStatusBadgeClass(status) {
+            const classes = {
+                'completed': 'badge-green',
+                'in-progress': 'badge-orange',
+                'locked': 'badge-default'
+            };
+            return classes[status] || 'badge-default';
+        }
+
+        function getDifficultyBadgeClass(difficulty) {
+            const classes = {
+                'Easy': 'badge-green',
+                'Medium': 'badge-blue',
+                'Hard': 'badge-purple',
+                'Expert': 'badge-red'
+            };
+            return classes[difficulty] || 'badge-default';
+        }
+
+        function formatStatus(status) {
+            return status.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }
+    </script>
+</body>
+</html>

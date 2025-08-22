@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Python Mastery Guide - From Beginner to Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .about-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .audience-card {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .audience-card h3 {
+            color: #4c1d95;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            color: #1e293b;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #e2e8f0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-column h3 {
+            color: #374151;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-column ul {
+            list-style: none;
+        }
+        
+        .content-column li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .content-column li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+        }
+        
+        .code-example {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .code-example h4 {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .code-example code {
+            white-space: pre;
+            display: block;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-column h5 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .project-column ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .milestone-column h5 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .milestone-column ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .takeaway-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .takeaway-card strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Complete Python Mastery Guide</h1>
+            <p class="subtitle">From Beginner to Expert - Theoretical & Practical Comprehensive Learning Resource</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>About This Guide</h2>
+            <p>This comprehensive Python learning guide covers all essential topics you need to become a Python master. Each section provides an overview with key concepts, examples, and practical applications, taking you from beginner fundamentals to advanced mastery concepts.</p>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>🎯 For Beginners</h3>
+                    <p>Start from scratch and build a strong foundation in Python programming fundamentals</p>
+                </div>
+                <div class="audience-card">
+                    <h3>🚀 For Intermediate</h3>
+                    <p>Deepen your understanding and learn advanced concepts and best practices</p>
+                </div>
+                <div class="audience-card">
+                    <h3>💡 For Advanced</h3>
+                    <p>Master specialized topics, performance optimization, and enterprise patterns</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Python Basics -->
+        <div class="section">
+            <h2>1. Python Basics</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>What is Python?</h3>
+                    <ul>
+                        <li>High-level, interpreted programming language</li>
+                        <li>Created by Guido van Rossum in 1991</li>
+                        <li>Emphasizes code readability and simplicity</li>
+                        <li>Multi-paradigm: procedural, object-oriented, functional</li>
+                        <li>Extensive standard library and third-party packages</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Installation & Setup</h3>
+                    <ul>
+                        <li>Download from python.org</li>
+                        <li>Package managers: pip, conda</li>
+                        <li>IDEs: VS Code, PyCharm, Jupyter</li>
+                        <li>Virtual environments: venv, virtualenv</li>
+                        <li>Version management: pyenv</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>First Program:</h4>
+                <code>print("Hello, World!")
+name = "Python"
+version = 3.9
+print(f"Welcome to {name} {version}")</code>
+            </div>
+        </div>
+
+        <!-- Section 2: Variables and Data Types -->
+        <div class="section">
+            <h2>2. Variables and Data Types</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Basic Data Types</h3>
+                    <ul>
+                        <li><strong>int:</strong> Whole numbers (42, -7, 0)</li>
+                        <li><strong>float:</strong> Decimal numbers (3.14, -0.5)</li>
+                        <li><strong>str:</strong> Text ("Hello", 'Python')</li>
+                        <li><strong>bool:</strong> True/False values</li>
+                        <li><strong>None:</strong> Absence of value</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Complex Data Types</h3>
+                    <ul>
+                        <li><strong>list:</strong> Ordered, mutable [1, 2, 3]</li>
+                        <li><strong>tuple:</strong> Ordered, immutable (1, 2, 3)</li>
+                        <li><strong>dict:</strong> Key-value pairs {'a': 1}</li>
+                        <li><strong>set:</strong> Unique elements {1, 2, 3}</li>
+                        <li><strong>frozenset:</strong> Immutable set</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Type Conversion</h3>
+                    <ul>
+                        <li>int(), float(), str(), bool()</li>
+                        <li>list(), tuple(), dict(), set()</li>
+                        <li>Implicit vs explicit conversion</li>
+                        <li>Type checking with isinstance()</li>
+                        <li>Type hints in Python 3.5+</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Variable assignment
+age = 25
+height = 5.9
+name = "Alice"
+is_student = True
+
+# Type conversion
+age_str = str(age)
+height_int = int(height)
+name_list = list(name)</code>
+            </div>
+        </div>
+
+        <!-- Section 3: Control Flow -->
+        <div class="section">
+            <h2>3. Control Flow</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Conditional Statements</h3>
+                    <ul>
+                        <li>if, elif, else statements</li>
+                        <li>Ternary operators</li>
+                        <li>Nested conditionals</li>
+                        <li>Logical operators: and, or, not</li>
+                        <li>Comparison operators: ==, !=, <, >, <=, >=</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Loops</h3>
+                    <ul>
+                        <li>for loops with range()</li>
+                        <li>while loops</li>
+                        <li>Nested loops</li>
+                        <li>Loop control: break, continue, pass</li>
+                        <li>else clause with loops</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Comprehensions</h3>
+                    <ul>
+                        <li>List comprehensions</li>
+                        <li>Dictionary comprehensions</li>
+                        <li>Set comprehensions</li>
+                        <li>Generator expressions</li>
+                        <li>Nested comprehensions</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Conditional
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teenager")
+else:
+    print("Child")
+
+# Loop
+for i in range(5):
+    print(f"Count: {i}")
+
+# List comprehension
+squares = [x**2 for x in range(10)]</code>
+            </div>
+        </div>
+
+        <!-- Section 4: Functions -->
+        <div class="section">
+            <h2>4. Functions</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Function Basics</h3>
+                    <ul>
+                        <li>def keyword and function definition</li>
+                        <li>Parameters and arguments</li>
+                        <li>Return values</li>
+                        <li>Default parameters</li>
+                        <li>Docstrings and documentation</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Functions</h3>
+                    <ul>
+                        <li>*args and **kwargs</li>
+                        <li>Lambda functions</li>
+                        <li>Higher-order functions</li>
+                        <li>Recursive functions</li>
+                        <li>Function decorators</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Function Scope</h3>
+                    <ul>
+                        <li>Local vs global scope</li>
+                        <li>LEGB rule</li>
+                        <li>global and nonlocal keywords</li>
+                        <li>Closures</li>
+                        <li>Function attributes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Basic function
+def greet(name, greeting="Hello"):
+    """Greet someone with a custom greeting."""
+    return f"{greeting}, {name}!"
+
+# Function with *args and **kwargs
+def calculate(operation, *args, **kwargs):
+    if operation == "sum":
+        return sum(args)
+    elif operation == "multiply":
+        result = 1
+        for num in args:
+            result *= num
+        return result
+
+# Lambda function
+square = lambda x: x ** 2</code>
+            </div>
+        </div>
+
+        <!-- Section 5: Object-Oriented Programming -->
+        <div class="section">
+            <h2>5. Object-Oriented Programming</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Classes and Objects</h3>
+                    <ul>
+                        <li>class keyword and __init__</li>
+                        <li>Instance variables and methods</li>
+                        <li>self parameter</li>
+                        <li>Object instantiation</li>
+                        <li>Instance vs class variables</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Inheritance</h3>
+                    <ul>
+                        <li>Single and multiple inheritance</li>
+                        <li>Method overriding</li>
+                        <li>super() function</li>
+                        <li>MRO (Method Resolution Order)</li>
+                        <li>Abstract base classes</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced OOP</h3>
+                    <ul>
+                        <li>Encapsulation and property</li>
+                        <li>Polymorphism</li>
+                        <li>Dunder methods (__str__, __repr__)</li>
+                        <li>Static and class methods</li>
+                        <li>Design patterns</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Basic class
+class Dog:
+    species = "Canis familiaris"  # Class variable
+    
+    def __init__(self, name, age):
+        self.name = name  # Instance variable
+        self.age = age
+    
+    def bark(self):
+        return f"{self.name} says woof!"
+    
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+# Inheritance
+class Puppy(Dog):
+    def __init__(self, name, age, breed):
+        super().__init__(name, age)
+        self.breed = breed
+    
+    def play(self):
+        return f"{self.name} is playing!"</code>
+            </div>
+        </div>
+
+        <!-- Section 6: File Handling -->
+        <div class="section">
+            <h2>6. File Handling</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>File Operations</h3>
+                    <ul>
+                        <li>open() function and modes</li>
+                        <li>Reading files: read(), readline(), readlines()</li>
+                        <li>Writing files: write(), writelines()</li>
+                        <li>with statement (context manager)</li>
+                        <li>File positioning: seek(), tell()</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>File Types</h3>
+                    <ul>
+                        <li>Text files (.txt, .csv, .json)</li>
+                        <li>Binary files (.bin, .jpg, .pdf)</li>
+                        <li>CSV files with csv module</li>
+                        <li>JSON files with json module</li>
+                        <li>XML files with xml module</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced File Ops</h3>
+                    <ul>
+                        <li>File and directory operations</li>
+                        <li>Path manipulation with pathlib</li>
+                        <li>Temporary files</li>
+                        <li>File compression</li>
+                        <li>File permissions and metadata</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Reading a file
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+
+# Writing to a file
+with open('output.txt', 'w') as file:
+    file.write("Hello, World!")
+    file.write("\nThis is a new line.")
+
+# Working with CSV
+import csv
+with open('data.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)</code>
+            </div>
+        </div>
+
+        <!-- Section 7: Error Handling -->
+        <div class="section">
+            <h2>7. Error Handling</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Exception Basics</h3>
+                    <ul>
+                        <li>try-except blocks</li>
+                        <li>Built-in exceptions</li>
+                        <li>Multiple except clauses</li>
+                        <li>else and finally blocks</li>
+                        <li>Exception hierarchy</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Custom Exceptions</h3>
+                    <ul>
+                        <li>Creating custom exceptions</li>
+                        <li>Raising exceptions</li>
+                        <li>Exception chaining</li>
+                        <li>Best practices</li>
+                        <li>Logging exceptions</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Topics</h3>
+                    <ul>
+                        <li>Context managers</li>
+                        <li>Assertions</li>
+                        <li>Warnings</li>
+                        <li>Debugging techniques</li>
+                        <li>Performance considerations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Basic exception handling
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError as e:
+    print(f"Value error: {e}")
+else:
+    print("Division successful")
+finally:
+    print("Cleanup completed")
+
+# Custom exception
+class CustomError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+try:
+    raise CustomError("This is a custom error")
+except CustomError as e:
+    print(f"Caught custom error: {e}")</code>
+            </div>
+        </div>
+
+        <!-- Section 8: Modules and Packages -->
+        <div class="section">
+            <h2>8. Modules and Packages</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Modules</h3>
+                    <ul>
+                        <li>Creating modules</li>
+                        <li>import statements</li>
+                        <li>from...import syntax</li>
+                        <li>Module search path</li>
+                        <li>__name__ and __main__</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Packages</h3>
+                    <ul>
+                        <li>Package structure</li>
+                        <li>__init__.py files</li>
+                        <li>Relative imports</li>
+                        <li>Namespace packages</li>
+                        <li>Package distribution</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Standard Library</h3>
+                    <ul>
+                        <li>os, sys, pathlib</li>
+                        <li>datetime, time</li>
+                        <li>math, random, statistics</li>
+                        <li>json, csv, xml</li>
+                        <li>urllib, requests</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Importing modules
+import math
+from datetime import datetime, timedelta
+import os as operating_system
+
+# Using standard library
+current_time = datetime.now()
+print(f"Current time: {current_time}")
+
+radius = 5
+area = math.pi * radius ** 2
+print(f"Area of circle: {area}")
+
+# Working with files
+current_dir = operating_system.getcwd()
+print(f"Current directory: {current_dir}")</code>
+            </div>
+        </div>
+
+        <!-- Section 9: Advanced Python -->
+        <div class="section">
+            <h2>9. Advanced Python</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Decorators</h3>
+                    <ul>
+                        <li>Function decorators</li>
+                        <li>Class decorators</li>
+                        <li>Built-in decorators</li>
+                        <li>Decorator with arguments</li>
+                        <li>Multiple decorators</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Generators & Iterators</h3>
+                    <ul>
+                        <li>yield keyword</li>
+                        <li>Generator expressions</li>
+                        <li>Custom iterator classes</li>
+                        <li>Generator pipelines</li>
+                        <li>send() and close() methods</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Metaprogramming</h3>
+                    <ul>
+                        <li>Metaclasses</li>
+                        <li>__getattr__ and __setattr__</li>
+                        <li>Dynamic attribute access</li>
+                        <li>Descriptor protocol</li>
+                        <li>ABC (Abstract Base Classes)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Magic Methods</h3>
+                    <ul>
+                        <li>__slots__ for memory optimization</li>
+                        <li>__new__ vs __init__</li>
+                        <li>__call__ for callable objects</li>
+                        <li>__enter__ and __exit__</li>
+                        <li>Custom container methods</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Context Managers</h3>
+                    <ul>
+                        <li>with statement deep dive</li>
+                        <li>contextlib module</li>
+                        <li>Nested context managers</li>
+                        <li>Custom context managers</li>
+                        <li>Exception handling in contexts</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Patterns</h3>
+                    <ul>
+                        <li>Singleton pattern</li>
+                        <li>Factory pattern</li>
+                        <li>Observer pattern</li>
+                        <li>Strategy pattern</li>
+                        <li>Decorator pattern</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Decorator example
+def timing_decorator(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} took {end_time - start_time:.2f} seconds")
+        return result
+    return wrapper
+
+# Custom iterator
+class Countdown:
+    def __init__(self, start):
+        self.start = start
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.start <= 0:
+            raise StopIteration
+        self.start -= 1
+        return self.start + 1
+
+# Context manager
+class FileManager:
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
+        self.file = None
+    
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()</code>
+            </div>
+        </div>
+
+        <!-- Section 10: Data Science with Python -->
+        <div class="section">
+            <h2>10. Data Science with Python</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>NumPy Advanced</h3>
+                    <ul>
+                        <li>Advanced indexing and broadcasting</li>
+                        <li>Memory efficiency and views</li>
+                        <li>Linear algebra operations</li>
+                        <li>Random number generation</li>
+                        <li>Universal functions (ufuncs)</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Pandas Mastery</h3>
+                    <ul>
+                        <li>Multi-indexing and pivot tables</li>
+                        <li>Advanced groupby operations</li>
+                        <li>Time series analysis</li>
+                        <li>Data cleaning techniques</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Visualization</h3>
+                    <ul>
+                        <li>Matplotlib customization</li>
+                        <li>Seaborn statistical plots</li>
+                        <li>Plotly interactive visualizations</li>
+                        <li>Data exploration techniques</li>
+                        <li>Custom plot styling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Big Data Processing</h3>
+                    <ul>
+                        <li>Dask for parallel computing</li>
+                        <li>Vaex for out-of-core processing</li>
+                        <li>Memory-efficient techniques</li>
+                        <li>Chunked processing</li>
+                        <li>Distributed computing</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Statistical Analysis</h3>
+                    <ul>
+                        <li>SciPy for scientific computing</li>
+                        <li>StatsModels for statistics</li>
+                        <li>Hypothesis testing</li>
+                        <li>Regression analysis</li>
+                        <li>Machine learning integration</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Data Engineering</h3>
+                    <ul>
+                        <li>ETL pipelines</li>
+                        <li>Data validation</li>
+                        <li>Data transformation</li>
+                        <li>Data storage optimization</li>
+                        <li>Data pipeline orchestration</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># NumPy advanced operations
+import numpy as np
+
+# Advanced indexing
+arr = np.random.rand(5, 5)
+mask = arr > 0.5
+filtered = arr[mask]
+
+# Broadcasting
+a = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.array([10, 20, 30])
+result = a + b  # Broadcasting
+
+# Pandas advanced operations
+import pandas as pd
+
+# Multi-indexing
+df = pd.DataFrame({
+    'A': ['foo', 'bar', 'foo', 'bar'],
+    'B': ['one', 'one', 'two', 'two'],
+    'C': [1, 2, 3, 4]
+})
+df_multi = df.set_index(['A', 'B'])
+
+# Advanced groupby
+grouped = df.groupby('A').agg({
+    'C': ['mean', 'sum', 'count']
+})
+
+# Time series
+dates = pd.date_range('20230101', periods=6)
+ts = pd.Series(np.random.randn(6), index=dates)</code>
+            </div>
+        </div>
+
+        <!-- Section 11: Web Development -->
+        <div class="section">
+            <h2>11. Web Development</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Web Frameworks Deep Dive</h3>
+                    <ul>
+                        <li>Flask: Blueprints, extensions, middleware</li>
+                        <li>Django: ORM, admin, forms, signals</li>
+                        <li>FastAPI: async, dependency injection, OpenAPI</li>
+                        <li>Tornado: async I/O, WebSockets</li>
+                        <li>Sanic, Quart, Falcon alternatives</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Security & Authentication</h3>
+                    <ul>
+                        <li>JWT implementation and validation</li>
+                        <li>OAuth 2.0 and OpenID Connect</li>
+                        <li>HTTPS, SSL/TLS configuration</li>
+                        <li>SQL injection prevention</li>
+                        <li>CORS, CSRF, XSS protection</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Deployment & DevOps</h3>
+                    <ul>
+                        <li>WSGI/ASGI servers (Gunicorn, Uvicorn)</li>
+                        <li>Docker containerization</li>
+                        <li>CI/CD pipelines (GitHub Actions, GitLab CI)</li>
+                        <li>Cloud deployment (AWS, GCP, Azure)</li>
+                        <li>Monitoring and logging</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>API Development</h3>
+                    <ul>
+                        <li>RESTful API best practices</li>
+                        <li>GraphQL with Python (Strawberry, Ariadne)</li>
+                        <li>API versioning strategies</li>
+                        <li>Rate limiting and throttling</li>
+                        <li>API documentation (Swagger, Redoc)</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Web Scraping</h3>
+                    <ul>
+                        <li>BeautifulSoup for parsing</li>
+                        <li>Scrapy for large-scale scraping</li>
+                        <li>Selenium for JavaScript-heavy sites</li>
+                        <li>Rate limiting and respect for robots.txt</li>
+                        <li>Data extraction and cleaning</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Real-time Applications</h3>
+                    <ul>
+                        <li>WebSockets implementation</li>
+                        <li>Socket.IO for real-time communication</li>
+                        <li>Server-Sent Events (SSE)</li>
+                        <li>Message queues (Redis, RabbitMQ)</li>
+                        <li>Background task processing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># FastAPI with JWT authentication
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from jose import JWTError, jwt
+from datetime import datetime, timedelta
+
+app = FastAPI()
+security = HTTPBearer()
+
+SECRET_KEY = "your-secret-key"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+def create_access_token(data: dict):
+    to_encode = data.copy()
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+@app.get("/protected-route")
+async def protected_route(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    try:
+        payload = jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=401, detail="Invalid authentication credentials")
+        return {"message": f"Hello {username}"}
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid authentication credentials")
+
+# Web scraping with Scrapy
+import scrapy
+
+class BlogSpider(scrapy.Spider):
+    name = 'blogspider'
+    start_urls = ['https://example.com/blog']
+    
+    def parse(self, response):
+        for title in response.css('h2.entry-title'):
+            yield {'title': title.css('::text').get()}
+        
+        for next_page in response.css('a.next-posts-link'):
+            yield response.follow(next_page, self.parse)</code>
+            </div>
+        </div>
+
+        <!-- Section 12: Testing & Quality Assurance -->
+        <div class="section">
+            <h2>12. Testing & Quality Assurance</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Testing Frameworks</h3>
+                    <ul>
+                        <li>unittest (built-in framework)</li>
+                        <li>pytest (modern testing)</li>
+                        <li>doctest (documentation testing)</li>
+                        <li>nose2 (test discovery)</li>
+                        <li>hypothesis (property-based testing)</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Testing</h3>
+                    <ul>
+                        <li>Property-based testing with Hypothesis</li>
+                        <li>Mocking and patching techniques</li>
+                        <li>Test doubles: stubs, mocks, fakes</li>
+                        <li>Contract testing</li>
+                        <li>Performance and load testing</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Type Safety</h3>
+                    <ul>
+                        <li>Type hints with mypy/Pyright</li>
+                        <li>Gradual typing strategies</li>
+                        <li>Protocol classes</li>
+                        <li>Generic types</li>
+                        <li>Type checking in CI/CD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Profiling & Optimization</h3>
+                    <ul>
+                        <li>cProfile for performance analysis</li>
+                        <li>line_profiler for line-by-line analysis</li>
+                        <li>memory_profiler for memory usage</li>
+                        <li>timeit for microbenchmarks</li>
+                        <li>Optimization techniques</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Code Quality Tools</h3>
+                    <ul>
+                        <li>Linters: flake8, pylint, bandit</li>
+                        <li>Formatters: black, autopep8, yapf</li>
+                        <li>Static analysis: mypy, pyright</li>
+                        <li>Security scanning</li>
+                        <li>Code complexity analysis</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Packaging & Distribution</h3>
+                    <ul>
+                        <li>setuptools and pyproject.toml</li>
+                        <li>Poetry for dependency management</li>
+                        <li>pipenv for virtual environments</li>
+                        <li>Building wheels and distributions</li>
+                        <li>Publishing to PyPI</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Property-based testing with Hypothesis
+from hypothesis import given, strategies as st
+
+@given(st.lists(st.integers(), min_size=1))
+def test_sort_preserves_elements(lst):
+    """Test that sorting preserves all elements."""
+    sorted_lst = sorted(lst)
+    assert len(sorted_lst) == len(lst)
+    assert all(x in lst for x in sorted_lst)
+
+@given(st.text(), st.text())
+def test_string_concatenation(s1, s2):
+    """Test string concatenation properties."""
+    result = s1 + s2
+    assert len(result) == len(s1) + len(s2)
+    assert result.startswith(s1)
+    assert result.endswith(s2)
+
+# Advanced type hints
+from typing import TypeVar, Generic, Protocol, List
+from dataclasses import dataclass
+
+T = TypeVar('T')
+
+class Drawable(Protocol):
+    def draw(self) -> str: ...
+
+@dataclass
+class Circle:
+    radius: float
+    
+    def draw(self) -> str:
+        return f"Circle with radius {self.radius}"
+
+@dataclass
+class Rectangle:
+    width: float
+    height: float
+    
+    def draw(self) -> str:
+        return f"Rectangle {width}x{height}"
+
+def draw_shapes(shapes: List[Drawable]) -> List[str]:
+    return [shape.draw() for shape in shapes]
+
+# Profiling example
+import cProfile
+import pstats
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Profile the function
+profiler = cProfile.Profile()
+profiler.enable()
+result = fibonacci(30)
+profiler.disable()
+
+# Print stats
+stats = pstats.Stats(profiler)
+stats.sort_stats('cumulative')
+stats.print_stats(10)</code>
+            </div>
+        </div>
+
+        <!-- Section 13: Database Programming & Beyond -->
+        <div class="section">
+            <h2>13. Database Programming & Beyond</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Relational Databases</h3>
+                    <ul>
+                        <li>SQLite for local development</li>
+                        <li>PostgreSQL advanced features</li>
+                        <li>MySQL/MariaDB optimization</li>
+                        <li>Database design patterns</li>
+                        <li>Query optimization techniques</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>NoSQL Databases</h3>
+                    <ul>
+                        <li>MongoDB document databases</li>
+                        <li>Redis for caching and messaging</li>
+                        <li>Elasticsearch for search</li>
+                        <li>Cassandra for distributed systems</li>
+                        <li>Graph databases (Neo4j)</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>ORM Frameworks</h3>
+                    <ul>
+                        <li>SQLAlchemy Core & ORM</li>
+                        <li>Django ORM advanced features</li>
+                        <li>SQLAlchemy async support</li>
+                        <li>Peewee lightweight ORM</li>
+                        <li>Tortoise ORM for async</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Database Operations</h3>
+                    <ul>
+                        <li>Advanced query optimization</li>
+                        <li>Database migrations (Alembic)</li>
+                        <li>Connection pooling</li>
+                        <li>Transaction management</li>
+                        <li>Database sharding</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Data Validation</h3>
+                    <ul>
+                        <li>Pydantic for data validation</li>
+                        <li>Marshmallow serialization</li>
+                        <li>Form validation</li>
+                        <li>Data integrity constraints</li>
+                        <li>Input sanitization</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Performance & Scaling</h3>
+                    <ul>
+                        <li>Database indexing strategies</li>
+                        <li>Query optimization</li>
+                        <li>Caching strategies</li>
+                        <li>Load balancing</li>
+                        <li>Database replication</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Advanced SQLAlchemy with async
+from sqlalchemy import create_engine, Column, Integer, String, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from datetime import datetime
+import asyncio
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    email = Column(String(120), unique=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+# Async database setup
+async_engine = create_async_engine('postgresql+asyncpg://user:pass@localhost/db')
+AsyncSessionLocal = sessionmaker(async_engine, class_=AsyncSession)
+
+# Pydantic for data validation
+from pydantic import BaseModel, EmailStr, validator
+from datetime import datetime
+from typing import Optional
+
+class UserCreate(BaseModel):
+    name: str
+    email: EmailStr
+    age: Optional[int] = None
+    
+    @validator('name')
+    def name_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError('Name cannot be empty')
+        return v.strip()
+
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+# Redis for caching
+import redis.asyncio as redis
+
+async def get_cached_user(user_id: int, redis_client: redis.Redis):
+    cache_key = f"user:{user_id}"
+    cached_data = await redis_client.get(cache_key)
+    
+    if cached_data:
+        return UserResponse.parse_raw(cached_data)
+    
+    # If not in cache, get from database
+    async with AsyncSessionLocal() as session:
+        user = await session.get(User, user_id)
+        if user:
+            user_response = UserResponse.from_orm(user)
+            # Cache for 1 hour
+            await redis_client.setex(cache_key, 3600, user_response.json())
+            return user_response
+    return None</code>
+            </div>
+        </div>
+
+        <!-- Section 14: Concurrency & Advanced Async -->
+        <div class="section">
+            <h2>14. Concurrency & Advanced Async</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Threading Deep Dive</h3>
+                    <ul>
+                        <li>Thread lifecycle management</li>
+                        <li>Thread synchronization primitives</li>
+                        <li>Locks, RLocks, Semaphores</li>
+                        <li>Thread communication (Queue, Event)</li>
+                        <li>Thread pools and executors</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Multiprocessing Mastery</h3>
+                    <ul>
+                        <li>Process creation and management</li>
+                        <li>Inter-process communication (IPC)</li>
+                        <li>Shared memory and Value/Array</li>
+                        <li>Process pools and synchronization</li>
+                        <li>Multiprocessing pitfalls</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Async Programming</h3>
+                    <ul>
+                        <li>Event loops and asyncio architecture</li>
+                        <li>Coroutines and async/await</li>
+                        <li>Tasks and futures management</li>
+                        <li>Async generators and context managers</li>
+                        <li>Asyncio synchronization primitives</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>High-Level Concurrency</h3>
+                    <ul>
+                        <li>concurrent.futures module</li>
+                        <li>ThreadPoolExecutor</li>
+                        <li>ProcessPoolExecutor</li>
+                        <li>Executor patterns</li>
+                        <li>Async context managers</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Patterns</h3>
+                    <ul>
+                        <li>Producer-consumer patterns</li>
+                        <li>Actor model implementation</li>
+                        <li>Reactive programming</li>
+                        <li>Parallel algorithms</li>
+                        <li>Distributed computing</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Performance & Debugging</h3>
+                    <ul>
+                        <li>Concurrency performance metrics</li>
+                        <li>Deadlock detection and prevention</li>
+                        <li>Race condition debugging</li>
+                        <li>Memory leaks in concurrent code</li>
+                        <li>Scalability considerations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Advanced asyncio with tasks and queues
+import asyncio
+import random
+from datetime import datetime
+
+async def producer(queue: asyncio.Queue, producer_id: int):
+    """Producer that puts items in the queue."""
+    for i in range(5):
+        item = f"Producer {producer_id} - Item {i}"
+        await queue.put(item)
+        print(f"Produced: {item}")
+        await asyncio.sleep(random.uniform(0.1, 0.5))
+    
+    # Signal completion
+    await queue.put(None)
+
+async def consumer(queue: asyncio.Queue, consumer_id: int):
+    """Consumer that processes items from the queue."""
+    while True:
+        item = await queue.get()
+        if item is None:  # Sentinel value
+            queue.task_done()
+            break
+        
+        print(f"Consumer {consumer_id} processing: {item}")
+        await asyncio.sleep(random.uniform(0.2, 0.8))
+        queue.task_done()
+
+async def main():
+    # Create queue
+    queue = asyncio.Queue(maxsize=10)
+    
+    # Create producers and consumers
+    producers = [asyncio.create_task(producer(queue, i)) for i in range(2)]
+    consumers = [asyncio.create_task(consumer(queue, i)) for i in range(3)]
+    
+    # Wait for all producers to finish
+    await asyncio.gather(*producers)
+    
+    # Add sentinel values for consumers
+    for _ in consumers:
+        await queue.put(None)
+    
+    # Wait for all consumers to finish
+    await asyncio.gather(*consumers)
+    
+    print("All tasks completed!")
+
+# Async context manager
+class AsyncTimer:
+    def __init__(self, description):
+        self.description = description
+        self.start_time = None
+    
+    async def __aenter__(self):
+        self.start_time = datetime.now()
+        print(f"Starting: {self.description}")
+        return self
+    
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        duration = datetime.now() - self.start_time
+        print(f"Finished: {self.description} in {duration.total_seconds():.2f}s")
+
+async def with_timer():
+    async with AsyncTimer("Processing data"):
+        await asyncio.sleep(1)
+        # Simulate work
+        result = sum(range(1000000))
+        print(f"Result: {result}")
+
+# Run the examples
+async def run_examples():
+    print("=== Producer-Consumer Example ===")
+    await main()
+    
+    print("\n=== Async Context Manager Example ===")
+    await with_timer()
+
+if __name__ == "__main__":
+    asyncio.run(run_examples())</code>
+            </div>
+        </div>
+
+        <!-- Section 15: Advanced Python Ecosystem & Performance -->
+        <div class="section">
+            <h2>15. Advanced Python Ecosystem & Performance</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Performance Optimization</h3>
+                    <ul>
+                        <li>C extensions with Cython</li>
+                        <li>Numba for numerical computing</li>
+                        <li>Just-in-time compilation</li>
+                        <li>Memory optimization techniques</li>
+                        <li>Algorithm complexity analysis</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Machine Learning & AI</h3>
+                    <ul>
+                        <li>PyTorch deep learning</li>
+                        <li>TensorFlow and Keras</li>
+                        <li>Scikit-learn for ML</li>
+                        <li>Natural language processing</li>
+                        <li>Computer vision with OpenCV</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Standard Library</h3>
+                    <ul>
+                        <li>itertools for functional programming</li>
+                        <li>functools for higher-order functions</li>
+                        <li>collections for specialized containers</li>
+                        <li>heapq for priority queues</li>
+                        <li>contextlib for context management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Debugging & Logging</h3>
+                    <ul>
+                        <li>pdb for interactive debugging</li>
+                        <li>Advanced logging configuration</li>
+                        <li>Traceback analysis</li>
+                        <li>Memory profiling tools</li>
+                        <li>Performance monitoring</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>System Integration</h3>
+                    <ul>
+                        <li>Subprocess and system calls</li>
+                        <li>File system operations</li>
+                        <li>Network programming</li>
+                        <li>System administration tools</li>
+                        <li>Cross-platform compatibility</li>
+                    </ul>
+                </div>
+                <div class="content-column">
+                    <h3>Enterprise Patterns</h3>
+                    <ul>
+                        <li>Microservices architecture</li>
+                        <li>Event-driven systems</li>
+                        <li>Message queues (RabbitMQ, Kafka)</li>
+                        <li>Service discovery</li>
+                        <li>Distributed tracing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h4>Example:</h4>
+                <code># Cython for performance
+# example.pyx
+def fibonacci_cython(int n):
+    cdef int a = 0, b = 1, i, temp
+    for i in range(n):
+        temp = a
+        a = b
+        b = temp + b
+    return a
+
+# Numba for numerical computing
+from numba import jit
+import numpy as np
+
+@jit(nopython=True)
+def monte_carlo_pi(int n_samples):
+    cdef int i, count = 0
+    cdef double x, y
+    
+    for i in range(n_samples):
+        x = np.random.random()
+        y = np.random.random()
+        if x*x + y*y <= 1.0:
+            count += 1
+    
+    return 4.0 * count / n_samples
+
+# Advanced itertools usage
+from itertools import permutations, combinations, chain, groupby
+from collections import defaultdict
+
+def analyze_patterns(data):
+    # Group consecutive items
+    groups = []
+    for key, group in groupby(data):
+        groups.append((key, list(group)))
+    
+    # Generate all permutations
+    perms = list(permutations(data[:3]))  # First 3 items
+    
+    # Generate combinations
+    combos = list(combinations(data, 2))
+    
+    # Chain multiple iterables
+    chained = list(chain([1, 2, 3], ['a', 'b', 'c'], [True, False]))
+    
+    return {
+        'groups': groups,
+        'permutations': perms,
+        'combinations': combos,
+        'chained': chained
+    }
+
+# Advanced logging
+import logging
+import logging.handlers
+from datetime import datetime
+
+def setup_advanced_logging():
+    # Create logger
+    logger = logging.getLogger('advanced_app')
+    logger.setLevel(logging.DEBUG)
+    
+    # Create formatters
+    detailed_formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
+    )
+    
+    simple_formatter = logging.Formatter('%(levelname)s - %(message)s')
+    
+    # File handler with rotation
+    file_handler = logging.handlers.RotatingFileHandler(
+        'app.log', maxBytes=1024*1024, backupCount=5
+    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(detailed_formatter)
+    
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(simple_formatter)
+    
+    # Add handlers
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
+
+# PyTorch example
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+class SimpleNN(nn.Module):
+    def __init__(self):
+        super(SimpleNN, self).__init__()
+        self.fc1 = nn.Linear(10, 5)
+        self.fc2 = nn.Linear(5, 1)
+        self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+    
+    def forward(self, x):
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        x = self.sigmoid(x)
+        return x
+
+# Usage example
+model = SimpleNN()
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters())
+
+# Sample data
+X = torch.randn(100, 10)
+y = torch.randint(0, 2, (100, 1)).float()
+
+# Training loop
+for epoch in range(100):
+    optimizer.zero_grad()
+    outputs = model(X)
+    loss = criterion(outputs, y)
+    loss.backward()
+    optimizer.step()</code>
+            </div>
+        </div>
+
+        <!-- Section 16: Mastery Learning Path & Resources -->
+        <div class="section">
+            <h2>16. Mastery Learning Path & Resources</h2>
+            <div class="content-grid">
+                <div class="content-column">
+                    <h3>Comprehensive Learning Path</h3>
+                    <ol>
+                        <li><strong>Months 1-2:</strong> Python fundamentals, data types, control flow</li>
+                        <li><strong>Months 3-4:</strong> Functions, OOP, error handling, file I/O</li>
+                        <li><strong>Months 5-6:</strong> Advanced Python, decorators, generators, metaprogramming</li>
+                        <li><strong>Months 7-8:</strong> Standard library mastery, modules, packages</li>
+                        <li><strong>Months 9-10:</strong> Web development, APIs, databases</li>
+                        <li><strong>Months 11-12:</strong> Data science, NumPy, Pandas, visualization</li>
+                        <li><strong>Months 13-14:</strong> Concurrency, async, performance optimization</li>
+                        <li><strong>Months 15-16:</strong> Testing, DevOps, deployment, enterprise patterns</li>
+                        <li><strong>Months 17-18:</strong> Machine learning, AI, advanced ecosystems</li>
+                        <li><strong>Months 19-20:</strong> System integration, debugging, optimization</li>
+                    </ol>
+                </div>
+                <div class="content-column">
+                    <h3>Advanced Resources</h3>
+                    <ul>
+                        <li><strong>Official Documentation:</strong> docs.python.org</li>
+                        <li><strong>Advanced Books:</strong> "Fluent Python", "Python Cookbook"</li>
+                        <li><strong>Performance:</strong> "High Performance Python"</li>
+                        <li><strong>Algorithms:</strong> "Python Algorithms", "Problem Solving with Algorithms"</li>
+                        <li><strong>Design Patterns:</strong> "Design Patterns in Python"</li>
+                        <li><strong>Conferences:</strong> PyCon, PyData, EuroPython</li>
+                        <li><strong>Research Papers:</strong> arXiv, ACM Digital Library</li>
+                        <li><strong>Open Source:</strong> Contributing to major Python projects</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-column">
+                    <h5>Intermediate Projects:</h5>
+                    <ul>
+                        <li>REST API with authentication</li>
+                        <li>Data analysis dashboard</li>
+                        <li>Web scraper with data processing</li>
+                        <li>Async chat application</li>
+                        <li>Database-driven web app</li>
+                    </ul>
+                </div>
+                <div class="project-column">
+                    <h5>Expert Projects:</h5>
+                    <ul>
+                        <li>Machine learning pipeline</li>
+                        <li>Microservices architecture</li>
+                        <li>High-performance trading system</li>
+                        <li>Distributed computing framework</li>
+                        <li>Python package/library development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="milestone-grid">
+                <div class="milestone-column">
+                    <h5>Core Mastery</h5>
+                    <ul>
+                        <li>Understand Python internals</li>
+                        <li>Write efficient, clean code</li>
+                        <li>Master design patterns</li>
+                        <li>Optimize performance</li>
+                    </ul>
+                </div>
+                <div class="milestone-column">
+                    <h5>Ecosystem Mastery</h5>
+                    <ul>
+                        <li>Contribute to open source</li>
+                        <li>Build complex applications</li>
+                        <li>Integrate multiple systems</li>
+                        <li>Lead technical projects</li>
+                    </ul>
+                </div>
+                <div class="milestone-column">
+                    <h5>Continuous Growth</h5>
+                    <ul>
+                        <li>Stay updated with Python evolution</li>
+                        <li>Learn new frameworks/tools</li>
+                        <li>Mentor other developers</li>
+                        <li>Share knowledge through writing/speaking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've completed the comprehensive Python mastery guide. Remember that mastering Python is a journey that requires continuous practice and real-world application. Python is indeed like an onion - with each layer you peel, you discover more depth and complexity.</p>
+            
+            <div class="takeaway-grid">
+                <div class="takeaway-card">
+                    <strong>💡 Key Takeaway:</strong>
+                    Practice consistently and build increasingly complex projects
+                </div>
+                <div class="takeaway-card">
+                    <strong>🚀 Next Steps:</strong>
+                    Choose a specialization and dive deep into advanced topics
+                </div>
+                <div class="takeaway-card">
+                    <strong>🌟 Keep Learning:</strong>
+                    Python ecosystem evolves continuously - stay curious and keep exploring
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete CSS Mastery Guide - Learn Everything About CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .content-section h3 {
+            font-size: 1.8rem;
+            color: #34495e;
+            margin: 30px 0 15px 0;
+        }
+
+        .content-section h4 {
+            font-size: 1.4rem;
+            color: #5d6d7e;
+            margin: 20px 0 10px 0;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'CSS';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .interactive-demo {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background: #5a67d8;
+        }
+
+        .quiz-section {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #4caf50;
+            background: #f0f8f0;
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #4caf50;
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .tip-box::before {
+            content: '💡 Tip';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #ffc107;
+            color: #333;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️ Warning';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #dc3545;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .syntax-highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .property-highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .value-highlight {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .selector-highlight {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .flex-demo {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .flex-item {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .grid-item {
+            background: #764ba2;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .animation-demo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate-animation {
+            animation: rotate 2s linear infinite;
+        }
+
+        .responsive-demo {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .responsive-demo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .responsive-demo {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .responsive-item {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: #764ba2;
+        }
+
+        .completion-badge {
+            background: linear-gradient(45deg, #4caf50, #45a049);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: #5a67d8;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Complete CSS Mastery Guide</h1>
+            <p>Master CSS from basics to advanced concepts with this comprehensive offline learning resource</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search CSS topics..." id="searchInput">
+                <button class="search-btn" onclick="searchContent()">🔍</button>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h3>📚 Table of Contents</h3>
+            <ul>
+                <li><a href="#" onclick="showSection('basics')">1. CSS Basics & Syntax</a></li>
+                <li><a href="#" onclick="showSection('selectors')">2. CSS Selectors</a></li>
+                <li><a href="#" onclick="showSection('box-model')">3. CSS Box Model</a></li>
+                <li><a href="#" onclick="showSection('layout')">4. CSS Layout Techniques</a></li>
+                <li><a href="#" onclick="showSection('responsive')">5. Responsive Design</a></li>
+                <li><a href="#" onclick="showSection('animations')">6. Animations & Transitions</a></li>
+                <li><a href="#" onclick="showSection('advanced')">7. Advanced CSS Concepts</a></li>
+                <li><a href="#" onclick="showSection('best-practices')">8. Best Practices</a></li>
+                <li><a href="#" onclick="showSection('exercises')">9. Practical Exercises</a></li>
+                <li><a href="#" onclick="showSection('reference')">10. CSS Reference</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('basics')">Basics</button>
+            <button class="nav-tab" onclick="showSection('selectors')">Selectors</button>
+            <button class="nav-tab" onclick="showSection('box-model')">Box Model</button>
+            <button class="nav-tab" onclick="showSection('layout')">Layout</button>
+            <button class="nav-tab" onclick="showSection('responsive')">Responsive</button>
+            <button class="nav-tab" onclick="showSection('animations')">Animations</button>
+            <button class="nav-tab" onclick="showSection('advanced')">Advanced</button>
+            <button class="nav-tab" onclick="showSection('best-practices')">Best Practices</button>
+            <button class="nav-tab" onclick="showSection('exercises')">Exercises</button>
+            <button class="nav-tab" onclick="showSection('reference')">Reference</button>
+        </div>
+
+        <!-- Section 1: CSS Basics -->
+        <div class="content-section active" id="basics">
+            <h2>1. CSS Basics & Syntax</h2>
+            
+            <h3>What is CSS?</h3>
+            <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+
+            <div class="tip-box">
+                CSS separates the presentation from the content, making it easier to maintain and update websites.
+            </div>
+
+            <h3>CSS Syntax</h3>
+            <p>CSS syntax consists of a selector and a declaration block:</p>
+            
+            <div class="code-block">
+<span class="selector-highlight">selector</span> {
+    <span class="property-highlight">property</span>: <span class="value-highlight">value</span>;
+    <span class="property-highlight">property</span>: <span class="value-highlight">value</span>;
+}
+            </div>
+
+            <h4>Example:</h4>
+            <div class="code-block">
+<span class="selector-highlight">h1</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">blue</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">24px</span>;
+    <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>;
+}
+            </div>
+
+            <h3>Ways to Include CSS</h3>
+            
+            <h4>1. Inline CSS</h4>
+            <div class="code-block">
+&lt;h1 <span class="syntax-highlight">style</span>="<span class="property-highlight">color</span>: <span class="value-highlight">blue</span>; <span class="property-highlight">font-size</span>: <span class="value-highlight">24px</span>;"&gt;Hello World&lt;/h1&gt;
+            </div>
+
+            <h4>2. Internal CSS</h4>
+            <div class="code-block">
+&lt;head&gt;
+    &lt;style&gt;
+        <span class="selector-highlight">h1</span> {
+            <span class="property-highlight">color</span>: <span class="value-highlight">blue</span>;
+            <span class="property-highlight">font-size</span>: <span class="value-highlight">24px</span>;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+            </div>
+
+            <h4>3. External CSS (Recommended)</h4>
+            <div class="code-block">
+&lt;head&gt;
+    &lt;link <span class="syntax-highlight">rel</span>="<span class="value-highlight">stylesheet</span>" <span class="syntax-highlight">href</span>="<span class="value-highlight">styles.css</span>"&gt;
+&lt;/head&gt;
+            </div>
+
+            <div class="warning-box">
+                External CSS is the best practice for most websites as it separates content from presentation and allows for better caching and maintenance.
+            </div>
+
+            <h3>CSS Comments</h3>
+            <div class="code-block">
+<span class="syntax-highlight">/* This is a CSS comment */</span>
+<span class="selector-highlight">h1</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">blue</span>; <span class="syntax-highlight">/* This makes the text blue */</span>
+}
+
+<span class="syntax-highlight">/* 
+   Multi-line comment
+   This can span multiple lines
+*/</span>
+            </div>
+
+            <h3>CSS Units</h3>
+            
+            <h4>Absolute Units:</h4>
+            <ul>
+                <li><strong>px</strong> - Pixels (1px = 1/96th of 1in)</li>
+                <li><strong>pt</strong> - Points (1pt = 1/72 of 1in)</li>
+                <li><strong>pc</strong> - Picas (1pc = 12pt)</li>
+                <li><strong>in</strong> - Inches (1in = 96px = 2.54cm)</li>
+                <li><strong>cm</strong> - Centimeters</li>
+                <li><strong>mm</strong> - Millimeters</li>
+            </ul>
+
+            <h4>Relative Units:</h4>
+            <ul>
+                <li><strong>em</strong> - Relative to the font-size of the element</li>
+                <li><strong>rem</strong> - Relative to the font-size of the root element</li>
+                <li><strong>%</strong> - Percentage relative to the parent element</li>
+                <li><strong>vw</strong> - Viewport width (1vw = 1% of viewport width)</li>
+                <li><strong>vh</strong> - Viewport height (1vh = 1% of viewport height)</li>
+                <li><strong>vmin</strong> - 1% of the smaller viewport dimension</li>
+                <li><strong>vmax</strong> - 1% of the larger viewport dimension</li>
+            </ul>
+
+            <div class="tip-box">
+                Use relative units (rem, em, %) for better responsive design and accessibility.
+            </div>
+
+            <h3>CSS Colors</h3>
+            
+            <h4>Color Formats:</h4>
+            <div class="code-block">
+<span class="selector-highlight">.element</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">red</span>;                     <span class="syntax-highlight">/* Named color */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">#ff0000</span>;                <span class="syntax-highlight">/* Hexadecimal */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">#f00</span>;                   <span class="syntax-highlight">/* Short hexadecimal */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">rgb(255, 0, 0)</span>;         <span class="syntax-highlight">/* RGB */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">rgba(255, 0, 0, 0.5)</span>;   <span class="syntax-highlight">/* RGBA with alpha */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">hsl(0, 100%, 50%)</span>;       <span class="syntax-highlight">/* HSL */</span>
+    <span class="property-highlight">color</span>: <span class="value-highlight">hsla(0, 100%, 50%, 0.5)</span>; <span class="syntax-highlight">/* HSLA with alpha */</span>
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Interactive Color Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="changeColor('red')">Red</button>
+                    <button class="demo-btn" onclick="changeColor('blue')">Blue</button>
+                    <button class="demo-btn" onclick="changeColor('green')">Green</button>
+                    <button class="demo-btn" onclick="changeColor('purple')">Purple</button>
+                </div>
+                <div id="colorDemo" style="width: 100px; height: 100px; background: red; border-radius: 10px; margin: 0 auto;"></div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What is the recommended way to include CSS in a website?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Inline CSS</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Internal CSS</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">External CSS</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">All of the above</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: CSS Selectors -->
+        <div class="content-section" id="selectors">
+            <h2>2. CSS Selectors</h2>
+            
+            <h3>Basic Selectors</h3>
+            
+            <h4>Universal Selector (*)</h4>
+            <div class="code-block">
+<span class="selector-highlight">*</span> {
+    <span class="property-highlight">margin</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">box-sizing</span>: <span class="value-highlight">border-box</span>;
+}
+            </div>
+
+            <h4>Type Selector (Element Selector)</h4>
+            <div class="code-block">
+<span class="selector-highlight">p</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">16px</span>;
+    <span class="property-highlight">line-height</span>: <span class="value-highlight">1.5</span>;
+}
+            </div>
+
+            <h4>Class Selector (.)</h4>
+            <div class="code-block">
+<span class="selector-highlight">.container</span> {
+    <span class="property-highlight">max-width</span>: <span class="value-highlight">1200px</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">0 auto</span>;
+}
+            </div>
+
+            <h4>ID Selector (#)</h4>
+            <div class="code-block">
+<span class="selector-highlight">#header</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+}
+            </div>
+
+            <div class="warning-box">
+                ID selectors should be unique per page. Use class selectors for reusable styles.
+            </div>
+
+            <h3>Combinators</h3>
+            
+            <h4>Descendant Selector (Space)</h4>
+            <div class="code-block">
+<span class="selector-highlight">div p</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">blue</span>;
+}
+            </div>
+
+            <h4>Child Selector (>)</h4>
+            <div class="code-block">
+<span class="selector-highlight">ul > li</span> {
+    <span class="property-highlight">list-style</span>: <span class="value-highlight">none</span>;
+}
+            </div>
+
+            <h4>Adjacent Sibling Selector (+)</h4>
+            <div class="code-block">
+<span class="selector-highlight">h1 + p</span> {
+    <span class="property-highlight">font-weight</span>: <span class="value-highlight">bold</span>;
+}
+            </div>
+
+            <h4>General Sibling Selector (~)</h4>
+            <div class="code-block">
+<span class="selector-highlight">h1 ~ p</span> {
+    <span class="property-highlight">margin-top</span>: <span class="value-highlight">10px</span>;
+}
+            </div>
+
+            <h3>Attribute Selectors</h3>
+            
+            <h4>Attribute Presence</h4>
+            <div class="code-block">
+<span class="selector-highlight">[disabled]</span> {
+    <span class="property-highlight">opacity</span>: <span class="value-highlight">0.5</span>;
+}
+            </div>
+
+            <h4>Attribute Value</h4>
+            <div class="code-block">
+<span class="selector-highlight">input[type="text"]</span> {
+    <span class="property-highlight">border</span>: <span class="value-highlight">1px solid #ccc</span>;
+}
+            </div>
+
+            <h4>Attribute Starts With</h4>
+            <div class="code-block">
+<span class="selector-highlight">a[href^="https"]</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">green</span>;
+}
+            </div>
+
+            <h4>Attribute Ends With</h4>
+            <div class="code-block">
+<span class="selector-highlight">img[src$=".jpg"]</span> {
+    <span class="property-highlight">border</span>: <span class="value-highlight">2px solid red</span>;
+}
+            </div>
+
+            <h4>Attribute Contains</h4>
+            <div class="code-block">
+<span class="selector-highlight">a[href*="example"]</span> {
+    <span class="property-highlight">font-weight</span>: <span class="value-highlight">bold</span>;
+}
+            </div>
+
+            <h3>Pseudo-classes</h3>
+            
+            <h4>Link Pseudo-classes</h4>
+            <div class="code-block">
+<span class="selector-highlight">a:link</span> { <span class="property-highlight">color</span>: <span class="value-highlight">blue</span>; }     <span class="syntax-highlight">/* Unvisited links */</span>
+<span class="selector-highlight">a:visited</span> { <span class="property-highlight">color</span>: <span class="value-highlight">purple</span>; }  <span class="syntax-highlight">/* Visited links */</span>
+<span class="selector-highlight">a:hover</span> { <span class="property-highlight">color</span>: <span class="value-highlight">red</span>; }     <span class="syntax-highlight">/* Mouse over */</span>
+<span class="selector-highlight">a:active</span> { <span class="property-highlight">color</span>: <span class="value-highlight">orange</span>; }  <span class="syntax-highlight">/* Selected link */</span>
+            </div>
+
+            <h4>Form Pseudo-classes</h4>
+            <div class="code-block">
+<span class="selector-highlight">input:focus</span> { <span class="property-highlight">outline</span>: <span class="value-highlight">2px solid blue</span>; }
+<span class="selector-highlight">input:checked</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">scale(1.2)</span>; }
+<span class="selector-highlight">input:disabled</span> { <span class="property-highlight">background</span>: <span class="value-highlight">#f0f0f0</span>; }
+<span class="selector-highlight">input:required</span> { <span class="property-highlight">border</span>: <span class="value-highlight">2px solid red</span>; }
+            </div>
+
+            <h4>Structural Pseudo-classes</h4>
+            <div class="code-block">
+<span class="selector-highlight">li:first-child</span> { <span class="property-highlight">font-weight</span>: <span class="value-highlight">bold</span>; }
+<span class="selector-highlight">li:last-child</span> { <span class="property-highlight">margin-bottom</span>: <span class="value-highlight">0</span>; }
+<span class="selector-highlight">li:nth-child(odd)</span> { <span class="property-highlight">background</span>: <span class="value-highlight">#f0f0f0</span>; }
+<span class="selector-highlight">li:nth-child(even)</span> { <span class="property-highlight">background</span>: <span class="value-highlight">#e0e0e0</span>; }
+<span class="selector-highlight">li:nth-child(3)</span> { <span class="property-highlight">color</span>: <span class="value-highlight">red</span>; }
+            </div>
+
+            <h3>Pseudo-elements</h3>
+            
+            <h4>::before and ::after</h4>
+            <div class="code-block">
+<span class="selector-highlight">.quote::before</span> {
+    <span class="property-highlight">content</span>: <span class="value-highlight">'"'</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">2em</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">#ccc</span>;
+}
+
+<span class="selector-highlight">.quote::after</span> {
+    <span class="property-highlight">content</span>: <span class="value-highlight">'"'</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">2em</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">#ccc</span>;
+}
+            </div>
+
+            <h4>::first-line and ::first-letter</h4>
+            <div class="code-block">
+<span class="selector-highlight">p::first-line</span> {
+    <span class="property-highlight">font-weight</span>: <span class="value-highlight">bold</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">#333</span>;
+}
+
+<span class="selector-highlight">p::first-letter</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">3em</span>;
+    <span class="property-highlight">float</span>: <span class="value-highlight">left</span>;
+    <span class="property-highlight">margin-right</span>: <span class="value-highlight">10px</span>;
+}
+            </div>
+
+            <h4>::selection</h4>
+            <div class="code-block">
+<span class="selector-highlight">::selection</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Selector Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="highlightElements('p')">Highlight Paragraphs</button>
+                    <button class="demo-btn" onclick="highlightElements('h3')">Highlight Headings</button>
+                    <button class="demo-btn" onclick="highlightElements('.code-block')">Highlight Code Blocks</button>
+                    <button class="demo-btn" onclick="resetHighlight()">Reset</button>
+                </div>
+                <p>This is a paragraph that will be highlighted when you click the button.</p>
+                <h3>This heading will change color</h3>
+                <div class="code-block">This code block will be highlighted</div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">Which selector targets all elements?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">#all</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">.all</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">*</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">all</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: CSS Box Model -->
+        <div class="content-section" id="box-model">
+            <h2>3. CSS Box Model</h2>
+            
+            <h3>Understanding the Box Model</h3>
+            <p>Every HTML element is considered as a box with the following components:</p>
+            
+            <ul>
+                <li><strong>Content</strong> - The actual content of the box</li>
+                <li><strong>Padding</strong> - Clears area around the content</li>
+                <li><strong>Border</strong> - A border around the padding and content</li>
+                <li><strong>Margin</strong> - Clears area outside the border</li>
+            </ul>
+
+            <div class="example-box">
+                <div style="width: 200px; height: 100px; padding: 20px; border: 5px solid #667eea; margin: 10px; background: #f0f8ff;">
+                    Content Area
+                </div>
+            </div>
+
+            <h3>Box Model Properties</h3>
+            
+            <h4>Width and Height</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">300px</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">200px</span>;
+}
+            </div>
+
+            <h4>Padding</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">padding-top</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">padding-right</span>: <span class="value-highlight">30px</span>;
+    <span class="property-highlight">padding-bottom</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">padding-left</span>: <span class="value-highlight">30px</span>;
+    
+    <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px 30px</span>;     <span class="syntax-highlight">/* top/bottom left/right */</span>
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px 30px 40px</span>; <span class="syntax-highlight">/* top left/right bottom */</span>
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px 30px 40px 50px</span>; <span class="syntax-highlight">/* top right bottom left */</span>
+}
+            </div>
+
+            <h4>Border</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">border-width</span>: <span class="value-highlight">2px</span>;
+    <span class="property-highlight">border-style</span>: <span class="value-highlight">solid</span>;
+    <span class="property-highlight">border-color</span>: <span class="value-highlight">#333</span>;
+    
+    <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">border</span>: <span class="value-highlight">2px solid #333</span>;
+    
+    <span class="syntax-highlight">/* Individual sides */</span>
+    <span class="property-highlight">border-top</span>: <span class="value-highlight">3px dashed red</span>;
+    <span class="property-highlight">border-right</span>: <span class="value-highlight">3px dotted blue</span>;
+    <span class="property-highlight">border-bottom</span>: <span class="value-highlight">3px solid green</span>;
+    <span class="property-highlight">border-left</span>: <span class="value-highlight">3px double purple</span>;
+}
+            </div>
+
+            <h4>Border Radius</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">50%</span>; <span class="syntax-highlight">/* Circle */</span>
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">10px 20px 30px 40px</span>; <span class="syntax-highlight">/* Individual corners */</span>
+}
+            </div>
+
+            <h4>Margin</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">margin-top</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">margin-right</span>: <span class="value-highlight">30px</span>;
+    <span class="property-highlight">margin-bottom</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">margin-left</span>: <span class="value-highlight">30px</span>;
+    
+    <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">margin</span>: <span class="value-highlight">20px 30px</span>;     <span class="syntax-highlight">/* top/bottom left/right */</span>
+    <span class="property-highlight">margin</span>: <span class="value-highlight">20px 30px 40px</span>; <span class="syntax-highlight">/* top left/right bottom */</span>
+    <span class="property-highlight">margin</span>: <span class="value-highlight">20px 30px 40px 50px</span>; <span class="syntax-highlight">/* top right bottom left */</span>
+    
+    <span class="syntax-highlight">/* Auto margin for centering */</span>
+    <span class="property-highlight">margin</span>: <span class="value-highlight">0 auto</span>;
+}
+            </div>
+
+            <h3>Box Sizing</h3>
+            <div class="code-block">
+<span class="selector-highlight">.box-content</span> {
+    <span class="property-highlight">box-sizing</span>: <span class="value-highlight">content-box</span>; <span class="syntax-highlight">/* Default */</span>
+    <span class="property-highlight">width</span>: <span class="value-highlight">300px</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">5px</span>;
+    <span class="syntax-highlight">/* Total width = 300 + 20*2 + 5*2 = 350px */</span>
+}
+
+<span class="selector-highlight">.box-border</span> {
+    <span class="property-highlight">box-sizing</span>: <span class="value-highlight">border-box</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">300px</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">5px</span>;
+    <span class="syntax-highlight">/* Total width = 300px (padding and border included) */</span>
+}
+            </div>
+
+            <div class="tip-box">
+                Always use <code>box-sizing: border-box</code> for more predictable layouts. It's commonly applied globally with:
+                <br><code>* { box-sizing: border-box; }</code>
+            </div>
+
+            <h3>Display Property</h3>
+            
+            <h4>Block Elements</h4>
+            <div class="code-block">
+<span class="selector-highlight">.block</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">block</span>;
+    <span class="syntax-highlight">/* Takes full width, starts on new line */</span>
+}
+            </div>
+
+            <h4>Inline Elements</h4>
+            <div class="code-block">
+<span class="selector-highlight">.inline</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">inline</span>;
+    <span class="syntax-highlight">/* Takes only required width, flows with text */</span>
+}
+            </div>
+
+            <h4>Inline-Block Elements</h4>
+            <div class="code-block">
+<span class="selector-highlight">.inline-block</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">inline-block</span>;
+    <span class="syntax-highlight">/* Flows like inline but can have block properties */</span>
+}
+            </div>
+
+            <h4>None</h4>
+            <div class="code-block">
+<span class="selector-highlight">.hidden</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">none</span>;
+    <span class="syntax-highlight">/* Element is completely hidden and takes no space */</span>
+}
+            </div>
+
+            <h3>Overflow</h3>
+            <div class="code-block">
+<span class="selector-highlight">.overflow-visible</span> {
+    <span class="property-highlight">overflow</span>: <span class="value-highlight">visible</span>; <span class="syntax-highlight">/* Default */</span>
+}
+
+<span class="selector-highlight">.overflow-hidden</span> {
+    <span class="property-highlight">overflow</span>: <span class="value-highlight">hidden</span>; <span class="syntax-highlight">/* Clips content */</span>
+}
+
+<span class="selector-highlight">.overflow-scroll</span> {
+    <span class="property-highlight">overflow</span>: <span class="value-highlight">scroll</span>; <span class="syntax-highlight">/* Always shows scrollbars */</span>
+}
+
+<span class="selector-highlight">.overflow-auto</span> {
+    <span class="property-highlight">overflow</span>: <span class="value-highlight">auto</span>; <span class="syntax-highlight">/* Shows scrollbars only when needed */</span>
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Box Model Interactive Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="updateBoxModel('padding')">Add Padding</button>
+                    <button class="demo-btn" onclick="updateBoxModel('border')">Add Border</button>
+                    <button class="demo-btn" onclick="updateBoxModel('margin')">Add Margin</button>
+                    <button class="demo-btn" onclick="resetBoxModel()">Reset</button>
+                </div>
+                <div id="boxModelDemo" style="width: 200px; height: 100px; background: #667eea; color: white; display: flex; align-items: center; justify-content: center; margin: 20px auto;">
+                    Demo Box
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What does box-sizing: border-box do?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Makes the element a border</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Adds a border to the box</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Includes padding and border in the element's total width and height</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Removes the border from the box</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: CSS Layout Techniques -->
+        <div class="content-section" id="layout">
+            <h2>4. CSS Layout Techniques</h2>
+            
+            <h3>Position Property</h3>
+            
+            <h4>Static Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.static</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">static</span>; <span class="syntax-highlight">/* Default */</span>
+}
+            </div>
+
+            <h4>Relative Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.relative</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">relative</span>;
+    <span class="property-highlight">top</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">left</span>: <span class="value-highlight">30px</span>;
+}
+            </div>
+
+            <h4>Absolute Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.absolute</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">absolute</span>;
+    <span class="property-highlight">top</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">right</span>: <span class="value-highlight">0</span>;
+}
+            </div>
+
+            <h4>Fixed Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.fixed</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">fixed</span>;
+    <span class="property-highlight">top</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">left</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">100%</span>;
+}
+            </div>
+
+            <h4>Sticky Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.sticky</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">sticky</span>;
+    <span class="property-highlight">top</span>: <span class="value-highlight">0</span>;
+}
+            </div>
+
+            <h3>Float Layout</h3>
+            <div class="code-block">
+<span class="selector-highlight">.float-left</span> {
+    <span class="property-highlight">float</span>: <span class="value-highlight">left</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">50%</span>;
+}
+
+<span class="selector-highlight">.float-right</span> {
+    <span class="property-highlight">float</span>: <span class="value-highlight">right</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">50%</span>;
+}
+
+<span class="selector-highlight">.clearfix::after</span> {
+    <span class="property-highlight">content</span>: <span class="value-highlight">""</span>;
+    <span class="property-highlight">display</span>: <span class="value-highlight">table</span>;
+    <span class="property-highlight">clear</span>: <span class="value-highlight">both</span>;
+}
+            </div>
+
+            <div class="warning-box">
+                Float layouts are largely outdated. Use Flexbox or Grid for modern layouts.
+            </div>
+
+            <h3>Flexbox Layout</h3>
+            
+            <h4>Flex Container</h4>
+            <div class="code-block">
+<span class="selector-highlight">.flex-container</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">flex-direction</span>: <span class="value-highlight">row</span>; <span class="syntax-highlight">/* row | row-reverse | column | column-reverse */</span>
+    <span class="property-highlight">flex-wrap</span>: <span class="value-highlight">nowrap</span>; <span class="syntax-highlight">/* nowrap | wrap | wrap-reverse */</span>
+    <span class="property-highlight">justify-content</span>: <span class="value-highlight">flex-start</span>; <span class="syntax-highlight">/* flex-start | flex-end | center | space-between | space-around | space-evenly */</span>
+    <span class="property-highlight">align-items</span>: <span class="value-highlight">stretch</span>; <span class="syntax-highlight">/* stretch | flex-start | flex-end | center | baseline */</span>
+    <span class="property-highlight">align-content</span>: <span class="value-highlight">stretch</span>; <span class="syntax-highlight">/* stretch | flex-start | flex-end | center | space-between | space-around */</span>
+    <span class="property-highlight">gap</span>: <span class="value-highlight">10px</span>;
+}
+            </div>
+
+            <h4>Flex Items</h4>
+            <div class="code-block">
+<span class="selector-highlight">.flex-item</span> {
+    <span class="property-highlight">flex-grow</span>: <span class="value-highlight">1</span>;
+    <span class="property-highlight">flex-shrink</span>: <span class="value-highlight">1</span>;
+    <span class="property-highlight">flex-basis</span>: <span class="value-highlight">auto</span>;
+    <span class="property-highlight">flex</span>: <span class="value-highlight">1 1 auto</span>; <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">align-self</span>: <span class="value-highlight">auto</span>; <span class="syntax-highlight">/* auto | flex-start | flex-end | center | baseline | stretch */</span>
+    <span class="property-highlight">order</span>: <span class="value-highlight">0</span>;
+}
+            </div>
+
+            <div class="example-box">
+                <h4>Flexbox Demo:</h4>
+                <div class="flex-demo">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+            </div>
+
+            <h3>CSS Grid Layout</h3>
+            
+            <h4>Grid Container</h4>
+            <div class="code-block">
+<span class="selector-highlight">.grid-container</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">grid</span>;
+    <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">1fr 1fr 1fr</span>;
+    <span class="property-highlight">grid-template-rows</span>: <span class="value-highlight">auto</span>;
+    <span class="property-highlight">grid-template-areas</span>: <span class="value-highlight">
+        "header header header"
+        "sidebar main main"
+        "footer footer footer"
+    </span>;
+    <span class="property-highlight">grid-gap</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">justify-items</span>: <span class="value-highlight">stretch</span>;
+    <span class="property-highlight">align-items</span>: <span class="value-highlight">stretch</span>;
+}
+            </div>
+
+            <h4>Grid Items</h4>
+            <div class="code-block">
+<span class="selector-highlight">.grid-item</span> {
+    <span class="property-highlight">grid-column</span>: <span class="value-highlight">1 / 3</span>;
+    <span class="property-highlight">grid-row</span>: <span class="value-highlight">2 / 4</span>;
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">main</span>;
+    <span class="property-highlight">justify-self</span>: <span class="value-highlight">center</span>;
+    <span class="property-highlight">align-self</span>: <span class="value-highlight">center</span>;
+}
+            </div>
+
+            <div class="example-box">
+                <h4>Grid Demo:</h4>
+                <div class="grid-demo">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                    <div class="grid-item">Item 6</div>
+                </div>
+            </div>
+
+            <h3>Multi-column Layout</h3>
+            <div class="code-block">
+<span class="selector-highlight">.columns</span> {
+    <span class="property-highlight">column-count</span>: <span class="value-highlight">3</span>;
+    <span class="property-highlight">column-width</span>: <span class="value-highlight">300px</span>;
+    <span class="property-highlight">column-gap</span>: <span class="value-highlight">30px</span>;
+    <span class="property-highlight">column-rule</span>: <span class="value-highlight">1px solid #ccc</span>;
+}
+            </div>
+
+            <h3>Alignment</h3>
+            
+            <h4>Text Alignment</h4>
+            <div class="code-block">
+<span class="selector-highlight">.text-left</span> { <span class="property-highlight">text-align</span>: <span class="value-highlight">left</span>; }
+<span class="selector-highlight">.text-center</span> { <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>; }
+<span class="selector-highlight">.text-right</span> { <span class="property-highlight">text-align</span>: <span class="value-highlight">right</span>; }
+<span class="selector-highlight">.text-justify</span> { <span class="property-highlight">text-align</span>: <span class="value-highlight">justify</span>; }
+            </div>
+
+            <h4>Vertical Alignment</h4>
+            <div class="code-block">
+<span class="selector-highlight">.align-top</span> { <span class="property-highlight">vertical-align</span>: <span class="value-highlight">top</span>; }
+<span class="selector-highlight">.align-middle</span> { <span class="property-highlight">vertical-align</span>: <span class="value-highlight">middle</span>; }
+<span class="selector-highlight">.align-bottom</span> { <span class="property-highlight">vertical-align</span>: <span class="value-highlight">bottom</span>; }
+            </div>
+
+            <h3>Centering Techniques</h3>
+            
+            <h4>Centering with Flexbox</h4>
+            <div class="code-block">
+<span class="selector-highlight">.center-flex</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">justify-content</span>: <span class="value-highlight">center</span>;
+    <span class="property-highlight">align-items</span>: <span class="value-highlight">center</span>;
+}
+            </div>
+
+            <h4>Centering with Grid</h4>
+            <div class="code-block">
+<span class="selector-highlight">.center-grid</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">grid</span>;
+    <span class="property-highlight">place-items</span>: <span class="value-highlight">center</span>;
+}
+            </div>
+
+            <h4>Centering with Position</h4>
+            <div class="code-block">
+<span class="selector-highlight">.center-position</span> {
+    <span class="property-highlight">position</span>: <span class="value-highlight">absolute</span>;
+    <span class="property-highlight">top</span>: <span class="value-highlight">50%</span>;
+    <span class="property-highlight">left</span>: <span class="value-highlight">50%</span>;
+    <span class="property-highlight">transform</span>: <span class="value-highlight">translate(-50%, -50%)</span>;
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Layout Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="changeLayout('flex')">Flexbox</button>
+                    <button class="demo-btn" onclick="changeLayout('grid')">Grid</button>
+                    <button class="demo-btn" onclick="changeLayout('center')">Center</button>
+                    <button class="demo-btn" onclick="changeLayout('reset')">Reset</button>
+                </div>
+                <div id="layoutDemo" style="height: 200px; border: 2px solid #667eea; border-radius: 10px; padding: 20px;">
+                    <div style="width: 100px; height: 100px; background: #764ba2; color: white; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                        Demo
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">Which CSS layout method is considered most modern and flexible?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Float</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Position</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Table</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Flexbox and Grid</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Responsive Design -->
+        <div class="content-section" id="responsive">
+            <h2>5. Responsive Design</h2>
+            
+            <h3>What is Responsive Design?</h3>
+            <p>Responsive design is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes. Content, design and performance are necessary across all devices.</p>
+
+            <h3>Viewport Meta Tag</h3>
+            <div class="code-block">
+&lt;meta <span class="syntax-highlight">name</span>="<span class="value-highlight">viewport</span>" <span class="syntax-highlight">content</span>="<span class="value-highlight">width=device-width, initial-scale=1.0</span>"&gt;
+            </div>
+
+            <div class="tip-box">
+                Always include the viewport meta tag for responsive design. It tells the browser how to control the page's dimensions and scaling.
+            </div>
+
+            <h3>Media Queries</h3>
+            
+            <h4>Basic Media Query</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.container</span> {
+        <span class="property-highlight">width</span>: <span class="value-highlight">100%</span>;
+        <span class="property-highlight">padding</span>: <span class="value-highlight">10px</span>;
+    }
+}
+            </div>
+
+            <h4>Media Query Features</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">768px</span>) <span class="syntax-highlight">and</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">1024px</span>) {
+    <span class="syntax-highlight">/* Styles for tablets */</span>
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">orientation</span>: <span class="value-highlight">landscape</span>) {
+    <span class="syntax-highlight">/* Landscape styles */</span>
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">hover</span>: <span class="value-highlight">hover</span>) {
+    <span class="syntax-highlight">/* Devices with hover capability */</span>
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">prefers-reduced-motion</span>: <span class="value-highlight">reduce</span>) {
+    <span class="syntax-highlight">/* Reduce animations for users who prefer less motion */</span>
+}
+            </div>
+
+            <h4>Common Breakpoints</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Small devices (phones) */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">576px</span>) { ... }
+
+<span class="syntax-highlight">/* Medium devices (tablets) */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">577px</span>) <span class="syntax-highlight">and</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) { ... }
+
+<span class="syntax-highlight">/* Large devices (desktops) */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">769px</span>) <span class="syntax-highlight">and</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">992px</span>) { ... }
+
+<span class="syntax-highlight">/* Extra large devices */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">993px</span>) { ... }
+            </div>
+
+            <h3>Responsive Images</h3>
+            
+            <h4>Max-width Technique</h4>
+            <div class="code-block">
+<span class="selector-highlight">img</span> {
+    <span class="property-highlight">max-width</span>: <span class="value-highlight">100%</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">auto</span>;
+}
+            </div>
+
+            <h4>Picture Element</h4>
+            <div class="code-block">
+&lt;picture&gt;
+    &lt;source <span class="syntax-highlight">srcset</span>="<span class="value-highlight">image-large.jpg</span>" <span class="syntax-highlight">media</span>="<span class="value-highlight">(min-width: 1200px)</span>"&gt;
+    &lt;source <span class="syntax-highlight">srcset</span>="<span class="value-highlight">image-medium.jpg</span>" <span class="syntax-highlight">media</span>="<span class="value-highlight">(min-width: 768px)</span>"&gt;
+    &lt;img <span class="syntax-highlight">src</span>="<span class="value-highlight">image-small.jpg</span>" <span class="syntax-highlight">alt</span>="<span class="value-highlight">Responsive image</span>"&gt;
+&lt;/picture&gt;
+            </div>
+
+            <h4>Srcset Attribute</h4>
+            <div class="code-block">
+&lt;img <span class="syntax-highlight">src</span>="<span class="value-highlight">image-default.jpg</span>" 
+     <span class="syntax-highlight">srcset</span>="<span class="value-highlight">image-small.jpg 300w, image-medium.jpg 600w, image-large.jpg 900w</span>"
+     <span class="syntax-highlight">sizes</span>="<span class="value-highlight">(max-width: 300px) 280px, (max-width: 600px) 580px, 880px</span>"
+     <span class="syntax-highlight">alt</span>="<span class="value-highlight">Responsive image</span>"&gt;
+            </div>
+
+            <h3>Responsive Typography</h3>
+            
+            <h4>Viewport Units</h4>
+            <div class="code-block">
+<span class="selector-highlight">h1</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">5vw</span>;
+}
+
+<span class="selector-highlight">p</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">clamp(14px, 2vw, 18px)</span>;
+}
+            </div>
+
+            <h4>Fluid Typography</h4>
+            <div class="code-block">
+<span class="selector-highlight">:root</span> {
+    <span class="property-highlight">--min-font-size</span>: <span class="value-highlight">16px</span>;
+    <span class="property-highlight">--max-font-size</span>: <span class="value-highlight">24px</span>;
+    <span class="property-highlight">--min-viewport</span>: <span class="value-highlight">320px</span>;
+    <span class="property-highlight">--max-viewport</span>: <span class="value-highlight">1200px</span>;
+}
+
+<span class="selector-highlight">body</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">calc(
+        var(--min-font-size) + 
+        (var(--max-font-size) - var(--min-font-size)) * 
+        ((100vw - var(--min-viewport)) / 
+        (var(--max-viewport) - var(--min-viewport)))
+    )</span>;
+}
+            </div>
+
+            <h3>Responsive Layout Patterns</h3>
+            
+            <h4>Mobile-First Approach</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Base styles for mobile */</span>
+<span class="selector-highlight">.container</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">100%</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">10px</span>;
+}
+
+<span class="syntax-highlight">/* Tablet styles */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.container</span> {
+        <span class="property-highlight">width</span>: <span class="value-highlight">750px</span>;
+        <span class="property-highlight">margin</span>: <span class="value-highlight">0 auto</span>;
+    }
+}
+
+<span class="syntax-highlight">/* Desktop styles */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">1024px</span>) {
+    <span class="selector-highlight">.container</span> {
+        <span class="property-highlight">width</span>: <span class="value-highlight">960px</span>;
+    }
+}
+            </div>
+
+            <h4>Column Drop Pattern</h4>
+            <div class="code-block">
+<span class="selector-highlight">.columns</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">flex-direction</span>: <span class="value-highlight">column</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.columns</span> {
+        <span class="property-highlight">flex-direction</span>: <span class="value-highlight">row</span>;
+    }
+}
+            </div>
+
+            <h3>Responsive Navigation</h3>
+            
+            <h4>Hamburger Menu</h4>
+            <div class="code-block">
+<span class="selector-highlight">.nav-menu</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">none</span>;
+}
+
+<span class="selector-highlight">.nav-toggle</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">block</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.nav-menu</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    }
+    
+    <span class="selector-highlight">.nav-toggle</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">none</span>;
+    }
+}
+            </div>
+
+            <div class="example-box">
+                <h4>Responsive Demo:</h4>
+                <div class="responsive-demo">
+                    <div class="responsive-item">Item 1</div>
+                    <div class="responsive-item">Item 2</div>
+                    <div class="responsive-item">Item 3</div>
+                    <div class="responsive-item">Item 4</div>
+                    <div class="responsive-item">Item 5</div>
+                    <div class="responsive-item">Item 6</div>
+                </div>
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Responsive Testing:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="testResponsive('mobile')">Mobile View</button>
+                    <button class="demo-btn" onclick="testResponsive('tablet')">Tablet View</button>
+                    <button class="demo-btn" onclick="testResponsive('desktop')">Desktop View</button>
+                    <button class="demo-btn" onclick="testResponsive('reset')">Reset</button>
+                </div>
+                <div id="responsiveDemo" style="border: 2px solid #667eea; border-radius: 10px; padding: 20px; transition: all 0.3s ease;">
+                    <div style="background: #764ba2; color: white; padding: 20px; border-radius: 5px; text-align: center;">
+                        Responsive Content
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What is the purpose of the viewport meta tag?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">To add metadata to the page</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">To control the page's title</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">To control how the page is displayed on mobile devices</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">To improve SEO</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Animations and Transitions -->
+        <div class="content-section" id="animations">
+            <h2>6. Animations and Transitions</h2>
+            
+            <h3>CSS Transitions</h3>
+            
+            <h4>Basic Transition</h4>
+            <div class="code-block">
+<span class="selector-highlight">.box</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">100px</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">100px</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">blue</span>;
+    <span class="property-highlight">transition</span>: <span class="value-highlight">all 0.3s ease</span>;
+}
+
+<span class="selector-highlight">.box:hover</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">200px</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">red</span>;
+}
+            </div>
+
+            <h4>Transition Properties</h4>
+            <div class="code-block">
+<span class="selector-highlight">.element</span> {
+    <span class="property-highlight">transition-property</span>: <span class="value-highlight">width, height</span>;
+    <span class="property-highlight">transition-duration</span>: <span class="value-highlight">0.5s</span>;
+    <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">ease-in-out</span>;
+    <span class="property-highlight">transition-delay</span>: <span class="value-highlight">0.2s</span>;
+    
+    <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">transition</span>: <span class="value-highlight">width 0.5s ease-in-out 0.2s, height 0.5s ease-in-out 0.2s</span>;
+}
+            </div>
+
+            <h4>Timing Functions</h4>
+            <div class="code-block">
+<span class="selector-highlight">.ease-linear</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">linear</span>; }
+<span class="selector-highlight">.ease</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">ease</span>; }
+<span class="selector-highlight">.ease-in</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">ease-in</span>; }
+<span class="selector-highlight">.ease-out</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">ease-out</span>; }
+<span class="selector-highlight">.ease-in-out</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">ease-in-out</span>; }
+<span class="selector-highlight">.cubic-bezier</span> { <span class="property-highlight">transition-timing-function</span>: <span class="value-highlight">cubic-bezier(0.68, -0.55, 0.265, 1.55)</span>; }
+            </div>
+
+            <h3>CSS Animations</h3>
+            
+            <h4>Keyframes</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@keyframes</span> slideIn {
+    <span class="value-highlight">0%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateX(-100%)</span>;
+        <span class="property-highlight">opacity</span>: <span class="value-highlight">0</span>;
+    }
+    <span class="value-highlight">100%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateX(0)</span>;
+        <span class="property-highlight">opacity</span>: <span class="value-highlight">1</span>;
+    }
+}
+            </div>
+
+            <h4>Animation Properties</h4>
+            <div class="code-block">
+<span class="selector-highlight">.animated-box</span> {
+    <span class="property-highlight">animation-name</span>: <span class="value-highlight">slideIn</span>;
+    <span class="property-highlight">animation-duration</span>: <span class="value-highlight">1s</span>;
+    <span class="property-highlight">animation-timing-function</span>: <span class="value-highlight">ease-out</span>;
+    <span class="property-highlight">animation-delay</span>: <span class="value-highlight">0.5s</span>;
+    <span class="property-highlight">animation-iteration-count</span>: <span class="value-highlight">infinite</span>;
+    <span class="property-highlight">animation-direction</span>: <span class="value-highlight">alternate</span>;
+    <span class="property-highlight">animation-fill-mode</span>: <span class="value-highlight">forwards</span>;
+    
+    <span class="syntax-highlight">/* Shorthand */</span>
+    <span class="property-highlight">animation</span>: <span class="value-highlight">slideIn 1s ease-out 0.5s infinite alternate forwards</span>;
+}
+            </div>
+
+            <h4>Animation Iteration Count</h4>
+            <div class="code-block">
+<span class="selector-highlight">.once</span> { <span class="property-highlight">animation-iteration-count</span>: <span class="value-highlight">1</span>; }
+<span class="selector-highlight">.twice</span> { <span class="property-highlight">animation-iteration-count</span>: <span class="value-highlight">2</span>; }
+<span class="selector-highlight">.infinite</span> { <span class="property-highlight">animation-iteration-count</span>: <span class="value-highlight">infinite</span>; }
+            </div>
+
+            <h4>Animation Direction</h4>
+            <div class="code-block">
+<span class="selector-highlight">.normal</span> { <span class="property-highlight">animation-direction</span>: <span class="value-highlight">normal</span>; }
+<span class="selector-highlight">.reverse</span> { <span class="property-highlight">animation-direction</span>: <span class="value-highlight">reverse</span>; }
+<span class="selector-highlight">.alternate</span> { <span class="property-highlight">animation-direction</span>: <span class="value-highlight">alternate</span>; }
+<span class="selector-highlight">.alternate-reverse</span> { <span class="property-highlight">animation-direction</span>: <span class="value-highlight">alternate-reverse</span>; }
+            </div>
+
+            <h4>Animation Fill Mode</h4>
+            <div class="code-block">
+<span class="selector-highlight">.none</span> { <span class="property-highlight">animation-fill-mode</span>: <span class="value-highlight">none</span>; }
+<span class="selector-highlight">.forwards</span> { <span class="property-highlight">animation-fill-mode</span>: <span class="value-highlight">forwards</span>; }
+<span class="selector-highlight">.backwards</span> { <span class="property-highlight">animation-fill-mode</span>: <span class="value-highlight">backwards</span>; }
+<span class="selector-highlight">.both</span> { <span class="property-highlight">animation-fill-mode</span>: <span class="value-highlight">both</span>; }
+            </div>
+
+            <h3>Transform Functions</h3>
+            
+            <h4>2D Transforms</h4>
+            <div class="code-block">
+<span class="selector-highlight">.translate</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">translate(50px, 100px)</span>; }
+<span class="selector-highlight">.scale</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">scale(1.5)</span>; }
+<span class="selector-highlight">.rotate</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(45deg)</span>; }
+<span class="selector-highlight">.skew</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">skew(20deg, 10deg)</span>; }
+<span class="selector-highlight">.matrix</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">matrix(1, 0, 0, 1, 0, 0)</span>; }
+            </div>
+
+            <h4>3D Transforms</h4>
+            <div class="code-block">
+<span class="selector-highlight">.translate3d</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">translate3d(50px, 100px, 200px)</span>; }
+<span class="selector-highlight">.scale3d</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">scale3d(1.5, 1.2, 0.8)</span>; }
+<span class="selector-highlight">.rotate3d</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">rotate3d(1, 1, 1, 45deg)</span>; }
+<span class="selector-highlight">.perspective</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">perspective(500px) rotateX(45deg)</span>; }
+            </div>
+
+            <h3>Animation Examples</h3>
+            
+            <h4>Bounce Animation</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@keyframes</span> bounce {
+    <span class="value-highlight">0%, 20%, 50%, 80%, 100%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(0)</span>;
+    }
+    <span class="value-highlight">40%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(-30px)</span>;
+    }
+    <span class="value-highlight">60%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(-15px)</span>;
+    }
+}
+
+<span class="selector-highlight">.bounce</span> {
+    <span class="property-highlight">animation</span>: <span class="value-highlight">bounce 2s infinite</span>;
+}
+            </div>
+
+            <h4>Fade In Animation</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@keyframes</span> fadeIn {
+    <span class="value-highlight">from</span> {
+        <span class="property-highlight">opacity</span>: <span class="value-highlight">0</span>;
+    }
+    <span class="value-highlight">to</span> {
+        <span class="property-highlight">opacity</span>: <span class="value-highlight">1</span>;
+    }
+}
+
+<span class="selector-highlight">.fade-in</span> {
+    <span class="property-highlight">animation</span>: <span class="value-highlight">fadeIn 1s ease-in</span>;
+}
+            </div>
+
+            <h4>Spin Animation</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@keyframes</span> spin {
+    <span class="value-highlight">from</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(0deg)</span>;
+    }
+    <span class="value-highlight">to</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(360deg)</span>;
+    }
+}
+
+<span class="selector-highlight">.spin</span> {
+    <span class="property-highlight">animation</span>: <span class="value-highlight">spin 2s linear infinite</span>;
+}
+            </div>
+
+            <div class="example-box">
+                <h4>Animation Demo:</h4>
+                <div class="animation-demo bounce-animation">Bounce</div>
+                <div class="animation-demo rotate-animation">Rotate</div>
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Interactive Animation Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="triggerAnimation('bounce')">Bounce</button>
+                    <button class="demo-btn" onclick="triggerAnimation('fade')">Fade</button>
+                    <button class="demo-btn" onclick="triggerAnimation('slide')">Slide</button>
+                    <button class="demo-btn" onclick="triggerAnimation('spin')">Spin</button>
+                </div>
+                <div id="animationDemo" style="width: 100px; height: 100px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 10px; margin: 20px auto; display: flex; align-items: center; justify-content: center; color: white;">
+                    Demo
+                </div>
+            </div>
+
+            <div class="tip-box">
+                Use animations sparingly and purposefully. Too many animations can be distracting and negatively impact performance.
+            </div>
+
+            <div class="warning-box">
+                Always consider users who prefer reduced motion. Use the `prefers-reduced-motion` media query to respect user preferences.
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What is the difference between transition and animation in CSS?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">There is no difference</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Transitions are for simple state changes, animations are for complex sequences</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Animations are only for hover effects</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Transitions require JavaScript</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Advanced CSS Concepts -->
+        <div class="content-section" id="advanced">
+            <h2>7. Advanced CSS Concepts</h2>
+            
+            <h3>CSS Variables (Custom Properties)</h3>
+            
+            <h4>Declaring Variables</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Global variables */</span>
+<span class="selector-highlight">:root</span> {
+    <span class="property-highlight">--primary-color</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">--secondary-color</span>: <span class="value-highlight">#764ba2</span>;
+    <span class="property-highlight">--font-size-base</span>: <span class="value-highlight">16px</span>;
+    <span class="property-highlight">--spacing-unit</span>: <span class="value-highlight">8px</span>;
+}
+
+<span class="syntax-highlight">/* Local variables */</span>
+<span class="selector-highlight">.component</span> {
+    <span class="property-highlight">--component-bg</span>: <span class="value-highlight">#f0f0f0</span>;
+    <span class="property-highlight">--component-padding</span>: <span class="value-highlight">20px</span>;
+}
+            </div>
+
+            <h4>Using Variables</h4>
+            <div class="code-block">
+<span class="selector-highlight">.button</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">var(--primary-color)</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3)</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">var(--font-size-base)</span>;
+}
+
+<span class="selector-highlight">.button:hover</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">var(--secondary-color)</span>;
+}
+            </div>
+
+            <h4>Fallback Values</h4>
+            <div class="code-block">
+<span class="selector-highlight">.element</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">var(--custom-color, #333)</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">var(--custom-size, var(--font-size-base, 16px))</span>;
+}
+            </div>
+
+            <h3>CSS Functions</h3>
+            
+            <h4>Calc() Function</h4>
+            <div class="code-block">
+<span class="selector-highlight">.container</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">calc(100% - 40px)</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">calc(100vh - 100px)</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">calc(var(--spacing-unit) * 2)</span>;
+}
+            </div>
+
+            <h4>Min(), Max(), Clamp()</h4>
+            <div class="code-block">
+<span class="selector-highlight">.responsive-text</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">min(2vw, 18px)</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">max(300px, 50%)</span>;
+    <span class="property-highlight">line-height</span>: <span class="value-highlight">clamp(1.2, 1.5vw, 1.8)</span>;
+}
+            </div>
+
+            <h4>Color Functions</h4>
+            <div class="code-block">
+<span class="selector-highlight">.element</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">rgb(255, 0, 0)</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">rgba(255, 0, 0, 0.5)</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">hsl(0, 100%, 50%)</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">hsla(0, 100%, 50%, 0.5)</span>;
+}
+            </div>
+
+            <h3>CSS Counters</h3>
+            <div class="code-block">
+<span class="selector-highlight">body</span> {
+    <span class="property-highlight">counter-reset</span>: <span class="value-highlight">section</span>;
+}
+
+<span class="selector-highlight">h2</span> {
+    <span class="property-highlight">counter-increment</span>: <span class="value-highlight">section</span>;
+}
+
+<span class="selector-highlight">h2:before</span> {
+    <span class="property-highlight">content</span>: <span class="value-highlight">"Section " counter(section) ": "</span>;
+}
+            </div>
+
+            <h3>CSS Shapes</h3>
+            <div class="code-block">
+<span class="selector-highlight">.circle</span> {
+    <span class="property-highlight">shape-outside</span>: <span class="value-highlight">circle(50%)</span>;
+    <span class="property-highlight">float</span>: <span class="value-highlight">left</span>;
+    <span class="property-highlight">width</span>: <span class="value-highlight">200px</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">200px</span>;
+}
+
+<span class="selector-highlight">.polygon</span> {
+    <span class="property-highlight">shape-outside</span>: <span class="value-highlight">polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)</span>;
+    <span class="property-highlight">float</span>: <span class="value-highlight">right</span>;
+}
+            </div>
+
+            <h3>CSS Blend Modes</h3>
+            <div class="code-block">
+<span class="selector-highlight">.blend-multiply</span> {
+    <span class="property-highlight">mix-blend-mode</span>: <span class="value-highlight">multiply</span>;
+}
+
+<span class="selector-highlight">.blend-screen</span> {
+    <span class="property-highlight">mix-blend-mode</span>: <span class="value-highlight">screen</span>;
+}
+
+<span class="selector-highlight">.blend-overlay</span> {
+    <span class="property-highlight">mix-blend-mode</span>: <span class="value-highlight">overlay</span>;
+}
+
+<span class="selector-highlight">.background-blend</span> {
+    <span class="property-highlight">background-blend-mode</span>: <span class="value-highlight">multiply</span>;
+    <span class="property-highlight">background-image</span>: <span class="value-highlight">url('image.jpg'), linear-gradient(45deg, #667eea, #764ba2)</span>;
+}
+            </div>
+
+            <h3>CSS Filters</h3>
+            <div class="code-block">
+<span class="selector-highlight">.filter-blur</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">blur(5px)</span>;
+}
+
+<span class="selector-highlight">.filter-brightness</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">brightness(1.5)</span>;
+}
+
+<span class="selector-highlight">.filter-contrast</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">contrast(2)</span>;
+}
+
+<span class="selector-highlight">.filter-grayscale</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">grayscale(100%)</span>;
+}
+
+<span class="selector-highlight">.filter-sepia</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">sepia(100%)</span>;
+}
+
+<span class="selector-highlight">.filter-multiple</span> {
+    <span class="property-highlight">filter</span>: <span class="value-highlight">blur(2px) brightness(1.2) contrast(1.1)</span>;
+}
+            </div>
+
+            <h3>CSS Masking</h3>
+            <div class="code-block">
+<span class="selector-highlight">.mask-image</span> {
+    <span class="property-highlight">mask-image</span>: <span class="value-highlight">url('mask.png')</span>;
+    <span class="property-highlight">mask-mode</span>: <span class="value-highlight">alpha</span>;
+    <span class="property-highlight">mask-repeat</span>: <span class="value-highlight">no-repeat</span>;
+    <span class="property-highlight">mask-position</span>: <span class="value-highlight">center</span>;
+}
+
+<span class="selector-highlight">.mask-gradient</span> {
+    <span class="property-highlight">mask-image</span>: <span class="value-highlight">linear-gradient(45deg, transparent, black)</span>;
+}
+            </div>
+
+            <h3>CSS Grid Template Areas</h3>
+            <div class="code-block">
+<span class="selector-highlight">.grid-layout</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">grid</span>;
+    <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">200px 1fr 200px</span>;
+    <span class="property-highlight">grid-template-rows</span>: <span class="value-highlight">auto 1fr auto</span>;
+    <span class="property-highlight">grid-template-areas</span>: <span class="value-highlight">
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer"
+    </span>;
+    <span class="property-highlight">gap</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.header</span> { <span class="property-highlight">grid-area</span>: <span class="value-highlight">header</span>; }
+<span class="selector-highlight">.sidebar</span> { <span class="property-highlight">grid-area</span>: <span class="value-highlight">sidebar</span>; }
+<span class="selector-highlight">.main</span> { <span class="property-highlight">grid-area</span>: <span class="value-highlight">main</span>; }
+<span class="selector-highlight">.aside</span> { <span class="property-highlight">grid-area</span>: <span class="value-highlight">aside</span>; }
+<span class="selector-highlight">.footer</span> { <span class="property-highlight">grid-area</span>: <span class="value-highlight">footer</span>; }
+            </div>
+
+            <h3>CSS Logical Properties</h3>
+            <div class="code-block">
+<span class="selector-highlight">.logical</span> {
+    <span class="property-highlight">margin-inline-start</span>: <span class="value-highlight">20px</span>;     <span class="syntax-highlight">/* margin-left in LTR, margin-right in RTL */</span>
+    <span class="property-highlight">margin-inline-end</span>: <span class="value-highlight">20px</span>;       <span class="syntax-highlight">/* margin-right in LTR, margin-left in RTL */</span>
+    <span class="property-highlight">margin-block-start</span>: <span class="value-highlight">10px</span>;      <span class="syntax-highlight">/* margin-top */</span>
+    <span class="property-highlight">margin-block-end</span>: <span class="value-highlight">10px</span>;        <span class="syntax-highlight">/* margin-bottom */</span>
+    
+    <span class="property-highlight">padding-inline</span>: <span class="value-highlight">20px</span>;          <span class="syntax-highlight">/* padding-left and padding-right */</span>
+    <span class="property-highlight">padding-block</span>: <span class="value-highlight">10px</span>;           <span class="syntax-highlight">/* padding-top and padding-bottom */</span>
+    
+    <span class="property-highlight">border-inline</span>: <span class="value-highlight">2px solid #333</span>; <span class="syntax-highlight">/* border-left and border-right */</span>
+    <span class="property-highlight">border-block</span>: <span class="value-highlight">2px solid #333</span>;  <span class="syntax-highlight">/* border-top and border-bottom */</span>
+}
+            </div>
+
+            <h3>CSS Container Queries</h3>
+            <div class="code-block">
+<span class="selector-highlight">.container</span> {
+    <span class="property-highlight">container-type</span>: <span class="value-highlight">inline-size</span>;
+}
+
+<span class="syntax-highlight">@container</span> (<span class="property-highlight">min-width</span>: <span class="value-highlight">400px</span>) {
+    <span class="selector-highlight">.card</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+        <span class="property-highlight">flex-direction</span>: <span class="value-highlight">row</span>;
+    }
+}
+
+<span class="syntax-highlight">@container</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">399px</span>) {
+    <span class="selector-highlight">.card</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+        <span class="property-highlight">flex-direction</span>: <span class="value-highlight">column</span>;
+    }
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Advanced CSS Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleCSSVariables()">Toggle Variables</button>
+                    <button class="demo-btn" onclick="applyFilters()">Apply Filters</button>
+                    <button class="demo-btn" onclick="toggleBlendMode()">Toggle Blend Mode</button>
+                    <button class="demo-btn" onclick="resetAdvanced()">Reset</button>
+                </div>
+                <div id="advancedDemo" style="width: 200px; height: 200px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 10px; margin: 20px auto; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    Advanced Demo
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What are CSS variables also known as?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Dynamic properties</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Style variables</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Custom properties</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Theme properties</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Best Practices -->
+        <div class="content-section" id="best-practices">
+            <h2>8. CSS Best Practices</h2>
+            
+            <h3>Organization and Structure</h3>
+            
+            <h4>File Organization</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Recommended file structure */</span>
+styles/
+├── main.css
+├── components/
+│   ├── buttons.css
+│   ├── cards.css
+│   └── forms.css
+├── layout/
+│   ├── header.css
+│   ├── footer.css
+│   └── grid.css
+├── pages/
+│   ├── home.css
+│   └── about.css
+└── utilities/
+    ├── helpers.css
+    └── variables.css
+            </div>
+
+            <h4>CSS Architecture Methodologies</h4>
+            
+            <h5>BEM (Block Element Modifier)</h5>
+            <div class="code-block">
+<span class="syntax-highlight">/* Block */</span>
+<span class="selector-highlight">.card</span> { }
+
+<span class="syntax-highlight">/* Element */</span>
+<span class="selector-highlight">.card__title</span> { }
+<span class="selector-highlight">.card__content</span> { }
+
+<span class="syntax-highlight">/* Modifier */</span>
+<span class="selector-highlight">.card--featured</span> { }
+<span class="selector-highlight">.card__title--large</span> { }
+            </div>
+
+            <h5>SMACSS (Scalable and Modular Architecture for CSS)</h5>
+            <div class="code-block">
+<span class="syntax-highlight">/* Base */</span>
+<span class="selector-highlight">body</span>, <span class="selector-highlight">h1</span>, <span class="selector-highlight">p</span> { }
+
+<span class="syntax-highlight">/* Layout */</span>
+<span class="selector-highlight">.l-header</span>, <span class="selector-highlight">.l-footer</span> { }
+
+<span class="syntax-highlight">/* Module */</span>
+<span class="selector-highlight">.btn</span>, <span class="selector-highlight">.card</span> { }
+
+<span class="syntax-highlight">/* State */</span>
+<span class="selector-highlight">.is-active</span>, <span class="selector-highlight">.is-hidden</span> { }
+
+<span class="syntax-highlight">/* Theme */</span>
+<span class="selector-highlight">.theme-dark</span> { }
+            </div>
+
+            <h5>Atomic CSS</h5>
+            <div class="code-block">
+<span class="selector-highlight">.d-flex</span> { <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>; }
+<span class="selector-highlight">.text-center</span> { <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>; }
+<span class="selector-highlight">.mt-20</span> { <span class="property-highlight">margin-top</span>: <span class="value-highlight">20px</span>; }
+<span class="selector-highlight">.p-10</span> { <span class="property-highlight">padding</span>: <span class="value-highlight">10px</span>; }
+            </div>
+
+            <h3>Performance Optimization</h3>
+            
+            <h4>Minimize CSS Size</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Before */</span>
+<span class="selector-highlight">.button</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">#ffffff</span>;
+    <span class="property-highlight">padding-top</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">padding-right</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">padding-bottom</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">padding-left</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="syntax-highlight">/* After - Optimized */</span>
+<span class="selector-highlight">.button</span>{<span class="property-highlight">background</span>:<span class="value-highlight">#667eea</span>;<span class="property-highlight">color</span>:<span class="value-highlight">#fff</span>;<span class="property-highlight">padding</span>:<span class="value-highlight">10px 20px</span>}
+            </div>
+
+            <h4>Use Efficient Selectors</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Inefficient */</span>
+<span class="selector-highlight">div.container div.content ul li a</span> { }
+
+<span class="syntax-highlight">/* Efficient */</span>
+<span class="selector-highlight">.nav-link</span> { }
+            </div>
+
+            <h4>Avoid @import</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Bad - blocks parallel downloads */</span>
+<span class="syntax-highlight">@import</span> <span class="value-highlight">url('styles.css')</span>;
+
+<span class="syntax-highlight">/* Good - use link tag */</span>
+&lt;link <span class="syntax-highlight">rel</span>="<span class="value-highlight">stylesheet</span>" <span class="syntax-highlight">href</span>="<span class="value-highlight">styles.css</span>"&gt;
+            </div>
+
+            <h3>Maintainability</h3>
+            
+            <h4>Use CSS Variables</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Define variables */</span>
+<span class="selector-highlight">:root</span> {
+    <span class="property-highlight">--primary-color</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">--secondary-color</span>: <span class="value-highlight">#764ba2</span>;
+    <span class="property-highlight">--spacing-sm</span>: <span class="value-highlight">8px</span>;
+    <span class="property-highlight">--spacing-md</span>: <span class="value-highlight">16px</span>;
+    <span class="property-highlight">--spacing-lg</span>: <span class="value-highlight">24px</span>;
+}
+
+<span class="syntax-highlight">/* Use variables */</span>
+<span class="selector-highlight">.btn-primary</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">var(--primary-color)</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">var(--spacing-md) var(--spacing-lg)</span>;
+}
+            </div>
+
+            <h4>Comment Your Code</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* ============================================
+   COMPONENT: Button
+   ============================================ */</span>
+
+<span class="syntax-highlight">/* Base button styles */</span>
+<span class="selector-highlight">.btn</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">inline-block</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">10px 20px</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">4px</span>;
+    <span class="property-highlight">cursor</span>: <span class="value-highlight">pointer</span>;
+}
+
+<span class="syntax-highlight">/* Primary button variation */</span>
+<span class="selector-highlight">.btn--primary</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+}
+            </div>
+
+            <h4>Follow Naming Conventions</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Use hyphens for class names */</span>
+<span class="selector-highlight">.main-header</span> { }      <span class="syntax-highlight">/* Good */</span>
+<span class="selector-highlight">.mainHeader</span> { }      <span class="syntax-highlight">/* Bad */</span>
+<span class="selector-highlight">.main_header</span> { }     <span class="syntax-highlight">/* Bad */</span>
+
+<span class="syntax-highlight">/* Be descriptive */</span>
+<span class="selector-highlight">.user-profile-card</span> { }  <span class="syntax-highlight">/* Good */</span>
+<span class="selector-highlight">.card</span> { }              <span class="syntax-highlight">/* Too generic */</span>
+<span class="selector-highlight">.blue-card</span> { }         <span class="syntax-highlight">/* Avoid color names */</span>
+            </div>
+
+            <h3>Accessibility</h3>
+            
+            <h4>Use Relative Units</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Good - relative units */</span>
+<span class="selector-highlight">body</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">16px</span>;
+}
+
+<span class="selector-highlight">h1</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">2rem</span>;      <span class="syntax-highlight">/* 32px */</span>
+}
+
+<span class="selector-highlight">.container</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">90%</span>;
+    <span class="property-highlight">max-width</span>: <span class="value-highlight">1200px</span>;
+}
+
+<span class="syntax-highlight">/* Bad - absolute units */</span>
+<span class="selector-highlight">h1</span> {
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">32px</span>;     <span class="syntax-highlight">/* Not scalable */</span>
+}
+            </div>
+
+            <h4>Provide Sufficient Color Contrast</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Good contrast ratios */</span>
+<span class="selector-highlight">.text-primary</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">#333333</span>;     <span class="syntax-highlight">/* On white background */</span>
+}
+
+<span class="selector-highlight">.text-secondary</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">#666666</span>;     <span class="syntax-highlight">/* On white background */</span>
+}
+
+<span class="syntax-highlight">/* Bad - low contrast */</span>
+<span class="selector-highlight">.text-low-contrast</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">#cccccc</span>;     <span class="syntax-highlight">/* On white background */</span>
+}
+            </div>
+
+            <h4>Respect User Preferences</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Reduce motion for users who prefer it */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">prefers-reduced-motion</span>: <span class="value-highlight">reduce</span>) {
+    <span class="selector-highlight">*</span> {
+        <span class="property-highlight">animation-duration</span>: <span class="value-highlight">0.01ms</span> <span class="syntax-highlight">!important</span>;
+        <span class="property-highlight">animation-iteration-count</span>: <span class="value-highlight">1</span> <span class="syntax-highlight">!important</span>;
+        <span class="property-highlight">transition-duration</span>: <span class="value-highlight">0.01ms</span> <span class="syntax-highlight">!important</span>;
+    }
+}
+
+<span class="syntax-highlight">/* Support dark mode */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">prefers-color-scheme</span>: <span class="value-highlight">dark</span>) {
+    <span class="selector-highlight">:root</span> {
+        <span class="property-highlight">--bg-color</span>: <span class="value-highlight">#1a1a1a</span>;
+        <span class="property-highlight">--text-color</span>: <span class="value-highlight">#ffffff</span>;
+    }
+}
+            </div>
+
+            <h3>Browser Compatibility</h3>
+            
+            <h4>Use Vendor Prefixes</h4>
+            <div class="code-block">
+<span class="selector-highlight">.element</span> {
+    <span class="property-highlight">-webkit-transform</span>: <span class="value-highlight">rotate(45deg)</span>;
+    <span class="property-highlight">-moz-transform</span>: <span class="value-highlight">rotate(45deg)</span>;
+    <span class="property-highlight">-ms-transform</span>: <span class="value-highlight">rotate(45deg)</span>;
+    <span class="property-highlight">-o-transform</span>: <span class="value-highlight">rotate(45deg)</span>;
+    <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(45deg)</span>;
+}
+            </div>
+
+            <h4>Provide Fallbacks</h4>
+            <div class="code-block">
+<span class="selector-highlight">.gradient-bg</span> {
+    <span class="property-highlight">background-color</span>: <span class="value-highlight">#667eea</span>;     <span class="syntax-highlight">/* Fallback */</span>
+    <span class="property-highlight">background</span>: <span class="value-highlight">linear-gradient(45deg, #667eea, #764ba2)</span>;
+}
+
+<span class="selector-highlight">.flexible-layout</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">block</span>;              <span class="syntax-highlight">/* Fallback */</span>
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+}
+            </div>
+
+            <h4>Use Feature Queries</h4>
+            <div class="code-block">
+<span class="syntax-highlight">@supports</span> (<span class="property-highlight">display</span>: <span class="value-highlight">grid</span>) {
+    <span class="selector-highlight">.container</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">grid</span>;
+        <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">repeat(3, 1fr)</span>;
+    }
+}
+
+<span class="syntax-highlight">@supports</span> <span class="syntax-highlight">not</span> (<span class="property-highlight">display</span>: <span class="value-highlight">grid</span>) {
+    <span class="selector-highlight">.container</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+        <span class="property-highlight">flex-wrap</span>: <span class="value-highlight">wrap</span>;
+    }
+}
+            </div>
+
+            <h3>Testing and Debugging</h3>
+            
+            <h4>Use Browser Developer Tools</h4>
+            <ul>
+                <li><strong>Elements Panel</strong> - Inspect and modify HTML/CSS</li>
+                <li><strong>Computed Styles</strong> - See final applied styles</li>
+                <li><strong>Box Model</strong> - Visualize padding, border, margin</li>
+                <li><strong>Animation Panel</strong> - Debug animations</li>
+                <li><strong>Responsive Design Mode</strong> - Test different screen sizes</li>
+            </ul>
+
+            <h4>Validate Your CSS</h4>
+            <div class="code-block">
+<span class="syntax-highlight">/* Use CSS validators */</span>
+<span class="syntax-highlight">/* W3C CSS Validator: https://jigsaw.w3.org/css-validator/ */</span>
+<span class="syntax-highlight">/* CSS Lint: https://csslint.net/ */</span>
+            </div>
+
+            <h4>Performance Testing</h4>
+            <ul>
+                <li>Use Lighthouse for performance audits</li>
+                <li>Check CSS file sizes and load times</li>
+                <li>Monitor render-blocking CSS</li>
+                <li>Test on real devices and browsers</li>
+            </ul>
+
+            <div class="tip-box">
+                Always write CSS with maintainability in mind. Your future self (or other developers) will thank you!
+            </div>
+
+            <div class="warning-box">
+                Avoid using !important unless absolutely necessary. It makes debugging difficult and breaks the natural cascade.
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What is the recommended approach for CSS file organization?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Put everything in one large file</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Use inline styles only</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Organize into logical modules and components</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Use JavaScript to generate all styles</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Practical Exercises -->
+        <div class="content-section" id="exercises">
+            <h2>9. Practical Exercises</h2>
+            
+            <h3>Exercise 1: Build a Responsive Card</h3>
+            <p>Create a responsive card component that adapts to different screen sizes.</p>
+            
+            <div class="code-block">
+<span class="syntax-highlight">/* HTML Structure */</span>
+&lt;div class="card"&gt;
+    &lt;img src="image.jpg" alt="Card image" class="card-image"&gt;
+    &lt;div class="card-content"&gt;
+        &lt;h3 class="card-title"&gt;Card Title&lt;/h3&gt;
+        &lt;p class="card-text"&gt;This is the card content. It should be responsive and look good on all devices.&lt;/p&gt;
+        &lt;button class="card-button"&gt;Learn More&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+<span class="syntax-highlight">/* CSS - Your turn to complete! */</span>
+<span class="selector-highlight">.card</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.card-image</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.card-content</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.card-title</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.card-text</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.card-button</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="syntax-highlight">/* Add responsive breakpoints */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="property-highlight">/* Mobile styles */</span>
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Exercise 1 Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="showSolution('card1')">Show Solution</button>
+                    <button class="demo-btn" onclick="hideSolution('card1')">Hide Solution</button>
+                </div>
+                <div id="card1-solution" style="display: none;">
+                    <div class="code-block">
+<span class="selector-highlight">.card</span> {
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">box-shadow</span>: <span class="value-highlight">0 4px 6px rgba(0, 0, 0, 0.1)</span>;
+    <span class="property-highlight">overflow</span>: <span class="value-highlight">hidden</span>;
+    <span class="property-highlight">max-width</span>: <span class="value-highlight">400px</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">20px auto</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">white</span>;
+}
+
+<span class="selector-highlight">.card-image</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">100%</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">200px</span>;
+    <span class="property-highlight">object-fit</span>: <span class="value-highlight">cover</span>;
+}
+
+<span class="selector-highlight">.card-content</span> {
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.card-title</span> {
+    <span class="property-highlight">margin</span>: <span class="value-highlight">0 0 10px 0</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">#333</span>;
+}
+
+<span class="selector-highlight">.card-text</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">#666</span>;
+    <span class="property-highlight">line-height</span>: <span class="value-highlight">1.6</span>;
+    <span class="property-highlight">margin-bottom</span>: <span class="value-highlight">15px</span>;
+}
+
+<span class="selector-highlight">.card-button</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">10px 20px</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">5px</span>;
+    <span class="property-highlight">cursor</span>: <span class="value-highlight">pointer</span>;
+    <span class="property-highlight">transition</span>: <span class="value-highlight">background 0.3s ease</span>;
+}
+
+<span class="selector-highlight">.card-button:hover</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#5a67d8</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.card</span> {
+        <span class="property-highlight">margin</span>: <span class="value-highlight">10px</span>;
+        <span class="property-highlight">max-width</span>: <span class="value-highlight">100%</span>;
+    }
+    
+    <span class="selector-highlight">.card-image</span> {
+        <span class="property-highlight">height</span>: <span class="value-highlight">150px</span>;
+    }
+}
+                    </div>
+                </div>
+            </div>
+
+            <h3>Exercise 2: Create a Navigation Bar</h3>
+            <p>Build a responsive navigation bar that collapses on mobile devices.</p>
+            
+            <div class="code-block">
+<span class="syntax-highlight">/* HTML Structure */</span>
+&lt;nav class="navbar"&gt;
+    &lt;div class="navbar-brand"&gt;Logo&lt;/div&gt;
+    &lt;ul class="navbar-menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;button class="navbar-toggle"&gt;☰&lt;/button&gt;
+&lt;/nav&gt;
+
+<span class="syntax-highlight">/* CSS - Complete the navigation styles */</span>
+<span class="selector-highlight">.navbar</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.navbar-brand</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.navbar-menu</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.navbar-menu li</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.navbar-menu a</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.navbar-toggle</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="syntax-highlight">/* Add mobile responsiveness */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="property-highlight">/* Mobile styles */</span>
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Exercise 2 Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="showSolution('nav1')">Show Solution</button>
+                    <button class="demo-btn" onclick="hideSolution('nav1')">Hide Solution</button>
+                </div>
+                <div id="nav1-solution" style="display: none;">
+                    <div class="code-block">
+<span class="selector-highlight">.navbar</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">justify-content</span>: <span class="value-highlight">space-between</span>;
+    <span class="property-highlight">align-items</span>: <span class="value-highlight">center</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">1rem</span>;
+}
+
+<span class="selector-highlight">.navbar-brand</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">1.5rem</span>;
+    <span class="property-highlight">font-weight</span>: <span class="value-highlight">bold</span>;
+}
+
+<span class="selector-highlight">.navbar-menu</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">list-style</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">0</span>;
+}
+
+<span class="selector-highlight">.navbar-menu li</span> {
+    <span class="property-highlight">margin-left</span>: <span class="value-highlight">1rem</span>;
+}
+
+<span class="selector-highlight">.navbar-menu a</span> {
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">text-decoration</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">0.5rem 1rem</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">4px</span>;
+    <span class="property-highlight">transition</span>: <span class="value-highlight">background 0.3s ease</span>;
+}
+
+<span class="selector-highlight">.navbar-menu a:hover</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#555</span>;
+}
+
+<span class="selector-highlight">.navbar-toggle</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">none</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">font-size</span>: <span class="value-highlight">1.5rem</span>;
+    <span class="property-highlight">cursor</span>: <span class="value-highlight">pointer</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.navbar-menu</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">none</span>;
+        <span class="property-highlight">position</span>: <span class="value-highlight">absolute</span>;
+        <span class="property-highlight">top</span>: <span class="value-highlight">100%</span>;
+        <span class="property-highlight">left</span>: <span class="value-highlight">0</span>;
+        <span class="property-highlight">width</span>: <span class="value-highlight">100%</span>;
+        <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+        <span class="property-highlight">flex-direction</span>: <span class="value-highlight">column</span>;
+        <span class="property-highlight">padding</span>: <span class="value-highlight">1rem</span>;
+    }
+    
+    <span class="selector-highlight">.navbar-menu.active</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    }
+    
+    <span class="selector-highlight">.navbar-menu li</span> {
+        <span class="property-highlight">margin</span>: <span class="value-highlight">0.5rem 0</span>;
+    }
+    
+    <span class="selector-highlight">.navbar-toggle</span> {
+        <span class="property-highlight">display</span>: <span class="value-highlight">block</span>;
+    }
+}
+                    </div>
+                </div>
+            </div>
+
+            <h3>Exercise 3: Build a Flexbox Layout</h3>
+            <p>Create a responsive layout using Flexbox with a header, main content, sidebar, and footer.</p>
+            
+            <div class="code-block">
+<span class="syntax-highlight">/* HTML Structure */</span>
+&lt;div class="layout"&gt;
+    &lt;header class="header"&gt;Header&lt;/header&gt;
+    &lt;div class="main-content"&gt;
+        &lt;main class="main"&gt;Main Content&lt;/main&gt;
+        &lt;aside class="sidebar"&gt;Sidebar&lt;/aside&gt;
+    &lt;/div&gt;
+    &lt;footer class="footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+<span class="syntax-highlight">/* CSS - Create the flexbox layout */</span>
+<span class="selector-highlight">.layout</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.header</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.main-content</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.main</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.sidebar</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="selector-highlight">.footer</span> {
+    <span class="property-highlight">/* Add your styles here */</span>
+}
+
+<span class="syntax-highlight">/* Add responsive design */</span>
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="property-highlight">/* Mobile styles */</span>
+}
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Exercise 3 Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="showSolution('flex1')">Show Solution</button>
+                    <button class="demo-btn" onclick="hideSolution('flex1')">Hide Solution</button>
+                </div>
+                <div id="flex1-solution" style="display: none;">
+                    <div class="code-block">
+<span class="selector-highlight">.layout</span> {
+    <span class="property-highlight">min-height</span>: <span class="value-highlight">100vh</span>;
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">flex-direction</span>: <span class="value-highlight">column</span>;
+}
+
+<span class="selector-highlight">.header</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">1rem</span>;
+    <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>;
+}
+
+<span class="selector-highlight">.main-content</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">flex</span>: <span class="value-highlight">1</span>;
+}
+
+<span class="selector-highlight">.main</span> {
+    <span class="property-highlight">flex</span>: <span class="value-highlight">2</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">2rem</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#f4f4f4</span>;
+}
+
+<span class="selector-highlight">.sidebar</span> {
+    <span class="property-highlight">flex</span>: <span class="value-highlight">1</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">2rem</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#e9e9e9</span>;
+}
+
+<span class="selector-highlight">.footer</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">1rem</span>;
+    <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.main-content</span> {
+        <span class="property-highlight">flex-direction</span>: <span class="value-highlight">column</span>;
+    }
+    
+    <span class="selector-highlight">.main</span>, <span class="selector-highlight">.sidebar</span> {
+        <span class="property-highlight">flex</span>: <span class="value-highlight">none</span>;
+    }
+}
+                    </div>
+                </div>
+            </div>
+
+            <h3>Exercise 4: Create CSS Animations</h3>
+            <p>Create various CSS animations including hover effects, loading spinners, and page transitions.</p>
+            
+            <div class="code-block">
+<span class="syntax-highlight">/* HTML Structure */</span>
+&lt;div class="animations-demo"&gt;
+    &lt;div class="hover-card"&gt;Hover over me&lt;/div&gt;
+    &lt;div class="spinner"&gt;&lt;/div&gt;
+    &lt;div class="fade-in"&gt;Fade in animation&lt;/div&gt;
+    &lt;div class="bounce"&gt;Bounce animation&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="syntax-highlight">/* CSS - Create the animations */</span>
+<span class="selector-highlight">.hover-card</span> {
+    <span class="property-highlight">/* Add hover animation styles */</span>
+}
+
+<span class="selector-highlight">.spinner</span> {
+    <span class="property-highlight">/* Add loading spinner styles */</span>
+}
+
+<span class="selector-highlight">.fade-in</span> {
+    <span class="property-highlight">/* Add fade-in animation styles */</span>
+}
+
+<span class="selector-highlight">.bounce</span> {
+    <span class="property-highlight">/* Add bounce animation styles */</span>
+}
+
+<span class="syntax-highlight">/* Add keyframes for animations */</span>
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Exercise 4 Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="showSolution('anim1')">Show Solution</button>
+                    <button class="demo-btn" onclick="hideSolution('anim1')">Hide Solution</button>
+                </div>
+                <div id="anim1-solution" style="display: none;">
+                    <div class="code-block">
+<span class="selector-highlight">.hover-card</span> {
+    <span class="property-highlight">background</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">cursor</span>: <span class="value-highlight">pointer</span>;
+    <span class="property-highlight">transition</span>: <span class="value-highlight">all 0.3s ease</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">10px</span>;
+}
+
+<span class="selector-highlight">.hover-card:hover</span> {
+    <span class="property-highlight">transform</span>: <span class="value-highlight">scale(1.05)</span>;
+    <span class="property-highlight">box-shadow</span>: <span class="value-highlight">0 10px 20px rgba(0, 0, 0, 0.2)</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#764ba2</span>;
+}
+
+<span class="selector-highlight">.spinner</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">50px</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">50px</span>;
+    <span class="property-highlight">border</span>: <span class="value-highlight">5px solid #f3f3f3</span>;
+    <span class="property-highlight">border-top</span>: <span class="value-highlight">5px solid #667eea</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">50%</span>;
+    <span class="property-highlight">animation</span>: <span class="value-highlight">spin 1s linear infinite</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">10px</span>;
+}
+
+<span class="selector-highlight">.fade-in</span> {
+    <span class="property-highlight">opacity</span>: <span class="value-highlight">0</span>;
+    <span class="property-highlight">animation</span>: <span class="value-highlight">fadeIn 2s ease-in forwards</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#4caf50</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">10px</span>;
+}
+
+<span class="selector-highlight">.bounce</span> {
+    <span class="property-highlight">width</span>: <span class="value-highlight">100px</span>;
+    <span class="property-highlight">height</span>: <span class="value-highlight">100px</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#ff6b6b</span>;
+    <span class="property-highlight">border-radius</span>: <span class="value-highlight">50%</span>;
+    <span class="property-highlight">animation</span>: <span class="value-highlight">bounce 2s infinite</span>;
+    <span class="property-highlight">margin</span>: <span class="value-highlight">10px</span>;
+    <span class="property-highlight">display</span>: <span class="value-highlight">flex</span>;
+    <span class="property-highlight">align-items</span>: <span class="value-highlight">center</span>;
+    <span class="property-highlight">justify-content</span>: <span class="value-highlight">center</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+}
+
+<span class="syntax-highlight">@keyframes</span> spin {
+    <span class="value-highlight">0%</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(0deg)</span>; }
+    <span class="value-highlight">100%</span> { <span class="property-highlight">transform</span>: <span class="value-highlight">rotate(360deg)</span>; }
+}
+
+<span class="syntax-highlight">@keyframes</span> fadeIn {
+    <span class="value-highlight">from</span> { <span class="property-highlight">opacity</span>: <span class="value-highlight">0</span>; }
+    <span class="value-highlight">to</span> { <span class="property-highlight">opacity</span>: <span class="value-highlight">1</span>; }
+}
+
+<span class="syntax-highlight">@keyframes</span> bounce {
+    <span class="value-highlight">0%, 20%, 50%, 80%, 100%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(0)</span>;
+    }
+    <span class="value-highlight">40%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(-30px)</span>;
+    }
+    <span class="value-highlight">60%</span> {
+        <span class="property-highlight">transform</span>: <span class="value-highlight">translateY(-15px)</span>;
+    }
+}
+                    </div>
+                </div>
+            </div>
+
+            <h3>Exercise 5: Advanced CSS Grid Layout</h3>
+            <p>Create a complex layout using CSS Grid with multiple areas and responsive design.</p>
+            
+            <div class="code-block">
+<span class="syntax-highlight">/* HTML Structure */</span>
+&lt;div class="grid-layout"&gt;
+    &lt;header class="grid-header"&gt;Header&lt;/header&gt;
+    &lt;nav class="grid-nav"&gt;Navigation&lt;/nav&gt;
+    &lt;main class="grid-main"&gt;Main Content&lt;/main&gt;
+    &lt;aside class="grid-aside"&gt;Sidebar&lt;/aside&gt;
+    &lt;footer class="grid-footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+<span class="syntax-highlight">/* CSS - Create the grid layout */</span>
+<span class="selector-highlight">.grid-layout</span> {
+    <span class="property-highlight">/* Add grid layout styles */</span>
+}
+
+<span class="selector-highlight">.grid-header</span> {
+    <span class="property-highlight">/* Add header styles */</span>
+}
+
+<span class="selector-highlight">.grid-nav</span> {
+    <span class="property-highlight">/* Add navigation styles */</span>
+}
+
+<span class="selector-highlight">.grid-main</span> {
+    <span class="property-highlight">/* Add main content styles */</span>
+}
+
+<span class="selector-highlight">.grid-aside</span> {
+    <span class="property-highlight">/* Add sidebar styles */</span>
+}
+
+<span class="selector-highlight">.grid-footer</span> {
+    <span class="property-highlight">/* Add footer styles */</span>
+}
+
+<span class="syntax-highlight">/* Add responsive breakpoints */</span>
+            </div>
+
+            <div class="interactive-demo">
+                <h4>Exercise 5 Demo:</h4>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="showSolution('grid1')">Show Solution</button>
+                    <button class="demo-btn" onclick="hideSolution('grid1')">Hide Solution</button>
+                </div>
+                <div id="grid1-solution" style="display: none;">
+                    <div class="code-block">
+<span class="selector-highlight">.grid-layout</span> {
+    <span class="property-highlight">display</span>: <span class="value-highlight">grid</span>;
+    <span class="property-highlight">grid-template-areas</span>: <span class="value-highlight">
+        "header header header"
+        "nav main aside"
+        "footer footer footer"
+    </span>;
+    <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">200px 1fr 200px</span>;
+    <span class="property-highlight">grid-template-rows</span>: <span class="value-highlight">auto 1fr auto</span>;
+    <span class="property-highlight">min-height</span>: <span class="value-highlight">100vh</span>;
+    <span class="property-highlight">gap</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.grid-header</span> {
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">header</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>;
+}
+
+<span class="selector-highlight">.grid-nav</span> {
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">nav</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#667eea</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.grid-main</span> {
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">main</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#f4f4f4</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.grid-aside</span> {
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">aside</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#764ba2</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+}
+
+<span class="selector-highlight">.grid-footer</span> {
+    <span class="property-highlight">grid-area</span>: <span class="value-highlight">footer</span>;
+    <span class="property-highlight">background</span>: <span class="value-highlight">#333</span>;
+    <span class="property-highlight">color</span>: <span class="value-highlight">white</span>;
+    <span class="property-highlight">padding</span>: <span class="value-highlight">20px</span>;
+    <span class="property-highlight">text-align</span>: <span class="value-highlight">center</span>;
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">1024px</span>) {
+    <span class="selector-highlight">.grid-layout</span> {
+        <span class="property-highlight">grid-template-areas</span>: <span class="value-highlight">
+            "header header"
+            "nav main"
+            "aside aside"
+            "footer footer"
+        </span>;
+        <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">200px 1fr</span>;
+    }
+}
+
+<span class="syntax-highlight">@media</span> (<span class="property-highlight">max-width</span>: <span class="value-highlight">768px</span>) {
+    <span class="selector-highlight">.grid-layout</span> {
+        <span class="property-highlight">grid-template-areas</span>: <span class="value-highlight">
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer"
+        </span>;
+        <span class="property-highlight">grid-template-columns</span>: <span class="value-highlight">1fr</span>;
+    }
+}
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                Practice makes perfect! Try to complete each exercise before looking at the solution. Experiment with different properties and values to understand how they work.
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">What is the best way to learn CSS?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Just read documentation</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Watch videos only</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Practice with real projects and exercises</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Copy and paste code from others</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: CSS Reference -->
+        <div class="content-section" id="reference">
+            <h2>10. CSS Reference</h2>
+            
+            <h3>CSS Properties Quick Reference</h3>
+            
+            <h4>Layout Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">display</span>: block | inline | inline-block | flex | grid | none
+<span class="property-highlight">position</span>: static | relative | absolute | fixed | sticky
+<span class="property-highlight">top</span>: length | percentage | auto
+<span class="property-highlight">bottom</span>: length | percentage | auto
+<span class="property-highlight">left</span>: length | percentage | auto
+<span class="property-highlight">right</span>: length | percentage | auto
+<span class="property-highlight">z-index</span>: auto | integer
+<span class="property-highlight">float</span>: left | right | none
+<span class="property-highlight">clear</span>: left | right | both | none
+<span class="property-highlight">overflow</span>: visible | hidden | scroll | auto
+<span class="property-highlight">visibility</span>: visible | hidden | collapse
+            </div>
+
+            <h4>Box Model Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">width</span>: length | percentage | auto
+<span class="property-highlight">height</span>: length | percentage | auto
+<span class="property-highlight">min-width</span>: length | percentage
+<span class="property-highlight">max-width</span>: length | percentage | none
+<span class="property-highlight">min-height</span>: length | percentage
+<span class="property-highlight">max-height</span>: length | percentage | none
+<span class="property-highlight">margin</span>: length | percentage | auto
+<span class="property-highlight">padding</span>: length | percentage
+<span class="property-highlight">border</span>: width style color
+<span class="property-highlight">border-radius</span>: length | percentage
+<span class="property-highlight">box-sizing</span>: content-box | border-box
+            </div>
+
+            <h4>Text Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">color</span>: color
+<span class="property-highlight">font-family</span>: family-name | generic-family
+<span class="property-highlight">font-size</span>: length | percentage | absolute-size
+<span class="property-highlight">font-weight</span>: normal | bold | bolder | lighter | 100-900
+<span class="property-highlight">font-style</span>: normal | italic | oblique
+<span class="property-highlight">text-decoration</span>: none | underline | overline | line-through
+<span class="property-highlight">text-align</span>: left | right | center | justify
+<span class="property-highlight">text-transform</span>: none | capitalize | uppercase | lowercase
+<span class="property-highlight">line-height</span>: normal | number | length | percentage
+<span class="property-highlight">letter-spacing</span>: normal | length
+<span class="property-highlight">word-spacing</span>: normal | length
+<span class="property-highlight">white-space</span>: normal | nowrap | pre | pre-line | pre-wrap
+            </div>
+
+            <h4>Background Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">background-color</span>: color | transparent
+<span class="property-highlight">background-image</span>: url() | none
+<span class="property-highlight">background-repeat</span>: repeat | no-repeat | repeat-x | repeat-y | space | round
+<span class="property-highlight">background-position</span>: position | percentage | length
+<span class="property-highlight">background-size</span>: auto | cover | contain | length | percentage
+<span class="property-highlight">background-attachment</span>: scroll | fixed | local
+<span class="property-highlight">background-origin</span>: padding-box | border-box | content-box
+<span class="property-highlight">background-clip</span>: border-box | padding-box | content-box | text
+            </div>
+
+            <h4>Flexbox Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">display</span>: flex | inline-flex
+<span class="property-highlight">flex-direction</span>: row | row-reverse | column | column-reverse
+<span class="property-highlight">flex-wrap</span>: nowrap | wrap | wrap-reverse
+<span class="property-highlight">flex-flow</span>: direction wrap
+<span class="property-highlight">justify-content</span>: flex-start | flex-end | center | space-between | space-around | space-evenly
+<span class="property-highlight">align-items</span>: stretch | flex-start | flex-end | center | baseline
+<span class="property-highlight">align-content</span>: stretch | flex-start | flex-end | center | space-between | space-around
+<span class="property-highlight">gap</span>: length | percentage
+<span class="property-highlight">row-gap</span>: length | percentage
+<span class="property-highlight">column-gap</span>: length | percentage
+<span class="property-highlight">order</span>: integer
+<span class="property-highlight">flex-grow</span>: number
+<span class="property-highlight">flex-shrink</span>: number
+<span class="property-highlight">flex-basis</span>: length | percentage | auto
+<span class="property-highlight">flex</span>: grow shrink basis
+<span class="property-highlight">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch
+            </div>
+
+            <h4>Grid Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">display</span>: grid | inline-grid
+<span class="property-highlight">grid-template-columns</span>: track-list | none
+<span class="property-highlight">grid-template-rows</span>: track-list | none
+<span class="property-highlight">grid-template-areas</span>: none | string-list
+<span class="property-highlight">grid-template</span>: none | [row-line-names] track-size [grid-line-names]
+<span class="property-highlight">grid-auto-columns</span>: track-size
+<span class="property-highlight">grid-auto-rows</span>: track-size
+<span class="property-highlight">grid-auto-flow</span>: row | column | dense
+<span class="property-highlight">grid</span>: template-rows / template-columns
+<span class="property-highlight">grid-row-start</span>: grid-line
+<span class="property-highlight">grid-column-start</span>: grid-line
+<span class="property-highlight">grid-row-end</span>: grid-line
+<span class="property-highlight">grid-column-end</span>: grid-line
+<span class="property-highlight">grid-row</span>: grid-row-start / grid-row-end
+<span class="property-highlight">grid-column</span>: grid-column-start / grid-column-end
+<span class="property-highlight">grid-area</span>: grid-row-start / grid-column-start / grid-row-end / grid-column-end
+            </div>
+
+            <h4>Animation Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">animation-name</span>: none | identifier
+<span class="property-highlight">animation-duration</span>: time
+<span class="property-highlight">animation-timing-function</span>: ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier()
+<span class="property-highlight">animation-delay</span>: time
+<span class="property-highlight">animation-iteration-count</span>: infinite | number
+<span class="property-highlight">animation-direction</span>: normal | reverse | alternate | alternate-reverse
+<span class="property-highlight">animation-fill-mode</span>: none | forwards | backwards | both
+<span class="property-highlight">animation-play-state</span>: running | paused
+<span class="property-highlight">animation</span>: name duration timing-function delay iteration-count direction fill-mode play-state
+<span class="property-highlight">transition-property</span>: none | all | property
+<span class="property-highlight">transition-duration</span>: time
+<span class="property-highlight">transition-timing-function</span>: ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier()
+<span class="property-highlight">transition-delay</span>: time
+<span class="property-highlight">transition</span>: property duration timing-function delay
+            </div>
+
+            <h4>Transform Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">transform</span>: none | transform-function
+<span class="property-highlight">transform-origin</span>: position | percentage | length
+<span class="property-highlight">transform-style</span>: flat | preserve-3d
+<span class="property-highlight">perspective</span>: none | length
+<span class="property-highlight">perspective-origin</span>: position | percentage
+<span class="property-highlight">backface-visibility</span>: visible | hidden
+            </div>
+
+            <h4>Filter Properties</h4>
+            <div class="code-block">
+<span class="property-highlight">filter</span>: none | filter-function
+<span class="property-highlight">backdrop-filter</span>: none | filter-function
+<span class="property-highlight">blur()</span>: length
+<span class="property-highlight">brightness()</span>: percentage | number
+<span class="property-highlight">contrast()</span>: percentage | number
+<span class="property-highlight">drop-shadow()</span>: length length length color
+<span class="property-highlight">grayscale()</span>: percentage
+<span class="property-highlight">hue-rotate()</span>: angle
+<span class="property-highlight">invert()</span>: percentage
+<span class="property-highlight">opacity()</span>: percentage
+<span class="property-highlight">saturate()</span>: percentage
+<span class="property-highlight">sepia()</span>: percentage
+            </div>
+
+            <h3>CSS Units</h3>
+            
+            <h4>Absolute Lengths</h4>
+            <div class="code-block">
+<span class="value-highlight">cm</span>   - centimeters
+<span class="value-highlight">mm</span>   - millimeters
+<span class="value-highlight">in</span>   - inches (1in = 96px = 2.54cm)
+<span class="value-highlight">px</span>   - pixels (1px = 1/96th of 1in)
+<span class="value-highlight">pt</span>   - points (1pt = 1/72 of 1in)
+<span class="value-highlight">pc</span>   - picas (1pc = 12pt)
+            </div>
+
+            <h4>Relative Lengths</h4>
+            <div class="code-block">
+<span class="value-highlight">em</span>   - relative to font-size of element (2em = 2x font-size)
+<span class="value-highlight">rem</span>  - relative to font-size of root element
+<span class="value-highlight">ex</span>   - relative to x-height of current font
+<span class="value-highlight">ch</span>   - relative to width of "0" (zero)
+<span class="value-highlight">vh</span>   - relative to 1% of viewport height
+<span class="value-highlight">vw</span>   - relative to 1% of viewport width
+<span class="value-highlight">vmin</span> - relative to 1% of smaller viewport dimension
+<span class="value-highlight">vmax</span> - relative to 1% of larger viewport dimension
+<span class="value-highlight">%</span>    - relative to parent element
+            </div>
+
+            <h3>CSS Functions</h3>
+            
+            <h4>Mathematical Functions</h4>
+            <div class="code-block">
+<span class="syntax-highlight">calc()</span>   - performs calculations
+<span class="syntax-highlight">min()</span>    - returns the minimum value
+<span class="syntax-highlight">max()</span>    - returns the maximum value
+<span class="syntax-highlight">clamp()</span>  - clamps value between min and max
+            </div>
+
+            <h4>Color Functions</h4>
+            <div class="code-block">
+<span class="syntax-highlight">rgb()</span>    - red, green, blue
+<span class="syntax-highlight">rgba()</span>   - red, green, blue, alpha
+<span class="syntax-highlight">hsl()</span>    - hue, saturation, lightness
+<span class="syntax-highlight">hsla()</span>   - hue, saturation, lightness, alpha
+            </div>
+
+            <h4>Transform Functions</h4>
+            <div class="code-block">
+<span class="syntax-highlight">translate()</span>    - moves element
+<span class="syntax-highlight">scale()</span>        - scales element
+<span class="syntax-highlight">rotate()</span>       - rotates element
+<span class="syntax-highlight">skew()</span>         - skews element
+<span class="syntax-highlight">matrix()</span>       - 2D transformation matrix
+<span class="syntax-highlight">translate3d()</span>  - 3D translation
+<span class="syntax-highlight">scale3d()</span>      - 3D scaling
+<span class="syntax-highlight">rotate3d()</span>     - 3D rotation
+<span class="syntax-highlight">perspective()</span> - perspective transformation
+            </div>
+
+            <h4>Gradient Functions</h4>
+            <div class="code-block">
+<span class="syntax-highlight">linear-gradient()</span>    - linear gradient
+<span class="syntax-highlight">radial-gradient()</span>    - radial gradient
+<span class="syntax-highlight">conic-gradient()</span>     - conic gradient
+<span class="syntax-highlight">repeating-linear-gradient()</span> - repeating linear gradient
+<span class="syntax-highlight">repeating-radial-gradient()</span> - repeating radial gradient
+            </div>
+
+            <h3>CSS Pseudo-classes</h3>
+            <div class="code-block">
+<span class="selector-highlight">:link</span>      - unvisited links
+<span class="selector-highlight">:visited</span>   - visited links
+<span class="selector-highlight">:hover</span>     - mouse over element
+<span class="selector-highlight">:active</span>    - activated element
+<span class="selector-highlight">:focus</span>     - element has focus
+<span class="selector-highlight">:first-child</span> - first child of parent
+<span class="selector-highlight">:last-child</span>  - last child of parent
+<span class="selector-highlight">:nth-child()</span> - nth child of parent
+<span class="selector-highlight">:nth-of-type()</span> - nth element of type
+<span class="selector-highlight">:first-of-type</span> - first element of type
+<span class="selector-highlight">:last-of-type</span>  - last element of type
+<span class="selector-highlight">:not()</span>      - negation pseudo-class
+<span class="selector-highlight">:root</span>       - root element
+<span class="selector-highlight">:empty</span>      - empty elements
+<span class="selector-highlight">:target</span>     - target of anchor link
+<span class="selector-highlight">:enabled</span>    - enabled elements
+<span class="selector-highlight">:disabled</span>   - disabled elements
+<span class="selector-highlight">:checked</span>    - checked elements
+<span class="selector-highlight">:required</span>   - required elements
+<span class="selector-highlight">:valid</span>      - valid elements
+<span class="selector-highlight">:invalid</span>    - invalid elements
+            </div>
+
+            <h3>CSS Pseudo-elements</h3>
+            <div class="code-block">
+<span class="selector-highlight">::before</span>   - before element content
+<span class="selector-highlight">::after</span>    - after element content
+<span class="selector-highlight">::first-letter</span> - first letter of text
+<span class="selector-highlight">::first-line</span>   - first line of text
+<span class="selector-highlight">::selection</span>   - selected text
+<span class="selector-highlight">::placeholder</span>  - placeholder text
+<span class="selector-highlight">::marker</span>      - list marker
+            </div>
+
+            <h3>CSS At-rules</h3>
+            <div class="code-block">
+<span class="syntax-highlight">@charset</span>      - specifies character encoding
+<span class="syntax-highlight">@import</span>       - imports style sheet
+<span class="syntax-highlight">@namespace</span>    - declares XML namespace
+<span class="syntax-highlight">@media</span>        - media queries
+<span class="syntax-highlight">@supports</span>    - feature queries
+<span class="syntax-highlight">@document</span>    - document queries
+<span class="syntax-highlight">@page</span>         - page box for printed media
+<span class="syntax-highlight">@font-face</span>    - custom fonts
+<span class="syntax-highlight">@keyframes</span>   - animation keyframes
+<span class="syntax-highlight">@viewport</span>     - viewport settings
+<span class="syntax-highlight">@counter-style</span> - custom counter styles
+<span class="syntax-highlight">@font-feature-values</span> - font feature values
+            </div>
+
+            <h3>Browser Support</h3>
+            <div class="code-block">
+<span class="syntax-highlight">/* Vendor prefixes for better browser support */</span>
+<span class="property-highlight">-webkit-transform</span>: rotate(45deg);  <span class="syntax-highlight">/* Chrome, Safari, Opera */</span>
+<span class="property-highlight">-moz-transform</span>: rotate(45deg);     <span class="syntax-highlight">/* Firefox */</span>
+<span class="property-highlight">-ms-transform</span>: rotate(45deg);      <span class="syntax-highlight">/* IE */</span>
+<span class="property-highlight">-o-transform</span>: rotate(45deg);       <span class="syntax-highlight">/* Old Opera */</span>
+<span class="property-highlight">transform</span>: rotate(45deg);          <span class="syntax-highlight">/* Standard */</span>
+            </div>
+
+            <div class="tip-box">
+                Use this reference as a quick guide when working with CSS. For detailed information about each property, refer to the official CSS specifications or MDN Web Docs.
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question">Which CSS property is used to create flexible layouts?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">position</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">float</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">display: flex</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">margin</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've completed the comprehensive CSS mastery guide. You now have a solid foundation in CSS from basics to advanced concepts.</p>
+            <div id="completionBadges"></div>
+            <p>Keep practicing and building projects to reinforce your learning. Happy coding! 🚀</p>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Progress tracking
+        let completedSections = new Set();
+        let currentSection = 'basics';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            setupScrollToTop();
+        });
+
+        // Section navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update navigation
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Mark section as viewed
+            completedSections.add(sectionId);
+            currentSection = sectionId;
+            updateProgress();
+            updateBadges();
+        }
+
+        // Progress bar update
+        function updateProgress() {
+            const totalSections = 10;
+            const progress = (completedSections.size / totalSections) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Update completion badges
+        function updateBadges() {
+            const badgesContainer = document.getElementById('completionBadges');
+            badgesContainer.innerHTML = '';
+
+            if (completedSections.size >= 5) {
+                badgesContainer.innerHTML += '<span class="completion-badge">🥉 Half Way!</span>';
+            }
+            if (completedSections.size >= 8) {
+                badgesContainer.innerHTML += '<span class="completion-badge">🥈 Almost There!</span>';
+            }
+            if (completedSections.size === 10) {
+                badgesContainer.innerHTML += '<span class="completion-badge">🏆 CSS Master!</span>';
+            }
+        }
+
+        // Search functionality
+        function searchContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('.content-section');
+            
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                if (content.includes(searchTerm) && searchTerm !== '') {
+                    section.style.display = 'block';
+                    section.style.border = '2px solid #4caf50';
+                } else {
+                    section.style.display = 'none';
+                    section.style.border = 'none';
+                }
+            });
+
+            if (searchTerm === '') {
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(currentSection).style.display = 'block';
+            }
+        }
+
+        // Interactive demos
+        function changeColor(color) {
+            document.getElementById('colorDemo').style.background = color;
+        }
+
+        function highlightElements(selector) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.style.background = '#ffeb3b';
+                element.style.transition = 'background 0.3s ease';
+            });
+        }
+
+        function resetHighlight() {
+            const elements = document.querySelectorAll('p, h3, .code-block');
+            elements.forEach(element => {
+                element.style.background = '';
+            });
+        }
+
+        function updateBoxModel(property) {
+            const demo = document.getElementById('boxModelDemo');
+            switch(property) {
+                case 'padding':
+                    demo.style.padding = '20px';
+                    break;
+                case 'border':
+                    demo.style.border = '5px solid #e74c3c';
+                    break;
+                case 'margin':
+                    demo.style.margin = '30px';
+                    break;
+            }
+        }
+
+        function resetBoxModel() {
+            const demo = document.getElementById('boxModelDemo');
+            demo.style.padding = '';
+            demo.style.border = '';
+            demo.style.margin = '20px auto';
+        }
+
+        function changeLayout(type) {
+            const demo = document.getElementById('layoutDemo');
+            const innerDiv = demo.querySelector('div');
+            
+            switch(type) {
+                case 'flex':
+                    demo.style.display = 'flex';
+                    demo.style.alignItems = 'center';
+                    demo.style.justifyContent = 'center';
+                    break;
+                case 'grid':
+                    demo.style.display = 'grid';
+                    demo.style.placeItems = 'center';
+                    break;
+                case 'center':
+                    innerDiv.style.position = 'absolute';
+                    innerDiv.style.top = '50%';
+                    innerDiv.style.left = '50%';
+                    innerDiv.style.transform = 'translate(-50%, -50%)';
+                    break;
+                case 'reset':
+                    demo.style.display = 'block';
+                    demo.style.alignItems = '';
+                    demo.style.justifyContent = '';
+                    demo.style.placeItems = '';
+                    innerDiv.style.position = '';
+                    innerDiv.style.top = '';
+                    innerDiv.style.left = '';
+                    innerDiv.style.transform = '';
+                    break;
+            }
+        }
+
+        function testResponsive(size) {
+            const demo = document.getElementById('responsiveDemo');
+            switch(size) {
+                case 'mobile':
+                    demo.style.maxWidth = '375px';
+                    break;
+                case 'tablet':
+                    demo.style.maxWidth = '768px';
+                    break;
+                case 'desktop':
+                    demo.style.maxWidth = '1200px';
+                    break;
+                case 'reset':
+                    demo.style.maxWidth = '';
+                    break;
+            }
+        }
+
+        function triggerAnimation(type) {
+            const demo = document.getElementById('animationDemo');
+            demo.style.animation = 'none';
+            
+            setTimeout(() => {
+                switch(type) {
+                    case 'bounce':
+                        demo.style.animation = 'bounce 1s ease-in-out';
+                        break;
+                    case 'fade':
+                        demo.style.animation = 'fadeIn 1s ease-in';
+                        break;
+                    case 'slide':
+                        demo.style.animation = 'slideIn 1s ease-out';
+                        break;
+                    case 'spin':
+                        demo.style.animation = 'spin 1s linear';
+                        break;
+                }
+            }, 10);
+        }
+
+        function toggleCSSVariables() {
+            const demo = document.getElementById('advancedDemo');
+            const root = document.documentElement;
+            
+            if (root.style.getPropertyValue('--primary-color')) {
+                root.style.removeProperty('--primary-color');
+                root.style.removeProperty('--secondary-color');
+            } else {
+                root.style.setProperty('--primary-color', '#ff6b6b');
+                root.style.setProperty('--secondary-color', '#4ecdc4');
+                demo.style.background = 'var(--primary-color)';
+            }
+        }
+
+        function applyFilters() {
+            const demo = document.getElementById('advancedDemo');
+            demo.style.filter = demo.style.filter ? '' : 'blur(2px) brightness(1.2) contrast(1.1)';
+        }
+
+        function toggleBlendMode() {
+            const demo = document.getElementById('advancedDemo');
+            demo.style.mixBlendMode = demo.style.mixBlendMode ? '' : 'multiply';
+        }
+
+        function resetAdvanced() {
+            const demo = document.getElementById('advancedDemo');
+            const root = document.documentElement;
+            
+            root.style.removeProperty('--primary-color');
+            root.style.removeProperty('--secondary-color');
+            demo.style.filter = '';
+            demo.style.mixBlendMode = '';
+            demo.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+        }
+
+        // Exercise solutions
+        function showSolution(exerciseId) {
+            document.getElementById(exerciseId + '-solution').style.display = 'block';
+        }
+
+        function hideSolution(exerciseId) {
+            document.getElementById(exerciseId + '-solution').style.display = 'none';
+        }
+
+        // Quiz functionality
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                element.innerHTML += ' ✓';
+            } else {
+                element.classList.add('incorrect');
+                element.innerHTML += ' ✗';
+            }
+        }
+
+        // Scroll to top functionality
+        function setupScrollToTop() {
+            const scrollButton = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add keyframe animations dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                const sections = ['basics', 'selectors', 'box-model', 'layout', 'responsive', 'animations', 'advanced', 'best-practices', 'exercises', 'reference'];
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex < sections.length - 1) {
+                    const nextSection = sections[currentIndex + 1];
+                    const nextTab = document.querySelector(`[onclick="showSection('${nextSection}')"]`);
+                    if (nextTab) {
+                        nextTab.click();
+                    }
+                }
+            } else if (e.key === 'ArrowLeft') {
+                const sections = ['basics', 'selectors', 'box-model', 'layout', 'responsive', 'animations', 'advanced', 'best-practices', 'exercises', 'reference'];
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex > 0) {
+                    const prevSection = sections[currentIndex - 1];
+                    const prevTab = document.querySelector(`[onclick="showSection('${prevSection}')"]`);
+                    if (prevTab) {
+                        prevTab.click();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

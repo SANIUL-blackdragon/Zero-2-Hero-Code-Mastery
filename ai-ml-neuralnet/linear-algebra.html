@@ -1,0 +1,3529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Linear Algebra: Chapter 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .chapter-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .cover {
+            width: 100%;
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://picsum.photos/seed/linear-algebra-mathematics-equations/1280/720.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 32, 63, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            text-align: center;
+            color: white;
+            max-width: 80%;
+        }
+        .title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #4ecdc4;
+            line-height: 1.4;
+        }
+        .accent-line {
+            width: 100px;
+            height: 4px;
+            background-color: #4ecdc4;
+            margin: 0 auto 40px;
+        }
+        .section {
+            width: 100%;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #00203f;
+            color: white;
+        }
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section-number {
+            margin-right: 15px;
+            color: #4ecdc4;
+        }
+        .section-content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .grid-item {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .grid-item h3 {
+            font-size: 22px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .grid-item h3 i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .grid-item ul {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        .grid-item li {
+            margin-bottom: 12px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .grid-item li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .highlight {
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+        .key-concept {
+            font-weight: 600;
+            color: #00203f;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #00203f;
+            font-weight: 600;
+        }
+        .formula {
+            font-size: 20px;
+            margin: 10px 0;
+            text-align: center;
+            background-color: #e6f2f2;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .theorem-box {
+            background-color: #e6f2f2;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 4px solid #00203f;
+        }
+        .theorem-box h4 {
+            font-size: 18px;
+            color: #00203f;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .theorem-box h4 i {
+            color: #00203f;
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        .theorem-content {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .code-block {
+            background-color: #e6f2f2;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 16px;
+            color: #00203f;
+            line-height: 1.4;
+        }
+        .roadmap-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .roadmap-item {
+            width: 30%;
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+        }
+        .roadmap-item h3 {
+            font-size: 22px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .roadmap-item h3 i {
+            color: #4ecdc4;
+            margin-right: 10px;
+        }
+        .roadmap-item ul {
+            list-style-type: none;
+            padding-left: 15px;
+        }
+        .roadmap-item li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .roadmap-item li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .focus-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .focus-item {
+            width: 48%;
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+        }
+        .focus-item h3 {
+            font-size: 22px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .focus-item h3 i {
+            color: #4ecdc4;
+            margin-right: 10px;
+        }
+        .focus-item ul {
+            list-style-type: none;
+        }
+        .focus-item li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .focus-item li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .theory-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 25px;
+            margin-top: 20px;
+            flex-grow: 1;
+        }
+        .theory-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .theory-box h3 {
+            font-size: 22px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .theory-box h3 i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .theory-box ul {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        .theory-box li {
+            margin-bottom: 12px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .theory-box li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .motivation-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .motivation-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+        .motivation-box p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .toc {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 70px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+        }
+        .toc h2 {
+            font-size: 28px;
+            color: #00203f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .toc ul {
+            list-style-type: none;
+            counter-reset: item;
+        }
+        .toc li {
+            margin-bottom: 12px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 40px;
+            counter-increment: item;
+        }
+        .toc li:before {
+            content: "1." counter(item);
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            width: 30px;
+            text-align: right;
+        }
+        .toc a {
+            color: #00203f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .toc a:hover {
+            color: #4ecdc4;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 70px;
+            background-color: #f5f9fa;
+        }
+        .nav-button {
+            display: flex;
+            align-items: center;
+            color: #00203f;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-button:hover {
+            color: #4ecdc4;
+        }
+        .nav-button i {
+            margin: 0 10px;
+            color: #4ecdc4;
+        }
+        .definition-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 5px solid #4ecdc4;
+        }
+        .definition-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .definition-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 32px;
+        }
+        .definition-text {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .topic-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .topic-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .topic-title i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .topic-list {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        .topic-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .topic-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .connection-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .connection-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .connection-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .connection-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .quote-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .quote-text {
+            font-size: 22px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        .quote-author {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #4ecdc4;
+        }
+        .timeline-container {
+            display: flex;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        .period-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        .period-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            flex-grow: 1;
+        }
+        .period-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #00203f;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .period-title i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .period-year {
+            font-size: 18px;
+            color: #4ecdc4;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .period-content {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .key-figure {
+            font-weight: 600;
+            color: #00203f;
+        }
+        .evolution-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 10px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .evolution-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .evolution-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .evolution-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            flex-grow: 1;
+        }
+        .application-item {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .application-item h3 {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .application-item h3 i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .application-item ul {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        .application-item li {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .application-item li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .example-box {
+            background-color: rgba(78, 205, 196, 0.1);
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #00203f;
+        }
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #00203f;
+        }
+        .course-flow {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        .course-modules {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        .module-box {
+            width: 32%;
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .module-number {
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background-color: #4ecdc4;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .module-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        .module-title i {
+            color: #4ecdc4;
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .module-content {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        .module-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .module-content li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .module-content li:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .connections-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .connections-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .connections-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .connections-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .objectives-container {
+            display: flex;
+            flex-grow: 1;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .objective-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .objective-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .objective-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .objective-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .objective-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .objective-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .objective-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .outcome-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 10px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .outcome-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .outcome-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .outcome-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .prerequisites-container {
+            display: flex;
+            gap: 30px;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        .prerequisites-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .prerequisite-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .prerequisite-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .prerequisite-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .prerequisite-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .prerequisite-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .prerequisite-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .resources-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 10px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .resources-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .resources-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .resource-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+        }
+        .resource-item-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4ecdc4;
+        }
+        .resource-item-content {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .approaches-container {
+            display: flex;
+            gap: 30px;
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+        .approach-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .approach-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .approach-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .approach-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .approach-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .approach-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .approach-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .balance-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .balance-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .balance-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .balance-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .strategy-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .strategy-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .strategy-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .strategy-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .strategy-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .strategy-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .tips-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .tips-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .tips-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .tips-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .notation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .notation-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .notation-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .notation-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .notation-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .notation-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .notation-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .conventions-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .conventions-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .conventions-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .conventions-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .concept-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .concept-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .concept-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .concept-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .concept-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .concept-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .visual-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .visual-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .visual-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .visual-content {
+            font-size: 20px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .visual-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+        }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .resource-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-top: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .resource-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .resource-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .resource-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .resource-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .resource-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .key-resource {
+            color: #00203f;
+            font-weight: 600;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .tip-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .tip-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .tip-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .assessment-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .assessment-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .assessment-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .assessment-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .assessment-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .assessment-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .criteria-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+        }
+        .criteria-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+        }
+        .criteria-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .criteria-content {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            flex-grow: 1;
+        }
+        .step-box {
+            background-color: #f5f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid #4ecdc4;
+            display: flex;
+            flex-direction: column;
+        }
+        .step-title {
+            font-size: 24px;
+            color: #00203f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-title i {
+            color: #4ecdc4;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        .step-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        .step-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .step-item:before {
+            content: "•";
+            color: #4ecdc4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .inspiration-box {
+            background: linear-gradient(135deg, #00203f, #004080);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.2);
+            text-align: center;
+        }
+        .inspiration-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inspiration-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .inspiration-content {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+        .footer {
+            padding: 15px 70px;
+            background-color: #f5f9fa;
+            color: #00203f;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="chapter-container">
+        <!-- Cover Page -->
+        <div class="cover" id="cover">
+            <div class="overlay">
+                <div class="content">
+                    <h1 class="title">Mastering Linear Algebra</h1>
+                    <div class="accent-line"></div>
+                    <h2 class="subtitle">From Theory to Implementation: A Comprehensive Roadmap for Theoretical and Practical Mastery</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc" id="toc">
+            <h2>Chapter 1: Table of Contents</h2>
+            <ul>
+                <li><a href="#section1-1">1.1 Introduction and Roadmap Overview</a></li>
+                <li><a href="#section1-1-1">1.1.1 What is Linear Algebra?</a></li>
+                <li><a href="#section1-1-2">1.1.2 Historical Context</a></li>
+                <li><a href="#section1-1-3">1.1.3 Why Study Linear Algebra?</a></li>
+                <li><a href="#section1-1-4">1.1.4 Linear Algebra in Modern Technology</a></li>
+                <li><a href="#section1-1-5">1.1.5 Course Structure Overview</a></li>
+                <li><a href="#section1-1-6">1.1.6 Learning Objectives</a></li>
+                <li><a href="#section1-1-7">1.1.7 Prerequisites and Background Knowledge</a></li>
+                <li><a href="#section1-1-8">1.1.8 Roadmap: Advanced Vector Spaces</a></li>
+                <li><a href="#section1-1-9">1.1.9 Roadmap: Matrix Decompositions</a></li>
+                <li><a href="#section1-1-10">1.1.10 Roadmap: Advanced Matrix Calculus</a></li>
+                <li><a href="#section1-1-11">1.1.11 Theoretical vs. Practical Approach</a></li>
+                <li><a href="#section1-1-12">1.1.12 Learning Strategies</a></li>
+                <li><a href="#section1-1-13">1.1.13 Mathematical Notation and Conventions</a></li>
+                <li><a href="#section1-1-14">1.1.14 Fundamental Concepts: Vectors</a></li>
+                <li><a href="#section1-1-15">1.1.15 Fundamental Concepts: Matrices</a></li>
+                <li><a href="#section1-1-16">1.1.16 Fundamental Concepts: Linear Transformations</a></li>
+                <li><a href="#section1-1-17">1.1.17 Tools and Resources</a></li>
+                <li><a href="#section1-1-18">1.1.18 Assessment and Evaluation</a></li>
+                <li><a href="#section1-1-19">1.1.19 Next Steps</a></li>
+                <li><a href="#section2">1.2 Advanced Vector Spaces - Theory</a></li>
+                <li><a href="#section3">1.3 Advanced Vector Spaces - Applications and Implementation Challenges</a></li>
+                <li><a href="#section4">1.4 Matrix Decompositions Deep Dive - QR Decomposition</a></li>
+                <li><a href="#section5">1.5 Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition</a></li>
+                <li><a href="#section6">1.6 Matrix Decompositions - Applications and Implementation Challenges</a></li>
+                <li><a href="#section7">1.7 Advanced Matrix Calculus - Theory</a></li>
+                <li><a href="#section8">1.8 Advanced Matrix Calculus - Applications and Implementation Challenges</a></li>
+                <li><a href="#section9">1.9 Conclusion and Further Learning</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1.1: Introduction and Roadmap Overview -->
+        <div class="section" id="section1-1">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1</span>Introduction and Roadmap Overview</h1>
+            </div>
+            <div class="section-content">
+                <div class="roadmap-container">
+                    <div class="roadmap-item">
+                        <h3><i class="material-icons">space_dashboard</i>Advanced Vector Spaces</h3>
+                        <ul>
+                            <li>Vector spaces & subspaces</li>
+                            <li>Linear independence & basis</li>
+                            <li>Linear transformations</li>
+                            <li>Orthogonality & projections</li>
+                            <li>Applications in ML</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3><i class="material-icons">grid_view</i>Matrix Decompositions</h3>
+                        <ul>
+                            <li>QR Decomposition</li>
+                            <li>Singular Value Decomposition</li>
+                            <li>Eigenvalue Decomposition</li>
+                            <li>Applications in ML</li>
+                            <li>Numerical stability</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3><i class="material-icons">functions</i>Advanced Matrix Calculus</h3>
+                        <ul>
+                            <li>Matrix derivatives</li>
+                            <li>Gradients & optimization</li>
+                            <li>Matrix chain rule</li>
+                            <li>Applications in ML</li>
+                            <li>Computational efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="focus-container">
+                    <div class="focus-item">
+                        <h3><i class="material-icons">school</i>Theoretical Foundations</h3>
+                        <ul>
+                            <li>Mathematical <span class="highlight">rigor</span> & proofs</li>
+                            <li>Geometric intuition</li>
+                            <li>Algebraic structures</li>
+                            <li>Advanced mathematical concepts</li>
+                        </ul>
+                    </div>
+                    <div class="focus-item">
+                        <h3><i class="material-icons">code</i>Practical Implementation</h3>
+                        <ul>
+                            <li>Algorithm <span class="highlight">efficiency</span></li>
+                            <li>Numerical stability</li>
+                            <li>Code examples & libraries</li>
+                            <li>Real-world applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#cover" class="nav-button"><i class="material-icons">arrow_upward</i>Cover</a>
+            <a href="#section1-1-1" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.1: What is Linear Algebra? -->
+        <div class="section" id="section1-1-1">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.1</span> What is Linear Algebra?</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">auto_stories</i>Definition</h2>
+                    <p class="definition-text">
+                        Linear algebra is a branch of mathematics concerned with <span class="key-concept">vectors</span>, <span class="key-concept">vector spaces</span>, <span class="key-concept">linear transformations</span>, and systems of <span class="key-concept">linear equations</span>.
+                    </p>
+                </div>
+                
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">category</i>Core Concepts</h3>
+                        <ul>
+                            <li><span class="highlight">Vectors</span> - Objects with magnitude and direction</li>
+                            <li><span class="highlight">Matrices</span> - Rectangular arrays of numbers</li>
+                            <li><span class="highlight">Vector Spaces</span> - Collections of vectors with operations</li>
+                            <li><span class="highlight">Linear Transformations</span> - Functions preserving vector operations</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Key Operations</h3>
+                        <ul>
+                            <li><span class="highlight">Vector Addition</span> - Combining vectors</li>
+                            <li><span class="highlight">Scalar Multiplication</span> - Scaling vectors</li>
+                            <li><span class="highlight">Matrix Multiplication</span> - Composing linear transformations</li>
+                            <li><span class="highlight">Determinants</span> - Scaling factors of transformations</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">calculate</i>Mathematical Structures</h3>
+                        <ul>
+                            <li><span class="highlight">Systems of Equations</span> - Multiple linear relationships</li>
+                            <li><span class="highlight">Eigenvalues & Eigenvectors</span> - Special vectors with simple transformations</li>
+                            <li><span class="highlight">Orthogonality</span> - Perpendicularity in vector spaces</li>
+                            <li><span class="highlight">Subspaces</span> - Smaller vector spaces within larger ones</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">apps</i>Applications</h3>
+                        <ul>
+                            <li><span class="highlight">Computer Graphics</span> - 3D transformations</li>
+                            <li><span class="highlight">Machine Learning</span> - Data representation</li>
+                            <li><span class="highlight">Engineering</span> - Systems modeling</li>
+                            <li><span class="highlight">Physics</span> - Quantum mechanics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-2" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.2: Historical Context -->
+        <div class="section" id="section1-1-2">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.2</span> Historical Context</h1>
+            </div>
+            <div class="section-content">
+                <div class="timeline-container">
+                    <div class="period-column">
+                        <div class="period-box">
+                            <h3 class="period-title"><i class="material-icons">history_edu</i>Early Foundations</h3>
+                            <p class="period-year">200 BCE - 1600s</p>
+                            <div class="period-content">
+                                • Ancient Chinese and Babylonian methods for solving systems of linear equations<br>
+                                • <span class="key-figure">Leibniz (1693)</span>: Early determinants and coefficient arrays<br>
+                                • <span class="key-figure">Cramer (1750)</span>: Cramer's Rule for solving linear systems
+                            </div>
+                        </div>
+                    </div>
+                    <div class="period-column">
+                        <div class="period-box">
+                            <h3 class="period-title"><i class="material-icons">psychology</i>Formal Development</h3>
+                            <p class="period-year">1800s</p>
+                            <div class="period-content">
+                                • <span class="key-figure">Gauss (1801)</span>: Gaussian elimination and least squares<br>
+                                • <span class="key-figure">Cauchy (1812)</span>: Determinant properties and eigenvalue concepts<br>
+                                • <span class="key-figure">Hamilton (1853)</span>: Quaternions and vector algebra<br>
+                                • <span class="key-figure">Cayley (1858)</span>: Matrix algebra and notation
+                            </div>
+                        </div>
+                    </div>
+                    <div class="period-column">
+                        <div class="period-box">
+                            <h3 class="period-title"><i class="material-icons">auto_awesome</i>Abstract Formulation</h3>
+                            <p class="period-year">Late 1800s - Early 1900s</p>
+                            <div class="period-content">
+                                • <span class="key-figure">Peano (1888)</span>: First axiomatic definition of vector spaces<br>
+                                • <span class="key-figure">Hilbert (1906)</span>: Infinite-dimensional spaces<br>
+                                • <span class="key-figure">Banach (1920s)</span>: Normed vector spaces<br>
+                                • <span class="key-figure">Von Neumann (1929)</span>: Operator theory in quantum mechanics
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evolution-box">
+                    <h3 class="evolution-title"><i class="material-icons">trending_up</i>Evolution of Linear Algebra</h3>
+                    <div class="evolution-content">
+                        Linear algebra evolved from <span class="highlight">practical problem-solving</span> (systems of equations) to <span class="highlight">abstract structures</span> (vector spaces). This transition enabled applications in diverse fields from quantum physics to computer graphics, transforming it into a fundamental language of modern mathematics and science.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-1" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-3" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.3: Why Study Linear Algebra? -->
+        <div class="section" id="section1-1-3">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.3</span> Why Study Linear Algebra?</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">lightbulb</i>Foundation of Modern Science</h2>
+                    <p class="definition-text">
+                        Linear algebra provides the <span class="key-concept">mathematical language</span> for describing and solving problems across science, technology, and engineering disciplines.
+                    </p>
+                </div>
+                
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">science</i>Scientific Applications</h3>
+                        <ul>
+                            <li><span class="highlight">Physics</span> - Quantum mechanics, relativity</li>
+                            <li><span class="highlight">Engineering</span> - Structural analysis, circuits</li>
+                            <li><span class="highlight">Computer Science</span> - Graphics, algorithms</li>
+                            <li><span class="highlight">Data Science</span> - Dimensionality reduction</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Cognitive Benefits</h3>
+                        <ul>
+                            <li><span class="highlight">Abstract Thinking</span> - Vector spaces</li>
+                            <li><span class="highlight">Problem Solving</span> - Systematic approaches</li>
+                            <li><span class="highlight">Geometric Intuition</span> - Multi-dimensional visualization</li>
+                            <li><span class="highlight">Algorithm Design</span> - Efficient computation</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">trending_up</i>Career Opportunities</h3>
+                        <ul>
+                            <li><span class="highlight">Machine Learning</span> - Neural networks, optimization</li>
+                            <li><span class="highlight">Computer Vision</span> - Image processing, recognition</li>
+                            <li><span class="highlight">Robotics</span> - Kinematics, control systems</li>
+                            <li><span class="highlight">Finance</span> - Portfolio optimization, risk analysis</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">auto_awesome</i>Intellectual Value</h3>
+                        <ul>
+                            <li><span class="highlight">Mathematical Maturity</span> - Rigorous reasoning</li>
+                            <li><span class="highlight">Interdisciplinary Bridge</span> - Connecting fields</li>
+                            <li><span class="highlight">Computational Thinking</span> - Algorithmic approaches</li>
+                            <li><span class="highlight">Foundation for Advanced Topics</span> - Functional analysis, differential equations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text">"Linear algebra is the mathematics of data. Its concepts are fundamental to nearly all areas of mathematics and its applications."</p>
+                    <p class="quote-author">— Gilbert Strang, MIT Professor</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-2" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-4" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.4: Linear Algebra in Modern Technology -->
+        <div class="section" id="section1-1-4">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.4</span> Linear Algebra in Modern Technology</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">precision_manufacturing</i>Real-World Applications</h2>
+                    <p class="definition-text">
+                        Linear algebra powers countless modern technologies, from everyday apps to cutting-edge research.
+                    </p>
+                </div>
+                
+                <div class="application-grid">
+                    <div class="application-item">
+                        <h3><i class="material-icons">computer</i>Computer Graphics</h3>
+                        <ul>
+                            <li><span class="highlight">3D Transformations</span> - Rotation, scaling, translation</li>
+                            <li><span class="highlight">Rendering</span> - Projection matrices</li>
+                            <li><span class="highlight">Animation</span> - Skeletal systems</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Video games use matrix transformations to render 3D worlds in real-time
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <h3><i class="material-icons">psychology</i>Machine Learning</h3>
+                        <ul>
+                            <li><span class="highlight">Neural Networks</span> - Weight matrices</li>
+                            <li><span class="highlight">Dimensionality Reduction</span> - PCA, SVD</li>
+                            <li><span class="highlight">Recommendation Systems</span> - Matrix factorization</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Netflix recommendations use SVD to predict user preferences
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <h3><i class="material-icons">analytics</i>Data Science</h3>
+                        <ul>
+                            <li><span class="highlight">Data Representation</span> - Feature vectors</li>
+                            <li><span class="highlight">Clustering</span> - Distance metrics</li>
+                            <li><span class="highlight">Regression</span> - Least squares</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Google's PageRank uses eigenvectors to rank web pages
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <h3><i class="material-icons">engineering</i>Engineering</h3>
+                        <ul>
+                            <li><span class="highlight">Structural Analysis</span> - Force vectors</li>
+                            <li><span class="highlight">Circuit Design</span> - System equations</li>
+                            <li><span class="highlight">Control Systems</span> - State matrices</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Bridge stability analysis uses eigenvalue calculations
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <h3><i class="material-icons">science</i>Physics</h3>
+                        <ul>
+                            <li><span class="highlight">Quantum Mechanics</span> - State vectors</li>
+                            <li><span class="highlight">Relativity</span> - Tensor fields</li>
+                            <li><span class="highlight">Electromagnetism</span> - Field equations</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Quantum computing relies on vector space operations
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <h3><i class="material-icons">biotech</i>Emerging Fields</h3>
+                        <ul>
+                            <li><span class="highlight">Genomics</span> - DNA sequence alignment</li>
+                            <li><span class="highlight">Computer Vision</span> - Image transformations</li>
+                            <li><span class="highlight">Robotics</span> - Kinematic chains</li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            Self-driving cars use linear algebra for sensor fusion
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-3" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-5" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.5: Course Structure Overview -->
+        <div class="section" id="section1-1-5">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.5</span> Course Structure Overview</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">map</i>Journey Through Linear Algebra</h2>
+                    <p class="definition-text">
+                        Our course is structured around three interconnected pillars that build upon each other to develop both theoretical understanding and practical implementation skills.
+                    </p>
+                </div>
+                
+                <div class="course-flow">
+                    <div class="course-modules">
+                        <div class="module-box">
+                            <div class="module-number">1</div>
+                            <h3 class="module-title"><i class="material-icons">space_dashboard</i>Advanced Vector Spaces</h3>
+                            <div class="module-content">
+                                <ul>
+                                    <li><span class="key-concept">Vector spaces & subspaces</span></li>
+                                    <li><span class="key-concept">Linear independence & basis</span></li>
+                                    <li><span class="key-concept">Linear transformations</span></li>
+                                    <li><span class="key-concept">Orthogonality & projections</span></li>
+                                    <li><span class="key-concept">Inner product spaces</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="module-box">
+                            <div class="module-number">2</div>
+                            <h3 class="module-title"><i class="material-icons">grid_view</i>Matrix Decompositions</h3>
+                            <div class="module-content">
+                                <ul>
+                                    <li><span class="key-concept">QR Decomposition</span></li>
+                                    <li><span class="key-concept">Singular Value Decomposition</span></li>
+                                    <li><span class="key-concept">Eigenvalue Decomposition</span></li>
+                                    <li><span class="key-concept">Numerical algorithms</span></li>
+                                    <li><span class="key-concept">Applications in ML</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="module-box">
+                            <div class="module-number">3</div>
+                            <h3 class="module-title"><i class="material-icons">functions</i>Advanced Matrix Calculus</h3>
+                            <div class="module-content">
+                                <ul>
+                                    <li><span class="key-concept">Matrix derivatives</span></li>
+                                    <li><span class="key-concept">Gradients & optimization</span></li>
+                                    <li><span class="key-concept">Matrix chain rule</span></li>
+                                    <li><span class="key-concept">Hessian matrices</span></li>
+                                    <li><span class="key-concept">Applications in ML</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="connections-box">
+                        <h3 class="connections-title"><i class="material-icons">hub</i>How the Modules Connect</h3>
+                        <div class="connections-content">
+                            <span class="highlight">Vector Spaces</span> provide the foundation for understanding <span class="highlight">Matrix Decompositions</span>, which in turn enable efficient computation of <span class="highlight">Matrix Calculus</span> operations. Each module balances theoretical rigor with practical implementation, creating a comprehensive learning experience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-4" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-6" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.6: Learning Objectives -->
+        <div class="section" id="section1-1-6">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.6</span> Learning Objectives</h1>
+            </div>
+            <div class="section-content">
+                <div class="objectives-container">
+                    <div class="objective-column">
+                        <div class="objective-box">
+                            <h3 class="objective-title"><i class="material-icons">school</i>Theoretical Mastery</h3>
+                            <ul class="objective-list">
+                                <li class="objective-item">Understand <span class="key-concept">abstract vector spaces</span> and their properties</li>
+                                <li class="objective-item">Prove key theorems about <span class="key-concept">linear transformations</span></li>
+                                <li class="objective-item">Analyze <span class="key-concept">matrix decompositions</span> and their applications</li>
+                                <li class="objective-item">Apply <span class="key-concept">matrix calculus</span> to optimization problems</li>
+                            </ul>
+                        </div>
+                        <div class="objective-box">
+                            <h3 class="objective-title"><i class="material-icons">psychology</i>Conceptual Understanding</h3>
+                            <ul class="objective-list">
+                                <li class="objective-item">Develop <span class="key-concept">geometric intuition</span> for vector operations</li>
+                                <li class="objective-item">Connect <span class="key-concept">algebraic structures</span> to real-world phenomena</li>
+                                <li class="objective-item">Recognize <span class="key-concept">patterns</span> across different mathematical contexts</li>
+                                <li class="objective-item">Formulate <span class="key-concept">mathematical models</span> using linear algebra</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="objective-column">
+                        <div class="objective-box">
+                            <h3 class="objective-title"><i class="material-icons">code</i>Practical Implementation</h3>
+                            <ul class="objective-list">
+                                <li class="objective-item">Implement <span class="key-concept">core algorithms</span> from scratch</li>
+                                <li class="objective-item">Apply <span class="key-concept">numerical methods</span> to solve real problems</li>
+                                <li class="objective-item">Optimize <span class="key-concept">computational efficiency</span> of linear operations</li>
+                                <li class="objective-item">Handle <span class="key-concept">edge cases</span> and numerical stability issues</li>
+                            </ul>
+                        </div>
+                        <div class="objective-box">
+                            <h3 class="objective-title"><i class="material-icons">insights</i>Application Skills</h3>
+                            <ul class="objective-list">
+                                <li class="objective-item">Solve <span class="key-concept">ML problems</span> using linear algebra techniques</li>
+                                <li class="objective-item">Analyze <span class="key-concept">complex systems</span> through matrix representations</li>
+                                <li class="objective-item">Design <span class="key-concept">efficient algorithms</span> for data processing</li>
+                                <li class="objective-item">Evaluate <span class="key-concept">solution quality</span> using mathematical criteria</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="outcome-box">
+                    <h3 class="outcome-title"><i class="material-icons">stars</i>Measurable Outcomes</h3>
+                    <div class="outcome-content">
+                        By course completion, students will be able to <span class="highlight">derive</span> key linear algebra theorems, <span class="highlight">implement</span> efficient algorithms for matrix operations, <span class="highlight">apply</span> decomposition techniques to real-world datasets, and <span class="highlight">optimize</span> machine learning models using matrix calculus principles.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-5" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-7" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.7: Prerequisites and Background Knowledge -->
+        <div class="section" id="section1-1-7">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.7</span> Prerequisites and Background Knowledge</h1>
+            </div>
+            <div class="section-content">
+                <div class="prerequisites-container">
+                    <div class="prerequisites-column">
+                        <div class="prerequisite-box">
+                            <h3 class="prerequisite-title"><i class="material-icons">calculate</i>Mathematical Foundations</h3>
+                            <ul class="prerequisite-list">
+                                <li class="prerequisite-item"><span class="key-concept">Basic Algebra</span> - Equations, functions, polynomials</li>
+                                <li class="prerequisite-item"><span class="key-concept">Calculus</span> - Derivatives, integrals, limits</li>
+                                <li class="prerequisite-item"><span class="key-concept">Trigonometry</span> - Sin, cos, tan, identities</li>
+                                <li class="prerequisite-item"><span class="key-concept">Complex Numbers</span> - Basic operations, polar form</li>
+                            </ul>
+                        </div>
+                        <div class="prerequisite-box">
+                            <h3 class="prerequisite-title"><i class="material-icons">code</i>Programming Skills</h3>
+                            <ul class="prerequisite-list">
+                                <li class="prerequisite-item"><span class="key-concept">Python</span> - Basic syntax, data structures</li>
+                                <li class="prerequisite-item"><span class="key-concept">NumPy</span> - Array operations, basic linear algebra</li>
+                                <li class="prerequisite-item"><span class="key-concept">Algorithms</span> - Time complexity, basic data structures</li>
+                                <li class="prerequisite-item"><span class="key-concept">Debugging</span> - Problem-solving techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prerequisites-column">
+                        <div class="prerequisite-box">
+                            <h3 class="prerequisite-title"><i class="material-icons">auto_stories</i>Introductory Linear Algebra</h3>
+                            <ul class="prerequisite-list">
+                                <li class="prerequisite-item"><span class="key-concept">Vectors</span> - Operations, magnitude, direction</li>
+                                <li class="prerequisite-item"><span class="key-concept">Matrices</span> - Basic operations, determinants</li>
+                                <li class="prerequisite-item"><span class="key-concept">Systems of Equations</span> - Gaussian elimination</li>
+                                <li class="prerequisite-item"><span class="key-concept">Vector Spaces</span> - Basic properties, subspaces</li>
+                            </ul>
+                        </div>
+                        <div class="prerequisite-box">
+                            <h3 class="prerequisite-title"><i class="material-icons">psychology</i>Mathematical Maturity</h3>
+                            <ul class="prerequisite-list">
+                                <li class="prerequisite-item"><span class="key-concept">Abstract Thinking</span> - Working with symbols and concepts</li>
+                                <li class="prerequisite-item"><span class="key-concept">Proof Techniques</span> - Direct, contradiction, induction</li>
+                                <li class="prerequisite-item"><span class="key-concept">Problem Solving</span> - Breaking down complex problems</li>
+                                <li class="prerequisite-item"><span class="key-concept">Mathematical Notation</span> - Reading and writing formal math</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resources-box">
+                    <h3 class="resources-title"><i class="material-icons">menu_book</i>Resources for Knowledge Gaps</h3>
+                    <div class="resources-grid">
+                        <div class="resource-item">
+                            <div class="resource-item-title">Mathematics</div>
+                            <div class="resource-item-content">
+                                Khan Academy, MIT OpenCourseWare, Paul's Online Math Notes
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-item-title">Programming</div>
+                            <div class="resource-item-content">
+                                Codecademy, Coursera, freeCodeCamp, Python documentation
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-item-title">Linear Algebra</div>
+                            <div class="resource-item-content">
+                                3Blue1Brown videos, Gilbert Strang's lectures, "Linear Algebra Done Right"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-6" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-8" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.8: Roadmap: Advanced Vector Spaces -->
+        <div class="section" id="section1-1-8">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.8</span> Roadmap: Advanced Vector Spaces</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">space_dashboard</i>Advanced Vector Spaces</h2>
+                    <p class="definition-text">
+                        The foundation of linear algebra, exploring abstract structures that generalize geometric concepts to higher dimensions.
+                    </p>
+                </div>
+                
+                <div class="topics-grid">
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">category</i>Vector Spaces & Subspaces</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Axiomatic Definition</span> - 10 fundamental properties</li>
+                            <li class="topic-item"><span class="key-concept">Examples</span> - ℝⁿ, function spaces, matrix spaces</li>
+                            <li class="topic-item"><span class="key-concept">Subspace Criterion</span> - Closed under operations</li>
+                            <li class="topic-item"><span class="key-concept">Span</span> - All linear combinations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">linear_scale</i>Linear Independence & Basis</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Linear Independence</span> - Unique representations</li>
+                            <li class="topic-item"><span class="key-concept">Basis</span> - Minimal spanning set</li>
+                            <li class="topic-item"><span class="key-concept">Dimension</span> - Number of basis vectors</li>
+                            <li class="topic-item"><span class="key-concept">Coordinate Systems</span> - Vector representations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">transform</i>Linear Transformations</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Definition</span> - Structure-preserving maps</li>
+                            <li class="topic-item"><span class="key-concept">Kernel & Range</span> - Null space & column space</li>
+                            <li class="topic-item"><span class="key-concept">Matrix Representation</span> - Standard bases</li>
+                            <li class="topic-item"><span class="key-concept">Isomorphism</span> - Structure equivalence</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">square_foot</i>Orthogonality & Projections</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Inner Products</span> - Generalized dot products</li>
+                            <li class="topic-item"><span class="key-concept">Orthogonal Sets</span> - Perpendicular vectors</li>
+                            <li class="topic-item"><span class="key-concept">Gram-Schmidt</span> - Orthonormal bases</li>
+                            <li class="topic-item"><span class="key-concept">Projections</span> - Closest point approximation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="connection-box">
+                    <h3 class="connection-title"><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                    <div class="connection-content">
+                        Vector spaces form the <span class="highlight">mathematical foundation</span> for machine learning. Feature spaces, kernel methods, dimensionality reduction, and neural network representations all rely on advanced vector space concepts to model complex data relationships and enable sophisticated learning algorithms.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-7" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-9" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.9: Roadmap: Matrix Decompositions -->
+        <div class="section" id="section1-1-9">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.9</span> Roadmap: Matrix Decompositions</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">grid_view</i>Matrix Decompositions</h2>
+                    <p class="definition-text">
+                        Breaking down matrices into simpler, interpretable components to reveal underlying structure and enable efficient computation.
+                    </p>
+                </div>
+                
+                <div class="topics-grid">
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">view_column</i>QR Decomposition</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Definition</span> - A = QR (orthogonal × triangular)</li>
+                            <li class="topic-item"><span class="key-concept">Gram-Schmidt</span> - Orthogonalization process</li>
+                            <li class="topic-item"><span class="key-concept">Householder</span> - Reflection transformations</li>
+                            <li class="topic-item"><span class="key-concept">Applications</span> - Least squares, eigenvalue computation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">view_comfy</i>Singular Value Decomposition</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Definition</span> - A = UΣVᵀ (orthogonal × diagonal × orthogonal)</li>
+                            <li class="topic-item"><span class="key-concept">Singular Values</span> - Matrix "energy" distribution</li>
+                            <li class="topic-item"><span class="key-concept">Low-Rank Approximation</span> - Dimensionality reduction</li>
+                            <li class="topic-item"><span class="key-concept">Applications</span> - Image compression, recommendation systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">linear_scale</i>Eigenvalue Decomposition</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Definition</span> - A = VΛV⁻¹ (eigenvectors × eigenvalues)</li>
+                            <li class="topic-item"><span class="key-concept">Characteristic Polynomial</span> - Finding eigenvalues</li>
+                            <li class="topic-item"><span class="key-concept">Diagonalization</span> - Simplifying matrix powers</li>
+                            <li class="topic-item"><span class="key-concept">Applications</span> - Differential equations, Markov chains</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">security</i>Numerical Stability</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Condition Number</span> - Sensitivity to perturbations</li>
+                            <li class="topic-item"><span class="key-concept">Round-off Errors</span> - Floating-point precision</li>
+                            <li class="topic-item"><span class="key-concept">Algorithm Selection</span> - Stability vs. efficiency</li>
+                            <li class="topic-item"><span class="key-concept">Modified Algorithms</span> - Improved numerical properties</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="connection-box">
+                    <h3 class="connection-title"><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                    <div class="connection-content">
+                        Matrix decompositions are <span class="highlight">fundamental tools</span> in machine learning. They enable dimensionality reduction (PCA), collaborative filtering (SVD), feature extraction, and efficient computation of complex models. Understanding these decompositions provides insight into model behavior and optimization strategies.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-8" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-10" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.10: Roadmap: Advanced Matrix Calculus -->
+        <div class="section" id="section1-1-10">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.10</span> Roadmap: Advanced Matrix Calculus</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">functions</i>Advanced Matrix Calculus</h2>
+                    <p class="definition-text">
+                        Extending calculus concepts to matrix-valued functions, enabling optimization and analysis in high-dimensional spaces.
+                    </p>
+                </div>
+                
+                <div class="topics-grid">
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">trending_up</i>Matrix Derivatives</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Scalar-by-Vector</span> - Gradient vectors</li>
+                            <li class="topic-item"><span class="key-concept">Vector-by-Vector</span> - Jacobian matrices</li>
+                            <li class="topic-item"><span class="key-concept">Scalar-by-Matrix</span> - Matrix gradients</li>
+                            <li class="topic-item"><span class="key-concept">Matrix-by-Matrix</span> - Fourth-order tensors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">speed</i>Gradients & Optimization</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Gradient Descent</span> - First-order methods</li>
+                            <li class="topic-item"><span class="key-concept">Newton's Method</span> - Second-order optimization</li>
+                            <li class="topic-item"><span class="key-concept">Conjugate Gradient</span> - Efficient quadratic optimization</li>
+                            <li class="topic-item"><span class="key-concept">Optimization Conditions</span> - Critical points analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">sync_alt</i>Matrix Chain Rule</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Product Rule</span> - Differentiating matrix products</li>
+                            <li class="topic-item"><span class="key-concept">Chain Rule</span> - Composition of matrix functions</li>
+                            <li class="topic-item"><span class="key-concept">Key Identities</span> - Common derivative patterns</li>
+                            <li class="topic-item"><span class="key-concept">Backpropagation</span> - Computational graphs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-box">
+                        <h3 class="topic-title"><i class="material-icons">memory</i>Computational Efficiency</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item"><span class="key-concept">Automatic Differentiation</span> - Algorithmic differentiation</li>
+                            <li class="topic-item"><span class="key-concept">Symbolic Computation</span> - Closed-form solutions</li>
+                            <li class="topic-item"><span class="key-concept">Numerical Approximation</span> - Finite difference methods</li>
+                            <li class="topic-item"><span class="key-concept">Parallelization</span> - GPU acceleration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="connection-box">
+                    <h3 class="connection-title"><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                    <div class="connection-content">
+                        Matrix calculus is the <span class="highlight">mathematical engine</span> behind modern machine learning. It enables training neural networks through backpropagation, optimizing loss functions, and computing gradients for high-dimensional parameter spaces. Mastering these concepts is essential for understanding and improving ML algorithms.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-9" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-11" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.11: Theoretical vs. Practical Approach -->
+        <div class="section" id="section1-1-11">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.11</span> Theoretical vs. Practical Approach</h1>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h2 class="definition-title"><i class="material-icons">balance</i>Balancing Perspectives</h2>
+                    <p class="definition-text">
+                        True mastery of linear algebra requires both deep theoretical understanding and practical implementation skills.
+                    </p>
+                </div>
+                
+                <div class="approaches-container">
+                    <div class="approach-column">
+                        <div class="approach-box">
+                            <h3 class="approach-title"><i class="material-icons">school</i>Theoretical Approach</h3>
+                            <ul class="approach-list">
+                                <li class="approach-item"><span class="key-concept">Mathematical Rigor</span> - Precise definitions and proofs</li>
+                                <li class="approach-item"><span class="key-concept">Abstract Reasoning</span> - Generalizing concepts</li>
+                                <li class="approach-item"><span class="key-concept">Theorems & Properties</span> - Fundamental relationships</li>
+                                <li class="approach-item"><span class="key-concept">Geometric Intuition</span> - Visual understanding</li>
+                                <li class="approach-item"><span class="key-concept">Mathematical Beauty</span> - Elegant structures</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="approach-column">
+                        <div class="approach-box">
+                            <h3 class="approach-title"><i class="material-icons">code</i>Practical Approach</h3>
+                            <ul class="approach-list">
+                                <li class="approach-item"><span class="key-concept">Algorithm Implementation</span> - Efficient code</li>
+                                <li class="approach-item"><span class="key-concept">Numerical Stability</span> - Handling real-world constraints</li>
+                                <li class="approach-item"><span class="key-concept">Computational Complexity</span> - Performance optimization</li>
+                                <li class="approach-item"><span class="key-concept">Real-world Applications</span> - Solving actual problems</li>
+                                <li class="approach-item"><span class="key-concept">Software Tools</span> - Libraries and frameworks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="balance-box">
+                    <h3 class="balance-title"><i class="material-icons">sync</i>The Synergy of Both Approaches</h3>
+                    <div class="balance-content">
+                        Theoretical understanding <span class="highlight">guides</span> implementation decisions, while practical challenges <span class="highlight">reveal</span> deeper theoretical insights. This dual perspective creates a feedback loop that accelerates learning and leads to more robust solutions. Our course intentionally weaves both approaches together to develop comprehensive mastery.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-10" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-12" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.12: Learning Strategies -->
+        <div class="section" id="section1-1-12">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.12</span> Learning Strategies</h1>
+            </div>
+            <div class="section-content">
+                <div class="strategies-grid">
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">psychology</i>Active Learning</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Problem Solving</span> - Work through exercises</li>
+                            <li class="strategy-item"><span class="key-concept">Self-Explanation</span> - Teach concepts aloud</li>
+                            <li class="strategy-item"><span class="key-concept">Questioning</span> - Ask "why" at each step</li>
+                            <li class="strategy-item"><span class="key-concept">Concept Mapping</span> - Connect ideas visually</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">visibility</i>Visualization</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Geometric Intuition</span> - Draw vector spaces</li>
+                            <li class="strategy-item"><span class="key-concept">Interactive Tools</span> - Use 3D visualizations</li>
+                            <li class="strategy-item"><span class="key-concept">Color Coding</span> - Highlight transformations</li>
+                            <li class="strategy-item"><span class="key-concept">Animation</span> - See operations in motion</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">fitness_center</i>Practice Methods</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Progressive Difficulty</span> - Build complexity</li>
+                            <li class="strategy-item"><span class="key-concept">Spaced Repetition</span> - Review regularly</li>
+                            <li class="strategy-item"><span class="key-concept">Implementation</span> - Code algorithms</li>
+                            <li class="strategy-item"><span class="key-concept">Error Analysis</span> - Learn from mistakes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">groups</i>Collaborative Learning</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Study Groups</span> - Discuss concepts</li>
+                            <li class="strategy-item"><span class="key-concept">Peer Teaching</span> - Explain to others</li>
+                            <li class="strategy-item"><span class="key-concept">Online Forums</span> - Join communities</li>
+                            <li class="strategy-item"><span class="key-concept">Project Work</span> - Apply together</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">auto_stories</i>Resource Utilization</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Multiple Sources</span> - Compare explanations</li>
+                            <li class="strategy-item"><span class="key-concept">Video Lectures</span> - Visual learning</li>
+                            <li class="strategy-item"><span class="key-concept">Interactive Demos</span> - Hands-on exploration</li>
+                            <li class="strategy-item"><span class="key-concept">Office Hours</span> - Seek guidance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-box">
+                        <h3 class="strategy-title"><i class="material-icons">schedule</i>Time Management</h3>
+                        <ul class="strategy-list">
+                            <li class="strategy-item"><span class="key-concept">Consistent Schedule</span> - Daily practice</li>
+                            <li class="strategy-item"><span class="key-concept">Pomodoro Technique</span> - Focused sessions</li>
+                            <li class="strategy-item"><span class="key-concept">Goal Setting</span> - Track progress</li>
+                            <li class="strategy-item"><span class="key-concept">Balance</span> - Theory and implementation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tips-box">
+                    <h3 class="tips-title"><i class="material-icons">tips_and_updates</i>Key to Success</h3>
+                    <div class="tips-content">
+                        The most effective approach combines <span class="highlight">multiple strategies</span> tailored to your learning style. Focus on <span class="highlight">understanding concepts deeply</span> rather than memorizing procedures, and consistently connect theoretical knowledge with practical implementation.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-11" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-13" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.13: Mathematical Notation and Conventions -->
+        <div class="section" id="section1-1-13">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.13</span> Mathematical Notation and Conventions</h1>
+            </div>
+            <div class="section-content">
+                <div class="notation-grid">
+                    <div class="notation-box">
+                        <h3 class="notation-title"><i class="material-icons">functions</i>Vector Notation</h3>
+                        <ul class="notation-list">
+                            <li class="notation-item"><span class="key-concept">Bold lowercase</span>: v, w, x</li>
+                            <li class="notation-item"><span class="key-concept">Arrow notation</span>: <span class="highlight">→v</span>, <span class="highlight">→w</span></li>
+                            <li class="notation-item"><span class="key-concept">Components</span>: v = (v₁, v₂, ..., vₙ)</li>
+                            <li class="notation-item"><span class="key-concept">Unit vectors</span>: e₁, e₂, ..., eₙ</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: v = (3, -2, 5) represents a vector in ℝ³
+                        </div>
+                    </div>
+                    
+                    <div class="notation-box">
+                        <h3 class="notation-title"><i class="material-icons">grid_on</i>Matrix Notation</h3>
+                        <ul class="notation-list">
+                            <li class="notation-item"><span class="key-concept">Bold uppercase</span>: A, B, C</li>
+                            <li class="notation-item"><span class="key-concept">Elements</span>: Aᵢⱼ (row i, column j)</li>
+                            <li class="notation-item"><span class="key-concept">Dimensions</span>: A ∈ ℝᵐˣⁿ</li>
+                            <li class="notation-item"><span class="key-concept">Special matrices</span>: I (identity), 0 (zero)</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: A = [aᵢⱼ] where i = 1,...,m and j = 1,...,n
+                        </div>
+                    </div>
+                    
+                    <div class="notation-box">
+                        <h3 class="notation-title"><i class="material-icons">calculate</i>Operations</h3>
+                        <ul class="notation-list">
+                            <li class="notation-item"><span class="key-concept">Addition</span>: A + B, v + w</li>
+                            <li class="notation-item"><span class="key-concept">Scalar multiplication</span>: αv, cA</li>
+                            <li class="notation-item"><span class="key-concept">Matrix multiplication</span>: AB, A·B</li>
+                            <li class="notation-item"><span class="key-concept">Dot product</span>: v·w, ⟨v,w⟩</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: (AB)ᵢⱼ = Σₖ AᵢₖBₖⱼ
+                        </div>
+                    </div>
+                    
+                    <div class="notation-box">
+                        <h3 class="notation-title"><i class="material-icons">auto_awesome</i>Special Functions</h3>
+                        <ul class="notation-list">
+                            <li class="notation-item"><span class="key-concept">Norm</span>: ||v|| (magnitude of vector)</li>
+                            <li class="notation-item"><span class="key-concept">Determinant</span>: det(A), |A|</li>
+                            <li class="notation-item"><span class="key-concept">Trace</span>: tr(A) (sum of diagonal)</li>
+                            <li class="notation-item"><span class="key-concept">Transpose</span>: Aᵀ, A'</li>
+                            <li class="notation-item"><span class="key-concept">Inverse</span>: A⁻¹</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: ||v|| = √(v₁² + v₂² + ... + vₙ²)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conventions-box">
+                    <h3 class="conventions-title"><i class="material-icons">lightbulb</i>Reading Mathematical Expressions</h3>
+                    <div class="conventions-content">
+                        Mathematical notation is a <span class="highlight">precise language</span> with specific conventions. When reading expressions, work from the <span class="highlight">inside out</span>, paying attention to operator precedence. Practice translating between symbolic notation and verbal descriptions to strengthen your understanding.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-12" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-14" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.14: Fundamental Concepts: Vectors -->
+        <div class="section" id="section1-1-14">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.14</span> Fundamental Concepts: Vectors</h1>
+            </div>
+            <div class="section-content">
+                <div class="concepts-grid">
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">category</i>Definition & Representation</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Mathematical Object</span> - Magnitude and direction</li>
+                            <li class="concept-item"><span class="key-concept">Notation</span> - Bold lowercase: <span class="highlight">v</span>, <span class="highlight">w</span></li>
+                            <li class="concept-item"><span class="key-concept">Components</span> - v = (v₁, v₂, ..., vₙ)</li>
+                            <li class="concept-item"><span class="key-concept">Examples</span> - Physical quantities, data points</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: v = (3, -2, 5) ∈ ℝ³
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">add_circle</i>Vector Operations</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Addition</span> - v + w = (v₁+w₁, v₂+w₂, ..., vₙ+wₙ)</li>
+                            <li class="concept-item"><span class="key-concept">Scalar Multiplication</span> - αv = (αv₁, αv₂, ..., αvₙ)</li>
+                            <li class="concept-item"><span class="key-concept">Dot Product</span> - v·w = v₁w₁ + v₂w₂ + ... + vₙwₙ</li>
+                            <li class="concept-item"><span class="key-concept">Cross Product</span> - v × w (3D vectors only)</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: 2v + 3w = (2v₁+3w₁, 2v₂+3w₂, 2v₃+3w₃)
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">straighten</i>Geometric Interpretation</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Magnitude</span> - ||v|| = √(v₁² + v₂² + ... + vₙ²)</li>
+                            <li class="concept-item"><span class="key-concept">Direction</span> - Unit vector: û = v/||v||</li>
+                            <li class="concept-item"><span class="key-concept">Angle</span> - cos θ = (v·w)/(||v||·||w||)</li>
+                            <li class="concept-item"><span class="key-concept">Projection</span> - projᵥw = ((v·w)/||v||²)v</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: ||(3,4)|| = √(3²+4²) = 5
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">rule</i>Key Properties</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Commutativity</span> - v + w = w + v</li>
+                            <li class="concept-item"><span class="key-concept">Associativity</span> - (u + v) + w = u + (v + w)</li>
+                            <li class="concept-item"><span class="key-concept">Distributivity</span> - α(v + w) = αv + αw</li>
+                            <li class="concept-item"><span class="key-concept">Zero Vector</span> - v + 0 = v</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: v·w = w·v (commutative property)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="visual-box">
+                    <div class="visual-content">
+                        <h3 class="visual-title"><i class="material-icons">visibility</i>Visual Representation</h3>
+                        <p>
+                            Vectors can be visualized as <span class="highlight">arrows</span> in space, with length representing magnitude and direction indicating orientation. This geometric intuition helps understand operations like addition (parallelogram rule) and scalar multiplication (scaling).
+                        </p>
+                    </div>
+                    <div class="visual-image">
+                        <img src="https://picsum.photos/seed/vector-visualization-arrows/300/200.jpg" alt="Vector visualization" style="border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-13" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-15" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.15: Fundamental Concepts: Matrices -->
+        <div class="section" id="section1-1-15">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.15</span> Fundamental Concepts: Matrices</h1>
+            </div>
+            <div class="section-content">
+                <div class="concepts-grid">
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">grid_on</i>Definition & Representation</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Rectangular Array</span> - Rows and columns of numbers</li>
+                            <li class="concept-item"><span class="key-concept">Notation</span> - Bold uppercase: <span class="highlight">A</span>, <span class="highlight">B</span></li>
+                            <li class="concept-item"><span class="key-concept">Elements</span> - Aᵢⱼ (row i, column j)</li>
+                            <li class="concept-item"><span class="key-concept">Dimensions</span> - A ∈ ℝᵐˣⁿ (m rows, n columns)</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: A = [1 2; 3 4] is a 2×2 matrix
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">calculate</i>Matrix Operations</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Addition</span> - A + B (element-wise)</li>
+                            <li class="concept-item"><span class="key-concept">Scalar Multiplication</span> - αA (scale each element)</li>
+                            <li class="concept-item"><span class="key-concept">Matrix Multiplication</span> - AB (row-by-column)</li>
+                            <li class="concept-item"><span class="key-concept">Transposition</span> - Aᵀ (rows become columns)</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: (AB)ᵢⱼ = Σₖ AᵢₖBₖⱼ
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">category</i>Special Matrices</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Identity Matrix</span> - I (diagonal = 1, others = 0)</li>
+                            <li class="concept-item"><span class="key-concept">Diagonal Matrix</span> - Non-zero only on diagonal</li>
+                            <li class="concept-item"><span class="key-concept">Symmetric Matrix</span> - A = Aᵀ</li>
+                            <li class="concept-item"><span class="key-concept">Zero Matrix</span> - All elements = 0</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: I₂ = [1 0; 0 1]
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">rule</i>Key Properties</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Determinant</span> - det(A), |A| (scaling factor)</li>
+                            <li class="concept-item"><span class="key-concept">Trace</span> - tr(A) (sum of diagonal elements)</li>
+                            <li class="concept-item"><span class="key-concept">Rank</span> - Number of linearly independent rows</li>
+                            <li class="concept-item"><span class="key-concept">Inverse</span> - A⁻¹ where AA⁻¹ = I</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: tr([1 2; 3 4]) = 1 + 4 = 5
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="visual-box">
+                    <div class="visual-content">
+                        <h3 class="visual-title"><i class="material-icons">visibility</i>Visual Representation</h3>
+                        <p>
+                            Matrices can represent <span class="highlight">linear transformations</span> of space, mapping vectors to new vectors. The columns of a matrix show where the basis vectors are mapped, providing a powerful geometric interpretation of matrix operations.
+                        </p>
+                    </div>
+                    <div class="visual-image">
+                        <img src="https://picsum.photos/seed/matrix-transformation-visualization/300/200.jpg" alt="Matrix transformation visualization" style="border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-14" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-16" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.16: Fundamental Concepts: Linear Transformations -->
+        <div class="section" id="section1-1-16">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.16</span> Fundamental Concepts: Linear Transformations</h1>
+            </div>
+            <div class="section-content">
+                <div class="concepts-grid">
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">transform</i>Definition & Properties</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Function</span> - T: V → W between vector spaces</li>
+                            <li class="concept-item"><span class="key-concept">Linearity</span> - T(u+v) = T(u) + T(v)</li>
+                            <li class="concept-item"><span class="key-concept">Homogeneity</span> - T(cu) = cT(u)</li>
+                            <li class="concept-item"><span class="key-concept">Notation</span> - Often denoted by capital letters</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: T([x,y]) = [2x, x+y] is a linear transformation
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">grid_on</i>Matrix Representation</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Standard Matrix</span> - [T] where T(v) = [T]v</li>
+                            <li class="concept-item"><span class="key-concept">Columns</span> - Images of basis vectors</li>
+                            <li class="concept-item"><span class="key-concept">Basis Change</span> - [T]β→γ for different bases</li>
+                            <li class="concept-item"><span class="key-concept">Composition</span> - [T∘S] = [T][S]</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: Rotation by θ: [cosθ -sinθ; sinθ cosθ]
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">call_split</i>Kernel & Range</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Kernel (Null Space)</span> - ker(T) = {v | T(v) = 0}</li>
+                            <li class="concept-item"><span class="key-concept">Range (Image)</span> - range(T) = {T(v) | v ∈ V}</li>
+                            <li class="concept-item"><span class="key-concept">Rank-Nullity</span> - dim(ker(T)) + dim(range(T)) = dim(V)</li>
+                            <li class="concept-item"><span class="key-concept">Injectivity</span> - ker(T) = {0}</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: For projection onto xy-plane, ker(T) = z-axis
+                        </div>
+                    </div>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="material-icons">3d_rotation</i>Geometric Interpretation</h3>
+                        <ul class="concept-list">
+                            <li class="concept-item"><span class="key-concept">Rotation</span> - Preserves lengths and angles</li>
+                            <li class="concept-item"><span class="key-concept">Scaling</span> - Changes size uniformly</li>
+                            <li class="concept-item"><span class="key-concept">Projection</span> - Maps to lower-dimensional subspace</li>
+                            <li class="concept-item"><span class="key-concept">Shear</span> - Preserves area but distorts shape</li>
+                        </ul>
+                        <div class="example-box">
+                            Example: T([x,y]) = [x,0] projects onto x-axis
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="visual-box">
+                    <div class="visual-content">
+                        <h3 class="visual-title"><i class="material-icons">visibility</i>Visualizing Transformations</h3>
+                        <p>
+                            Linear transformations can be visualized as <span class="highlight">distortions of space</span> that preserve the grid structure. They map lines to lines and origin to origin, providing a powerful way to understand how matrices transform vector spaces.
+                        </p>
+                    </div>
+                    <div class="visual-image">
+                        <img src="https://picsum.photos/seed/linear-transformation-grid-distortion/300/200.jpg" alt="Linear transformation visualization" style="border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-15" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-17" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.17: Tools and Resources -->
+        <div class="section" id="section1-1-17">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.17</span> Tools and Resources</h1>
+            </div>
+            <div class="section-content">
+                <div class="resources-grid">
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">code</i>Software Libraries</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">NumPy</span> - Python array computing</li>
+                            <li class="resource-item"><span class="key-resource">SciPy</span> - Scientific algorithms</li>
+                            <li class="resource-item"><span class="key-resource">MATLAB</span> - Matrix computation</li>
+                            <li class="resource-item"><span class="key-resource">Julia</span> - High-performance computing</li>
+                            <li class="resource-item"><span class="key-resource">Eigen</span> - C++ template library</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">menu_book</i>Textbooks</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">Linear Algebra Done Right</span> - Axler</li>
+                            <li class="resource-item"><span class="key-resource">Introduction to Linear Algebra</span> - Strang</li>
+                            <li class="resource-item"><span class="key-resource">Matrix Computations</span> - Golub & Van Loan</li>
+                            <li class="resource-item"><span class="key-resource">Numerical Linear Algebra</span> - Trefethen & Bau</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">school</i>Online Courses</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">MIT 18.06</span> - Strang's lectures</li>
+                            <li class="resource-item"><span class="key-resource">Khan Academy</span> - Interactive lessons</li>
+                            <li class="resource-item"><span class="key-resource">Coursera</span> - Mathematics for ML</li>
+                            <li class="resource-item"><span class="key-resource">3Blue1Brown</span> - Visual intuition</li>
+                            <li class="resource-item"><span class="key-resource">edX</span> - Linear algebra foundations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">visibility</i>Visualization Tools</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">GeoGebra</span> - Interactive geometry</li>
+                            <li class="resource-item"><span class="key-resource">Manim</span> - Mathematical animations</li>
+                            <li class="resource-item"><span class="key-resource">Matplotlib</span> - Python plotting</li>
+                            <li class="resource-item"><span class="key-resource">Plotly</span> - Interactive graphs</li>
+                            <li class="resource-item"><span class="key-resource">Desmos</span> - Graphing calculator</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">extension</i>Practice Platforms</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">LeetCode</span> - Matrix problems</li>
+                            <li class="resource-item"><span class="key-resource">Brilliant</span> - Interactive exercises</li>
+                            <li class="resource-item"><span class="key-resource">Project Euler</span> - Mathematical challenges</li>
+                            <li class="resource-item"><span class="key-resource">Kaggle</span> - Real-world datasets</li>
+                            <li class="resource-item"><span class="key-resource">HackerRank</span> - Coding challenges</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-box">
+                        <h3 class="resource-title"><i class="material-icons">groups</i>Communities</h3>
+                        <ul class="resource-list">
+                            <li class="resource-item"><span class="key-resource">Stack Exchange</span> - Q&A forum</li>
+                            <li class="resource-item"><span class="key-resource">Reddit</span> - r/learnmath, r/linearalgebra</li>
+                            <li class="resource-item"><span class="key-resource">MathOverflow</span> - Research-level</li>
+                            <li class="resource-item"><span class="key-resource">Discord</span> - Study groups</li>
+                            <li class="resource-item"><span class="key-resource">GitHub</span> - Open source projects</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <h3 class="tip-title"><i class="material-icons">tips_and_updates</i>Pro Tip</h3>
+                    <div class="tip-content">
+                        Combine <span class="highlight">multiple resources</span> for optimal learning. Use textbooks for theoretical foundations, software libraries for implementation, and visualization tools for building intuition. Active participation in communities accelerates understanding through collaborative problem-solving.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-16" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-18" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.18: Assessment and Evaluation -->
+        <div class="section" id="section1-1-18">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.18</span> Assessment and Evaluation</h1>
+            </div>
+            <div class="section-content">
+                <div class="assessment-grid">
+                    <div class="assessment-box">
+                        <h3 class="assessment-title"><i class="material-icons">assignment</i>Assessment Methods</h3>
+                        <ul class="assessment-list">
+                            <li class="assessment-item"><span class="key-concept">Homework Assignments</span> - Weekly problem sets</li>
+                            <li class="assessment-item"><span class="key-concept">Programming Projects</span> - Implementation challenges</li>
+                            <li class="assessment-item"><span class="key-concept">Midterm Exam</span> - Theoretical foundations</li>
+                            <li class="assessment-item"><span class="key-concept">Final Project</span> - Applied linear algebra</li>
+                            <li class="assessment-item"><span class="key-concept">Participation</span> - Discussion engagement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="assessment-box">
+                        <h3 class="assessment-title"><i class="material-icons">rule</i>Evaluation Criteria</h3>
+                        <ul class="assessment-list">
+                            <li class="assessment-item"><span class="key-concept">Mathematical Rigor</span> - Proof quality & correctness</li>
+                            <li class="assessment-item"><span class="key-concept">Code Quality</span> - Efficiency & readability</li>
+                            <li class="assessment-item"><span class="key-concept">Conceptual Understanding</span> - Beyond mechanics</li>
+                            <li class="assessment-item"><span class="key-concept">Problem Solving</span> - Approach & creativity</li>
+                            <li class="assessment-item"><span class="key-concept">Application</span> - Real-world relevance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="assessment-box">
+                        <h3 class="assessment-title"><i class="material-icons">pie_chart</i>Weight Distribution</h3>
+                        <ul class="assessment-list">
+                            <li class="assessment-item"><span class="key-concept">Homework</span> - 30% of final grade</li>
+                            <li class="assessment-item"><span class="key-concept">Programming Projects</span> - 25% of final grade</li>
+                            <li class="assessment-item"><span class="key-concept">Midterm Exam</span> - 20% of final grade</li>
+                            <li class="assessment-item"><span class="key-concept">Final Project</span> - 20% of final grade</li>
+                            <li class="assessment-item"><span class="key-concept">Participation</span> - 5% of final grade</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="assessment-box">
+                        <h3 class="assessment-title"><i class="material-icons">feedback</i>Feedback Mechanisms</h3>
+                        <ul class="assessment-list">
+                            <li class="assessment-item"><span class="key-concept">Detailed Grading</span> - Rubric-based evaluation</li>
+                            <li class="assessment-item"><span class="key-concept">Code Reviews</span> - Implementation feedback</li>
+                            <li class="assessment-item"><span class="key-concept">Office Hours</span> - One-on-one guidance</li>
+                            <li class="assessment-item"><span class="key-concept">Peer Review</span> - Collaborative learning</li>
+                            <li class="assessment-item"><span class="key-concept">Progress Tracking</span> - Milestone check-ins</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="criteria-box">
+                    <h3 class="criteria-title"><i class="material-icons">stars</i>Success Indicators</h3>
+                    <div class="criteria-content">
+                        Success in this course is measured by your ability to <span class="highlight">connect theory with practice</span>. We evaluate not just your ability to solve problems, but your understanding of <span class="highlight">why</span> solutions work and <span class="highlight">how</span> concepts apply to real-world scenarios. Regular feedback ensures you stay on track and develop both theoretical and practical mastery.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-17" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section1-1-19" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 1.1.19: Next Steps -->
+        <div class="section" id="section1-1-19">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.1.19</span> Next Steps</h1>
+            </div>
+            <div class="section-content">
+                <div class="steps-grid">
+                    <div class="step-box">
+                        <h3 class="step-title"><i class="material-icons">menu_book</i>Initial Preparation</h3>
+                        <ul class="step-list">
+                            <li class="step-item"><span class="key-concept">Review Prerequisites</span> - Basic algebra & calculus</li>
+                            <li class="step-item"><span class="key-concept">Read First Chapter</span> - Foundational concepts</li>
+                            <li class="step-item"><span class="key-concept">Watch Intro Videos</span> - Visual intuition</li>
+                            <li class="step-item"><span class="key-concept">Set Up Tools</span> - Python, NumPy, Jupyter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h3 class="step-title"><i class="material-icons">laptop</i>Development Environment</h3>
+                        <ul class="step-list">
+                            <li class="step-item"><span class="key-concept">Install Python</span> - Version 3.8+ recommended</li>
+                            <li class="step-item"><span class="key-concept">Set Up Libraries</span> - NumPy, SciPy, Matplotlib</li>
+                            <li class="step-item"><span class="key-concept">Configure IDE</span> - VS Code or PyCharm</li>
+                            <li class="step-item"><span class="key-concept">Test Environment</span> - Run sample code</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h3 class="step-title"><i class="material-icons">groups</i>Collaborative Learning</h3>
+                        <ul class="step-list">
+                            <li class="step-item"><span class="key-concept">Form Study Groups</span> - 3-5 students ideal</li>
+                            <li class="step-item"><span class="key-concept">Join Online Forums</span> - Course discussion board</li>
+                            <li class="step-item"><span class="key-concept">Schedule Meetings</span> - Weekly check-ins</li>
+                            <li class="step-item"><span class="key-concept">Share Resources</span> - Notes & insights</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-box">
+                        <h3 class="step-title"><i class="material-icons">track_changes</i>Goal Setting</h3>
+                        <ul class="step-list">
+                            <li class="step-item"><span class="key-concept">Define Objectives</span> - Specific & measurable</li>
+                            <li class="step-item"><span class="key-concept">Create Timeline</span> - Weekly milestones</li>
+                            <li class="step-item"><span class="key-concept">Track Progress</span> - Self-assessment</li>
+                            <li class="step-item"><span class="key-concept">Adjust Strategy</span> - Adapt as needed</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="inspiration-box">
+                    <h3 class="inspiration-title"><i class="material-icons">emoji_objects</i>The Journey Ahead</h3>
+                    <div class="inspiration-content">
+                        "Linear algebra is not just a mathematical discipline—it's a <span class="highlight">language</span> that unlocks the deeper structure of data and algorithms. Master both its theory and implementation, and you'll possess a powerful toolkit for solving complex problems in machine learning and beyond."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-18" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section2" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 2: Advanced Vector Spaces - Theory -->
+        <div class="section" id="section2">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.2</span>Advanced Vector Spaces - Theory</h1>
+            </div>
+            <div class="section-content">
+                <div class="theory-grid">
+                    <div class="theory-box">
+                        <h3><i class="material-icons">category</i>Vector Spaces & Subspaces</h3>
+                        <ul>
+                            <li><span class="key-concept">Vector Space</span>: Set <span class="math">V</span> with addition & scalar multiplication satisfying 10 axioms</li>
+                            <li>Examples: <span class="math">ℝⁿ, ℂⁿ, Pₙ</span> (polynomials), <span class="math">M_{m×n}</span> (matrices)</li>
+                            <li><span class="key-concept">Subspace</span>: Non-empty subset <span class="math">W ⊆ V</span> closed under addition & scalar multiplication</li>
+                            <li>Subspace criterion: <span class="math">∀ u,v ∈ W, ∀ c ∈ ℝ</span>: <span class="math">u+v ∈ W</span> and <span class="math">c·u ∈ W</span></li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">linear_scale</i>Linear Independence & Basis</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Independence</span>: <span class="math">c₁v₁ + ... + cₙvₙ = 0</span> only when <span class="math">c₁=...=cₙ=0</span></li>
+                            <li><span class="key-concept">Span</span>: <span class="math">span{v₁,...,vₙ} = {c₁v₁ + ... + cₙvₙ | cᵢ ∈ ℝ}</span></li>
+                            <li><span class="key-concept">Basis</span>: Linearly independent spanning set</li>
+                            <li><span class="key-concept">Dimension</span>: Number of vectors in any basis</li>
+                            <li>Standard basis: <span class="math">e₁=(1,0,...,0), e₂=(0,1,...,0), ..., eₙ=(0,0,...,1)</span></li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">transform</i>Linear Transformations</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Transformation</span>: <span class="math">T: V → W</span> where <span class="math">T(u+v) = T(u) + T(v)</span> and <span class="math">T(cu) = cT(u)</span></li>
+                            <li><span class="key-concept">Kernel</span>: <span class="math">ker(T) = {v ∈ V | T(v) = 0}</span> (subspace of <span class="math">V</span>)</li>
+                            <li><span class="key-concept">Range</span>: <span class="math">range(T) = {T(v) | v ∈ V}</span> (subspace of <span class="math">W</span>)</li>
+                            <li><span class="key-concept">Matrix Representation</span>: <span class="math">[T]_{β→γ}</span> where <span class="math">β, γ</span> are bases</li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">square_foot</i>Inner Product Spaces</h3>
+                        <ul>
+                            <li><span class="key-concept">Inner Product</span>: Function <span class="math">⟨·,·⟩: V×V→ℝ</span> satisfying:
+                                <br>• Symmetry: <span class="math">⟨u,v⟩ = ⟨v,u⟩</span>
+                                <br>• Linearity: <span class="math">⟨au+bv,w⟩ = a⟨u,w⟩ + b⟨v,w⟩</span>
+                                <br>• Positive-definiteness: <span class="math">⟨v,v⟩ ≥ 0</span> and <span class="math">⟨v,v⟩ = 0 ⇔ v=0</span>
+                            </li>
+                            <li><span class="key-concept">Orthogonality</span>: <span class="math">u ⊥ v</span> if <span class="math">⟨u,v⟩ = 0</span></li>
+                            <li><span class="key-concept">Norm</span>: <span class="math">||v|| = √⟨v,v⟩</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="theorem-box">
+                    <h3><i class="material-icons">lightbulb</i>Rank-Nullity Theorem</h3>
+                    <div class="theorem-content">
+                        For any linear transformation <span class="math">T: V → W</span> between finite-dimensional vector spaces:
+                        <br><br>
+                        <span class="highlight">dim(ker(T)) + dim(range(T)) = dim(V)</span>
+                        <br><br>
+                        Equivalently, for any matrix <span class="math">A ∈ M_{m×n}</span>:
+                        <br><br>
+                        <span class="highlight">nullity(A) + rank(A) = n</span>
+                        <br><br>
+                        This theorem connects the dimensions of the kernel and range of a linear transformation, providing a fundamental relationship in linear algebra.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-19" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section3" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 3: Advanced Vector Spaces - Applications and Implementation Challenges -->
+        <div class="section" id="section3">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.3</span>Advanced Vector Spaces - Applications & Implementation</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Neural Networks</span>: Feature spaces as high-dimensional vector spaces</li>
+                            <li><span class="key-concept">Kernel Methods</span>: Mapping data to higher-dimensional spaces for linear separation</li>
+                            <li><span class="key-concept">Dimensionality Reduction</span>: PCA, t-SNE using vector space projections</li>
+                            <li><span class="key-concept">Geometric Deep Learning</span>: Manifold learning and tangent spaces</li>
+                            <li><span class="key-concept">Word Embeddings</span>: NLP representations as vectors in semantic space</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">fitness_center</i>Key Exercises</h3>
+                        <ul>
+                            <li>Prove <span class="highlight">linear independence/dependence</span> from first principles</li>
+                            <li>Find orthogonal bases using <span class="highlight">Gram-Schmidt process</span></li>
+                            <li>Implement vector space projections without libraries</li>
+                            <li>Calculate null space and column space manually</li>
+                            <li>Prove rank-nullity theorem for specific matrices</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">build</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">Numerical Stability</span>: Implementing modified Gram-Schmidt
+                                <div class="code-block">
+                                for j=1:n<br>
+                                &nbsp;&nbsp;qⱼ = vⱼ/‖vⱼ‖₂<br>
+                                &nbsp;&nbsp;for k=j+1:n<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;rⱼₖ = qⱼᵀvₖ<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;vₖ = vₖ - rⱼₖqⱼ<br>
+                                &nbsp;&nbsp;end<br>
+                                end
+                                </div>
+                            </li>
+                            <li><span class="key-concept">High-Dimensional Spaces</span>: Curse of dimensionality</li>
+                            <li><span class="key-concept">Near-Linear Dependence</span>: Handling ill-conditioned matrices</li>
+                            <li><span class="key-concept">Floating Point Precision</span>: Errors in vector operations</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Hilbert Spaces</span>: Complete inner product spaces, infinite dimensions</li>
+                            <li><span class="key-concept">Tensor Products</span>: Multilinear algebra for higher-order interactions</li>
+                            <li><span class="key-concept">Exterior Algebra</span>: Differential forms and geometric algebra</li>
+                            <li><span class="key-concept">Functional Analysis</span>: Operators on function spaces for ML</li>
+                            <li><span class="key-concept">Manifold Learning</span>: Non-linear dimensionality reduction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section2" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section4" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 4: Matrix Decompositions Deep Dive - QR Decomposition -->
+        <div class="section" id="section4">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.4</span>Matrix Decompositions Deep Dive - QR Decomposition</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">description</i>Theoretical Foundations</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = QR</span> where <span class="math">Q</span> is orthogonal (<span class="math">QᵀQ = I</span>) and <span class="math">R</span> is upper triangular</li>
+                            <li><span class="key-concept">Existence</span>: Every matrix <span class="math">A ∈ ℝᵐˣⁿ</span> with <span class="math">m ≥ n</span> has a QR decomposition</li>
+                            <li><span class="key-concept">Uniqueness</span>: If <span class="math">A</span> has full rank and <span class="math">R</span> has positive diagonal entries, then QR decomposition is unique</li>
+                            <li><span class="key-concept">Types</span>: Full QR (<span class="math">Q ∈ ℝᵐˣᵐ, R ∈ ℝᵐˣⁿ</span>) and Reduced QR (<span class="math">Q ∈ ℝᵐˣⁿ, R ∈ ℝⁿˣⁿ</span>)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">calculate</i>Computation Methods</h3>
+                        <ul>
+                            <li><span class="key-concept">Gram-Schmidt Process</span>: Orthogonalize columns of <span class="math">A</span> to form <span class="math">Q</span></li>
+                            <li><span class="key-concept">Householder Transformations</span>: Reflect vectors through hyperplanes
+                                <div class="formula">
+                                    <span class="math">H = I - 2vvᵀ/||v||²</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Givens Rotations</span>: Rotate in coordinate planes to zero elements</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">auto_awesome</i>Householder Transformations</h3>
+                        <ul>
+                            <li><span class="key-concept">Reflection</span>: Householder matrix reflects vectors about a hyperplane</li>
+                            <li><span class="key-concept">Construction</span>: For vector <span class="math">a</span>, compute <span class="math">v = a ± sign(a₁)||a||e₁</span></li>
+                            <li><span class="key-concept">Algorithm</span>:
+                                <div class="code-block">
+                                for k = 1 to n<br>
+                                &nbsp;&nbsp;x = A[k:m, k]<br>
+                                &nbsp;&nbsp;v = sign(x₁)||x||e₁ + x<br>
+                                &nbsp;&nbsp;v = v/||v||<br>
+                                &nbsp;&nbsp;A[k:m, k:n] = A[k:m, k:n] - 2v(vᵀA[k:m, k:n])<br>
+                                &nbsp;&nbsp;Qₖ = I - 2vvᵀ<br>
+                                end<br>
+                                &nbsp;&nbsp;Q = Q₁Q₂...Qₙ
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">app_settings_alt</i>Applications</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Systems</span>: Solve <span class="math">Ax = b</span> via <span class="math">QRx = b</span> → <span class="math">Rx = Qᵀb</span></li>
+                            <li><span class="key-concept">Least Squares</span>: Minimize <span class="math">||Ax - b||²</span> by solving <span class="math">Rx = Qᵀb</span></li>
+                            <li><span class="key-concept">Eigenvalue Computation</span>: QR algorithm for finding eigenvalues</li>
+                            <li><span class="key-concept">Orthogonalization</span>: Creating orthonormal bases for subspaces</li>
+                            <li><span class="key-concept">Numerical Stability</span>: More stable than LU decomposition for ill-conditioned matrices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section3" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section5" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 5: Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition -->
+        <div class="section" id="section5">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.5</span>Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">view_comfy</i>Singular Value Decomposition</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = UΣVᵀ</span>
+                                <div class="formula">
+                                    <span class="math">U ∈ ℝᵐˣᵐ</span> orthogonal, <span class="math">Σ ∈ ℝᵐˣⁿ</span> diagonal, <span class="math">V ∈ ℝⁿˣⁿ</span> orthogonal
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Existence</span>: Every matrix <span class="math">A ∈ ℝᵐˣⁿ</span> has an SVD</li>
+                            <li><span class="key-concept">Singular Values</span>: Diagonal entries of <span class="math">Σ</span> (σ₁ ≥ σ₂ ≥ ... ≥ 0)</li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Rank = number of non-zero singular values
+                                <br>• <span class="math">||A||₂ = σ₁</span> (largest singular value)
+                                <br>• Singular vectors form orthonormal bases
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">linear_scale</i>Eigenvalue Decomposition</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = VΛV⁻¹</span>
+                                <div class="formula">
+                                    <span class="math">V ∈ ℝⁿˣⁿ</span> eigenvectors, <span class="math">Λ ∈ ℝⁿˣⁿ</span> diagonal eigenvalues
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Existence</span>: Requires <span class="math">n</span> linearly independent eigenvectors</li>
+                            <li><span class="key-concept">Eigenvalues</span>: Roots of characteristic polynomial <span class="math">det(A - λI) = 0</span></li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Trace = sum of eigenvalues
+                                <br>• Determinant = product of eigenvalues
+                                <br>• Powers: <span class="math">Aᵏ = VΛᵏV⁻¹</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">compare_arrows</i>Relationship & Special Cases</h3>
+                        <ul>
+                            <li><span class="key-concept">Connection</span>: For symmetric matrix <span class="math">A</span>:
+                                <br>• SVD: <span class="math">A = UΣVᵀ</span>
+                                <br>• EVD: <span class="math">A = QΛQᵀ</span>
+                                <br>• <span class="math">U = Q</span>, <span class="math">V = Q</span>, <span class="math">Σ = |Λ|</span>
+                            </li>
+                            <li><span class="key-concept">Symmetric Matrices</span>: Always diagonalizable with orthogonal eigenvectors</li>
+                            <li><span class="key-concept">Positive Definite</span>: All eigenvalues positive, Cholesky decomposition</li>
+                            <li><span class="key-concept">Normal Matrices</span>: <span class="math">AAᵀ = AᵀA</span>, unitarily diagonalizable</li>
+                        </ul>
+                        <div class="theorem-box">
+                            <h4><i class="material-icons">lightbulb</i>Spectral Theorem</h4>
+                            <div class="theorem-content">
+                                Every real symmetric matrix <span class="math">A</span> can be diagonalized by an orthogonal matrix: <span class="math">A = QΛQᵀ</span> where <span class="math">QᵀQ = I</span> and <span class="math">Λ</span> is diagonal.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">apps</i>Geometric Interpretations</h3>
+                        <ul>
+                            <li><span class="key-concept">SVD Geometry</span>:
+                                <br>• <span class="math">Vᵀ</span>: Rotate/reflect input space
+                                <br>• <span class="math">Σ</span>: Scale along orthogonal axes
+                                <br>• <span class="math">U</span>: Rotate/reflect output space
+                            </li>
+                            <li><span class="key-concept">EVD Geometry</span>:
+                                <br>• Eigenvectors: Principal axes of transformation
+                                <br>• Eigenvalues: Scaling factors along these axes
+                            </li>
+                            <li><span class="key-concept">Low-Rank Approximation</span>:
+                                <br>• Best rank-k approximation using largest singular values
+                                <br>• Eckart-Young-Mirsky theorem: <span class="math">min||A-B||₂ = σₖ₊₁</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section4" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section6" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 6: Matrix Decompositions - Applications and Implementation Challenges -->
+        <div class="section" id="section6">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.6</span>Matrix Decompositions - Applications and Implementation Challenges</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Recommendation Systems</span>: SVD for collaborative filtering (Netflix, Amazon)</li>
+                            <li><span class="key-concept">Dimensionality Reduction</span>: PCA using eigenvalue decomposition</li>
+                            <li><span class="key-concept">Image Compression</span>: SVD for low-rank approximation</li>
+                            <li><span class="key-concept">Topic Modeling</span>: NMF for document clustering</li>
+                            <li><span class="key-concept">Signal Processing</span>: Filter design, noise reduction</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">code</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">QR with Householder</span>:
+                                <div class="code-block">
+                                for k = 1 to n<br>
+                                &nbsp;&nbsp;x = A[k:m, k]<br>
+                                &nbsp;&nbsp;v = sign(x₁)||x||e₁ + x<br>
+                                &nbsp;&nbsp;v = v/||v||<br>
+                                &nbsp;&nbsp;A[k:m, k:n] = A[k:m, k:n] - 2v(vᵀA[k:m, k:n])<br>
+                                end
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Eigenvalue for Sparse Matrices</span>: Arnoldi Iteration</li>
+                            <li><span class="key-concept">Stable Matrix Inversion</span>: Method 1 (forward substitution)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">warning</i>Edge Cases & Limitations</h3>
+                        <ul>
+                            <li><span class="key-concept">Singular Matrices</span>: Zero determinant, no inverse exists</li>
+                            <li><span class="key-concept">Ill-Conditioned Matrices</span>: Small changes in input cause large changes in output</li>
+                            <li><span class="key-concept">Numerical Stability</span>: Round-off errors in floating-point arithmetic</li>
+                            <li><span class="key-concept">High-Dimensional Data</span>: Curse of dimensionality in decomposition</li>
+                            <li><span class="key-concept">Memory Constraints</span>: Large matrices exceed available memory</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Tensor Decompositions</span>: Higher-order generalizations (CP, Tucker)</li>
+                            <li><span class="key-concept">Non-negative Matrix Factorization</span>: Parts-based representation</li>
+                            <li><span class="key-concept">Randomized Algorithms</span>: Approximate decompositions for large matrices</li>
+                            <li><span class="key-concept">Online/Incremental Methods</span>: Updating decompositions with new data</li>
+                            <li><span class="key-concept">Distributed Implementations</span>: Parallel algorithms for big data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section5" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section7" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 7: Advanced Matrix Calculus - Theory -->
+        <div class="section" id="section7">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.7</span>Advanced Matrix Calculus - Theory</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">functions</i>Matrix Derivatives</h3>
+                        <ul>
+                            <li><span class="key-concept">Scalar-by-Vector</span>: <span class="math">∂f/∂x</span> where <span class="math">f: ℝⁿ → ℝ</span>
+                                <div class="formula">
+                                    <span class="math">∂f/∂x = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Vector-by-Vector</span>: <span class="math">∂f/∂x</span> where <span class="math">f: ℝⁿ → ℝᵐ</span>
+                                <div class="formula">
+                                    <span class="math">[∂f/∂x]ᵢⱼ = ∂fᵢ/∂xⱼ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Scalar-by-Matrix</span>: <span class="math">∂f/∂X</span> where <span class="math">f: ℝᵐˣⁿ → ℝ</span>
+                                <div class="formula">
+                                    <span class="math">[∂f/∂X]ᵢⱼ = ∂f/∂Xᵢⱼ</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">trending_up</i>Gradients and Hessians</h3>
+                        <ul>
+                            <li><span class="key-concept">Gradient</span>: Vector of first derivatives
+                                <div class="formula">
+                                    <span class="math">∇f(x) = ∂f/∂x</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Hessian</span>: Matrix of second derivatives
+                                <div class="formula">
+                                    <span class="math">Hf(x) = ∂²f/∂x∂xᵀ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Gradient points in direction of steepest ascent
+                                <br>• Hessian symmetric for twice continuously differentiable functions
+                                <br>• Positive definite Hessian ⇒ local minimum
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">sync_alt</i>Matrix Chain Rule & Product Rule</h3>
+                        <ul>
+                            <li><span class="key-concept">Chain Rule</span>:
+                                <div class="formula">
+                                    <span class="math">∂f(g(x))/∂x = (∂g/∂x)ᵀ ∂f/∂g</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Product Rule</span>:
+                                <div class="formula">
+                                    <span class="math">∂(f(x)g(x))/∂x = f(x)∂g/∂x + g(x)∂f/∂x</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Key Identities</span>:
+                                <br>• <span class="math">∂(Ax)/∂x = Aᵀ</span>
+                                <br>• <span class="math">∂(xᵀAx)/∂x = (A + Aᵀ)x</span>
+                                <br>• <span class="math">∂(xᵀA)/∂x = A</span>
+                                <br>• <span class="math">∂(AB)/∂X = A(∂B/∂X) + (∂A/∂X)B</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">speed</i>Optimization in Linear Algebra</h3>
+                        <ul>
+                            <li><span class="key-concept">Gradient Descent</span>: <span class="math">xₖ₊₁ = xₖ - α∇f(xₖ)</span></li>
+                            <li><span class="key-concept">Newton's Method</span>: <span class="math">xₖ₊₁ = xₖ - [Hf(xₖ)]⁻¹∇f(xₖ)</span></li>
+                            <li><span class="key-concept">Conjugate Gradient</span>: For quadratic systems <span class="math">Ax = b</span></li>
+                            <li><span class="key-concept">Optimization Conditions</span>:
+                                <br>• First-order: <span class="math">∇f(x*) = 0</span>
+                                <br>• Second-order: <span class="math">Hf(x*) ≽ 0</span>
+                            </li>
+                        </ul>
+                        <div class="theorem-box">
+                            <h4><i class="material-icons">lightbulb</i>Taylor's Theorem for Matrices</h4>
+                            <div class="theorem-content">
+                                For a twice differentiable function <span class="math">f: ℝⁿ → ℝ</span>:
+                                <br><br>
+                                <span class="math">f(x+p) = f(x) + pᵀ∇f(x) + ½pᵀHf(x+tp)p</span> for some <span class="math">t ∈ (0,1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section6" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section8" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 8: Advanced Matrix Calculus - Applications and Implementation Challenges -->
+        <div class="section" id="section8">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.8</span>Advanced Matrix Calculus - Applications and Implementation Challenges</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Backpropagation</span>: Chain rule for computing gradients in neural networks</li>
+                            <li><span class="key-concept">Optimization Algorithms</span>: SGD, Adam, RMSprop using gradient information</li>
+                            <li><span class="key-concept">Probabilistic Models</span>: Maximum likelihood estimation, EM algorithm</li>
+                            <li><span class="key-concept">Natural Gradient</span>: Using Fisher information matrix for optimization</li>
+                            <li><span class="key-concept">Second-Order Methods</span>: Newton's method, quasi-Newton methods</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">code</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">Efficient Gradient Computation</span>:
+                                <div class="code-block">
+                                # Backpropagation example<br>
+                                def backprop(X, y, params):<br>
+                                &nbsp;&nbsp;# Forward pass<br>
+                                &nbsp;&nbsp;activations = forward_pass(X, params)<br>
+                                &nbsp;&nbsp;# Compute loss gradient<br>
+                                &nbsp;&nbsp;d_loss = compute_loss_gradient(activations[-1], y)<br>
+                                &nbsp;&nbsp;# Backward pass<br>
+                                &nbsp;&nbsp;grads = backward_pass(activations, d_loss)<br>
+                                &nbsp;&nbsp;return grads
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Numerical Stability</span>: Vanishing/exploding gradients</li>
+                            <li><span class="key-concept">Large-Scale Optimization</span>: Distributed, mini-batch methods</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">fitness_center</i>Key Exercises</h3>
+                        <ul>
+                            <li>Derive gradients for common ML loss functions:
+                                <br>• MSE: <span class="math">∇(½||y-Xw||²) = Xᵀ(Xw-y)</span>
+                                <br>• Cross-entropy: <span class="math">∇(-y·log(σ(Xw))) = Xᵀ(σ(Xw)-y)</span>
+                            </li>
+                            <li>Implement gradient descent from scratch</li>
+                            <li>Compute Hessian for optimization problems:
+                                <br>• For MSE: <span class="math">H = XᵀX</span>
+                                <br>• For regularized problems: <span class="math">H = XᵀX + λI</span>
+                            </li>
+                            <li>Implement automatic differentiation for simple functions</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Matrix Calculus in Deep Learning</span>: Higher-order derivatives, tensor calculus</li>
+                            <li><span class="key-concept">Differential Geometry</span>: Manifold optimization, Riemannian gradient descent</li>
+                            <li><span class="key-concept">Stochastic Optimization</span>: Variance reduction techniques, adaptive methods</li>
+                            <li><span class="key-concept">Implicit Differentiation</span>: Differentiating through optimization problems</li>
+                            <li><span class="key-concept">Matrix Calculus Libraries</span>: JAX, TensorFlow, PyTorch autograd</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section7" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section9" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 9: Conclusion and Further Learning -->
+        <div class="section" id="section9">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.9</span>Conclusion and Further Learning</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">summarize</i>Key Takeaways</h3>
+                        <ul>
+                            <li><span class="key-concept">Theoretical Foundations</span>: Vector spaces, matrix decompositions, and calculus form the backbone of linear algebra</li>
+                            <li><span class="key-concept">Practical Implementations</span>: Numerical stability, efficient algorithms, and handling edge cases are critical</li>
+                            <li><span class="key-concept">ML Applications</span>: From neural networks to recommendation systems, linear algebra powers modern AI</li>
+                            <li><span class="key-concept">Dual Mastery</span>: Both theoretical understanding and implementation skills are essential</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">auto_awesome</i>Importance of Balance</h3>
+                        <ul>
+                            <li><span class="key-concept">Theory → Practice</span>: Mathematical concepts guide implementation decisions</li>
+                            <li><span class="key-concept">Practice → Theory</span>: Implementation challenges reveal deeper theoretical insights</li>
+                            <li><span class="key-concept">Iterative Learning</span>: Cycle between understanding theory and building practical skills</li>
+                            <li><span class="key-concept">Holistic Approach</span>: Combine mathematical rigor with computational thinking</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">menu_book</i>Further Learning Resources</h3>
+                        <ul>
+                            <li><span class="key-concept">Textbooks</span>: 
+                                <br>• Linear Algebra Done Right (Axler)
+                                <br>• Matrix Computations (Golub & Van Loan)
+                                <br>• Numerical Linear Algebra (Trefethen & Bau)
+                            </li>
+                            <li><span class="key-concept">Online Courses</span>: MIT 18.06, Coursera, Khan Academy</li>
+                            <li><span class="key-concept">Software Libraries</span>: NumPy, SciPy, LAPACK, JAX</li>
+                            <li><span class="key-concept">Research Papers</span>: ARPACK, BLAS, numerical stability literature</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">trending_up</i>Next Steps in Your Journey</h3>
+                        <ul>
+                            <li><span class="key-concept">Implement Algorithms</span>: Code decompositions from scratch</li>
+                            <li><span class="key-concept">Solve Real Problems</span>: Apply concepts to ML projects</li>
+                            <li><span class="key-concept">Explore Advanced Topics</span>: Tensor calculus, differential geometry</li>
+                            <li><span class="key-concept">Join Communities</span>: Contribute to open-source projects</li>
+                            <li><span class="key-concept">Continuous Learning</span>: Mathematics is a journey, not a destination</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="motivation-box">
+                    <h3>The Journey to Mastery</h3>
+                    <p>"Linear algebra is not just a mathematical discipline—it's a language that unlocks the deeper structure of data and algorithms. Master both its theory and implementation, and you'll possess a powerful toolkit for solving complex problems in machine learning and beyond."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section8" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#toc" class="nav-button">Table of Contents<i class="material-icons">menu</i></a>
+        </div>
+    </div>
+</body>
+</html>

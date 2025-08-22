@@ -1,0 +1,4444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete C Programming Mastery Course - From Beginner to Guru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #7c3aed;
+            --accent-color: #dc2626;
+            --success-color: #16a34a;
+            --warning-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 300px;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: white;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: var(--card-bg);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            z-index: 90;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            padding: 0.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: -350px;
+            top: 0;
+            width: 350px;
+            height: 100vh;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-lg);
+            transition: left 0.3s ease;
+            z-index: 200;
+            overflow-y: auto;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .close-sidebar {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .chapter-link:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        .chapter-link.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 150;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .chapter {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .chapter.active {
+            display: block;
+        }
+
+        .chapter h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .chapter h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .chapter h4 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .chapter p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: var(--text-primary);
+        }
+
+        .chapter ul, .chapter ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #1e293b;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .code-header {
+            background: #334155;
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .code-language {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-btn {
+            background: none;
+            border: 1px solid #64748b;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #64748b;
+        }
+
+        .code-content {
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .code-content pre {
+            margin: 0;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .note {
+            background: #fef3c7;
+            border-color: var(--warning-color);
+        }
+
+        .note h4 {
+            color: var(--warning-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning {
+            background: #fee2e2;
+            border-color: var(--accent-color);
+        }
+
+        .warning h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tip {
+            background: #dcfce7;
+            border-color: var(--success-color);
+        }
+
+        .tip h4 {
+            color: var(--success-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: var(--bg-color);
+        }
+
+        /* Exercises */
+        .exercise {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .exercise h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .project h4 {
+            color: var(--warning-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .progress-container {
+                min-width: 100%;
+            }
+
+            .nav-content {
+                justify-content: center;
+            }
+
+            .sidebar {
+                width: 100%;
+                left: -100%;
+            }
+
+            .chapter {
+                padding: 1rem;
+            }
+
+            .chapter h2 {
+                font-size: 1.5rem;
+            }
+
+            .chapter h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-1 {
+            margin-top: 1rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Course Chapters</h3>
+            <button class="close-sidebar" onclick="toggleSidebar()">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="chapter-list">
+                <li><a href="#" onclick="showChapter(0)" class="chapter-link active">1. Introduction to C</a></li>
+                <li><a href="#" onclick="showChapter(1)" class="chapter-link">2. Basics & Syntax</a></li>
+                <li><a href="#" onclick="showChapter(2)" class="chapter-link">3. Data Types & Variables</a></li>
+                <li><a href="#" onclick="showChapter(3)" class="chapter-link">4. Operators & Expressions</a></li>
+                <li><a href="#" onclick="showChapter(4)" class="chapter-link">5. Control Structures</a></li>
+                <li><a href="#" onclick="showChapter(5)" class="chapter-link">6. Functions</a></li>
+                <li><a href="#" onclick="showChapter(6)" class="chapter-link">7. Arrays & Strings</a></li>
+                <li><a href="#" onclick="showChapter(7)" class="chapter-link">8. Pointers</a></li>
+                <li><a href="#" onclick="showChapter(8)" class="chapter-link">9. Structures & Unions</a></li>
+                <li><a href="#" onclick="showChapter(9)" class="chapter-link">10. File Handling</a></li>
+                <li><a href="#" onclick="showChapter(10)" class="chapter-link">11. Dynamic Memory & Advanced Storage</a></li>
+                <li><a href="#" onclick="showChapter(11)" class="chapter-link">12. Preprocessor Directives</a></li>
+                <li><a href="#" onclick="showChapter(12)" class="chapter-link">13. Advanced Topics</a></li>
+                <li><a href="#" onclick="showChapter(13)" class="chapter-link">14. Debugging, Testing & Best Practices</a></li>
+                <li><a href="#" onclick="showChapter(14)" class="chapter-link">15. Practical Projects & Exercises</a></li>
+                <li><a href="#" onclick="showChapter(15)" class="chapter-link">16. Optional Extras</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>Complete C Programming Mastery Course</h1>
+                    <p>From Beginner to Expert - Comprehensive Guide with Projects</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Course Progress</span>
+                        <span id="progressText">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="previousChapter()" id="prevBtn" disabled>
+                        ← Previous
+                    </button>
+                    <button class="nav-btn" onclick="nextChapter()" id="nextBtn">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Chapter 1: Introduction to C -->
+            <div class="chapter active" id="chapter-0">
+                <h2>Chapter 1: Introduction to C</h2>
+                
+                <h3>History and Evolution of C</h3>
+                <p>C programming language was developed by Dennis Ritchie at Bell Laboratories in the early 1970s. It was created to write the UNIX operating system and has since become one of the most influential programming languages in history.</p>
+                
+                <p>The evolution of C through various standards:</p>
+                <ul>
+                    <li><strong>K&R C (1978):</strong> The original version described in "The C Programming Language" by Kernighan and Ritchie</li>
+                    <li><strong>ANSI C/C89 (1989):</strong> First standardized version by the American National Standards Institute</li>
+                    <li><strong>C90 (1990):</strong> ISO standard identical to ANSI C</li>
+                    <li><strong>C99 (1999):</strong> Added inline functions, variable-length arrays, single-line comments</li>
+                    <li><strong>C11 (2011):</strong> Added multithreading support, anonymous structures, Unicode support</li>
+                    <li><strong>C18 (2018):</strong> Minor update with bug fixes and clarifications</li>
+                    <li><strong>C23 (2023):</strong> Latest standard with new features and improvements</li>
+                </ul>
+
+                <h3>C's Place in Programming Ecosystem</h3>
+                <p>C occupies a unique position in the programming world:</p>
+                <ul>
+                    <li><strong>Foundation Language:</strong> Many modern languages (C++, Java, C#, Python) have syntax and concepts derived from C</li>
+                    <li><strong>System Programming:</strong> The language of choice for operating systems, embedded systems, and device drivers</li>
+                    <li><strong>Performance Critical:</strong> Used where speed and efficiency are paramount</li>
+                    <li><strong>Portability:</strong> C code can be compiled and run on virtually any platform</li>
+                    <li><strong>Low-level Access:</strong> Provides direct memory access and hardware interaction</li>
+                </ul>
+
+                <h3>Applications: System Software, Embedded, Game Dev, etc.</h3>
+                <p>C is used across numerous domains:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Domain</th>
+                            <th>Applications</th>
+                            <th>Examples</th>
+                        </tr>
+                        <tr>
+                            <td>System Software</td>
+                            <td>Operating Systems, Drivers</td>
+                            <td>Linux, Windows, macOS</td>
+                        </tr>
+                        <tr>
+                            <td>Embedded Systems</td>
+                            <td>Microcontrollers, IoT</td>
+                            <td>Arduino, Raspberry Pi</td>
+                        </tr>
+                        <tr>
+                            <td>Game Development</td>
+                            <td>Game Engines, Graphics</td>
+                            <td>Unreal Engine, OpenGL</td>
+                        </tr>
+                        <tr>
+                            <td>Database Systems</td>
+                            <td>Database Management</td>
+                            <td>MySQL, PostgreSQL</td>
+                        </tr>
+                        <tr>
+                            <td>Scientific Computing</td>
+                            <td>Numerical Analysis</td>
+                            <td>MATLAB, R</td>
+                        </tr>
+                        <tr>
+                            <td>Networking</td>
+                            <td>Routers, Protocols</td>
+                            <td>TCP/IP stacks</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Setting up IDEs and Compilers</h3>
+                <p>To start programming in C, you need a development environment:</p>
+                
+                <h4>Compilers</h4>
+                <ul>
+                    <li><strong>GCC (GNU Compiler Collection):</strong> Most popular, open-source, cross-platform</li>
+                    <li><strong>Clang:</strong> Modern, fast, with excellent error messages</li>
+                    <li><strong>MSVC (Microsoft Visual C++):</strong> Windows-specific, part of Visual Studio</li>
+                    <li><strong>Tiny C Compiler (TCC):</strong> Small, fast, ideal for learning</li>
+                </ul>
+
+                <h4>IDEs and Editors</h4>
+                <ul>
+                    <li><strong>Visual Studio Code:</strong> Free, extensible, with excellent C support</li>
+                    <li><strong>CLion:</strong> Professional C/C++ IDE by JetBrains</li>
+                    <li><strong>Code::Blocks:</strong> Free, open-source, cross-platform</li>
+                    <li><strong>Dev-C++:</strong> Lightweight, Windows-only</li>
+                    <li><strong>Vim/Emacs:</strong> Powerful text editors with C support</li>
+                </ul>
+
+                <div class="note">
+                    <h4>Installation Guide</h4>
+                    <p><strong>Windows:</strong> Install MinGW-w64 or Visual Studio Community</p>
+                    <p><strong>macOS:</strong> Install Xcode Command Line Tools or Homebrew</p>
+                    <p><strong>Linux:</strong> Install build-essential package (Ubuntu/Debian) or Development Tools (RHEL/CentOS)</p>
+                </div>
+
+                <h3>Writing First Program (Hello World)</h3>
+                <p>Let's write the classic "Hello, World!" program:</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <p><strong>Explanation:</strong></p>
+                <ul>
+                    <li><code>#include &lt;stdio.h&gt;</code> - Includes the standard input/output library</li>
+                    <li><code>int main()</code> - The main function where program execution begins</li>
+                    <li><code>printf()</code> - Function to print formatted output to the console</li>
+                    <li><code>\n</code> - Newline character</li>
+                    <li><code>return 0;</code> - Indicates successful program execution</li>
+                </ul>
+
+                <h3>Compilation Process: Preprocessor, Compiler, Linker</h3>
+                <p>The compilation process involves several stages:</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">Bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre># Compile the program
+gcc hello.c -o hello
+
+# Run the executable
+./hello</pre>
+                    </div>
+                </div>
+
+                <p><strong>Compilation Stages:</strong></p>
+                <ol>
+                    <li><strong>Preprocessing:</strong> Handles preprocessor directives (#include, #define, etc.)</li>
+                    <li><strong>Compilation:</strong> Converts C code to assembly language</li>
+                    <li><strong>Assembly:</strong> Converts assembly code to machine code (object files)</li>
+                    <li><strong>Linking:</strong> Combines object files and libraries to create an executable</li>
+                </ol>
+
+                <div class="tip">
+                    <h4>Pro Tip</h4>
+                    <p>Use <code>gcc -E hello.c</code> to see preprocessor output, <code>gcc -S hello.c</code> to see assembly code, and <code>gcc -c hello.c</code> to generate object files.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 1.1</h4>
+                    <p>Write a C program that prints your name, age, and favorite programming language on separate lines.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 1.2</h4>
+                    <p>Create a program that calculates and displays the area of a circle with radius 5. Use the formula: area = π × r²</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: System Information</h4>
+                    <p>Create a program that displays basic system information including the compiler version, operating system, and current date/time. Use predefined macros like <code>__DATE__</code>, <code>__TIME__</code>, and <code>__FILE__</code>.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 2: Basics & Syntax -->
+            <div class="chapter" id="chapter-1">
+                <h2>Chapter 2: Basics & Syntax</h2>
+                
+                <h3>Program Structure & Flow</h3>
+                <p>Every C program follows a specific structure that the compiler expects. Understanding this structure is fundamental to writing correct C code.</p>
+                
+                <p>A complete C program consists of:</p>
+                <ul>
+                    <li><strong>Documentation Section:</strong> Comments about the program, author, date, etc.</li>
+                    <li><strong>Preprocessor Section:</strong> #include directives and #define macros</li>
+                    <li><strong>Global Declaration Section:</strong> Global variables and function prototypes</li>
+                    <li><strong>main() Function:</strong> The entry point of the program</li>
+                    <li><strong>User-defined Functions:</strong> Additional functions as needed</li>
+                </ul>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>/*
+ * Program: Basic Structure Example
+ * Author: Your Name
+ * Date: Current Date
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_SIZE 100
+
+// Global variable
+int global_counter = 0;
+
+// Function prototype
+void increment_counter();
+
+int main() {
+    // Local variables
+    int local_var = 5;
+    
+    printf("Global counter: %d\n", global_counter);
+    printf("Local variable: %d\n", local_var);
+    
+    increment_counter();
+    printf("After increment: %d\n", global_counter);
+    
+    return 0;
+}
+
+// Function definition
+void increment_counter() {
+    global_counter++;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Tokens, Keywords, and Identifiers</h3>
+                <p><strong>Tokens</strong> are the smallest individual units in a C program. There are five types of tokens:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Token Type</th>
+                            <th>Description</th>
+                            <th>Examples</th>
+                        </tr>
+                        <tr>
+                            <td>Keywords</td>
+                            <td>Reserved words with special meaning</td>
+                            <td>int, char, if, else, while, for</td>
+                        </tr>
+                        <tr>
+                            <td>Identifiers</td>
+                            <td>Names given to variables, functions, etc.</td>
+                            <td>main, printf, myVariable</td>
+                        </tr>
+                        <tr>
+                            <td>Constants</td>
+                            <td>Fixed values that don't change</td>
+                            <td>10, 3.14, 'A', "Hello"</td>
+                        </tr>
+                        <tr>
+                            <td>Operators</td>
+                            <td>Symbols that perform operations</td>
+                            <td>+, -, *, /, =, ==, !=</td>
+                        </tr>
+                        <tr>
+                            <td>Punctuators</td>
+                            <td>Symbols that separate or organize code</td>
+                            <td>; , . ( ) [ ] { }</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Keywords</strong> are reserved words that cannot be used as identifiers. C has 32 keywords:</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>// C Keywords
+auto      break     case      char      const     continue  default   do
+double    else      enum      extern    float     for       goto      if
+int       long      register  return    short     signed    sizeof    static
+struct    switch    typedef   union     unsigned  void      volatile  while
+
+// C99 added:
+_Bool     _Complex  _Imaginary inline    restrict</pre>
+                    </div>
+                </div>
+
+                <p><strong>Identifiers</strong> are names used to identify variables, functions, arrays, etc. Rules for identifiers:</p>
+                <ul>
+                    <li>Can contain letters, digits, and underscores</li>
+                    <li>Must begin with a letter or underscore</li>
+                    <li>Cannot be a keyword</li>
+                    <li>Are case-sensitive (myVar and myvar are different)</li>
+                    <li>No length limit, but only first 31 characters are significant</li>
+                </ul>
+
+                <div class="note">
+                    <h4>Naming Conventions</h4>
+                    <p>Follow these conventions for better code readability:</p>
+                    <ul>
+                        <li>Use meaningful names (e.g., student_count instead of sc)</li>
+                        <li>Use snake_case for variables and functions (my_variable)</li>
+                        <li>Use UPPER_CASE for constants (MAX_SIZE)</li>
+                        <li>Be consistent throughout your code</li>
+                    </ul>
+                </div>
+
+                <h3>Constants, Literals, Escape Sequences</h3>
+                <p><strong>Constants</strong> are fixed values that don't change during program execution. <strong>Literals</strong> are the actual values used in the code.</p>
+
+                <h4>Types of Literals</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>// Integer literals
+int decimal = 123;        // Decimal
+int octal = 0123;         // Octal (starts with 0)
+int hex = 0x123;          // Hexadecimal (starts with 0x)
+int binary = 0b1010;      // Binary (C23 standard)
+
+// Floating-point literals
+float f1 = 3.14f;         // Float (f suffix)
+double d1 = 3.14;         // Double (default)
+double d2 = 3.14e-2;      // Scientific notation
+double d3 = 314E-2;       // Scientific notation
+
+// Character literals
+char c1 = 'A';            // Single character
+char c2 = '\n';           // Escape sequence
+char c3 = '\x41';         // Hexadecimal escape
+char c4 = '\101';         // Octal escape
+
+// String literals
+char str1[] = "Hello";    // String literal
+char str2[] = "Line1\nLine2";  // String with escape sequence</pre>
+                    </div>
+                </div>
+
+                <h4>Escape Sequences</h4>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Escape Sequence</th>
+                            <th>Meaning</th>
+                            <th>ASCII Value</th>
+                        </tr>
+                        <tr>
+                            <td>\n</td>
+                            <td>Newline</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>\t</td>
+                            <td>Horizontal tab</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>\r</td>
+                            <td>Carriage return</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>\b</td>
+                            <td>Backspace</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>\f</td>
+                            <td>Form feed</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>\\</td>
+                            <td>Backslash</td>
+                            <td>92</td>
+                        </tr>
+                        <tr>
+                            <td>\"</td>
+                            <td>Double quote</td>
+                            <td>34</td>
+                        </tr>
+                        <tr>
+                            <td>\'</td>
+                            <td>Single quote</td>
+                            <td>39</td>
+                        </tr>
+                        <tr>
+                            <td>\?</td>
+                            <td>Question mark</td>
+                            <td>63</td>
+                        </tr>
+                        <tr>
+                            <td>\0</td>
+                            <td>Null character</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Comments, Documentation Conventions</h3>
+                <p>Comments are used to explain code and are ignored by the compiler. C supports two types of comments:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>// Single-line comment
+/* This is a multi-line comment
+   that can span multiple lines
+   and is useful for longer explanations */
+
+/*
+ * Program: Comment Example
+ * Purpose: Demonstrate different comment styles
+ * Author: Your Name
+ */
+
+#include &lt;stdio.h&gt;
+
+int main() {
+    // Variable declaration with comment
+    int x = 10;  // This is an end-of-line comment
+    
+    /* This is a block comment
+       explaining the next section of code */
+    printf("Value of x: %d\n", x);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <h4>Documentation Best Practices</h4>
+                    <ul>
+                        <li>Use comments to explain <strong>why</strong> not <strong>what</strong></li>
+                        <li>Keep comments concise and relevant</li>
+                        <li>Update comments when code changes</li>
+                        <li>Use block comments for function documentation</li>
+                        <li>Avoid obvious comments like "i = i + 1; // increment i"</li>
+                    </ul>
+                </div>
+
+                <h3>Input/Output: printf, scanf, gets, puts</h3>
+                <p>C provides several functions for input and output operations. The most commonly used are <code>printf()</code> for output and <code>scanf()</code> for input.</p>
+
+                <h4>printf() Function</h4>
+                <p>The <code>printf()</code> function is used to print formatted output to the console.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;
+    float height = 5.9;
+    char grade = 'A';
+    char name[] = "John";
+    
+    // Basic printing
+    printf("Hello, World!\n");
+    
+    // Printing variables
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Height: %.1f\n", height);
+    printf("Grade: %c\n", grade);
+    
+    // Multiple variables in one statement
+    printf("%s is %d years old, %.1f feet tall, and got grade %c.\n", 
+           name, age, height, grade);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>Common Format Specifiers</h4>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Specifier</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>%d</td>
+                            <td>int</td>
+                            <td>Signed decimal integer</td>
+                        </tr>
+                        <tr>
+                            <td>%u</td>
+                            <td>unsigned int</td>
+                            <td>Unsigned decimal integer</td>
+                        </tr>
+                        <tr>
+                            <td>%f</td>
+                            <td>float, double</td>
+                            <td>Floating point number</td>
+                        </tr>
+                        <tr>
+                            <td>%c</td>
+                            <td>char</td>
+                            <td>Single character</td>
+                        </tr>
+                        <tr>
+                            <td>%s</td>
+                            <td>char[]</td>
+                            <td>String (character array)</td>
+                        </tr>
+                        <tr>
+                            <td>%p</td>
+                            <td>void*</td>
+                            <td>Pointer address</td>
+                        </tr>
+                        <tr>
+                            <td>%x</td>
+                            <td>int</td>
+                            <td>Hexadecimal integer</td>
+                        </tr>
+                        <tr>
+                            <td>%o</td>
+                            <td>int</td>
+                            <td>Octal integer</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>scanf() Function</h4>
+                <p>The <code>scanf()</code> function is used to read formatted input from the user.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    float salary;
+    char name[50];
+    
+    printf("Enter your name: ");
+    scanf("%s", name);  // Note: No & for string arrays
+    
+    printf("Enter your age: ");
+    scanf("%d", &age);  // & operator needed for non-array variables
+    
+    printf("Enter your salary: ");
+    scanf("%f", &salary);
+    
+    printf("\n--- Your Information ---\n");
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Salary: %.2f\n", salary);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>gets() and puts() Functions</h4>
+                <p><code>gets()</code> reads a line from stdin, and <code>puts()</code> writes a line to stdout.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    char name[100];
+    
+    printf("Enter your full name: ");
+    gets(name);  // Reads entire line including spaces
+    
+    printf("Hello, ");
+    puts(name);  // Prints string with newline
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <h4>Security Warning</h4>
+                    <p><code>gets()</code> is dangerous and deprecated because it doesn't check buffer size. Use <code>fgets()</code> instead:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">C</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <div class="code-content">
+                            <pre>char name[100];
+fgets(name, sizeof(name), stdin);  // Safe alternative to gets()</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Code Style & Formatting Best Practices</h3>
+                <p>Good coding style makes your code more readable and maintainable. Here are some important conventions:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>// Good style example
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_STUDENTS 100
+
+// Function prototypes
+int calculate_average(int scores[], int count);
+void print_results(int average);
+
+int main() {
+    int student_scores[MAX_STUDENTS];
+    int student_count = 0;
+    int average_score;
+    
+    // Get input from user
+    printf("Enter number of students: ");
+    scanf("%d", &student_count);
+    
+    // Validate input
+    if (student_count &lt;= 0 || student_count > MAX_STUDENTS) {
+        printf("Invalid number of students!\n");
+        return 1;
+    }
+    
+    // Calculate and display results
+    average_score = calculate_average(student_scores, student_count);
+    print_results(average_score);
+    
+    return 0;
+}
+
+// Function to calculate average
+int calculate_average(int scores[], int count) {
+    int sum = 0;
+    for (int i = 0; i &lt; count; i++) {
+        sum += scores[i];
+    }
+    return sum / count;
+}
+
+// Function to print results
+void print_results(int average) {
+    printf("Average score: %d\n", average);
+    if (average >= 90) {
+        printf("Grade: A\n");
+    } else if (average >= 80) {
+        printf("Grade: B\n");
+    } else if (average >= 70) {
+        printf("Grade: C\n");
+    } else {
+        printf("Grade: F\n");
+    }
+}</pre>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <h4>Style Guidelines</h4>
+                    <ul>
+                        <li>Use consistent indentation (4 spaces recommended)</li>
+                        <li>Place braces on the same line or next line consistently</li>
+                        <li>Use meaningful variable and function names</li>
+                        <li>Add spaces around operators for readability</li>
+                        <li>Keep lines under 80-100 characters</li>
+                        <li>Use blank lines to separate logical sections</li>
+                    </ul>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 2.1</h4>
+                    <p>Write a program that asks the user for their name, age, and favorite color, then prints a formatted message with all the information.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 2.2</h4>
+                    <p>Create a program that calculates the perimeter and area of a rectangle. Ask the user for length and width, then display the results with appropriate labels.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: Simple Calculator</h4>
+                    <p>Create a basic calculator that can perform addition, subtraction, multiplication, and division. The program should ask the user for two numbers and an operation, then display the result. Include proper error handling for division by zero.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 3: Data Types & Variables -->
+            <div class="chapter" id="chapter-2">
+                <h2>Chapter 3: Data Types & Variables</h2>
+                
+                <h3>Fundamental Types: int, float, double, char</h3>
+                <p>C provides several basic data types to store different kinds of information. Understanding these data types is crucial for effective programming.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Size (bytes)</th>
+                            <th>Range</th>
+                            <th>Format Specifier</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>char</td>
+                            <td>1</td>
+                            <td>-128 to 127</td>
+                            <td>%c</td>
+                            <td>Single character</td>
+                        </tr>
+                        <tr>
+                            <td>unsigned char</td>
+                            <td>1</td>
+                            <td>0 to 255</td>
+                            <td>%c</td>
+                            <td>Unsigned character</td>
+                        </tr>
+                        <tr>
+                            <td>short</td>
+                            <td>2</td>
+                            <td>-32,768 to 32,767</td>
+                            <td>%hd</td>
+                            <td>Short integer</td>
+                        </tr>
+                        <tr>
+                            <td>unsigned short</td>
+                            <td>2</td>
+                            <td>0 to 65,535</td>
+                            <td>%hu</td>
+                            <td>Unsigned short integer</td>
+                        </tr>
+                        <tr>
+                            <td>int</td>
+                            <td>4</td>
+                            <td>-2,147,483,648 to 2,147,483,647</td>
+                            <td>%d</td>
+                            <td>Integer</td>
+                        </tr>
+                        <tr>
+                            <td>unsigned int</td>
+                            <td>4</td>
+                            <td>0 to 4,294,967,295</td>
+                            <td>%u</td>
+                            <td>Unsigned integer</td>
+                        </tr>
+                        <tr>
+                            <td>long</td>
+                            <td>4 or 8</td>
+                            <td>-2,147,483,648 to 2,147,483,647 (or larger)</td>
+                            <td>%ld</td>
+                            <td>Long integer</td>
+                        </tr>
+                        <tr>
+                            <td>unsigned long</td>
+                            <td>4 or 8</td>
+                            <td>0 to 4,294,967,295 (or larger)</td>
+                            <td>%lu</td>
+                            <td>Unsigned long integer</td>
+                        </tr>
+                        <tr>
+                            <td>long long</td>
+                            <td>8</td>
+                            <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                            <td>%lld</td>
+                            <td>Long long integer</td>
+                        </tr>
+                        <tr>
+                            <td>float</td>
+                            <td>4</td>
+                            <td>±3.4e-38 to ±3.4e+38</td>
+                            <td>%f</td>
+                            <td>Single-precision floating point</td>
+                        </tr>
+                        <tr>
+                            <td>double</td>
+                            <td>8</td>
+                            <td>±1.7e-308 to ±1.7e+308</td>
+                            <td>%lf</td>
+                            <td>Double-precision floating point</td>
+                        </tr>
+                        <tr>
+                            <td>long double</td>
+                            <td>10 or 16</td>
+                            <td>±3.4e-4932 to ±1.1e+4932</td>
+                            <td>%Lf</td>
+                            <td>Extended-precision floating point</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="note">
+                    <h4>Note on Data Type Sizes</h4>
+                    <p>The size of data types can vary depending on the system and compiler. Use the <code>sizeof</code> operator to check the size on your system:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">C</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <div class="code-content">
+                            <pre>printf("Size of int: %zu bytes\n", sizeof(int));
+printf("Size of float: %zu bytes\n", sizeof(float));
+printf("Size of double: %zu bytes\n", sizeof(double));
+printf("Size of char: %zu bytes\n", sizeof(char));</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>bool type (C99 onwards)</h3>
+                <p>C99 introduced the <code>_Bool</code> type for boolean values. The <code>&lt;stdbool.h&gt;</code> header provides convenient macros:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main() {
+    bool is_student = true;
+    bool is_employed = false;
+    
+    printf("Is student: %s\n", is_student ? "true" : "false");
+    printf("Is employed: %s\n", is_employed ? "true" : "false");
+    
+    // Boolean operations
+    bool result = is_student && !is_employed;
+    printf("Result: %s\n", result ? "true" : "false");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Type Qualifiers: signed, unsigned, short, long</h3>
+                <p>Type qualifiers modify the basic data types to change their behavior:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Signed types (default)
+    signed int signed_int = -100;
+    signed char signed_char = -10;
+    
+    // Unsigned types (only positive values)
+    unsigned int unsigned_int = 4000000000U;  // U suffix for unsigned
+    unsigned char unsigned_char = 200;
+    
+    // Short types (smaller range)
+    short short_int = 32000;
+    unsigned short ushort_int = 65000U;
+    
+    // Long types (larger range)
+    long long_int = 2000000000L;  // L suffix for long
+    unsigned long ulong_int = 4000000000UL;
+    
+    // Long long types (C99)
+    long long llong_int = 9000000000000000000LL;
+    unsigned long long ullong_int = 18000000000000000000ULL;
+    
+    printf("Signed int: %d\n", signed_int);
+    printf("Unsigned int: %u\n", unsigned_int);
+    printf("Short int: %hd\n", short_int);
+    printf("Long int: %ld\n", long_int);
+    printf("Long long int: %lld\n", llong_int);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Constants: const, enum</h3>
+                <p>Constants are fixed values that don't change during program execution. C provides several ways to define constants:</p>
+
+                <h4>Using const Keyword</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Using const keyword
+    const int MAX_AGE = 120;
+    const float PI = 3.14159f;
+    const char GRADE_A = 'A';
+    const char COURSE_NAME[] = "C Programming";
+    
+    printf("Maximum age: %d\n", MAX_AGE);
+    printf("PI: %.5f\n", PI);
+    printf("Grade A: %c\n", GRADE_A);
+    printf("Course: %s\n", COURSE_NAME);
+    
+    // Constants cannot be modified
+    // MAX_AGE = 150;  // This would cause a compilation error
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>Using enum</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Enumeration definition
+enum Weekday {
+    MONDAY,    // 0
+    TUESDAY,   // 1
+    WEDNESDAY, // 2
+    THURSDAY,  // 3
+    FRIDAY,    // 4
+    SATURDAY,  // 5
+    SUNDAY     // 6
+};
+
+// Enumeration with explicit values
+enum Status {
+    SUCCESS = 0,
+    ERROR = -1,
+    PENDING = 1,
+    PROCESSING = 2
+};
+
+int main() {
+    enum Weekday today = WEDNESDAY;
+    enum Status current_status = PENDING;
+    
+    printf("Today is day %d of the week\n", today);
+    printf("Current status: %d\n", current_status);
+    
+    // Using enum in switch statement
+    switch (today) {
+        case MONDAY:
+            printf("It's Monday!\n");
+            break;
+        case WEDNESDAY:
+            printf("It's Wednesday!\n");
+            break;
+        case FRIDAY:
+            printf("It's Friday!\n");
+            break;
+        default:
+            printf("It's another day\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Storage Classes: auto, register, static, extern</h3>
+                <p>Storage classes define the scope, lifetime, and visibility of variables and functions.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Storage Class</th>
+                            <th>Scope</th>
+                            <th>Lifetime</th>
+                            <th>Default Value</th>
+                            <th>Storage Location</th>
+                        </tr>
+                        <tr>
+                            <td>auto</td>
+                            <td>Local (block)</td>
+                            <td>Block</td>
+                            <td>Garbage</td>
+                            <td>Stack</td>
+                        </tr>
+                        <tr>
+                            <td>register</td>
+                            <td>Local (block)</td>
+                            <td>Block</td>
+                            <td>Garbage</td>
+                            <td>Register (if available)</td>
+                        </tr>
+                        <tr>
+                            <td>static</td>
+                            <td>Local (block)</td>
+                            <td>Program</td>
+                            <td>0</td>
+                            <td>Data segment</td>
+                        </tr>
+                        <tr>
+                            <td>extern</td>
+                            <td>Global</td>
+                            <td>Program</td>
+                            <td>0</td>
+                            <td>Data segment</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Global variable (extern by default)
+int global_var = 100;
+
+// Function prototype
+void demonstrate_storage_classes();
+
+int main() {
+    // auto variable (default for local variables)
+    auto int auto_var = 10;
+    int auto_var2 = 20;  // auto is optional
+    
+    // register variable (request to store in register)
+    register int counter = 0;
+    
+    printf("Global variable: %d\n", global_var);
+    printf("Auto variables: %d, %d\n", auto_var, auto_var2);
+    printf("Register variable: %d\n", counter);
+    
+    // Call function to demonstrate static
+    demonstrate_storage_classes();
+    demonstrate_storage_classes();
+    demonstrate_storage_classes();
+    
+    return 0;
+}
+
+void demonstrate_storage_classes() {
+    // static variable (retains value between function calls)
+    static int static_var = 0;
+    
+    // auto variable (reinitialized each time)
+    int auto_var = 0;
+    
+    static_var++;
+    auto_var++;
+    
+    printf("Call %d: static_var = %d, auto_var = %d\n", 
+           static_var, static_var, auto_var);
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Type Conversion & Casting (Implicit & Explicit)</h3>
+                <p>Type conversion is the process of converting one data type to another. C supports both implicit and explicit conversion.</p>
+
+                <h4>Implicit Type Conversion</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int int_var = 10;
+    float float_var = 3.14f;
+    double double_var = 2.71828;
+    char char_var = 'A';
+    
+    // Implicit conversion examples
+    float result1 = int_var + float_var;     // int converted to float
+    double result2 = int_var + double_var;   // int converted to double
+    int result3 = int_var + char_var;        // char converted to int
+    
+    printf("int + float = %.2f\n", result1);
+    printf("int + double = %.2f\n", result2);
+    printf("int + char = %d\n", result3);
+    
+    // Type promotion in expressions
+    char c1 = 50, c2 = 60;
+    int result4 = c1 + c2;  // chars promoted to int before addition
+    printf("char + char = %d\n", result4);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>Explicit Type Conversion (Casting)</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int int_var = 10;
+    float float_var = 3.14f;
+    double double_var = 2.71828;
+    
+    // Explicit casting examples
+    int result1 = (int)float_var;           // float to int (truncation)
+    float result2 = (float)int_var;         // int to float
+    double result3 = (double)int_var;       // int to double
+    char result4 = (char)int_var;           // int to char
+    
+    printf("float to int: %d\n", result1);
+    printf("int to float: %.2f\n", result2);
+    printf("int to double: %.2f\n", result3);
+    printf("int to char: %c\n", result4);
+    
+    // Practical example: division
+    int a = 5, b = 2;
+    float result5 = (float)a / b;           // Cast to float for precise division
+    printf("5 / 2 = %.2f\n", result5);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <h4>Type Conversion Pitfalls</h4>
+                    <ul>
+                        <li><strong>Data Loss:</strong> Converting from larger to smaller types can lose data</li>
+                        <li><strong>Sign Extension:</strong> Converting signed to unsigned can cause unexpected results</li>
+                        <li><strong>Precision Loss:</strong> Floating-point to integer conversion truncates decimal part</li>
+                        <li><strong>Overflow:</strong> Large values may overflow when converted to smaller types</li>
+                    </ul>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 3.1</h4>
+                    <p>Write a program that demonstrates the size of each basic data type on your system using the <code>sizeof</code> operator.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 3.2</h4>
+                    <p>Create a program that uses enumeration to define days of the week and display the corresponding day name based on user input.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: Type Converter</h4>
+                    <p>Create a program that converts between different data types. Allow the user to input a value and choose the source and target data types. Display the converted value and any potential data loss or overflow warnings.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 4: Operators & Expressions -->
+            <div class="chapter" id="chapter-3">
+                <h2>Chapter 4: Operators & Expressions</h2>
+                
+                <h3>Arithmetic Operators</h3>
+                <p>Arithmetic operators perform mathematical operations on numeric operands.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result</th>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>Addition</td>
+                            <td>a + b</td>
+                            <td>Sum of a and b</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Subtraction</td>
+                            <td>a - b</td>
+                            <td>Difference of a and b</td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiplication</td>
+                            <td>a * b</td>
+                            <td>Product of a and b</td>
+                        </tr>
+                        <tr>
+                            <td>/</td>
+                            <td>Division</td>
+                            <td>a / b</td>
+                            <td>Quotient of a and b</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>Modulus</td>
+                            <td>a % b</td>
+                            <td>Remainder of a divided by b</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 3;
+    float x = 10.0f, y = 3.0f;
+    
+    printf("Integer arithmetic:\n");
+    printf("a + b = %d\n", a + b);      // 13
+    printf("a - b = %d\n", a - b);      // 7
+    printf("a * b = %d\n", a * b);      // 30
+    printf("a / b = %d\n", a / b);      // 3 (integer division)
+    printf("a %% b = %d\n", a % b);     // 1 (remainder)
+    
+    printf("\nFloating-point arithmetic:\n");
+    printf("x + y = %.2f\n", x + y);    // 13.00
+    printf("x - y = %.2f\n", x - y);    // 7.00
+    printf("x * y = %.2f\n", x * y);    // 30.00
+    printf("x / y = %.2f\n", x / y);    // 3.33 (precise division)
+    
+    // Mixed arithmetic
+    printf("\nMixed arithmetic:\n");
+    printf("a + y = %.2f\n", a + y);    // 13.00 (int promoted to float)
+    printf("x / b = %.2f\n", x / b);    // 3.33 (int promoted to float)
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Relational and Logical Operators</h3>
+                <p>Relational operators compare values and return boolean results. Logical operators combine boolean expressions.</p>
+
+                <h4>Relational Operators</h4>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result (if a=5, b=3)</th>
+                        </tr>
+                        <tr>
+                            <td>==</td>
+                            <td>Equal to</td>
+                            <td>a == b</td>
+                            <td>0 (false)</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Not equal to</td>
+                            <td>a != b</td>
+                            <td>1 (true)</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;</td>
+                            <td>Greater than</td>
+                            <td>a &gt; b</td>
+                            <td>1 (true)</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>Less than</td>
+                            <td>a &lt; b</td>
+                            <td>0 (false)</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;=</td>
+                            <td>Greater than or equal to</td>
+                            <td>a &gt;= b</td>
+                            <td>1 (true)</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;=</td>
+                            <td>Less than or equal to</td>
+                            <td>a &lt;= b</td>
+                            <td>0 (false)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Logical Operators</h4>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result</th>
+                        </tr>
+                        <tr>
+                            <td>&amp;&amp;</td>
+                            <td>Logical AND</td>
+                            <td>a &amp;&amp; b</td>
+                            <td>1 if both a and b are true</td>
+                        </tr>
+                        <tr>
+                            <td>||</td>
+                            <td>Logical OR</td>
+                            <td>a || b</td>
+                            <td>1 if either a or b is true</td>
+                        </tr>
+                        <tr>
+                            <td>!</td>
+                            <td>Logical NOT</td>
+                            <td>!a</td>
+                            <td>1 if a is false, 0 if a is true</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 3, c = 5;
+    
+    printf("Relational operators:\n");
+    printf("a == b: %d\n", a == b);     // 0 (false)
+    printf("a != b: %d\n", a != b);     // 1 (true)
+    printf("a > b: %d\n", a > b);       // 1 (true)
+    printf("a < b: %d\n", a < b);       // 0 (false)
+    printf("a >= b: %d\n", a >= b);     // 1 (true)
+    printf("a <= b: %d\n", a <= b);     // 0 (false)
+    printf("a == c: %d\n", a == c);     // 1 (true)
+    
+    printf("\nLogical operators:\n");
+    printf("(a > b) && (a == c): %d\n", (a > b) && (a == c));  // 1 (true)
+    printf("(a > b) || (a < b): %d\n", (a > b) || (a < b));    // 1 (true)
+    printf("!(a == b): %d\n", !(a == b));                     // 1 (true)
+    printf("(a > b) && (a < b): %d\n", (a > b) && (a < b));    // 0 (false)
+    
+    // Short-circuit evaluation
+    int x = 5, y = 0;
+    printf("\nShort-circuit evaluation:\n");
+    printf("(x > 0) && (y != 0): %d\n", (x > 0) && (y != 0));  // 0 (false, second part not evaluated)
+    printf("(x < 0) || (y == 0): %d\n", (x < 0) || (y == 0));  // 1 (true, second part not evaluated)
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Bitwise Operators</h3>
+                <p>Bitwise operators perform operations on individual bits of integer values.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result (if a=5, b=3)</th>
+                        </tr>
+                        <tr>
+                            <td>&amp;</td>
+                            <td>Bitwise AND</td>
+                            <td>a &amp; b</td>
+                            <td>1 (0101 &amp; 0011 = 0001)</td>
+                        </tr>
+                        <tr>
+                            <td>|</td>
+                            <td>Bitwise OR</td>
+                            <td>a | b</td>
+                            <td>7 (0101 | 0011 = 0111)</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>Bitwise XOR</td>
+                            <td>a ^ b</td>
+                            <td>6 (0101 ^ 0011 = 0110)</td>
+                        </tr>
+                        <tr>
+                            <td>~</td>
+                            <td>Bitwise NOT</td>
+                            <td>~a</td>
+                            <td>-6 (complement of 5)</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;&lt;</td>
+                            <td>Left shift</td>
+                            <td>a &lt;&lt; 1</td>
+                            <td>10 (0101 &lt;&lt; 1 = 1010)</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;&gt;</td>
+                            <td>Right shift</td>
+                            <td>a &gt;&gt; 1</td>
+                            <td>2 (0101 &gt;&gt; 1 = 0010)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    unsigned char a = 5;  // 00000101 in binary
+    unsigned char b = 3;  // 00000011 in binary
+    
+    printf("Bitwise operators:\n");
+    printf("a = %d (binary: 00000101)\n", a);
+    printf("b = %d (binary: 00000011)\n", b);
+    
+    printf("a & b = %d\n", a & b);      // 1 (00000001)
+    printf("a | b = %d\n", a | b);      // 7 (00000111)
+    printf("a ^ b = %d\n", a ^ b);      // 6 (00000110)
+    printf("~a = %d\n", ~a);           // -6 (complement)
+    
+    printf("a << 1 = %d\n", a << 1);   // 10 (00001010)
+    printf("a >> 1 = %d\n", a >> 1);   // 2 (00000010)
+    
+    // Practical applications
+    printf("\nPractical applications:\n");
+    
+    // Checking if a number is even or odd
+    int num = 10;
+    printf("%d is %s\n", num, (num & 1) ? "odd" : "even");
+    
+    // Swapping two numbers without temporary variable
+    int x = 10, y = 20;
+    printf("Before swap: x = %d, y = %d\n", x, y);
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+    printf("After swap: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Assignment Operators</h3>
+                <p>Assignment operators assign values to variables, often combined with other operations.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Equivalent to</th>
+                        </tr>
+                        <tr>
+                            <td>=</td>
+                            <td>Simple assignment</td>
+                            <td>a = b</td>
+                            <td>a = b</td>
+                        </tr>
+                        <tr>
+                            <td>+=</td>
+                            <td>Add and assign</td>
+                            <td>a += b</td>
+                            <td>a = a + b</td>
+                        </tr>
+                        <tr>
+                            <td>-=</td>
+                            <td>Subtract and assign</td>
+                            <td>a -= b</td>
+                            <td>a = a - b</td>
+                        </tr>
+                        <tr>
+                            <td>*=</td>
+                            <td>Multiply and assign</td>
+                            <td>a *= b</td>
+                            <td>a = a * b</td>
+                        </tr>
+                        <tr>
+                            <td>/=</td>
+                            <td>Divide and assign</td>
+                            <td>a /= b</td>
+                            <td>a = a / b</td>
+                        </tr>
+                        <tr>
+                            <td>%=</td>
+                            <td>Modulus and assign</td>
+                            <td>a %= b</td>
+                            <td>a = a % b</td>
+                        </tr>
+                        <tr>
+                            <td>&amp;=</td>
+                            <td>Bitwise AND and assign</td>
+                            <td>a &amp;= b</td>
+                            <td>a = a &amp; b</td>
+                        </tr>
+                        <tr>
+                            <td>|=</td>
+                            <td>Bitwise OR and assign</td>
+                            <td>a |= b</td>
+                            <td>a = a | b</td>
+                        </tr>
+                        <tr>
+                            <td>^=</td>
+                            <td>Bitwise XOR and assign</td>
+                            <td>a ^= b</td>
+                            <td>a = a ^ b</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;&lt;=</td>
+                            <td>Left shift and assign</td>
+                            <td>a &lt;&lt;= b</td>
+                            <td>a = a &lt;&lt; b</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;&gt;=</td>
+                            <td>Right shift and assign</td>
+                            <td>a &gt;&gt;= b</td>
+                            <td>a = a &gt;&gt; b</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10;
+    
+    printf("Initial value: a = %d\n", a);
+    
+    // Assignment operators
+    a += 5;   // a = a + 5
+    printf("a += 5: %d\n", a);    // 15
+    
+    a -= 3;   // a = a - 3
+    printf("a -= 3: %d\n", a);    // 12
+    
+    a *= 2;   // a = a * 2
+    printf("a *= 2: %d\n", a);    // 24
+    
+    a /= 4;   // a = a / 4
+    printf("a /= 4: %d\n", a);    // 6
+    
+    a %= 4;   // a = a % 4
+    printf("a %%= 4: %d\n", a);    // 2
+    
+    // Bitwise assignment operators
+    a = 5;    // Reset to 5 (binary: 0101)
+    a &= 3;   // a = a & 3
+    printf("a &= 3: %d\n", a);    // 1
+    
+    a = 5;    // Reset to 5
+    a |= 3;   // a = a | 3
+    printf("a |= 3: %d\n", a);    // 7
+    
+    a = 5;    // Reset to 5
+    a <<= 1;  // a = a << 1
+    printf("a <<= 1: %d\n", a);   // 10
+    
+    a = 5;    // Reset to 5
+    a >>= 1;  // a = a >> 1
+    printf("a >>= 1: %d\n", a);   // 2
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Increment/Decrement Operators</h3>
+                <p>Increment (++) and decrement (--) operators increase or decrease the value of a variable by 1.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result (if a=5)</th>
+                        </tr>
+                        <tr>
+                            <td>++a</td>
+                            <td>Pre-increment</td>
+                            <td>b = ++a</td>
+                            <td>a=6, b=6</td>
+                        </tr>
+                        <tr>
+                            <td>a++</td>
+                            <td>Post-increment</td>
+                            <td>b = a++</td>
+                            <td>a=6, b=5</td>
+                        </tr>
+                        <tr>
+                            <td>--a</td>
+                            <td>Pre-decrement</td>
+                            <td>b = --a</td>
+                            <td>a=4, b=4</td>
+                        </tr>
+                        <tr>
+                            <td>a--</td>
+                            <td>Post-decrement</td>
+                            <td>b = a--</td>
+                            <td>a=4, b=5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b;
+    
+    printf("Initial value: a = %d\n", a);
+    
+    // Pre-increment
+    b = ++a;  // a is incremented first, then assigned to b
+    printf("Pre-increment: b = ++a\n");
+    printf("a = %d, b = %d\n", a, b);    // a=6, b=6
+    
+    // Reset
+    a = 5;
+    
+    // Post-increment
+    b = a++;  // a is assigned to b first, then incremented
+    printf("\nPost-increment: b = a++\n");
+    printf("a = %d, b = %d\n", a, b);    // a=6, b=5
+    
+    // Reset
+    a = 5;
+    
+    // Pre-decrement
+    b = --a;  // a is decremented first, then assigned to b
+    printf("\nPre-decrement: b = --a\n");
+    printf("a = %d, b = %d\n", a, b);    // a=4, b=4
+    
+    // Reset
+    a = 5;
+    
+    // Post-decrement
+    b = a--;  // a is assigned to b first, then decremented
+    printf("\nPost-decrement: b = a--\n");
+    printf("a = %d, b = %d\n", a, b);    // a=4, b=5
+    
+    // Complex expressions
+    a = 5;
+    b = 10;
+    int c = a++ + ++b;
+    printf("\nComplex expression: c = a++ + ++b\n");
+    printf("a = %d, b = %d, c = %d\n", a, b, c);    // a=6, b=11, c=16
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Conditional (?:) Operator</h3>
+                <p>The conditional operator (ternary operator) is a shorthand for if-else statements.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 20;
+    int max, min;
+    
+    // Using conditional operator
+    max = (a > b) ? a : b;
+    min = (a < b) ? a : b;
+    
+    printf("a = %d, b = %d\n", a, b);
+    printf("Maximum: %d\n", max);
+    printf("Minimum: %d\n", min);
+    
+    // Nested conditional operators
+    int num = 0;
+    char* result = (num > 0) ? "Positive" : 
+                   (num < 0) ? "Negative" : "Zero";
+    printf("\nNumber %d is %s\n", num, result);
+    
+    // Practical example: absolute value
+    int x = -15;
+    int abs_x = (x >= 0) ? x : -x;
+    printf("Absolute value of %d is %d\n", x, abs_x);
+    
+    // Multiple conditions
+    int score = 85;
+    char* grade = (score >= 90) ? "A" :
+                  (score >= 80) ? "B" :
+                  (score >= 70) ? "C" :
+                  (score >= 60) ? "D" : "F";
+    printf("\nScore %d: Grade %s\n", score, grade);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Operator Precedence & Associativity</h3>
+                <p>Operator precedence determines the order in which operations are performed. Associativity determines the order when operators have the same precedence.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Precedence</th>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Associativity</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>() [] -> . ++ --</td>
+                            <td>Function call, array subscript, member access</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>! ~ ++ -- + - * & sizeof</td>
+                            <td>Unary operators</td>
+                            <td>Right to left</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>* / %</td>
+                            <td>Multiplicative</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>+ -</td>
+                            <td>Additive</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><< >></td>
+                            <td>Shift</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>< <= > >=</td>
+                            <td>Relational</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>== !=</td>
+                            <td>Equality</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>&</td>
+                            <td>Bitwise AND</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>^</td>
+                            <td>Bitwise XOR</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>|</td>
+                            <td>Bitwise OR</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>&&</td>
+                            <td>Logical AND</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>||</td>
+                            <td>Logical OR</td>
+                            <td>Left to right</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>?:</td>
+                            <td>Conditional</td>
+                            <td>Right to left</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>= += -= *= /= %= &= |= ^= <<= >>=</td>
+                            <td>Assignment</td>
+                            <td>Right to left</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>,</td>
+                            <td>Comma</td>
+                            <td>Left to right</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 10, c = 15, d = 20;
+    
+    // Precedence examples
+    printf("Precedence examples:\n");
+    
+    // Multiplication has higher precedence than addition
+    int result1 = a + b * c;  // b * c first, then + a
+    printf("a + b * c = %d\n", result1);    // 5 + 150 = 155
+    
+    // Parentheses change precedence
+    int result2 = (a + b) * c;  // a + b first, then * c
+    printf("(a + b) * c = %d\n", result2);  // 15 * 15 = 225
+    
+    // Relational operators have higher precedence than logical operators
+    int result3 = a < b && c < d;  // Both comparisons first, then &&
+    printf("a < b && c < d = %d\n", result3);  // 1 && 1 = 1
+    
+    // Assignment has lower precedence than arithmetic
+    int result4 = a += b * c;  // b * c first, then +=
+    printf("a += b * c = %d\n", result4);  // a = 5 + 150 = 155
+    
+    // Associativity examples
+    printf("\nAssociativity examples:\n");
+    
+    // Left associativity: same precedence operators evaluated left to right
+    int result5 = a - b + c;  // (a - b) + c
+    printf("a - b + c = %d\n", result5);  // (155 - 10) + 15 = 160
+    
+    // Right associativity: assignment operators
+    int x, y, z;
+    x = y = z = 100;  // z = 100, y = z, x = y
+    printf("x = y = z = 100: x=%d, y=%d, z=%d\n", x, y, z);
+    
+    // Complex expression
+    int result6 = a + b * c - d / 2 + (a > b ? a : b);
+    printf("Complex: a + b * c - d / 2 + (a > b ? a : b) = %d\n", result6);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Expression Evaluation & Order</h3>
+                <p>Understanding how expressions are evaluated is crucial for writing correct code. C follows specific rules for expression evaluation.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 10, c = 15;
+    
+    // Expression evaluation order
+    printf("Expression evaluation order:\n");
+    
+    // Function calls are evaluated before the function is called
+    printf("Function call evaluation:\n");
+    int func1() { printf("func1 called\n"); return 1; }
+    int func2() { printf("func2 called\n"); return 2; }
+    int result1 = func1() + func2();
+    printf("Result: %d\n", result1);
+    
+    // Side effects and sequence points
+    printf("\nSide effects and sequence points:\n");
+    int x = 5;
+    printf("x = %d\n", x);
+    
+    // Undefined behavior: multiple modifications between sequence points
+    // int y = x++ + x++;  // Undefined behavior - don't do this!
+    
+    // Safe approach: use separate statements
+    x = 5;
+    int temp1 = x++;
+    int temp2 = x++;
+    int y = temp1 + temp2;
+    printf("Safe increment: x = %d, y = %d\n", x, y);
+    
+    // Short-circuit evaluation
+    printf("\nShort-circuit evaluation:\n");
+    int p = 1, q = 0;
+    int result2 = p && q++;  // q++ is not evaluated because p is false
+    printf("p && q++: result = %d, q = %d\n", result2, q);
+    
+    q = 0;
+    int result3 = p || q++;  // q++ is not evaluated because p is true
+    printf("p || q++: result = %d, q = %d\n", result3, q);
+    
+    // Comma operator
+    printf("\nComma operator:\n");
+    int i = (a = 1, b = 2, c = 3);  // a=1, b=2, c=3, i=3
+    printf("i = (a = 1, b = 2, c = 3): i=%d, a=%d, b=%d, c=%d\n", i, a, b, c);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <h4>Important: Undefined Behavior</h4>
+                    <p>Some expressions have undefined behavior in C:</p>
+                    <ul>
+                        <li>Modifying a variable multiple times between sequence points</li>
+                        <li>Reading and modifying the same variable without sequence point</li>
+                        <li>Function calls with overlapping arguments</li>
+                        <li>Always use parentheses to make your intent clear</li>
+                    </ul>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 4.1</h4>
+                    <p>Write a program that demonstrates all arithmetic operators with different data types. Show the results of integer division vs. floating-point division.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 4.2</h4>
+                    <p>Create a program that uses bitwise operators to perform basic bit manipulation: set a bit, clear a bit, toggle a bit, and check if a bit is set.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: Expression Evaluator</h4>
+                    <p>Create a simple expression evaluator that can handle basic arithmetic operations (+, -, *, /) with proper operator precedence. The program should take an expression as input and evaluate it correctly.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 5: Control Structures -->
+            <div class="chapter" id="chapter-4">
+                <h2>Chapter 5: Control Structures</h2>
+                
+                <h3>Decision-making: if, if-else, nested if, switch</h3>
+                <p>Control structures allow you to control the flow of program execution based on conditions and loops.</p>
+
+                <h4>if Statement</h4>
+                <p>The simplest form of decision-making is the <code>if</code> statement.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 18;
+    
+    // Simple if statement
+    if (age >= 18) {
+        printf("You are eligible to vote.\n");
+    }
+    
+    // if with single statement (braces optional but recommended)
+    if (age >= 18)
+        printf("You are an adult.\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>if-else Statement</h4>
+                <p>The <code>if-else</code> statement provides an alternative path when the condition is false.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 16;
+    
+    if (age >= 18) {
+        printf("You are eligible to vote.\n");
+    } else {
+        printf("You are not eligible to vote.\n");
+    }
+    
+    // if-else with single statements
+    if (age >= 18)
+        printf("Adult\n");
+    else
+        printf("Minor\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>if-else-if Ladder</h4>
+                <p>For multiple conditions, use the <code>if-else-if</code> ladder.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int score = 85;
+    
+    if (score >= 90) {
+        printf("Grade: A\n");
+    } else if (score >= 80) {
+        printf("Grade: B\n");
+    } else if (score >= 70) {
+        printf("Grade: C\n");
+    } else if (score >= 60) {
+        printf("Grade: D\n");
+    } else {
+        printf("Grade: F\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>Nested if Statements</h4>
+                <p>You can nest <code>if</code> statements inside other <code>if</code> statements.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;
+    int has_license = 1;
+    
+    if (age >= 18) {
+        if (has_license) {
+            printf("You can drive a car.\n");
+        } else {
+            printf("You need a license to drive.\n");
+        }
+    } else {
+        printf("You are too young to drive.\n");
+    }
+    
+    // More complex nested example
+    int temperature = 25;
+    int humidity = 60;
+    
+    if (temperature > 30) {
+        if (humidity > 70) {
+            printf("Hot and humid - stay indoors!\n");
+        } else {
+            printf("Hot but comfortable humidity.\n");
+        }
+    } else if (temperature > 20) {
+        if (humidity > 70) {
+            printf("Warm and humid.\n");
+        } else {
+            printf("Perfect weather!\n");
+        }
+    } else {
+        printf("Cool weather.\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>switch Statement</h4>
+                <p>The <code>switch</code> statement is used for multi-way branching based on a single expression.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int day = 3;
+    
+    switch (day) {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        case 6:
+            printf("Saturday\n");
+            break;
+        case 7:
+            printf("Sunday\n");
+            break;
+        default:
+            printf("Invalid day\n");
+    }
+    
+    // switch without breaks (fall-through)
+    int month = 2;
+    printf("Month %d is in ", month);
+    
+    switch (month) {
+        case 12:
+        case 1:
+        case 2:
+            printf("Winter\n");
+            break;
+        case 3:
+        case 4:
+        case 5:
+            printf("Spring\n");
+            break;
+        case 6:
+        case 7:
+        case 8:
+            printf("Summer\n");
+            break;
+        case 9:
+        case 10:
+        case 11:
+            printf("Fall\n");
+            break;
+        default:
+            printf("Invalid month\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <h4>switch vs if-else</h4>
+                    <ul>
+                        <li><strong>switch:</strong> Better for discrete values, more readable, often faster</li>
+                        <li><strong>if-else:</strong> More flexible, can handle ranges and complex conditions</li>
+                        <li>Use <code>switch</code> when comparing against constant values</li>
+                        <li>Use <code>if-else</code> for complex conditions or ranges</li>
+                    </ul>
+                </div>
+
+                <h3>Loops: for, while, do-while, nested loops</h3>
+                <p>Loops allow you to execute a block of code repeatedly based on a condition.</p>
+
+                <h4>for Loop</h4>
+                <p>The <code>for</code> loop is used when you know the number of iterations in advance.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Basic for loop
+    printf("Counting from 1 to 10:\n");
+    for (int i = 1; i <= 10; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // for loop with multiple expressions
+    printf("\nCounting with step 2:\n");
+    for (int i = 0; i <= 20; i += 2) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // for loop with decrement
+    printf("\nCounting down from 10 to 1:\n");
+    for (int i = 10; i >= 1; i--) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // for loop without condition (infinite loop with break)
+    printf("\nFirst 5 even numbers:\n");
+    int count = 0;
+    for (int i = 0; ; i += 2) {
+        printf("%d ", i);
+        count++;
+        if (count >= 5) break;
+    }
+    printf("\n");
+    
+    // for loop without initialization and increment
+    printf("\nUsing existing variables:\n");
+    int j = 1;
+    for (; j <= 5; ) {
+        printf("%d ", j);
+        j++;
+    }
+    printf("\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>while Loop</h4>
+                <p>The <code>while</code> loop is used when you don't know the number of iterations in advance.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Basic while loop
+    printf("Counting from 1 to 5:\n");
+    int i = 1;
+    while (i <= 5) {
+        printf("%d ", i);
+        i++;
+    }
+    printf("\n");
+    
+    // while loop with user input
+    printf("\nEnter numbers (0 to stop):\n");
+    int number, sum = 0;
+    while (1) {
+        printf("Enter number: ");
+        scanf("%d", &number);
+        
+        if (number == 0) {
+            break;
+        }
+        
+        sum += number;
+    }
+    printf("Sum: %d\n", sum);
+    
+    // while loop for validation
+    printf("\nEnter a positive number: ");
+    int positive_num;
+    scanf("%d", &positive_num);
+    
+    while (positive_num <= 0) {
+        printf("Invalid! Enter a positive number: ");
+        scanf("%d", &positive_num);
+    }
+    printf("You entered: %d\n", positive_num);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>do-while Loop</h4>
+                <p>The <code>do-while</code> loop executes the code block at least once, then checks the condition.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Basic do-while loop
+    printf("Counting from 1 to 5:\n");
+    int i = 1;
+    do {
+        printf("%d ", i);
+        i++;
+    } while (i <= 5);
+    printf("\n");
+    
+    // Menu-driven program
+    int choice;
+    do {
+        printf("\nMenu:\n");
+        printf("1. Add\n");
+        printf("2. Subtract\n");
+        printf("3. Multiply\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        switch (choice) {
+            case 1:
+                printf("Addition selected\n");
+                break;
+            case 2:
+                printf("Subtraction selected\n");
+                break;
+            case 3:
+                printf("Multiplication selected\n");
+                break;
+            case 4:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
+        }
+    } while (choice != 4);
+    
+    // Input validation with do-while
+    int age;
+    do {
+        printf("\nEnter your age (18-100): ");
+        scanf("%d", &age);
+        
+        if (age < 18 || age > 100) {
+            printf("Invalid age! Please enter between 18 and 100.\n");
+        }
+    } while (age < 18 || age > 100);
+    
+    printf("Valid age: %d\n", age);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>Nested Loops</h4>
+                <p>Loops can be nested inside other loops to create complex patterns and algorithms.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Nested for loops - multiplication table
+    printf("Multiplication Table (1-10):\n");
+    for (int i = 1; i <= 10; i++) {
+        for (int j = 1; j <= 10; j++) {
+            printf("%4d", i * j);
+        }
+        printf("\n");
+    }
+    
+    // Pattern printing
+    printf("\nPattern 1:\n");
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    
+    printf("\nPattern 2:\n");
+    for (int i = 5; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    
+    // Mixed nested loops
+    printf("\nPrime numbers up to 100:\n");
+    for (int num = 2; num <= 100; num++) {
+        int is_prime = 1;
+        
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                is_prime = 0;
+                break;
+            }
+        }
+        
+        if (is_prime) {
+            printf("%d ", num);
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Jump Statements: break, continue, goto</h3>
+                <p>Jump statements allow you to transfer control to another part of the program.</p>
+
+                <h4>break Statement</h4>
+                <p>The <code>break</code> statement terminates the nearest enclosing loop or switch statement.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // break in for loop
+    printf("Breaking at 5:\n");
+    for (int i = 1; i <= 10; i++) {
+        if (i == 5) {
+            break;
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // break in while loop
+    printf("\nBreaking when sum > 50:\n");
+    int sum = 0;
+    int i = 1;
+    while (i <= 20) {
+        sum += i;
+        if (sum > 50) {
+            printf("Sum exceeded 50 at i = %d\n", i);
+            break;
+        }
+        i++;
+    }
+    
+    // break in nested loops (breaks only inner loop)
+    printf("\nNested loops with break:\n");
+    for (int row = 1; row <= 3; row++) {
+        for (int col = 1; col <= 5; col++) {
+            if (col == 3) {
+                break;  // breaks only inner loop
+            }
+            printf("(%d,%d) ", row, col);
+        }
+        printf("\n");
+    }
+    
+    // break in switch statement
+    printf("\nSwitch with break:\n");
+    int choice = 2;
+    switch (choice) {
+        case 1:
+            printf("Option 1\n");
+            break;
+        case 2:
+            printf("Option 2\n");
+            break;
+        case 3:
+            printf("Option 3\n");
+            break;
+        default:
+            printf("Default option\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>continue Statement</h4>
+                <p>The <code>continue</code> statement skips the current iteration and continues with the next iteration.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // continue in for loop
+    printf("Skipping even numbers:\n");
+    for (int i = 1; i <= 10; i++) {
+        if (i % 2 == 0) {
+            continue;
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // continue in while loop
+    printf("\nProcessing only positive numbers:\n");
+    int numbers[] = {1, -2, 3, -4, 5, -6, 7, -8, 9, -10};
+    int count = sizeof(numbers) / sizeof(numbers[0]);
+    int index = 0;
+    
+    while (index < count) {
+        if (numbers[index] < 0) {
+            index++;
+            continue;
+        }
+        printf("Processing: %d\n", numbers[index]);
+        index++;
+    }
+    
+    // continue in nested loops
+    printf("\nSkipping row 2 in nested loops:\n");
+    for (int row = 1; row <= 3; row++) {
+        if (row == 2) {
+            continue;  // skips entire row 2
+        }
+        
+        for (int col = 1; col <= 3; col++) {
+            printf("(%d,%d) ", row, col);
+        }
+        printf("\n");
+    }
+    
+    // Practical example: sum of odd numbers
+    printf("\nSum of odd numbers from 1 to 20:\n");
+    int sum = 0;
+    for (int i = 1; i <= 20; i++) {
+        if (i % 2 == 0) {
+            continue;
+        }
+        sum += i;
+    }
+    printf("Sum: %d\n", sum);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h4>goto Statement</h4>
+                <p>The <code>goto</code> statement transfers control to a labeled statement. Use it sparingly as it can make code hard to read.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    // Basic goto example
+    printf("Basic goto example:\n");
+    int x = 5;
+    
+    if (x > 0) {
+        goto positive;
+    } else {
+        goto negative;
+    }
+    
+positive:
+    printf("x is positive\n");
+    goto end;
+    
+negative:
+    printf("x is negative\n");
+    
+end:
+    printf("End of example\n");
+    
+    // goto for error handling
+    printf("\nError handling with goto:\n");
+    int result = 0;
+    
+    // Simulate file operations
+    printf("Opening file...\n");
+    // if (file_open_failed) goto error;
+    
+    printf("Reading file...\n");
+    // if (read_failed) goto error;
+    
+    printf("Processing file...\n");
+    // if (processing_failed) goto error;
+    
+    printf("File processed successfully\n");
+    goto cleanup;
+    
+error:
+    printf("Error occurred during file processing\n");
+    result = -1;
+    
+cleanup:
+    printf("Cleaning up resources\n");
+    printf("Result: %d\n", result);
+    
+    // goto for loop exit (not recommended - use break instead)
+    printf("\nLoop exit with goto (not recommended):\n");
+    for (int i = 1; i <= 10; i++) {
+        printf("%d ", i);
+        if (i == 5) {
+            goto loop_exit;
+        }
+    }
+    
+loop_exit:
+    printf("\nExited loop at i = 5\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <h4>When to Use goto</h4>
+                    <p>While <code>goto</code> is generally discouraged, it can be useful in specific situations:</p>
+                    <ul>
+                        <li>Error handling and cleanup in complex functions</li>
+                        <li>Breaking out of deeply nested loops</li>
+                        <li>State machines and parsers</li>
+                        <li>Avoid when simpler alternatives exist</li>
+                    </ul>
+                </div>
+
+                <h3>Short-circuiting Logical Evaluation</h3>
+                <p>C uses short-circuit evaluation for logical operators, which can be both useful and dangerous.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 0;
+    
+    // Short-circuit with && (AND)
+    printf("Short-circuit with &&:\n");
+    printf("a = %d, b = %d\n", a, b);
+    
+    // In (a > 0) && (b != 0), if first part is false, second is not evaluated
+    int result1 = (a > 0) && (b != 0);
+    printf("(a > 0) && (b != 0) = %d\n", result1);
+    printf("b is still %d (not evaluated)\n", b);
+    
+    // Short-circuit with || (OR)
+    printf("\nShort-circuit with ||:\n");
+    // In (a > 0) || (b != 0), if first part is true, second is not evaluated
+    int result2 = (a > 0) || (b != 0);
+    printf("(a > 0) || (b != 0) = %d\n", result2);
+    printf("b is still %d (not evaluated)\n", b);
+    
+    // Practical use: avoiding division by zero
+    printf("\nAvoiding division by zero:\n");
+    int x = 10, y = 0;
+    
+    if (y != 0 && x / y > 2) {
+        printf("x/y > 2\n");
+    } else {
+        printf("Cannot divide or condition not met\n");
+    }
+    
+    // Safe pointer access
+    printf("\nSafe pointer access:\n");
+    int *ptr = NULL;
+    int value = 42;
+    
+    if (ptr != NULL && *ptr > 0) {
+        printf("Pointer points to positive value\n");
+    } else {
+        printf("Pointer is NULL or points to non-positive value\n");
+    }
+    
+    // Function calls with short-circuit
+    printf("\nFunction calls with short-circuit:\n");
+    int func1() { printf("func1 called\n"); return 0; }
+    int func2() { printf("func2 called\n"); return 1; }
+    
+    printf("Testing func1() && func2():\n");
+    int result3 = func1() && func2();
+    printf("Result: %d\n", result3);
+    
+    printf("\nTesting func1() || func2():\n");
+    int result4 = func1() || func2();
+    printf("Result: %d\n", result4);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Conditional Compilation & Macro-driven Control</h3>
+                <p>Conditional compilation allows you to include or exclude code based on preprocessor directives.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+#define DEBUG 1
+#define PLATFORM_WINDOWS 1
+
+int main() {
+    // Conditional compilation with #if
+    #if DEBUG
+        printf("Debug mode is ON\n");
+        printf("Additional debug information...\n");
+    #else
+        printf("Debug mode is OFF\n");
+    #endif
+    
+    // Platform-specific code
+    #if PLATFORM_WINDOWS
+        printf("Running on Windows platform\n");
+    #elif PLATFORM_LINUX
+        printf("Running on Linux platform\n");
+    #elif PLATFORM_MAC
+        printf("Running on macOS platform\n");
+    #else
+        printf("Running on unknown platform\n");
+    #endif
+    
+    // #ifdef and #ifndef
+    #ifdef DEBUG
+        printf("DEBUG macro is defined\n");
+    #endif
+    
+    #ifndef RELEASE
+        printf("RELEASE macro is not defined\n");
+    #endif
+    
+    // Macro-driven control flow
+    #define USE_FAST_ALGORITHM 1
+    
+    #if USE_FAST_ALGORITHM
+        printf("Using fast algorithm\n");
+        // Fast algorithm implementation
+    #else
+        printf("Using standard algorithm\n");
+        // Standard algorithm implementation
+    #endif
+    
+    // Nested conditional compilation
+    #if defined(DEBUG) && defined(PLATFORM_WINDOWS)
+        printf("Debug build for Windows\n");
+    #elif defined(DEBUG) && !defined(PLATFORM_WINDOWS)
+        printf("Debug build for non-Windows platform\n");
+    #endif
+    
+    // Macro for feature toggles
+    #define FEATURE_A 1
+    #define FEATURE_B 0
+    
+    #if FEATURE_A
+        printf("Feature A is enabled\n");
+    #endif
+    
+    #if FEATURE_B
+        printf("Feature B is enabled\n");
+    #endif
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <h4>Conditional Compilation Uses</h4>
+                    <ul>
+                        <li><strong>Debug vs Release builds:</strong> Include debug code only in debug builds</li>
+                        <li><strong>Platform-specific code:</strong> Handle different operating systems</li>
+                        <li><strong>Feature toggles:</strong> Enable/disable features at compile time</li>
+                        <li><strong>Hardware-specific code:</strong> Different code for different hardware</li>
+                        <li><strong>Performance optimization:</strong> Include optimized versions when available</li>
+                    </ul>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 5.1</h4>
+                    <p>Write a program that uses nested loops to print various patterns: triangles, pyramids, and diamonds. Use different loop types (for, while, do-where) for each pattern.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 5.2</h4>
+                    <p>Create a menu-driven program that performs basic arithmetic operations. Use a switch statement for the menu and loops to allow the user to perform multiple calculations.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: Number Guessing Game</h4>
+                    <p>Create a number guessing game where the computer generates a random number between 1 and 100, and the user tries to guess it. The program should provide hints (too high/too low) and count the number of attempts. Use loops, conditional statements, and input validation.</p>
+                </div>
+            </div>
+
+            <!-- Continue with remaining chapters... -->
+            <!-- Due to length constraints, I'll provide a template for the remaining chapters -->
+            
+            <!-- Chapter 6: Functions -->
+            <div class="chapter" id="chapter-5">
+                <h2>Chapter 6: Functions</h2>
+                
+                <h3>Declaration vs Definition</h3>
+                <p>Functions are the building blocks of C programs. Understanding the difference between declaration and definition is crucial.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Function declaration (prototype)
+int add(int a, int b);
+void print_message();
+float calculate_average(int values[], int count);
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+
+void print_message() {
+    printf("Hello from function!\n");
+}
+
+float calculate_average(int values[], int count) {
+    if (count == 0) return 0.0f;
+    
+    int sum = 0;
+    for (int i = 0; i < count; i++) {
+        sum += values[i];
+    }
+    
+    return (float)sum / count;
+}
+
+int main() {
+    // Calling functions
+    int result = add(5, 3);
+    printf("5 + 3 = %d\n", result);
+    
+    print_message();
+    
+    int numbers[] = {10, 20, 30, 40, 50};
+    float avg = calculate_average(numbers, 5);
+    printf("Average: %.2f\n", avg);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Parameters and Return Types</h3>
+                <p>Functions can take parameters and return values of various types.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Function with different parameter types and return types
+int multiply(int a, int b) {
+    return a * b;
+}
+
+double divide(double a, double b) {
+    if (b == 0) {
+        printf("Error: Division by zero\n");
+        return 0.0;
+    }
+    return a / b;
+}
+
+void print_info(char name[], int age, float height) {
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Height: %.2f\n", height);
+}
+
+// Function with array parameter
+int sum_array(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Function with pointer parameter
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    // Testing different functions
+    printf("Multiplication: %d\n", multiply(6, 7));
+    printf("Division: %.2f\n", divide(15.0, 3.0));
+    
+    print_info("John Doe", 25, 5.9f);
+    
+    int numbers[] = {1, 2, 3, 4, 5};
+    printf("Sum of array: %d\n", sum_array(numbers, 5));
+    
+    int x = 10, y = 20;
+    printf("Before swap: x = %d, y = %d\n", x, y);
+    swap(&x, &y);
+    printf("After swap: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Call by Value vs Call by Reference</h3>
+                <p>Understanding how parameters are passed to functions is essential for effective programming.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Call by value - original value is not changed
+void change_value(int x) {
+    printf("Inside function (before change): x = %d\n", x);
+    x = 100;
+    printf("Inside function (after change): x = %d\n", x);
+}
+
+// Call by reference - original value is changed
+void change_reference(int *x) {
+    printf("Inside function (before change): *x = %d\n", *x);
+    *x = 100;
+    printf("Inside function (after change): *x = %d\n", *x);
+}
+
+// Call by value with array (array name decays to pointer)
+void modify_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] *= 2;  // This changes the original array
+    }
+}
+
+int main() {
+    // Call by value example
+    int a = 5;
+    printf("Before call by value: a = %d\n", a);
+    change_value(a);
+    printf("After call by value: a = %d\n", a);
+    
+    printf("\n");
+    
+    // Call by reference example
+    int b = 5;
+    printf("Before call by reference: b = %d\n", b);
+    change_reference(&b);
+    printf("After call by reference: b = %d\n", b);
+    
+    printf("\n");
+    
+    // Array example (always passed by reference)
+    int numbers[] = {1, 2, 3, 4, 5};
+    printf("Before array modification:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+    printf("\n");
+    
+    modify_array(numbers, 5);
+    
+    printf("After array modification:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Recursive Functions</h3>
+                <p>Recursive functions call themselves to solve problems by breaking them down into smaller subproblems.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Factorial using recursion
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;  // Base case
+    } else {
+        return n * factorial(n - 1);  // Recursive case
+    }
+}
+
+// Fibonacci sequence using recursion
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;  // Base case
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);  // Recursive case
+    }
+}
+
+// Power function using recursion
+double power(double base, int exp) {
+    if (exp == 0) {
+        return 1.0;  // Base case
+    } else if (exp > 0) {
+        return base * power(base, exp - 1);  // Recursive case (positive exponent)
+    } else {
+        return 1.0 / power(base, -exp);  // Recursive case (negative exponent)
+    }
+}
+
+// Binary search using recursion
+int binary_search(int arr[], int left, int right, int target) {
+    if (left > right) {
+        return -1;  // Base case: not found
+    }
+    
+    int mid = left + (right - left) / 2;
+    
+    if (arr[mid] == target) {
+        return mid;  // Base case: found
+    } else if (arr[mid] < target) {
+        return binary_search(arr, mid + 1, right, target);  // Search right half
+    } else {
+        return binary_search(arr, left, mid - 1, target);  // Search left half
+    }
+}
+
+int main() {
+    // Testing factorial
+    printf("Factorial of 5: %d\n", factorial(5));
+    printf("Factorial of 7: %d\n", factorial(7));
+    
+    // Testing Fibonacci
+    printf("\nFibonacci sequence (first 10 terms):\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", fibonacci(i));
+    }
+    printf("\n");
+    
+    // Testing power function
+    printf("\nPower calculations:\n");
+    printf("2^3 = %.0f\n", power(2.0, 3));
+    printf("3^4 = %.0f\n", power(3.0, 4));
+    printf("2^-2 = %.2f\n", power(2.0, -2));
+    
+    // Testing binary search
+    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15};
+    int target = 7;
+    int result = binary_search(arr, 0, 7, target);
+    printf("\nBinary search for %d: ", target);
+    if (result != -1) {
+        printf("Found at index %d\n", result);
+    } else {
+        printf("Not found\n");
+    }
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Function Pointers</h3>
+                <p>Function pointers allow you to store and pass functions as parameters to other functions.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Function pointer declaration
+typedef int (*operation_func)(int, int);
+
+// Functions to be pointed to
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+int divide(int a, int b) { return b != 0 ? a / b : 0; }
+
+// Function that takes a function pointer as parameter
+int calculate(int a, int b, operation_func op) {
+    return op(a, b);
+}
+
+// Array of function pointers
+operation_func operations[] = {add, subtract, multiply, divide};
+
+// Callback function example
+void process_array(int arr[], int size, void (*process)(int*)) {
+    for (int i = 0; i < size; i++) {
+        process(&arr[i]);
+    }
+}
+
+void double_value(int *x) { *x *= 2; }
+void square_value(int *x) { *x *= *x; }
+
+int main() {
+    // Using function pointers
+    operation_func op = add;
+    printf("Add: %d\n", op(5, 3));
+    
+    op = subtract;
+    printf("Subtract: %d\n", op(5, 3));
+    
+    // Using calculate with different operations
+    printf("Calculate with add: %d\n", calculate(10, 5, add));
+    printf("Calculate with multiply: %d\n", calculate(10, 5, multiply));
+    
+    // Using array of function pointers
+    printf("\nOperations using function pointer array:\n");
+    char *op_names[] = {"Add", "Subtract", "Multiply", "Divide"};
+    for (int i = 0; i < 4; i++) {
+        printf("%s: %d\n", op_names[i], operations[i](10, 5));
+    }
+    
+    // Callback example
+    int numbers[] = {1, 2, 3, 4, 5};
+    printf("\nOriginal array: ");
+    for (int i = 0; i < 5; i++) printf("%d ", numbers[i]);
+    printf("\n");
+    
+    process_array(numbers, 5, double_value);
+    printf("After doubling: ");
+    for (int i = 0; i < 5; i++) printf("%d ", numbers[i]);
+    printf("\n");
+    
+    process_array(numbers, 5, square_value);
+    printf("After squaring: ");
+    for (int i = 0; i < 5; i++) printf("%d ", numbers[i]);
+    printf("\n");
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Variable Argument Functions (stdarg.h)</h3>
+                <p>Variable argument functions can accept a variable number of parameters using the stdarg.h header.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+// Variable argument function to calculate sum
+int sum(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    
+    int total = 0;
+    for (int i = 0; i < count; i++) {
+        total += va_arg(args, int);
+    }
+    
+    va_end(args);
+    return total;
+}
+
+// Variable argument function to find maximum
+int maximum(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    
+    int max = va_arg(args, int);
+    for (int i = 1; i < count; i++) {
+        int current = va_arg(args, int);
+        if (current > max) {
+            max = current;
+        }
+    }
+    
+    va_end(args);
+    return max;
+}
+
+// Variable argument function to print formatted strings
+void print_strings(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    
+    printf("Printing %d strings:\n", count);
+    for (int i = 0; i < count; i++) {
+        char *str = va_arg(args, char*);
+        printf("%d: %s\n", i + 1, str);
+    }
+    
+    va_end(args);
+}
+
+// Custom printf-like function
+void my_printf(const char *format, ...) {
+    va_list args;
+    va_start(args, format);
+    
+    while (*format != '\0') {
+        if (*format == '%') {
+            format++;
+            switch (*format) {
+                case 'd': {
+                    int i = va_arg(args, int);
+                    printf("%d", i);
+                    break;
+                }
+                case 'f': {
+                    double d = va_arg(args, double);
+                    printf("%f", d);
+                    break;
+                }
+                case 's': {
+                    char *s = va_arg(args, char*);
+                    printf("%s", s);
+                    break;
+                }
+                case 'c': {
+                    int c = va_arg(args, int);
+                    printf("%c", c);
+                    break;
+                }
+                default:
+                    printf("%%%c", *format);
+            }
+        } else {
+            putchar(*format);
+        }
+        format++;
+    }
+    
+    va_end(args);
+}
+
+int main() {
+    // Testing sum function
+    printf("Sum of 1, 2, 3: %d\n", sum(3, 1, 2, 3));
+    printf("Sum of 10, 20, 30, 40, 50: %d\n", sum(5, 10, 20, 30, 40, 50));
+    
+    // Testing maximum function
+    printf("\nMaximum of 5, 2, 8, 1: %d\n", maximum(4, 5, 2, 8, 1));
+    printf("Maximum of 15, 25, 10: %d\n", maximum(3, 15, 25, 10));
+    
+    // Testing print_strings function
+    printf("\n");
+    print_strings(3, "Hello", "World", "C Programming");
+    
+    // Testing custom printf function
+    printf("\nCustom printf:\n");
+    my_printf("Integer: %d, Float: %f, String: %s, Char: %c\n", 
+              42, 3.14, "Test", 'A');
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Inline Functions (inline keyword)</h3>
+                <p>Inline functions are expanded at the call site, potentially improving performance for small functions.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-language">C</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content">
+                        <pre>#include &lt;stdio.h&gt;
+
+// Inline function declaration
+inline int square(int x) {
+    return x * x;
+}
+
+// Inline function for maximum
+inline int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+// Inline function for minimum
+inline int min(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+// Inline function for absolute value
+inline int abs_value(int x) {
+    return (x < 0) ? -x : x;
+}
+
+// Regular function for comparison
+int regular_square(int x) {
+    return x * x;
+}
+
+int main() {
+    // Using inline functions
+    printf("Square of 5: %d\n", square(5));
+    printf("Square of 7: %d\n", square(7));
+    
+    printf("Max of 10 and 20: %d\n", max(10, 20));
+    printf("Min of 10 and 20: %d\n", min(10, 20));
+    
+    printf("Absolute value of -15: %d\n", abs_value(-15));
+    printf("Absolute value of 25: %d\n", abs_value(25));
+    
+    // Performance comparison (conceptual)
+    printf("\nPerformance comparison:\n");
+    int result = 0;
+    
+    // Using inline function
+    for (int i = 0; i < 1000; i++) {
+        result += square(i);
+    }
+    printf("Sum of squares (inline): %d\n", result);
+    
+    result = 0;
+    // Using regular function
+    for (int i = 0; i < 1000; i++) {
+        result += regular_square(i);
+    }
+    printf("Sum of squares (regular): %d\n", result);
+    
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 6.1</h4>
+                    <p>Write a program that demonstrates the difference between call by value and call by reference. Create functions that attempt to modify variables and show the results.</p>
+                </div>
+
+                <div class="exercise">
+                    <h4>Exercise 6.2</h4>
+                    <p>Create a recursive function to calculate the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Mini-Project: Function Library</h4>
+                    <p>Create a small function library with various mathematical operations (addition, subtraction, multiplication, division, power, square root, etc.). Use function pointers to allow the user to select operations dynamically. Include error handling for invalid operations.</p>
+                </div>
+            </div>
+
+            <!-- Additional chapters would follow the same pattern... -->
+            <!-- Due to space constraints, I'll provide a summary of the remaining chapters -->
+            
+            <!-- Chapter 7: Arrays & Strings -->
+            <div class="chapter" id="chapter-6">
+                <h2>Chapter 7: Arrays & Strings</h2>
+                <p>This chapter covers one-dimensional and multi-dimensional arrays, string manipulation, array of strings, string functions, and the relationship between pointers and arrays in function parameters.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>One-dimensional arrays declaration and initialization</li>
+                    <li>Multi-dimensional arrays (2D, 3D)</li>
+                    <li>Array memory layout and access patterns</li>
+                    <li>Strings as null-terminated character arrays</li>
+                    <li>String input/output functions</li>
+                    <li>String manipulation functions (strlen, strcpy, strcmp, strcat, etc.)</li>
+                    <li>Array of strings</li>
+                    <li>Pointers vs arrays in function parameters</li>
+                    <li>Dynamic array allocation</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 7.1</h4>
+                    <p>Write a program that demonstrates various array operations: initialization, traversal, searching, and sorting.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: String Manipulation Library</h4>
+                    <p>Create your own string manipulation functions without using the standard library. Implement strlen, strcpy, strcat, strcmp, and other common string operations.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 8: Pointers -->
+            <div class="chapter" id="chapter-7">
+                <h2>Chapter 8: Pointers</h2>
+                <p>This chapter covers pointer basics and operations, pointers and arrays, pointers and functions, pointer arithmetic, pointer to pointer, function pointers, dynamic memory allocation, and best practices for avoiding common pointer issues.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Pointer declaration and initialization</li>
+                    <li>Dereferencing and address-of operators</li>
+                    <li>Pointer arithmetic and array indexing</li>
+                    <li>Pointers and arrays relationship</li>
+                    <li>Function pointers and callbacks</li>
+                    <li>Pointer to pointer (double pointers)</li>
+                    <li>Dynamic memory allocation basics</li>
+                    <li>Dangling pointers, null pointers, memory leaks</li>
+                    <li>Pointer best practices and safety</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 8.1</h4>
+                    <p>Write a program that demonstrates pointer arithmetic, array access through pointers, and pointer comparisons.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Dynamic Array Implementation</h4>
+                    <p>Create a dynamic array implementation that can grow and shrink as needed. Include functions for adding, removing, and accessing elements, with proper memory management.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 9: Structures & Unions -->
+            <div class="chapter" id="chapter-8">
+                <h2>Chapter 9: Structures & Unions</h2>
+                <p>This chapter covers structure definition and initialization, arrays of structures, nested structures, pointer to structures, union definition and usage, bit-fields, typedef, and passing structures to functions.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Structure declaration and definition</li>
+                    <li>Structure initialization and member access</li>
+                    <li>Arrays of structures</li>
+                    <li>Nested structures and complex data types</li>
+                    <li>Pointers to structures and arrow operator</li>
+                    <li>Union definition and memory sharing</li>
+                    <li>Bit-fields for efficient storage</li>
+                    <li>typedef for type aliases</li>
+                    <li>Passing structures to functions (by value and by reference)</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 9.1</h4>
+                    <p>Write a program that defines a structure for a student record and demonstrates various operations on arrays of student records.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Employee Management System</h4>
+                    <p>Create an employee management system using structures to store employee information. Include functions for adding, updating, deleting, and displaying employee records.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 10: File Handling -->
+            <div class="chapter" id="chapter-9">
+                <h2>Chapter 10: File Handling</h2>
+                <p>This chapter covers file operations including fopen, fclose, fread, fwrite, fprintf, fscanf, text vs binary files, file positioning, and error handling in file operations.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>File opening and closing modes</li>
+                    <li>Text file operations (fprintf, fscanf, fgets, fputs)</li>
+                    <li>Binary file operations (fread, fwrite)</li>
+                    <li>File positioning (fseek, ftell, rewind)</li>
+                    <li>Error handling (feof, ferror, perror)</li>
+                    <li>File buffering and performance</li>
+                    <li>Standard I/O streams (stdin, stdout, stderr)</li>
+                    <li>File permissions and security</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 10.1</h4>
+                    <p>Write a program that creates a text file, writes data to it, reads it back, and displays the contents.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Simple Database</h4>
+                    <p>Create a simple file-based database that can store, retrieve, update, and delete records. Use binary files for efficient storage and include proper error handling.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 11: Dynamic Memory & Advanced Storage -->
+            <div class="chapter" id="chapter-10">
+                <h2>Chapter 11: Dynamic Memory & Advanced Storage</h2>
+                <p>This chapter covers heap vs stack memory, memory allocation and deallocation, memory leaks and debugging tools, memory alignment and padding, common pitfalls, and optimizing memory usage.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Memory segments (stack, heap, data, text)</li>
+                    <li>Dynamic memory allocation functions (malloc, calloc, realloc, free)</li>
+                    <li>Memory leak detection and prevention</li>
+                    <li>Memory alignment and structure padding</li>
+                    <li>Common memory errors (dangling pointers, double free, buffer overflow)</li>
+                    <li>Memory optimization techniques</li>
+                    <li>Memory debugging tools (valgrind, address sanitizer)</li>
+                    <li>Best practices for memory management</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 11.1</h4>
+                    <p>Write a program that demonstrates dynamic memory allocation for various data types and shows proper memory deallocation.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Memory Manager</h4>
+                    <p>Create a simple memory manager that tracks allocations and deallocations, detects memory leaks, and provides statistics about memory usage.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 12: Preprocessor Directives -->
+            <div class="chapter" id="chapter-11">
+                <h2>Chapter 12: Preprocessor Directives</h2>
+                <p>This chapter covers macro definitions, file inclusion, conditional compilation, predefined macros, macro vs inline functions, header guards, and pragma directives.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Macro definitions with and without parameters</li>
+                    <li>File inclusion (#include) and header organization</li>
+                    <li>Conditional compilation (#if, #ifdef, #ifndef, #else, #endif)</li>
+                    <li>Predefined macros (__FILE__, __LINE__, __DATE__, __TIME__, etc.)</li>
+                    <li>Macro vs inline functions comparison</li>
+                    <li>Header guards and #pragma once</li>
+                    <li>Stringification and token pasting operators</li>
+                    <li>Macro pitfalls and best practices</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 12.1</h4>
+                    <p>Write a program that demonstrates various preprocessor directives including macros, conditional compilation, and predefined macros.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Configuration System</h4>
+                    <p>Create a configuration system using preprocessor directives to handle different build configurations (debug, release, different platforms, feature toggles).</p>
+                </div>
+            </div>
+
+            <!-- Chapter 13: Advanced Topics -->
+            <div class="chapter" id="chapter-12">
+                <h2>Chapter 13: Advanced Topics</h2>
+                <p>This chapter covers command-line arguments, bit manipulation, enumerations, multithreading basics, signals, system programming, graphics programming, C standards differences, and inline assembly.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Command-line arguments (argc, argv)</li>
+                    <li>Bit manipulation and masking techniques</li>
+                    <li>Enumerations and flags</li>
+                    <li>Multithreading with POSIX threads</li>
+                    <li>Signal handling and interrupt processing</li>
+                    <li>System programming (processes, pipes, shared memory)</li>
+                    <li>Graphics programming introduction (SDL, OpenGL)</li>
+                    <li>C99/C11/C18/C23 features and differences</li>
+                    <li>Inline assembly and hardware interaction</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 13.1</h4>
+                    <p>Write a program that accepts command-line arguments and demonstrates bit manipulation operations.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Multi-threaded Application</h4>
+                    <p>Create a multi-threaded application that demonstrates thread creation, synchronization, and communication between threads using POSIX threads.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 14: Debugging, Testing & Best Practices -->
+            <div class="chapter" id="chapter-13">
+                <h2>Chapter 14: Debugging, Testing & Best Practices</h2>
+                <p>This chapter covers code optimization, common errors and troubleshooting, using debuggers, writing testable code, defensive programming, code documentation, modular design, and version control integration.</p>
+                
+                <h3>Key Topics:</h3>
+                <ul>
+                    <li>Code optimization and profiling techniques</li>
+                    <li>Common C errors and debugging strategies</li>
+                    <li>Using gdb and debugger IDEs effectively</li>
+                    <li>Writing testable and maintainable code</li>
+                    <li>Defensive programming and assertions</li>
+                    <li>Code documentation and commenting standards</li>
+                    <li>Modular design and project organization</li>
+                    <li>Version control with Git integration</li>
+                </ul>
+                
+                <div class="exercise">
+                    <h4>Exercise 14.1</h4>
+                    <p>Write a program with intentional bugs and practice debugging techniques using gdb or your preferred debugger.</p>
+                </div>
+                
+                <div class="project">
+                    <h4>Mini-Project: Testing Framework</h4>
+                    <p>Create a simple unit testing framework for C programs that can run test cases, report results, and provide debugging information.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 15: Practical Projects & Exercises -->
+            <div class="chapter" id="chapter-14">
+                <h2>Chapter 15: Practical Projects & Exercises</h2>
+                <p>This chapter provides a comprehensive collection of mini-projects, exercises, and larger projects to apply all the concepts learned throughout the course.</p>
+                
+                <h3>Mini-Projects per Chapter:</h3>
+                <ul>
+                    <li><strong>Chapter 1:</strong> System Information Display</li>
+                    <li><strong>Chapter 2:</strong> Simple Calculator</li>
+                    <li><strong>Chapter 3:</strong> Type Converter</li>
+                    <li><strong>Chapter 4:</strong> Expression Evaluator</li>
+                    <li><strong>Chapter 5:</strong> Number Guessing Game</li>
+                    <li><strong>Chapter 6:</strong> Function Library</li>
+                    <li><strong>Chapter 7:</strong> String Manipulation Library</li>
+                    <li><strong>Chapter 8:</strong> Dynamic Array Implementation</li>
+                    <li><strong>Chapter 9:</strong> Employee Management System</li>
+                    <li><strong>Chapter 10:</strong> Simple Database</li>
+                    <li><strong>Chapter 11:</strong> Memory Manager</li>
+                    <li><strong>Chapter 12:</strong> Configuration System</li>
+                    <li><strong>Chapter 13:</strong> Multi-threaded Application</li>
+                    <li><strong>Chapter 14:</strong> Testing Framework</li>
+                </ul>
+                
+                <h3>Medium Projects:</h3>
+                <ul>
+                    <li><strong>Banking System:</strong> Account management, transactions, interest calculation</li>
+                    <li><strong>Student Management System:</strong> Student records, grades, attendance</li>
+                    <li><strong>Text Editor:</strong> Basic text editing with file operations</li>
+                    <li><strong>Contact Manager:</strong> Add, edit, delete, search contacts</li>
+                    <li><strong>Inventory System:</strong> Product management, stock tracking</li>
+                </ul>
+                
+                <h3>Large Projects:</h3>
+                <ul>
+                    <li><strong>Simple Shell:</strong> Command-line interface with basic commands</li>
+                    <li><strong>Basic Compiler Front-end:</strong> Lexical analysis, parsing</li>
+                    <li><strong>Game Engine Prototype:</strong> Basic graphics, input handling</li>
+                    <li><strong>Network Chat Application:</strong> Client-server communication</li>
+                    <li><strong>File Compression Utility:</strong> Implement compression algorithms</li>
+                </ul>
+                
+                <div class="project">
+                    <h4>Capstone Project: Choose Your Adventure</h4>
+                    <p>Select one of the large projects and implement it using all the concepts learned throughout the course. This should be a comprehensive project that demonstrates your mastery of C programming.</p>
+                </div>
+            </div>
+
+            <!-- Chapter 16: Optional Extras -->
+            <div class="chapter" id="chapter-15">
+                <h2>Chapter 16: Optional Extras</h2>
+                <p>This chapter covers additional topics that complement the core C programming knowledge, including networking basics, data structures, algorithms, hashing, and low-level device access.</p>
+                
+                <h3>Networking Basics (Sockets)</h3>
+                <ul>
+                    <li>Socket programming fundamentals</li>
+                    <li>TCP/IP client-server applications</li>
+                    <li>UDP communication</li>
+                    <li>Basic network protocols</li>
+                </ul>
+                
+                <h3>Data Structures in C</h3>
+                <ul>
+                    <li>Linked lists (singly, doubly, circular)</li>
+                    <li>Stacks and queues</li>
+                    <li>Trees (binary, AVL, B-trees)</li>
+                    <li>Graphs and graph algorithms</li>
+                </ul>
+                
+                <h3>Sorting & Searching Algorithms</h3>
+                <ul>
+                    <li>Bubble sort, selection sort, insertion sort</li>
+                    <li>Merge sort, quick sort, heap sort</li>
+                    <li>Linear search, binary search</li>
+                    <li>Hash tables and searching</li>
+                </ul>
+                
+                <h3>Hashing & Hash Tables</h3>
+                <ul>
+                    <li>Hash functions and collision resolution</li>
+                    <li>Hash table implementation</li>
+                    <li>Applications of hashing</li>
+                    <li>Performance considerations</li>
+                </ul>
+                
+                <h3>Memory-Mapped I/O & Low-Level Device Access</h3>
+                <ul>
+                    <li>Memory-mapped files</li>
+                    <li>Hardware register access</li>
+                    <li>Device driver concepts</li>
+                    <li>Port I/O operations</li>
+                </ul>
+                
+                <div class="project">
+                    <h4>Advanced Project: Networked Application</h4>
+                    <p>Create a networked application that combines data structures, algorithms, and socket programming. Examples include a distributed database, networked game server, or file sharing system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentChapter = 0;
+        const totalChapters = 16;
+
+        function showChapter(chapterIndex) {
+            // Hide all chapters
+            const chapters = document.querySelectorAll('.chapter');
+            chapters.forEach(chapter => chapter.classList.remove('active'));
+            
+            // Show selected chapter
+            document.getElementById(`chapter-${chapterIndex}`).classList.add('active');
+            
+            // Update navigation
+            currentChapter = chapterIndex;
+            updateNavigation();
+            updateProgress();
+            updateSidebar();
+            
+            // Close sidebar on mobile
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function nextChapter() {
+            if (currentChapter < totalChapters - 1) {
+                showChapter(currentChapter + 1);
+            }
+        }
+
+        function previousChapter() {
+            if (currentChapter > 0) {
+                showChapter(currentChapter - 1);
+            }
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentChapter === 0;
+            nextBtn.disabled = currentChapter === totalChapters - 1;
+        }
+
+        function updateProgress() {
+            const progress = ((currentChapter + 1) / totalChapters) * 100;
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            progressFill.style.width = progress + '%';
+            progressText.textContent = Math.round(progress) + '%';
+        }
+
+        function updateSidebar() {
+            const chapterLinks = document.querySelectorAll('.chapter-link');
+            chapterLinks.forEach((link, index) => {
+                link.classList.toggle('active', index === currentChapter);
+            });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('show');
+        }
+
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const codeContent = codeBlock.querySelector('pre').textContent;
+            
+            navigator.clipboard.writeText(codeContent).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#16a34a';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Close sidebar when clicking overlay
+        document.getElementById('overlay').addEventListener('click', toggleSidebar);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentChapter > 0) {
+                previousChapter();
+            } else if (e.key === 'ArrowRight' && currentChapter < totalChapters - 1) {
+                nextChapter();
+            } else if (e.key === 'Escape') {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar.classList.contains('open')) {
+                    toggleSidebar();
+                }
+            }
+        });
+
+        // Initialize
+        updateNavigation();
+        updateProgress();
+        updateSidebar();
+    </script>
+</body>
+</html>

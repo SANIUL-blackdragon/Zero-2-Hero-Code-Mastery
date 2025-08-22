@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Phase 1+: Mathematical Mastery - From Theory to Algorithm Invention</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .concept-content {
+            display: none;
+        }
+        .concept-content.active {
+            display: block;
+        }
+        .math-content {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        .exercise-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            stroke: #3b82f6;
+            stroke-width: 4;
+            fill: transparent;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        .offline-indicator {
+            background: #059669;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        .concept-nav {
+            background: #f1f5f9;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .concept-nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .concept-nav-item:hover {
+            background: #e2e8f0;
+        }
+        .concept-nav-item.active {
+            background: #3b82f6;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .accordion-content {
+            display: none;
+        }
+        .accordion-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-4">
+                ML Phase 1+: Mathematical Mastery
+            </h1>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-6">
+                From Theory to Algorithm Invention: Master the Mathematics Behind Machine Learning
+            </p>
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg max-w-4xl mx-auto">
+                <p class="text-lg font-semibold text-gray-800 mb-2">🎯 Phase 1+ Goal:</p>
+                <p class="text-gray-700">
+                    Transform from a consumer of ML algorithms to an inventor who can derive, implement, and innovate 
+                    from first principles. Understand not just how algorithms work, but why they work and how to create new ones.
+                </p>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex items-center gap-2 mb-4">
+                <i data-lucide="target" class="w-5 h-5 text-blue-600"></i>
+                <h2 class="text-xl font-semibold">Phase 1+ Mastery Progress</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="text-lg font-semibold">Overall Completion</span>
+                    <span class="text-2xl font-bold text-blue-600" id="overallProgress">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-4">
+                    <div id="overallProgressBar" class="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">Mathematical Foundations</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="foundationsProgressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">
+                            <span id="completedSections">0</span>/<span id="totalSections">4</span> sections completed
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">Implementation Challenges</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="challengesProgressBar" class="bg-purple-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">
+                            <span id="completedChallenges">0</span>/<span id="totalChallenges">5</span> challenges completed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Tabs -->
+        <div class="bg-white rounded-lg shadow-lg mb-8">
+            <div class="border-b">
+                <div class="flex">
+                    <button class="tab-button flex-1 py-4 px-6 text-center font-medium text-blue-600 border-b-2 border-blue-600" data-tab="foundations">
+                        Mathematical Foundations
+                    </button>
+                    <button class="tab-button flex-1 py-4 px-6 text-center font-medium text-gray-600 hover:text-gray-800" data-tab="challenges">
+                        Implementation Challenges
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mathematical Foundations Tab -->
+            <div id="foundations-tab" class="tab-content active p-6">
+                <!-- Section Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="sectionCards">
+                    <!-- Section cards will be generated by JavaScript -->
+                </div>
+
+                <!-- Detailed Section View -->
+                <div id="sectionDetailView" class="hidden">
+                    <!-- Section detail will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Implementation Challenges Tab -->
+            <div id="challenges-tab" class="tab-content p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="challengesContainer">
+                    <!-- Challenges will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Progress Button -->
+        <div class="flex justify-center mb-6">
+            <button onclick="saveProgress()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                <i data-lucide="save" class="w-4 h-4"></i>
+                Save Progress
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-500 text-sm">
+            <p class="font-semibold text-gray-700 mb-2">🚀 From Math Consumer to ML Architect</p>
+            <p class="mb-2">Master these foundations to invent new algorithms and understand ML at the deepest level.</p>
+            <p class="mb-2">Each concept builds upon the previous one - understand the theory before implementation!</p>
+            <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg max-w-2xl mx-auto mt-4">
+                <p class="font-semibold text-gray-800 mb-1">⚠️ Important:</p>
+                <p class="text-gray-700">
+                    True mastery requires implementing algorithms from scratch without libraries. 
+                    This is the only way to deeply understand the mathematics and be able to invent new approaches.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Enhanced Phase 1+ Mathematical Foundations Data
+        const sectionsData = [
+            {
+                id: 1,
+                title: "Linear Algebra",
+                subtitle: "From Vectors to Advanced Decompositions",
+                icon: "🧮",
+                description: "Master linear algebra from first principles to advanced implementations",
+                progress: 0,
+                completed: false,
+                concepts: [
+                    {
+                        name: "Advanced Vector Spaces",
+                        description: "Beyond basic vectors: understanding vector spaces, subspaces, and linear transformations",
+                        math: "V = span{v₁, v₂, ..., vₙ}, dim(V) = n",
+                        details: "Deep understanding of vector spaces, basis, dimension, linear independence, and linear transformations. Essential for understanding the geometry of ML algorithms.",
+                        applications: "Neural network feature spaces, kernel methods, dimensionality reduction, geometric deep learning",
+                        exercises: [
+                            "Prove linear independence/independence from first principles",
+                            "Find orthogonal bases using Gram-Schmidt process",
+                            "Implement vector space projections without libraries",
+                            "Calculate null space and column space manually",
+                            "Prove rank-nullity theorem for specific matrices"
+                        ],
+                        advancedTopics: [
+                            "Hilbert spaces and infinite-dimensional vector spaces",
+                            "Tensor products and multilinear algebra",
+                            "Exterior algebra and differential forms",
+                            "Functional analysis for ML",
+                            "Manifold learning and tangent spaces"
+                        ],
+                        edgeCases: [
+                            "Handling near-linear dependence in numerical computations",
+                            "Dealing with high-dimensional spaces (curse of dimensionality)",
+                            "Numerical stability in orthogonalization processes",
+                            "Singular and ill-conditioned matrices",
+                            "Floating point precision in vector operations"
+                        ],
+                        implementationChallenges: [
+                            "Implement Gram-Schmidt orthogonalization with numerical stability",
+                            "Code QR decomposition from scratch using Householder transformations",
+                            "Build a vector space class with all operations",
+                            "Implement eigenvalue computation for large sparse matrices",
+                            "Create a stable matrix inversion algorithm"
+                        ],
+                        progress: 0,
+                        completed: false
+                    },
+                    {
+                        name: "Matrix Decompositions Deep Dive",
+                        description: "Master SVD, Eigenvalue Decomposition, and their theoretical foundations",
+                        math: "A = UΣVᵀ, A = PDP⁻¹",
+                        details: "Deep theoretical understanding of matrix decompositions, their existence, uniqueness, and computational aspects. Essential for advanced ML algorithms.",
+                        applications: "PCA, recommendation systems, spectral clustering, matrix completion, neural network initialization",
+                        exercises: [
+                            "Derive SVD from eigenvalue decomposition",
+                            "Implement power iteration for dominant eigenvalue",
+                            "Prove existence of SVD for any matrix",
+                            "Compare computational complexity of different decompositions",
+                            "Implement truncated SVD for large matrices"
+                        ],
+                        advancedTopics: [
+                            "Non-negative matrix factorization (NMF)",
+                            "Tensor decompositions (CP, Tucker)",
+                            "Randomized matrix decompositions",
+                            "Sparse matrix decompositions",
+                            "Robust PCA and matrix completion"
+                        ],
+                        edgeCases: [
+                            "Handling rank-deficient matrices",
+                            "Numerical stability in decomposition algorithms",
+                            "Convergence issues in iterative methods",
+                            "Memory constraints for large matrices",
+                            "Condition number and numerical accuracy"
+                        ],
+                        implementationChallenges: [
+                            "Implement full SVD without using any libraries",
+                            "Code randomized SVD for large-scale problems",
+                            "Build a robust eigenvalue solver",
+                            "Implement matrix completion algorithms",
+                            "Create a sparse matrix decomposition library"
+                        ],
+                        progress: 0,
+                        completed: false
+                    },
+                    {
+                        name: "Advanced Matrix Calculus",
+                        description: "Master gradients, Hessians, and matrix derivatives for optimization",
+                        math: "∂f/∂X, ∂²f/∂X∂Y, ∇ᵡf(x)",
+                        details: "Comprehensive understanding of matrix calculus, including derivatives of scalar, vector, and matrix functions. Essential for understanding backpropagation and optimization.",
+                        applications: "Backpropagation, neural network training, optimization algorithms, sensitivity analysis",
+                        exercises: [
+                            "Derive gradients for matrix-valued functions",
+                            "Compute Jacobians for complex neural network layers",
+                            "Implement Hessian computation for optimization",
+                            "Derive matrix derivatives for common loss functions",
+                            "Prove chain rule for matrix calculus"
+                        ],
+                        advancedTopics: [
+                            "Matrix differential calculus",
+                            "Fréchet derivatives in Banach spaces",
+                            "Subgradients and subdifferentials",
+                            "Automatic differentiation theory",
+                            "Manifold optimization"
+                        ],
+                        edgeCases: [
+                            "Non-differentiable functions in ML",
+                            "Numerical instability in Hessian computation",
+                            "High-dimensional gradient computation",
+                            "Singular matrices in optimization",
+                            "Vanishing/exploding gradients"
+                        ],
+                        implementationChallenges: [
+                            "Implement automatic differentiation from scratch",
+                            "Code symbolic differentiation for matrices",
+                            "Build a numerical Hessian verifier",
+                            "Implement gradient checking algorithms",
+                            "Create a matrix calculus visualization tool"
+                        ],
+                        progress: 0,
+                        completed: false
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Probability & Statistics",
+                subtitle: "Measure Theory to Advanced Inference",
+                icon: "📊",
+                description: "Master probability from measure theory to advanced statistical inference",
+                progress: 0,
+                completed: false,
+                concepts: [
+                    {
+                        name: "Measure-Theoretic Probability",
+                        description: "Rigorous foundation of probability using measure theory",
+                        math: "(Ω, ℱ, P), P: ℱ → [0,1]",
+                        details: "Understanding probability spaces, σ-algebras, measures, and Lebesgue integration. Essential for rigorous understanding of continuous probability and stochastic processes.",
+                        applications: "Stochastic processes, Bayesian inference, generative models, information theory",
+                        exercises: [
+                            "Prove properties of probability measures",
+                            "Construct σ-algebras for different sample spaces",
+                            "Implement Lebesgue integration for simple functions",
+                            "Prove convergence theorems (Monotone, Dominated)",
+                            "Construct probability spaces for continuous distributions"
+                        ],
+                        advancedTopics: [
+                            "Lebesgue measure and integration",
+                            "Radon-Nikodym theorem",
+                            "Conditional expectation as projection",
+                            "Martingales and stopping times",
+                            "Stochastic calculus foundations"
+                        ],
+                        edgeCases: [
+                            "Non-measurable sets and functions",
+                            "Infinite measure spaces",
+                            "Singular distributions",
+                            "Pathological counterexamples",
+                            "Convergence issues in probability spaces"
+                        ],
+                        implementationChallenges: [
+                            "Implement numerical Lebesgue integration",
+                            "Code measure-theoretic probability spaces",
+                            "Build a conditional expectation calculator",
+                            "Implement martingale simulations",
+                            "Create a measure theory visualization tool"
+                        ],
+                        progress: 0,
+                        completed: false
+                    },
+                    {
+                        name: "Advanced Statistical Inference",
+                        description: "From MLE to Bayesian nonparametrics",
+                        math: "θ̂_MLE = argmax_θ L(θ|X), p(θ|X) ∝ p(X|θ)p(θ)",
+                        details: "Comprehensive understanding of statistical inference methods, including frequentist and Bayesian approaches, asymptotic theory, and modern techniques.",
+                        applications: "Model fitting, hypothesis testing, confidence intervals, Bayesian modeling",
+                        exercises: [
+                            "Derive asymptotic properties of MLE",
+                            "Implement Bayesian inference with conjugate priors",
+                            "Prove consistency and efficiency of estimators",
+                            "Implement Markov Chain Monte Carlo (MCMC)",
+                            "Compare frequentist vs Bayesian approaches"
+                        ],
+                        advancedTopics: [
+                            "Empirical processes theory",
+                            "Bayesian nonparametrics (Dirichlet processes, Gaussian processes)",
+                            "Concentration inequalities",
+                            "High-dimensional statistics",
+                            "Causal inference foundations"
+                        ],
+                        edgeCases: [
+                            "Misspecified models",
+                            "Small sample asymptotics",
+                            "Non-regular estimation problems",
+                            "Computational bottlenecks in MCMC",
+                            "Model selection consistency"
+                        ],
+                        implementationChallenges: [
+                            "Implement MCMC algorithms from scratch",
+                            "Code variational inference methods",
+                            "Build a Bayesian nonparametric model",
+                            "Implement cross-validation strategies",
+                            "Create a model comparison framework"
+                        ],
+                        progress: 0,
+                        completed: false
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Calculus & Optimization",
+                subtitle: "From Foundations to Advanced Landscapes",
+                icon: "📈",
+                description: "Master calculus and optimization theory for ML algorithms",
+                progress: 0,
+                completed: false,
+                concepts: [
+                    {
+                        name: "Advanced Optimization Theory",
+                        description: "Convex analysis, non-convex optimization, and modern methods",
+                        math: "min_θ f(θ), ∇f(θ*) = 0, ∇²f(θ*) ⪰ 0",
+                        details: "Deep understanding of optimization landscapes, convergence theory, and modern optimization methods essential for training complex ML models.",
+                        applications: "Neural network training, hyperparameter optimization, constrained optimization",
+                        exercises: [
+                            "Prove convergence of gradient descent for convex functions",
+                            "Analyze optimization landscapes of neural networks",
+                            "Implement second-order optimization methods",
+                            "Derive convergence rates for different algorithms",
+                            "Implement constrained optimization algorithms"
+                        ],
+                        advancedTopics: [
+                            "Convex analysis and duality theory",
+                            "Non-convex optimization landscapes",
+                            "Stochastic optimization theory",
+                            "Distributed optimization",
+                            "Online learning and regret minimization"
+                        ],
+                        edgeCases: [
+                            "Saddle points and local minima",
+                            "Pathological curvature (ill-conditioning)",
+                            "Non-smooth optimization problems",
+                            "Constrained optimization with inequalities",
+                            "Stochastic gradient noise"
+                        ],
+                        implementationChallenges: [
+                            "Implement adaptive optimization algorithms (Adam, RMSprop)",
+                            "Code second-order methods (L-BFGS, Newton-CG)",
+                            "Build a constrained optimization solver",
+                            "Implement distributed optimization",
+                            "Create an optimization landscape visualizer"
+                        ],
+                        progress: 0,
+                        completed: false
+                    },
+                    {
+                        name: "Information Geometry",
+                        description: "Understanding parameter spaces as Riemannian manifolds",
+                        math: "gᵢⱼ(θ) = E[∂ᵢlog p(x|θ) ∂ⱼlog p(x|θ)]",
+                        details: "Understanding statistical manifolds, Fisher information metric, and geometric structures of parameter spaces. Essential for advanced Bayesian methods and understanding optimization geometry.",
+                        applications: "Natural gradient descent, information geometry, manifold learning",
+                        exercises: [
+                            "Compute Fisher information matrix for distributions",
+                            "Implement natural gradient descent",
+                            "Prove properties of statistical manifolds",
+                            "Calculate geodesics on parameter manifolds",
+                            "Implement information-theoretic optimization"
+                        ],
+                        advancedTopics: [
+                            "Riemannian geometry for statistics",
+                            "Differential geometry of exponential families",
+                            "Information divergence and projections",
+                            "Manifold optimization algorithms",
+                            "Geometric deep learning connections"
+                        ],
+                        edgeCases: [
+                            "Singular Fisher information matrices",
+                            "Non-invertible metric tensors",
+                            "Computational complexity of geometric methods",
+                            "Numerical stability in manifold computations",
+                            "High-dimensional manifold learning"
+                        ],
+                        implementationChallenges: [
+                            "Implement natural gradient descent efficiently",
+                            "Code Riemannian optimization algorithms",
+                            "Build a Fisher information matrix calculator",
+                            "Implement manifold learning algorithms",
+                            "Create an information geometry visualization tool"
+                        ],
+                        progress: 0,
+                        completed: false
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Numerical Methods",
+                subtitle: "Stable Computation & Advanced Algorithms",
+                icon: "⚙️",
+                description: "Master numerical stability and advanced computational methods",
+                progress: 0,
+                completed: false,
+                concepts: [
+                    {
+                        name: "Advanced Numerical Linear Algebra",
+                        description: "Stable algorithms and computational complexity analysis",
+                        math: "κ(A) = ||A|| ||A⁻¹||, O(n³) for matrix multiplication",
+                        details: "Understanding numerical stability, condition numbers, and efficient algorithms for large-scale computations. Essential for implementing stable ML algorithms.",
+                        applications: "Large-scale ML, scientific computing, numerical optimization",
+                        exercises: [
+                            "Analyze numerical stability of algorithms",
+                            "Implement stable matrix factorizations",
+                            "Compute condition numbers and their implications",
+                            "Implement iterative methods for large systems",
+                            "Analyze computational complexity of algorithms"
+                        ],
+                        advancedTopics: [
+                            "Krylov subspace methods",
+                            "Preconditioning techniques",
+                            "Randomized numerical linear algebra",
+                            "Structured matrix computations",
+                            "Parallel numerical algorithms"
+                        ],
+                        edgeCases: [
+                            "Ill-conditioned problems",
+                            "Numerical cancellation and rounding errors",
+                            "Memory constraints for large matrices",
+                            "Parallelization challenges",
+                            "Hardware-specific optimizations"
+                        ],
+                        implementationChallenges: [
+                            "Implement stable matrix factorizations (LU, QR, Cholesky)",
+                            "Code iterative solvers (Conjugate Gradient, GMRES)",
+                            "Build a preconditioned linear system solver",
+                            "Implement randomized numerical algorithms",
+                            "Create a numerical stability analyzer"
+                        ],
+                        progress: 0,
+                        completed: false
+                    },
+                    {
+                        name: "High-Performance Computing for ML",
+                        description: "Parallel algorithms, GPU computing, and distributed systems",
+                        math: "Speedup = T₁/Tₚ, Efficiency = Speedup/p",
+                        details: "Understanding parallel computing architectures, GPU programming, and distributed algorithms for large-scale ML computations.",
+                        applications: "Deep learning training, large-scale data processing, distributed ML",
+                        exercises: [
+                            "Implement parallel matrix multiplication",
+                            "Code GPU-accelerated neural network layers",
+                            "Analyze scalability of distributed algorithms",
+                            "Implement data parallelism strategies",
+                            "Optimize memory access patterns"
+                        ],
+                        advancedTopics: [
+                            "CUDA and GPU programming",
+                            "Distributed computing frameworks",
+                            "Model parallelism strategies",
+                            "Communication-efficient algorithms",
+                            "Heterogeneous computing"
+                        ],
+                        edgeCases: [
+                            "Load balancing in distributed systems",
+                            "Communication bottlenecks",
+                            "Memory limitations on GPUs",
+                            "Synchronization overhead",
+                            "Fault tolerance in distributed systems"
+                        ],
+                        implementationChallenges: [
+                            "Implement a mini deep learning framework with GPU support",
+                            "Code distributed gradient descent",
+                            "Build a parallel data processing pipeline",
+                            "Implement model parallelism for large models",
+                            "Create a performance profiling tool"
+                        ],
+                        progress: 0,
+                        completed: false
+                    }
+                ]
+            }
+        ];
+
+        // Challenge Mode Data
+        const challengesData = [
+            {
+                id: "challenge1",
+                title: "Implement Linear Regression from Scratch",
+                description: "Build a complete linear regression system without any ML libraries",
+                difficulty: "intermediate",
+                category: "Linear Algebra + Optimization",
+                requirements: [
+                    "Use only basic Python/NumPy operations",
+                    "Implement both analytical and iterative solutions",
+                    "Include regularization (L1, L2)",
+                    "Add statistical inference (confidence intervals, p-values)",
+                    "Handle edge cases (singular matrices, multicollinearity)"
+                ],
+                implementationTask: "Create a LinearRegression class that: 1) Fits using normal equations and gradient descent, 2) Supports L1/L2 regularization, 3) Provides statistical inference, 4) Handles numerical edge cases, 5) Includes comprehensive testing.",
+                comparisonPoints: [
+                    "Compare results with scikit-learn's LinearRegression",
+                    "Analyze numerical stability differences",
+                    "Compare computational efficiency",
+                    "Test on edge cases (singular matrices, high dimensions)",
+                    "Verify statistical inference accuracy"
+                ],
+                completed: false
+            },
+            {
+                id: "challenge2",
+                title: "Build a Neural Network Framework",
+                description: "Implement a complete neural network framework from first principles",
+                difficulty: "expert",
+                category: "Calculus + Linear Algebra + Optimization",
+                requirements: [
+                    "Implement automatic differentiation",
+                    "Support various layers (Dense, Conv2D, RNN)",
+                    "Include multiple optimizers (SGD, Adam, RMSprop)",
+                    "Add regularization techniques",
+                    "Support GPU acceleration"
+                ],
+                implementationTask: "Create a NeuralNetwork framework that: 1) Implements automatic differentiation, 2) Supports multiple layer types, 3) Includes various optimizers, 4) Provides comprehensive visualization, 5) Handles numerical stability.",
+                comparisonPoints: [
+                    "Compare with PyTorch/TensorFlow results",
+                    "Analyze performance differences",
+                    "Test on complex architectures",
+                    "Verify gradient computation accuracy",
+                    "Compare memory usage and efficiency"
+                ],
+                completed: false
+            },
+            {
+                id: "challenge3",
+                title: "Implement PCA and SVD from Scratch",
+                description: "Build dimensionality reduction algorithms with deep mathematical understanding",
+                difficulty: "advanced",
+                category: "Linear Algebra + Numerical Methods",
+                requirements: [
+                    "Implement multiple algorithms (power iteration, QR algorithm)",
+                    "Handle numerical stability issues",
+                    "Support both dense and sparse matrices",
+                    "Include statistical interpretation",
+                    "Add visualization capabilities"
+                ],
+                implementationTask: "Create a dimensionality reduction library that: 1) Implements PCA using multiple methods, 2) Includes full SVD decomposition, 3) Handles numerical edge cases, 4) Provides statistical analysis, 5) Includes comprehensive testing.",
+                comparisonPoints: [
+                    "Compare with scikit-learn's PCA",
+                    "Analyze numerical accuracy",
+                    "Test on high-dimensional data",
+                    "Compare computational efficiency",
+                    "Verify statistical properties"
+                ],
+                completed: false
+            },
+            {
+                id: "challenge4",
+                title: "Build a Bayesian Inference Engine",
+                description: "Implement MCMC and variational inference from scratch",
+                difficulty: "expert",
+                category: "Probability + Statistics + Optimization",
+                requirements: [
+                    "Implement multiple MCMC algorithms (Metropolis-Hastings, Gibbs, HMC)",
+                    "Build variational inference framework",
+                    "Support various probability distributions",
+                    "Include convergence diagnostics",
+                    "Add model comparison capabilities"
+                ],
+                implementationTask: "Create a Bayesian inference library that: 1) Implements multiple MCMC methods, 2) Includes variational inference, 3) Supports various distributions, 4) Provides convergence diagnostics, 5) Includes model comparison tools.",
+                comparisonPoints: [
+                    "Compare with PyMC3/Stan results",
+                    "Analyze convergence properties",
+                    "Test on complex models",
+                    "Compare computational efficiency",
+                    "Verify posterior accuracy"
+                ],
+                completed: false
+            },
+            {
+                id: "challenge5",
+                title: "Implement SVM from First Principles",
+                description: "Build support vector machines with deep optimization understanding",
+                difficulty: "advanced",
+                category: "Optimization + Linear Algebra",
+                requirements: [
+                    "Implement both primal and dual formulations",
+                    "Support multiple kernels (linear, RBF, polynomial)",
+                    "Include optimization algorithms (SMO, gradient-based)",
+                    "Add statistical analysis",
+                    "Handle large-scale optimization"
+                ],
+                implementationTask: "Create an SVM library that: 1) Implements primal and dual formulations, 2) Supports multiple kernels, 3) Includes various optimization methods, 4) Provides statistical analysis, 5) Handles large-scale problems.",
+                comparisonPoints: [
+                    "Compare with scikit-learn's SVM",
+                    "Analyze optimization convergence",
+                    "Test on various datasets",
+                    "Compare kernel performance",
+                    "Verify margin maximization"
+                ],
+                completed: false
+            }
+        ];
+
+        let sections = JSON.parse(JSON.stringify(sectionsData));
+        let challenges = JSON.parse(JSON.stringify(challengesData));
+        let currentSection = null;
+        let currentConcept = null;
+
+        // Load progress from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('ml-phase1plus-progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                sections = data.sections || sections;
+                challenges = data.challenges || challenges;
+            }
+            renderApp();
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            const data = {
+                sections,
+                challenges,
+                lastSaved: new Date().toISOString()
+            };
+            localStorage.setItem('ml-phase1plus-progress', JSON.stringify(data));
+            
+            // Show save confirmation
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Saved!';
+            button.classList.add('bg-green-600');
+            button.classList.remove('bg-blue-600');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-blue-600');
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        // Update section progress
+        function updateSectionProgress(sectionId, delta) {
+            sections = sections.map(section => 
+                section.id === sectionId 
+                    ? { ...section, progress: Math.max(0, Math.min(100, section.progress + delta)) }
+                    : section
+            );
+            renderApp();
+        }
+
+        // Update concept progress
+        function updateConceptProgress(sectionId, conceptIndex, delta) {
+            sections = sections.map(section => {
+                if (section.id === sectionId) {
+                    const updatedConcepts = section.concepts.map((concept, index) => 
+                        index === conceptIndex 
+                            ? { ...concept, progress: Math.max(0, Math.min(100, concept.progress + delta)) }
+                            : concept
+                    );
+                    
+                    // Update section progress based on concepts
+                    const conceptProgress = updatedConcepts.reduce((sum, concept) => sum + concept.progress, 0);
+                    const sectionProgress = conceptProgress / updatedConcepts.length;
+                    
+                    return { ...section, concepts: updatedConcepts, progress: sectionProgress };
+                }
+                return section;
+            });
+            renderApp();
+        }
+
+        // Toggle challenge completion
+        function toggleChallengeCompletion(challengeId) {
+            challenges = challenges.map(challenge => 
+                challenge.id === challengeId 
+                    ? { ...challenge, completed: !challenge.completed }
+                    : challenge
+            );
+            renderApp();
+        }
+
+        // Get overall progress
+        function getOverallProgress() {
+            const sectionProgress = sections.reduce((sum, section) => sum + section.progress, 0);
+            const challengeProgress = challenges.reduce((sum, challenge) => sum + (challenge.completed ? 100 : 0), 0);
+            return Math.round((sectionProgress + challengeProgress) / (sections.length + challenges.length));
+        }
+
+        // Get difficulty color
+        function getDifficultyColor(difficulty) {
+            switch (difficulty) {
+                case 'beginner': return 'bg-green-100 text-green-800';
+                case 'intermediate': return 'bg-yellow-100 text-yellow-800';
+                case 'advanced': return 'bg-orange-100 text-orange-800';
+                case 'expert': return 'bg-red-100 text-red-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        }
+
+        // Render section cards
+        function renderSectionCards() {
+            const container = document.getElementById('sectionCards');
+            container.innerHTML = sections.map(section => {
+                // Special handling for Linear Algebra card (id: 1)
+                if (section.id === 1) {
+                    return `
+                        <div class="section-card bg-white rounded-lg p-4 cursor-pointer" onclick="showSectionDetail(${section.id})">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl">${section.icon}</span>
+                                ${section.completed ? '<span class="text-green-600">✓</span>' : ''}
+                            </div>
+                            <h3 class="text-lg font-semibold mb-1">${section.title}</h3>
+                            <p class="text-sm text-gray-600 mb-3">${section.subtitle}</p>
+                            <p class="text-sm text-gray-600 mb-3">${section.description}</p>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span>Progress</span>
+                                    <span>${Math.round(section.progress)}%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: ${section.progress}%"></div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                                        Explore
+                                    </button>
+                                    <a href="linear-algebra.html" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded text-sm text-center">
+                                        Deep dive
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                // Default for other cards
+                return `
+                    <div class="section-card bg-white rounded-lg p-4 cursor-pointer" onclick="showSectionDetail(${section.id})">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-2xl">${section.icon}</span>
+                            ${section.completed ? '<span class="text-green-600">✓</span>' : ''}
+                        </div>
+                        <h3 class="text-lg font-semibold mb-1">${section.title}</h3>
+                        <p class="text-sm text-gray-600 mb-3">${section.subtitle}</p>
+                        <p class="text-sm text-gray-600 mb-3">${section.description}</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Progress</span>
+                                <span>${Math.round(section.progress)}%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: ${section.progress}%"></div>
+                            </div>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">
+                                Explore
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Show section detail
+        function showSectionDetail(sectionId) {
+            currentSection = sections.find(s => s.id === sectionId);
+            currentConcept = 0;
+            
+            const detailView = document.getElementById('sectionDetailView');
+            detailView.classList.remove('hidden');
+            detailView.innerHTML = `
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="text-2xl">${currentSection.icon}</span>
+                            <h2 class="text-2xl font-bold">${currentSection.title}</h2>
+                        </div>
+                        <p class="text-gray-600">${currentSection.description}</p>
+                    </div>
+
+                    <!-- Concept Navigation -->
+                    <div class="flex flex-wrap gap-2">
+                        ${currentSection.concepts.map((concept, index) => `
+                            <button class="concept-nav-item px-3 py-1 rounded text-sm ${currentConcept === index ? 'active' : ''}" 
+                                    onclick="showConcept(${index})">
+                                ${concept.name}
+                                ${concept.completed ? '<span class="text-green-600">✓</span>' : ''}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Concept Detail -->
+                    <div id="conceptDetail">
+                        ${renderConceptDetail()}
+                    </div>
+                </div>
+            `;
+            
+            lucide.createIcons();
+        }
+
+        // Show concept detail
+        function showConcept(index) {
+            currentConcept = index;
+            document.getElementById('conceptDetail').innerHTML = renderConceptDetail();
+            
+            // Update navigation
+            document.querySelectorAll('.concept-nav-item').forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Render concept detail
+        function renderConceptDetail() {
+            const concept = currentSection.concepts[currentConcept];
+            return `
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">${concept.name}</h3>
+                        <p class="text-gray-600 mb-4">${concept.description}</p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="font-mono text-sm">${concept.math}</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress and Actions -->
+                    <div class="flex items-center gap-4">
+                        <div class="flex-1">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Mastery Level</span>
+                                <span>${Math.round(concept.progress)}%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: ${concept.progress}%"></div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm" 
+                                    onclick="updateConceptProgress(${currentSection.id}, ${currentConcept}, 10)">
+                                +10%
+                            </button>
+                            <button class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm" 
+                                    onclick="updateConceptProgress(${currentSection.id}, ${currentConcept}, -10)">
+                                -10%
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Content -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Left Column -->
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">📚 Theory & Applications</h4>
+                                <p class="text-sm text-gray-700 mb-3">${concept.details}</p>
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <p class="font-medium text-sm mb-1">Applications in ML:</p>
+                                    <p class="text-sm text-gray-700">${concept.applications}</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-2">🎯 Key Exercises</h4>
+                                <ul class="space-y-1">
+                                    ${concept.exercises.map(exercise => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-blue-600 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">🚀 Advanced Topics</h4>
+                                <ul class="space-y-1">
+                                    ${concept.advancedTopics.map(topic => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-purple-600 mt-1">•</span>
+                                            ${topic}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-2">⚠️ Edge Cases & Limitations</h4>
+                                <ul class="space-y-1">
+                                    ${concept.edgeCases.map(edgeCase => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-red-600 mt-1">•</span>
+                                            ${edgeCase}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-2">💻 Implementation Challenges</h4>
+                                <ul class="space-y-1">
+                                    ${concept.implementationChallenges.map(challenge => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-orange-600 mt-1">•</span>
+                                            ${challenge}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Implementation Area -->
+                    <div>
+                        <h4 class="font-semibold mb-2">💻 Practice Implementation</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <select class="border rounded px-2 py-1 text-sm" id="languageSelect">
+                                    <option value="python">Python</option>
+                                    <option value="cpp">C++</option>
+                                    <option value="julia">Julia</option>
+                                    <option value="rust">Rust</option>
+                                </select>
+                                <button class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm">
+                                    Run Code
+                                </button>
+                                <button class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded text-sm">
+                                    Test
+                                </button>
+                            </div>
+                            <textarea class="w-full border rounded p-3 min-h-32 font-mono text-sm" 
+                                      placeholder="Write your implementation here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render challenges
+        function renderChallenges() {
+            const container = document.getElementById('challengesContainer');
+            container.innerHTML = challenges.map(challenge => `
+                <div class="bg-white rounded-lg border ${challenge.completed ? 'border-green-200 bg-green-50' : 'border-gray-200'} p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">${challenge.title}</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 rounded text-xs ${getDifficultyColor(challenge.difficulty)}">
+                                ${challenge.difficulty}
+                            </span>
+                            ${challenge.completed ? '<span class="text-green-600">✓</span>' : ''}
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">${challenge.description}</p>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-medium text-sm mb-2">Category: ${challenge.category}</p>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between cursor-pointer" onclick="toggleAccordion('${challenge.id}-requirements')">
+                                <h4 class="font-medium">Requirements</h4>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                            </div>
+                            <div id="${challenge.id}-requirements" class="accordion-content pl-4">
+                                <ul class="space-y-1">
+                                    ${challenge.requirements.map(req => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-blue-600 mt-1">•</span>
+                                            ${req}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between cursor-pointer" onclick="toggleAccordion('${challenge.id}-implementation')">
+                                <h4 class="font-medium">Implementation Task</h4>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                            </div>
+                            <div id="${challenge.id}-implementation" class="accordion-content pl-4">
+                                <p class="text-sm text-gray-700">${challenge.implementationTask}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between cursor-pointer" onclick="toggleAccordion('${challenge.id}-comparison')">
+                                <h4 class="font-medium">Comparison Points</h4>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                            </div>
+                            <div id="${challenge.id}-comparison" class="accordion-content pl-4">
+                                <ul class="space-y-1">
+                                    ${challenge.comparisonPoints.map(point => `
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-purple-600 mt-1">•</span>
+                                            ${point}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button class="flex-1 ${challenge.completed ? 'bg-gray-200 hover:bg-gray-300' : 'bg-blue-600 hover:bg-blue-700 text-white'} px-3 py-2 rounded text-sm"
+                                    onclick="toggleChallengeCompletion('${challenge.id}')">
+                                ${challenge.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                            </button>
+                            <button class="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded text-sm">
+                                Start Challenge
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            lucide.createIcons();
+        }
+
+        // Toggle accordion
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = content.previousElementSibling.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Update progress bars
+        function updateProgressBars() {
+            const overallProgress = getOverallProgress();
+            const foundationsProgress = sections.reduce((sum, section) => sum + section.progress, 0) / sections.length;
+            const challengesProgress = (challenges.filter(c => c.completed).length / challenges.length) * 100;
+            
+            document.getElementById('overallProgress').textContent = overallProgress + '%';
+            document.getElementById('overallProgressBar').style.width = overallProgress + '%';
+            
+            document.getElementById('foundationsProgressBar').style.width = foundationsProgress + '%';
+            document.getElementById('challengesProgressBar').style.width = challengesProgress + '%';
+            
+            document.getElementById('completedSections').textContent = sections.filter(s => s.completed).length;
+            document.getElementById('totalSections').textContent = sections.length;
+            document.getElementById('completedChallenges').textContent = challenges.filter(c => c.completed).length;
+            document.getElementById('totalChallenges').textContent = challenges.length;
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                if (button.dataset.tab === tabName) {
+                    button.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                    button.classList.remove('text-gray-600');
+                } else {
+                    button.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                    button.classList.add('text-gray-600');
+                }
+            });
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                if (content.id === tabName + '-tab') {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+
+        // Render app
+        function renderApp() {
+            renderSectionCards();
+            renderChallenges();
+            updateProgressBars();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up tab switching
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', () => switchTab(button.dataset.tab));
+            });
+            
+            // Load progress and render
+            loadProgress();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,4052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive C++ Master Guide - Module 1: Fundamentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+        .progress-fill {
+            transition: width 0.3s ease;
+        }
+        .topic-content h1 { @apply text-2xl font-bold mt-8 mb-6; }
+        .topic-content h2 { @apply text-xl font-semibold mt-8 mb-4; }
+        .topic-content h3 { @apply text-lg font-semibold mt-6 mb-3; }
+        .topic-content ul { @apply list-disc list-inside space-y-1 my-2; }
+        .topic-content li { @apply ml-4; }
+        .modal-backdrop {
+            backdrop-filter: blur(4px);
+        }
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #f1f5f9;
+        }
+        .quiz-option input:checked + label {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <div class="max-w-7xl mx-auto p-4">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-slate-800 mb-2">
+                C++ Master Guide - Module 1: Fundamentals
+            </h1>
+            <p class="text-slate-600 mb-4">
+                Complete C++ fundamentals course with interactive exercises and quizzes
+            </p>
+            
+            <!-- Progress -->
+            <div class="bg-white rounded-lg shadow-sm p-4 max-w-md mx-auto">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-slate-700">Progress</span>
+                    <span class="text-sm font-medium text-slate-700" id="progressText">0%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2">
+                    <div class="bg-blue-600 h-2 rounded-full progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-1">
+                    <span id="completedCount">0</span> of <span id="totalCount">7</span> topics completed
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm">
+                    <div class="p-6 border-b">
+                        <h2 class="text-lg font-semibold flex items-center gap-2">
+                            <i class="fas fa-book"></i>
+                            Topics
+                        </h2>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <button onclick="setCurrentTopic(0)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="0">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="0"></i>
+                                    <span class="text-sm font-medium">1.1</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">beginner</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Introduction to C++</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(1)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="1">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="1"></i>
+                                    <span class="text-sm font-medium">1.2</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">beginner</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Setting Up Development Environment</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(2)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="2"></i>
+                                    <span class="text-sm font-medium">1.3</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">beginner</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Basic Program Structure</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(3)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="3"></i>
+                                    <span class="text-sm font-medium">1.4</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">beginner</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Basic Input/Output</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(4)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="4"></i>
+                                    <span class="text-sm font-medium">1.5</span>
+                                </div>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">intermediate</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Compilation Process</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(5)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="5">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="5"></i>
+                                    <span class="text-sm font-medium">1.6</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">beginner</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Coding Standards & Best Practices</div>
+                        </button>
+
+                        <button onclick="setCurrentTopic(6)" class="topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100" data-topic="6">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="far fa-circle text-slate-400 topic-icon" data-topic="6"></i>
+                                    <span class="text-sm font-medium">1.7</span>
+                                </div>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">intermediate</span>
+                            </div>
+                            <div class="text-xs text-slate-600 mt-1">Capstone Project</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3">
+                <div class="bg-white rounded-lg shadow-sm">
+                    <div class="p-6 border-b">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-semibold flex items-center gap-2" id="topicTitle">
+                                    1.1: Introduction to C++
+                                </h2>
+                                <p class="text-slate-600" id="topicDescription">Beginner-friendly</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="showExercise()" class="px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50 flex items-center gap-2">
+                                    <i class="fas fa-code"></i>
+                                    Exercise
+                                </button>
+                                <button onclick="showQuiz()" class="px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50 flex items-center gap-2">
+                                    <i class="fas fa-trophy"></i>
+                                    Quiz
+                                </button>
+                                <button onclick="markComplete()" id="completeBtn" class="px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                    Mark Complete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex space-x-4 mb-4 border-b">
+                            <button onclick="showTab('content')" class="tab-btn pb-2 px-1 border-b-2 border-blue-600 text-blue-600 font-medium" data-tab="content">
+                                Content
+                            </button>
+                            <button onclick="showTab('example')" class="tab-btn pb-2 px-1 border-b-2 border-transparent text-slate-600 hover:text-slate-800" data-tab="example">
+                                Code Example
+                            </button>
+                        </div>
+                        
+                        <div id="contentTab" class="topic-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                        
+                        <div id="exampleTab" class="hidden">
+                            <div class="code-block">
+                                <pre id="codeExample">// Code example will be loaded here</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise Modal -->
+    <div id="exerciseModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex items-center justify-between">
+                <h3 class="text-lg font-semibold" id="exerciseTitle">Exercise Title</h3>
+                <button onclick="closeExercise()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <h4 class="font-semibold mb-2">Description:</h4>
+                    <p class="text-slate-600" id="exerciseDescription">Exercise description</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-2">Starter Code:</h4>
+                    <div class="code-block">
+                        <pre id="starterCode">// Starter code</pre>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-2">Hints:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600" id="hintsList">
+                        <!-- Hints will be loaded here -->
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-2">Solution:</h4>
+                    <details class="bg-slate-50 p-4 rounded-lg">
+                        <summary class="cursor-pointer font-medium text-blue-600">
+                            Click to view solution
+                        </summary>
+                        <div class="mt-4">
+                            <div class="code-block">
+                                <pre id="solutionCode">// Solution code</pre>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex items-center justify-between">
+                <h3 class="text-lg font-semibold" id="quizTitle">Quiz Title</h3>
+                <button onclick="closeQuiz()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div id="quizQuestions" class="space-y-6">
+                    <!-- Quiz questions will be loaded here -->
+                </div>
+                
+                <div id="quizResults" class="hidden text-center p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-lg">Quiz Complete!</h4>
+                    <p class="text-2xl font-bold text-blue-600" id="quizScore">0%</p>
+                    <p class="text-sm text-slate-600 mt-1" id="quizFeedback">Keep practicing!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive C++ Module 1 Data
+        const cppModule1 = [
+            {
+                id: '1.1',
+                title: 'Introduction to C++',
+                difficulty: 'beginner',
+                content: `<h1>Introduction to C++</h1>
+<p>C++ is a general-purpose programming language created by Bjarne Stroustrup in 1979 at Bell Labs. It was designed as an extension of the C programming language with the primary goal of adding object-oriented programming features.</p>
+
+<h2>History and Evolution</h2>
+<p>C++ has evolved significantly over the years through several major standards:</p>
+<ul>
+<li><strong>C++98 (1998)</strong>: First ISO standard, established the foundation</li>
+<li><strong>C++03 (2003)</strong>: Minor bug fixes and updates</li>
+<li><strong>C++11 (2011)</strong>: Major update with auto, lambda expressions, and smart pointers</li>
+<li><strong>C++14 (2014)</strong>: Small improvements and bug fixes</li>
+<li><strong>C++17 (2017)</strong>: Filesystem library, structured bindings, and more</li>
+<li><strong>C++20 (2020)</strong>: Concepts, modules, coroutines, and ranges</li>
+<li><strong>C++23 (2023)</strong>: Latest features and improvements</li>
+</ul>
+
+<h2>Why Learn C++?</h2>
+<ol>
+<li><strong>Performance</strong>: C++ provides low-level memory manipulation and high performance</li>
+<li><strong>Control</strong>: Direct hardware access and memory management</li>
+<li><strong>Versatility</strong>: Used in system programming, game development, embedded systems</li>
+<li><strong>Industry Standard</strong>: Widely used in high-performance applications</li>
+<li><strong>Foundation</strong>: Understanding C++ helps learn other programming languages</li>
+</ol>
+
+<h2>Key Features</h2>
+<ul>
+<li><strong>Multi-paradigm</strong>: Supports procedural, object-oriented, and generic programming</li>
+<li><strong>Static typing</strong>: Type checking at compile-time</li>
+<li><strong>Manual memory management</strong>: Direct control over memory allocation</li>
+<li><strong>Standard Template Library (STL)</strong>: Rich set of data structures and algorithms</li>
+<li><strong>Zero-cost abstractions</strong>: High-level features without runtime overhead</li>
+</ul>
+
+<h2>First C++ Program</h2>
+<p>Let's write your first C++ program:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, C++ World!" &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h3>Breaking Down the Program:</h3>
+<ul>
+<li><code>#include &lt;iostream&gt;</code> - Includes the input/output stream library</li>
+<li><code>int main()</code> - The main function where program execution begins</li>
+<li><code>std::cout</code> - Standard character output stream (console)</li>
+<li><code>&lt;&lt;</code> - Stream insertion operator</li>
+<li><code>std::endl</code> - Inserts a newline and flushes the output buffer</li>
+<li><code>return 0;</code> - Indicates successful program execution</li>
+</ul>
+
+<h2>C++ in the Real World</h2>
+<p>C++ is used in many domains:</p>
+<ul>
+<li><strong>Game Development</strong>: Unreal Engine, Unity (core components)</li>
+<li><strong>System Programming</strong>: Operating systems, device drivers</li>
+<li><strong>High-Frequency Trading</strong>: Financial applications requiring speed</li>
+<li><strong>Embedded Systems</strong>: Automotive, aerospace, consumer electronics</li>
+<li><strong>Scientific Computing</strong>: Simulations, data analysis</li>
+<li><strong>Browser Engines</strong>: Chrome's V8 (JavaScript engine)</li>
+</ul>
+
+<h2>Getting Started with C++</h2>
+<p>To start programming in C++, you need:</p>
+<ol>
+<li><strong>A C++ Compiler</strong>: GCC, Clang, or MSVC</li>
+<li><strong>A Text Editor or IDE</strong>: Visual Studio Code, CLion, or Visual Studio</li>
+<li><strong>Build Tools</strong>: Make, CMake, or IDE build systems</li>
+<li><strong>Debugger</strong>: GDB, LLDB, or IDE debugger</li>
+</ol>
+
+<p>C++ might seem complex at first, but its power and efficiency make it worth learning. As you progress through this course, you'll discover why C++ remains one of the most popular programming languages despite being over 40 years old.</p>`,
+                codeExample: `#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // This is a simple C++ program demonstrating basic output
+    std::cout &lt;&lt; "Welcome to C++ Programming!" &lt;&lt; std::endl;
+    
+    // You can also output multiple items in one statement
+    std::string language = "C++";
+    int year = 2024;
+    std::cout &lt;&lt; "Learning " &lt;&lt; language &lt;&lt; " in " &lt;&lt; year &lt;&lt; std::endl;
+    
+    // Return 0 to indicate successful execution
+    return 0;
+}`,
+                exercises: [{
+                    title: 'First C++ Program',
+                    description: 'Write your first C++ program that prints "Hello, C++ World!" to the console.',
+                    starterCode: `// Write your first C++ program here
+#include &lt;iostream&gt;
+
+int main() {
+    // Your code here
+    
+    return 0;
+}`,
+                    solution: `#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, C++ World!" &lt;&lt; std::endl;
+    return 0;
+}`,
+                    hints: [
+                        'Use std::cout to output text to the console',
+                        'Use << operator to send text to cout',
+                        'std::endl adds a newline and flushes the output buffer'
+                    ]
+                }],
+                quiz: [
+                    {
+                        question: 'Who created C++ and in what year?',
+                        options: [
+                            'Dennis Ritchie in 1972',
+                            'Bjarne Stroustrup in 1979',
+                            'James Gosling in 1991',
+                            'Guido van Rossum in 1989'
+                        ],
+                        correctAnswer: 1,
+                        explanation: 'Bjarne Stroustrup created C++ in 1979 at Bell Labs as an extension of the C programming language.'
+                    },
+                    {
+                        question: 'What was the primary goal when creating C++?',
+                        options: [
+                            'To create a web programming language',
+                            'To add object-oriented programming features to C',
+                            'To replace the C language completely',
+                            'To create a scripting language'
+                        ],
+                        correctAnswer: 1,
+                        explanation: 'The primary goal was to add object-oriented programming features to the C programming language while maintaining C\'s efficiency and flexibility.'
+                    }
+                ]
+            },
+            {
+                id: '1.2',
+                title: 'Setting Up Development Environment',
+                difficulty: 'beginner',
+                content: `<h1>Setting Up Development Environment</h1>
+<p>Before writing C++ code, you need to set up a proper development environment. This includes a compiler, text editor or IDE, and build tools.</p>
+
+<h2>Compilers</h2>
+<p>A compiler translates your C++ source code into machine code that the computer can execute.</p>
+
+<h3>Popular C++ Compilers:</h3>
+<ol>
+<li><strong>GCC (GNU Compiler Collection)</strong>
+   <ul>
+   <li>Most common on Linux systems</li>
+   <li>Open source and actively maintained</li>
+   <li>Command: <code>g++</code></li>
+   </ul>
+</li>
+<li><strong>Clang</strong>
+   <ul>
+   <li>Modern compiler with excellent error messages</li>
+   <li>Part of the LLVM project</li>
+   <li>Fast compilation and good diagnostics</li>
+   <li>Command: <code>clang++</code></li>
+   </ul>
+</li>
+<li><strong>MSVC (Microsoft Visual C++)</strong>
+   <ul>
+   <li>Default compiler on Windows</li>
+   <li>Integrated with Visual Studio</li>
+   <li>Excellent Windows platform support</li>
+   </ul>
+</li>
+<li><strong>MinGW-w64</strong>
+   <ul>
+   <li>GCC port for Windows</li>
+   <li>Allows using GCC on Windows</li>
+   </ul>
+</li>
+</ol>
+
+<h2>Installation by Operating System</h2>
+
+<h3>Windows:</h3>
+<ol>
+<li><strong>Visual Studio</strong>: Download Visual Studio Community (free) from Microsoft</li>
+<li><strong>MinGW-w64</strong>: Install via MSYS2 or standalone</li>
+<li><strong>WSL</strong>: Use Windows Subsystem for Linux with GCC</li>
+</ol>
+
+<h3>macOS:</h3>
+<ol>
+<li><strong>Xcode</strong>: Install from App Store (includes Clang)</li>
+<li><strong>Homebrew</strong>: <code>brew install gcc</code> for GCC</li>
+</ol>
+
+<h3>Linux:</h3>
+<ol>
+<li><strong>APT-based systems</strong>: <code>sudo apt install build-essential</code></li>
+<li><strong>YUM/DNF-based systems</strong>: <code>sudo yum groupinstall "Development Tools"</code></li>
+<li><strong>Arch Linux</strong>: <code>sudo pacman -S base-devel</code></li>
+</ol>
+
+<h2>Text Editors and IDEs</h2>
+
+<h3>Full IDEs:</h3>
+<ul>
+<li><strong>Visual Studio</strong>: Excellent for Windows development</li>
+<li><strong>CLion</strong>: Cross-platform, commercial but powerful</li>
+<li><strong>Code::Blocks</strong>: Lightweight, open source</li>
+<li><strong>Dev-C++</strong>: Simple, good for beginners</li>
+</ul>
+
+<h3>Text Editors with C++ Support:</h3>
+<ul>
+<li><strong>Visual Studio Code</strong>: Free, extensible, excellent C++ support</li>
+<li><strong>Sublime Text</strong>: Fast, customizable</li>
+<li><strong>Atom</strong>: Hackable text editor</li>
+<li><strong>Vim/Neovim</strong>: Powerful, keyboard-driven</li>
+</ul>
+
+<h2>Build Systems</h2>
+<p>For managing larger projects, you'll need build systems:</p>
+
+<h3>CMake</h3>
+<ul>
+<li>Cross-platform build system generator</li>
+<li>Industry standard for C++ projects</li>
+<li>Generates native build files (Makefiles, Visual Studio projects, etc.)</li>
+</ul>
+
+<h3>Make</h3>
+<ul>
+<li>Traditional Unix build tool</li>
+<li>Uses Makefiles to define build rules</li>
+<li>Direct control over compilation process</li>
+</ul>
+
+<h3>Build Tools</h3>
+<ul>
+<li><strong>Ninja</strong>: Fast, low-level build tool</li>
+<li><strong>Meson</strong>: Modern build system</li>
+<li><strong>Bazel</strong>: Google's build tool</li>
+</ul>
+
+<h2>Verification Installation</h2>
+<p>After installing, verify your setup:</p>
+<div class="code-block">
+<pre># Check compiler version
+g++ --version
+clang++ --version
+
+# Create and compile a test file
+echo '#include &lt;iostream&gt;
+int main() { std::cout &lt;&lt; "Setup successful!" &lt;&lt; std::endl; return 0; }' > test.cpp
+g++ -o test test.cpp
+./test</pre>
+</div>
+
+<h2>Recommended Beginner Setup</h2>
+<p>For beginners, I recommend:</p>
+<ol>
+<li><strong>Visual Studio Code</strong> + <strong>C++ extension</strong></li>
+<li><strong>GCC/Clang</strong> compiler</li>
+<li><strong>CMake</strong> for project management</li>
+<li><strong>Git</strong> for version control</li>
+</ol>
+
+<p>This setup is cross-platform, free, and widely used in industry.</p>`,
+                codeExample: `#include &lt;iostream&gt;
+
+// This program demonstrates compiler detection macros
+int main() {
+    std::cout &lt;&lt; "=== Development Environment Check ===" &lt;&lt; std::endl;
+    
+    // Compiler detection
+    std::cout &lt;&lt; "Compiler: ";
+#ifdef __GNUC__
+    std::cout &lt;&lt; "GCC " &lt;&lt; __GNUC__ &lt;&lt; "." &lt;&lt; __GNUC_MINOR__ &lt;&lt; "." &lt;&lt; __GNUC_PATCHLEVEL__;
+#elif defined(__clang__)
+    std::cout &lt;&lt; "Clang " &lt;&lt; __clang_major__ &lt;&lt; "." &lt;&lt; __clang_minor__ &lt;&lt; "." &lt;&lt; __clang_patchlevel__;
+#elif defined(_MSC_VER)
+    std::cout &lt;&lt; "MSVC " &lt;&lt; _MSC_VER;
+#else
+    std::cout &lt;&lt; "Unknown compiler";
+#endif
+    std::cout &lt;&lt; std::endl;
+    
+    // Standard version detection
+    std::cout &lt;&lt; "C++ Standard: ";
+#if __cplusplus == 202002L
+    std::cout &lt;&lt; "C++20";
+#elif __cplusplus == 201703L
+    std::cout &lt;&lt; "C++17";
+#elif __cplusplus == 201402L
+    std::cout &lt;&lt; "C++14";
+#elif __cplusplus == 201103L
+    std::cout &lt;&lt; "C++11";
+#else
+    std::cout &lt;&lt; "C++98/03 or earlier";
+#endif
+    std::cout &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; "Setup successful!" &lt;&lt; std::endl;
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Verify Your Setup',
+                    description: 'Create and compile a simple C++ program to verify your development environment is working correctly.',
+                    starterCode: `// Create a program that prints your system information
+#include &lt;iostream&gt;
+
+int main() {
+    // Print compiler information
+    // Print your name
+    // Print current date (hardcoded is fine)
+    
+    return 0;
+}`,
+                    solution: `#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "=== Development Environment Check ===" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Compiler: " &lt;&lt; 
+#ifdef __GNUC__
+        "GCC " &lt;&lt; __GNUC__ &lt;&lt; "." &lt;&lt; __GNUC_MINOR__ &lt;&lt; "." &lt;&lt; __GNUC_PATCHLEVEL__ &lt;&lt;
+#elif defined(__clang__)
+        "Clang " &lt;&lt; __clang_major__ &lt;&lt; "." &lt;&lt; __clang_minor__ &lt;&lt; "." &lt;&lt; __clang_patchlevel__ &lt;&lt;
+#elif defined(_MSC_VER)
+        "MSVC " &lt;&lt; _MSC_VER &lt;&lt;
+#else
+        "Unknown compiler" &lt;&lt;
+#endif
+        &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; "Student: [Your Name]" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Date: " &lt;&lt; __DATE__ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Time: " &lt;&lt; __TIME__ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Setup successful!" &lt;&lt; std::endl;
+    
+    return 0;
+}`,
+                    hints: [
+                        'Use preprocessor macros like __GNUC__, __clang__, or _MSC_VER to detect the compiler',
+                        '__DATE__ and __TIME__ are predefined macros with compilation date and time',
+                        'Use #ifdef, #elif, and #endif for conditional compilation'
+                    ]
+                }]
+            },
+            {
+                id: '1.3',
+                title: 'Basic Program Structure',
+                difficulty: 'beginner',
+                content: `<h1>Basic Program Structure</h1>
+<p>Understanding the structure of a C++ program is fundamental to writing correct and organized code.</p>
+
+<h2>Anatomy of a C++ Program</h2>
+<p>Every C++ program has a basic structure:</p>
+<div class="code-block">
+<pre>// Preprocessor directives
+#include &lt;iostream&gt;
+
+// Function declarations
+int main();
+
+// Function definitions
+int main() {
+    // Program statements
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h2>Preprocessor Directives</h2>
+<p>Preprocessor directives are instructions processed before compilation. They start with <code>#</code>.</p>
+
+<h3>#include</h3>
+<p>The <code>#include</code> directive includes header files:</p>
+<div class="code-block">
+<pre>// System headers (angle brackets)
+#include &lt;iostream&gt;    // Input/output stream library
+#include &lt;vector&gt;      // Dynamic array container
+#include &lt;string&gt;      // String class
+
+// User headers (quotes)
+#include "myheader.h"  // Your own header file
+#include "../utils/helpers.h"  // Relative path</pre>
+</div>
+
+<h3>Other Preprocessor Directives</h3>
+<div class="code-block">
+<pre>#define PI 3.14159           // Define macro/constant
+#undef PI                  // Undefine macro
+#ifdef DEBUG                // Conditional compilation
+    std::cout &lt;&lt; "Debug mode" &lt;&lt; std::endl;
+#endif</pre>
+</div>
+
+<h2>The main() Function</h2>
+<p>Every C++ program must have exactly one <code>main()</code> function. It's the entry point of the program.</p>
+
+<h3>Standard Signatures:</h3>
+<div class="code-block">
+<pre>// Most common
+int main() {
+    // ... code ...
+    return 0;  // 0 indicates success
+}
+
+// With command line arguments
+int main(int argc, char* argv[]) {
+    // argc: argument count
+    // argv: argument values
+    return 0;
+}
+
+// C++ standard (equivalent to first form)
+int main() {
+    // ... code ...
+    return 0;  // Can be omitted in C++ (implicit return 0)
+}</pre>
+</div>
+
+<h2>Program Organization</h2>
+
+<h3>Single File Program</h3>
+<p>For simple programs:</p>
+<div class="code-block">
+<pre>// program.cpp
+#include &lt;iostream&gt;
+
+void greet() {
+    std::cout &lt;&lt; "Hello!" &lt;&lt; std::endl;
+}
+
+int main() {
+    greet();
+    return 0;
+}</pre>
+</div>
+
+<h3>Multi-file Program</h3>
+<p>For larger projects:</p>
+<div class="code-block">
+<pre>// myheader.h - Header file
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
+void greet();
+int add(int a, int b);
+
+#endif</pre>
+</div>
+
+<div class="code-block">
+<pre>// myfunctions.cpp - Source file
+#include "myheader.h"
+#include &lt;iostream&gt;
+
+void greet() {
+    std::cout &lt;&lt; "Hello from function!" &lt;&lt; std::endl;
+}
+
+int add(int a, int b) {
+    return a + b;
+}</pre>
+</div>
+
+<div class="code-block">
+<pre>// main.cpp - Main program
+#include "myheader.h"
+#include &lt;iostream&gt;
+
+int main() {
+    greet();
+    int result = add(5, 3);
+    std::cout &lt;&lt; "5 + 3 = " &lt;&lt; result &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h2>Comments</h2>
+<p>Comments are essential for code documentation and are ignored by the compiler.</p>
+
+<h3>Single-line Comments</h3>
+<div class="code-block">
+<pre>// This is a single-line comment
+int x = 5;  // Comment after code</pre>
+</div>
+
+<h3>Multi-line Comments</h3>
+<div class="code-block">
+<pre>/*
+  This is a multi-line comment.
+  It can span multiple lines.
+  Useful for detailed explanations.
+*/</pre>
+</div>
+
+<h3>Documentation Comments</h3>
+<p>While C++ doesn't have built-in documentation comments like Java, conventions exist:</p>
+<div class="code-block">
+<pre>/**
+ * @brief Adds two integers
+ * @param a First integer
+ * @param b Second integer
+ * @return Sum of a and b
+ */
+int add(int a, int b) {
+    return a + b;
+}</pre>
+</div>
+
+<h2>Namespaces</h2>
+<p>Namespaces prevent naming conflicts by organizing code into named scopes.</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+
+// Custom namespace
+namespace mymath {
+    int add(int a, int b) {
+        return a + b;
+    }
+}
+
+int main() {
+    // Using namespace
+    using namespace std;
+    cout &lt;&lt; "Hello" &lt;&lt; endl;
+    
+    // Explicit namespace qualification
+    int result = mymath::add(5, 3);
+    cout &lt;&lt; "Result: " &lt;&lt; result &lt;&lt; endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h2>Best Practices</h2>
+<ol>
+<li><strong>Header Guards</strong>: Always use header guards in header files</li>
+<li><strong>Include Order</strong>: System headers first, then local headers</li>
+<li><strong>Meaningful Names</strong>: Use descriptive names for functions and variables</li>
+<li><strong>Consistent Style</strong>: Follow a consistent coding style</li>
+<li><strong>Comments</strong>: Comment complex logic, not obvious code</li>
+<li><strong>Avoid Using Namespace</strong>: Prefer explicit qualification over <code>using namespace</code></li>
+</ol>
+
+<h2>Common Pitfalls</h2>
+<ol>
+<li><strong>Missing main()</strong>: Every program needs exactly one main function</li>
+<li><strong>Missing Return</strong>: In C++, main() implicitly returns 0, but other functions need explicit returns</li>
+<li><strong>Header Inclusion</strong>: Forgetting to include necessary headers</li>
+<li><strong>Semicolons</strong>: Missing semicolons after statements</li>
+<li><strong>Case Sensitivity</strong>: C++ is case-sensitive (Main != main)</li>
+</ol>`,
+                codeExample: `#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+// Custom namespace for math operations
+namespace calculator {
+    double add(double a, double b) {
+        return a + b;
+    }
+    
+    double subtract(double a, double b) {
+        return a - b;
+    }
+    
+    double multiply(double a, double b) {
+        return a * b;
+    }
+    
+    double divide(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        }
+        return 0; // Simple error handling
+    }
+}
+
+int main() {
+    // Using the standard namespace for cout
+    using namespace std;
+    
+    // Using our calculator namespace
+    double x = 10.5, y = 5.2;
+    
+    cout &lt;&lt; "=== Calculator Demo ===" &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " + " &lt;&lt; y &lt;&lt; " = " &lt;&lt; calculator::add(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " - " &lt;&lt; y &lt;&lt; " = " &lt;&lt; calculator::subtract(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " * " &lt;&lt; y &lt;&lt; " = " &lt;&lt; calculator::multiply(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " / " &lt;&lt; y &lt;&lt; " = " &lt;&lt; calculator::divide(x, y) &lt;&lt; endl;
+    
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Multi-file Program',
+                    description: 'Create a multi-file program with separate header and source files to demonstrate proper program organization.',
+                    starterCode: `// Create a header file math_utils.h with function declarations
+// Create a source file math_utils.cpp with function definitions
+// Create main.cpp that uses these functions
+
+// math_utils.h
+#ifndef MATH_UTILS_H
+#define MATH_UTILS_H
+
+// Add your function declarations here
+
+#endif
+
+// math_utils.cpp
+#include "math_utils.h"
+
+// Add your function definitions here
+
+// main.cpp
+#include &lt;iostream&gt;
+#include "math_utils.h"
+
+int main() {
+    // Use your functions here
+    return 0;
+}`,
+                    solution: `// math_utils.h
+#ifndef MATH_UTILS_H
+#define MATH_UTILS_H
+
+namespace mathutils {
+    int add(int a, int b);
+    int subtract(int a, int b);
+    int multiply(int a, int b);
+    double divide(double a, double b);
+}
+
+#endif
+
+// math_utils.cpp
+#include "math_utils.h"
+
+int mathutils::add(int a, int b) {
+    return a + b;
+}
+
+int mathutils::subtract(int a, int b) {
+    return a - b;
+}
+
+int mathutils::multiply(int a, int b) {
+    return a * b;
+}
+
+double mathutils::divide(double a, double b) {
+    if (b != 0) {
+        return a / b;
+    }
+    return 0; // Simple error handling
+}
+
+// main.cpp
+#include &lt;iostream&gt;
+#include "math_utils.h"
+
+int main() {
+    using namespace std;
+    using namespace mathutils;
+    
+    cout &lt;&lt; "=== Math Utils Demo ===" &lt;&lt; endl;
+    
+    int x = 10, y = 5;
+    
+    cout &lt;&lt; x &lt;&lt; " + " &lt;&lt; y &lt;&lt; " = " &lt;&lt; add(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " - " &lt;&lt; y &lt;&lt; " = " &lt;&lt; subtract(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " * " &lt;&lt; y &lt;&lt; " = " &lt;&lt; multiply(x, y) &lt;&lt; endl;
+    cout &lt;&lt; x &lt;&lt; " / " &lt;&lt; y &lt;&lt; " = " &lt;&lt; divide(x, y) &lt;&lt; endl;
+    
+    return 0;
+}`,
+                    hints: [
+                        'Use header guards (#ifndef/#define/#endif) in your header file',
+                        'Implement functions in the .cpp file, not the header',
+                        'Use namespaces to organize your functions',
+                        'Include your header file in both the implementation and main files'
+                    ]
+                }]
+            },
+            {
+                id: '1.4',
+                title: 'Basic Input/Output',
+                difficulty: 'beginner',
+                content: `<h1>Basic Input/Output</h1>
+<p>Input and output operations are fundamental to most programs. C++ provides a powerful I/O system through streams.</p>
+
+<h2>Understanding Streams</h2>
+<p>In C++, I/O operations are performed through streams. A stream is an abstraction that represents a sequence of bytes flowing into or out of your program.</p>
+
+<h3>Types of Streams:</h3>
+<ul>
+<li><strong>Input streams</strong>: Data flows into your program (cin)</li>
+<li><strong>Output streams</strong>: Data flows out of your program (cout, cerr, clog)</li>
+<li><strong>File streams</strong>: Data flows to/from files (ifstream, ofstream, fstream)</li>
+</ul>
+
+<h2>The iostream Library</h2>
+<p>The <code>&lt;iostream&gt;</code> library provides the basic I/O functionality:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;</pre>
+</div>
+
+<h3>Standard Stream Objects:</h3>
+<ol>
+<li><strong>std::cout</strong> - Character output stream (console output)</li>
+<li><strong>std::cin</strong> - Character input stream (console input)</li>
+<li><strong>std::cerr</strong> - Standard error stream (unbuffered)</li>
+<li><strong>std::clog</strong> - Standard logging stream (buffered)</li>
+</ol>
+
+<h2>Output Operations</h2>
+
+<h3>Basic Output with cout</h3>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "C++ is awesome!" &lt;&lt; '\\n';
+    
+    return 0;
+}</pre>
+</div>
+
+<h3>Output Manipulators</h3>
+<p>Manipulators modify the behavior of streams:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;  // For manipulators
+
+int main() {
+    int num = 42;
+    double pi = 3.14159;
+    
+    std::cout &lt;&lt; "Default: " &lt;&lt; num &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Hex: " &lt;&lt; std::hex &lt;&lt; num &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Octal: " &lt;&lt; std::oct &lt;&lt; num &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Decimal: " &lt;&lt; std::dec &lt;&lt; num &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(2);
+    std::cout &lt;&lt; "Pi: " &lt;&lt; pi &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; std::setw(10) &lt;&lt; "Right" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(10) &lt;&lt; "Left" &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h3>Common Output Manipulators:</h3>
+<ul>
+<li><code>std::endl</code> - Insert newline and flush</li>
+<li><code>std::flush</code> - Flush the stream</li>
+<li><code>std::setw(n)</code> - Set field width</li>
+<li><code>std::setprecision(n)</code> - Set precision</li>
+<li><code>std::fixed</code> - Fixed-point notation</li>
+<li><code>std::scientific</code> - Scientific notation</li>
+<li><code>std::hex</code>, <code>std::oct</code>, <code>std::dec</code> - Number bases</li>
+</ul>
+
+<h2>Input Operations</h2>
+
+<h3>Basic Input with cin</h3>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    int age;
+    std::string name;
+    
+    std::cout &lt;&lt; "Enter your age: ";
+    std::cin &gt;&gt; age;
+    
+    std::cout &lt;&lt; "Enter your name: ";
+    std::cin &gt;&gt; name;
+    
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "! You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h3>Input with getline()</h3>
+<p>For reading entire lines including spaces:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string fullName;
+    
+    std::cout &lt;&lt; "Enter your full name: ";
+    std::getline(std::cin, fullName);
+    
+    std::cout &lt;&lt; "Hello, " &lt;&lt; fullName &lt;&lt; "!" &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h3>Mixed Input Problem and Solution</h3>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;limits&gt;
+
+int main() {
+    int age;
+    std::string name;
+    
+    std::cout &lt;&lt; "Enter your age: ";
+    std::cin &gt;&gt; age;
+    
+    // Clear the newline character from the buffer
+    std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+    
+    std::cout &lt;&lt; "Enter your name: ";
+    std::getline(std::cin, name);
+    
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "! You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h2>Input Validation</h2>
+<p>Always validate user input to prevent errors:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;limits&gt;
+
+int main() {
+    int number;
+    
+    while (true) {
+        std::cout &lt;&lt; "Enter a positive number: ";
+        std::cin &gt;&gt; number;
+        
+        if (std::cin.fail() || number &lt;= 0) {
+            std::cout &lt;&lt; "Invalid input. Please try again." &lt;&lt; std::endl;
+            std::cin.clear(); // Clear error flags
+            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+        } else {
+            break; // Valid input
+        }
+    }
+    
+    std::cout &lt;&lt; "You entered: " &lt;&lt; number &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h2>File I/O Basics</h2>
+
+<h3>Writing to Files</h3>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ofstream outFile("example.txt");
+    
+    if (outFile.is_open()) {
+        outFile &lt;&lt; "Hello, File!" &lt;&lt; std::endl;
+        outFile &lt;&lt; "This is a test." &lt;&lt; std::endl;
+        outFile &lt;&lt; 42 &lt;&lt; std::endl;
+        outFile.close();
+        std::cout &lt;&lt; "File written successfully." &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Unable to open file." &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</pre>
+</div>
+
+<h3>Reading from Files</h3>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ifstream inFile("example.txt");
+    std::string line;
+    
+    if (inFile.is_open()) {
+        while (std::getline(inFile, line)) {
+            std::cout &lt;&lt; line &lt;&lt; std::endl;
+        }
+        inFile.close();
+    } else {
+        std::cout &lt;&lt; "Unable to open file." &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</pre>
+</div>
+
+<h2>String Streams</h2>
+<p>String streams allow you to treat strings as streams:</p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // String output stream
+    std::ostringstream oss;
+    oss &lt;&lt; "The answer is " &lt;&lt; 42;
+    std::string result = oss.str();
+    std::cout &lt;&lt; result &lt;&lt; std::endl;
+    
+    // String input stream
+    std::string data = "10 20 30";
+    std::istringstream iss(data);
+    int a, b, c;
+    iss &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    std::cout &lt;&lt; "a=" &lt;&lt; a &lt;&lt; ", b=" &lt;&lt; b &lt;&lt; ", c=" &lt;&lt; c &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+</div>
+
+<h2>Best Practices</h2>
+<ol>
+<li><strong>Always check file operations</strong>: Verify files opened successfully</li>
+<li><strong>Handle input errors</strong>: Validate and handle invalid input</li>
+<li><strong>Use appropriate stream types</strong>: Choose the right stream for your needs</li>
+<li><strong>Flush when necessary</strong>: Use <code>std::flush</code> for critical output</li>
+<li><strong>Close files explicitly</strong>: Although RAII handles this, explicit closing is clearer</li>
+<li><strong>Use string streams for parsing</strong>: They're safer than C-style functions</li>
+</ol>
+
+<h2>Common Pitfalls</h2>
+<ol>
+<li><strong>Mixed input issues</strong>: Forgetting to clear the input buffer</li>
+<li><strong>File path problems</strong>: Not handling different path separators</li>
+<li><strong>Stream state errors</strong>: Not checking or clearing error states</li>
+<li><strong>Buffering issues</strong>: Not understanding when output is actually written</li>
+<li><strong>Locale problems</strong>: Different numeric formats in different regions</li>
+</ol>`,
+                codeExample: `#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;limits&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Output formatting examples
+    std::cout &lt;&lt; "=== Output Formatting Demo ===" &lt;&lt; std::endl;
+    
+    // Precision and fixed notation
+    double pi = 3.14159265359;
+    std::cout &lt;&lt; "Default PI: " &lt;&lt; pi &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(2);
+    std::cout &lt;&lt; "Fixed PI: " &lt;&lt; pi &lt;&lt; std::endl;
+    
+    // Width and alignment
+    std::cout &lt;&lt; std::setprecision(6); // Reset precision
+    std::cout &lt;&lt; std::setw(20) &lt;&lt; "Left:" &lt;&lt; std::setw(10) &lt;&lt; "Aligned" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Left:" &lt;&lt; std::setw(10) &lt;&lt; "Aligned" &lt;&lt; std::endl;
+    
+    // Number bases
+    int number = 42;
+    std::cout &lt;&lt; "Decimal: " &lt;&lt; std::dec &lt;&lt; number &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Hexadecimal: " &lt;&lt; std::hex &lt;&lt; number &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Octal: " &lt;&lt; std::oct &lt;&lt; number &lt;&lt; std::endl;
+    
+    // Input validation example
+    std::cout &lt;&lt; "\\n=== Input Validation Demo ===" &lt;&lt; std::endl;
+    int age;
+    std::cout &lt;&lt; "Enter your age (16-100): ";
+    
+    while (!(std::cin &gt;&gt; age) || age &lt; 16 || age &gt; 100) {
+        std::cout &lt;&lt; "Invalid input. Please enter a number between 16 and 100: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+    }
+    
+    std::cout &lt;&lt; "Thank you! You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl;
+    
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Interactive Calculator',
+                    description: 'Create a simple calculator that takes user input and performs basic arithmetic operations with proper input validation.',
+                    starterCode: `#include &lt;iostream&gt;
+#include &lt;limits&gt;
+#include &lt;iomanip&gt;
+
+int main() {
+    double num1, num2;
+    char operation;
+    char continueCalc = 'y';
+    
+    while (continueCalc == 'y' || continueCalc == 'Y') {
+        // Get first number with validation
+        std::cout &lt;&lt; "Enter first number: ";
+        
+        // Get operation with validation
+        std::cout &lt;&lt; "Enter operation (+, -, *, /): ";
+        
+        // Get second number with validation
+        
+        // Perform calculation and display result
+        
+        // Ask if user wants to continue
+        
+    }
+    
+    std::cout &lt;&lt; "Thank you for using the calculator!" &lt;&lt; std::endl;
+    return 0;
+}`,
+                    solution: `#include &lt;iostream&gt;
+#include &lt;limits&gt;
+#include &lt;iomanip&gt;
+#include &lt;fstream&gt;
+
+double getNumber(const std::string& prompt) {
+    double number;
+    while (true) {
+        std::cout &lt;&lt; prompt;
+        std::cin &gt;&gt; number;
+        
+        if (std::cin.fail()) {
+            std::cout &lt;&lt; "Invalid input. Please enter a valid number." &lt;&lt; std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+        } else {
+            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+            return number;
+        }
+    }
+}
+
+char getOperation() {
+    char op;
+    while (true) {
+        std::cout &lt;&lt; "Enter operation (+, -, *, /): ";
+        std::cin &gt;&gt; op;
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+        
+        if (op == '+' || op == '-' || op == '*' || op == '/') {
+            return op;
+        } else {
+            std::cout &lt;&lt; "Invalid operation. Please enter +, -, *, or /." &lt;&lt; std::endl;
+        }
+    }
+}
+
+int main() {
+    std::cout &lt;&lt; "=== Simple Calculator ===" &lt;&lt; std::endl;
+    
+    char continueCalc = 'y';
+    
+    while (continueCalc == 'y' || continueCalc == 'Y') {
+        double num1 = getNumber("Enter first number: ");
+        char operation = getOperation();
+        double num2 = getNumber("Enter second number: ");
+        
+        double result;
+        bool validOperation = true;
+        
+        std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(2);
+        
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                std::cout &lt;&lt; num1 &lt;&lt; " + " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; result &lt;&lt; std::endl;
+                break;
+            case '-':
+                result = num1 - num2;
+                std::cout &lt;&lt; num1 &lt;&lt; " - " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; result &lt;&lt; std::endl;
+                break;
+            case '*':
+                result = num1 * num2;
+                std::cout &lt;&lt; num1 &lt;&lt; " * " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; result &lt;&lt; std::endl;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    std::cout &lt;&lt; num1 &lt;&lt; " / " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; result &lt;&lt; std::endl;
+                } else {
+                    std::cout &lt;&lt; "Error: Division by zero!" &lt;&lt; std::endl;
+                    validOperation = false;
+                }
+                break;
+        }
+        
+        if (validOperation) {
+            // Write result to file
+            std::ofstream outFile("calculator_log.txt", std::ios::app);
+            if (outFile.is_open()) {
+                outFile &lt;&lt; num1 &lt;&lt; " " &lt;&lt; operation &lt;&lt; " " &lt;&lt; num2 &lt;&lt; " = " &lt;&lt; result &lt;&lt; std::endl;
+                outFile.close();
+            }
+        }
+        
+        std::cout &lt;&lt; "Do you want to perform another calculation? (y/n): ";
+        std::cin &gt;&gt; continueCalc;
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\\n');
+    }
+    
+    std::cout &lt;&lt; "Thank you for using the calculator!" &lt;&lt; std::endl;
+    return 0;
+}`,
+                    hints: [
+                        'Create helper functions for getting numbers and operations',
+                        'Use a loop to allow multiple calculations',
+                        'Validate all user input',
+                        'Handle division by zero',
+                        'Write results to a file for logging',
+                        'Use std::fixed and std::setprecision for consistent output'
+                    ]
+                }]
+            },
+            {
+                id: '1.5',
+                title: 'Compilation Process',
+                difficulty: 'intermediate',
+                content: `<h1>Compilation Process</h1>
+<p>Understanding the compilation process is crucial for debugging, optimization, and building complex C++ projects.</p>
+
+<h2>The Complete Compilation Process</h2>
+<p>C++ source code goes through several stages before becoming an executable program:</p>
+
+<ol>
+<li><strong>Preprocessing</strong></li>
+<li><strong>Compilation</strong></li>
+<li><strong>Assembly</strong></li>
+<li><strong>Linking</strong></li>
+</ol>
+
+<p>Let's examine each stage in detail.</p>
+
+<h2>Stage 1: Preprocessing</h2>
+<p>The preprocessor handles directives that start with <code>#</code>. It processes the source code before actual compilation.</p>
+
+<h3>What the Preprocessor Does:</h3>
+<ul>
+<li>Expands <code>#include</code> directives</li>
+<li>Processes <code>#define</code> macros</li>
+<li>Handles conditional compilation (<code>#ifdef</code>, <code>#ifndef</code>, <code>#endif</code>)</li>
+<li>Removes comments</li>
+</ul>
+
+<h3>Example:</h3>
+<p><strong>Source Code (main.cpp):</strong></p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+#define PI 3.14159
+
+#ifdef DEBUG
+    #define LOG(x) std::cout &lt;&lt; x &lt;&lt; std::endl
+#else
+    #define LOG(x)
+#endif
+
+int main() {
+    LOG("Debug mode");
+    std::cout &lt;&lt; "PI = " &lt;&lt; PI &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<p><strong>After Preprocessing:</strong></p>
+<div class="code-block">
+<pre>// Contents of iostream inserted here...
+// ... many lines of standard library code ...
+
+int main() {
+    std::cout &lt;&lt; "Debug mode" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "PI = " &lt;&lt; 3.14159 &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h3>Viewing Preprocessed Output:</h3>
+<div class="code-block">
+<pre># GCC
+g++ -E main.cpp -o main.ii
+
+# Clang
+clang++ -E main.cpp -o main.ii</pre>
+</div>
+
+<h2>Stage 2: Compilation</h2>
+<p>The compiler translates the preprocessed C++ code into assembly language.</p>
+
+<h3>What the Compiler Does:</h3>
+<ul>
+<li>Syntax checking</li>
+<li>Semantic analysis</li>
+<li>Type checking</li>
+<li>Optimization</li>
+<li>Code generation</li>
+</ul>
+
+<h3>Example:</h3>
+<p><strong>Preprocessed Code:</strong></p>
+<div class="code-block">
+<pre>int main() {
+    int x = 5;
+    int y = x + 3;
+    return 0;
+}</pre>
+</div>
+
+<p><strong>Generated Assembly (x86-64):</strong></p>
+<div class="code-block">
+<pre>main:
+    push    rbp
+    mov     rbp, rsp
+    mov     DWORD PTR [rbp-4], 5
+    mov     eax, DWORD PTR [rbp-4]
+    add     eax, 3
+    mov     DWORD PTR [rbp-8], eax
+    mov     eax, 0
+    pop     rbp
+    ret</pre>
+</div>
+
+<h3>Generating Assembly Output:</h3>
+<div class="code-block">
+<pre># GCC
+g++ -S main.cpp -o main.s
+
+# Clang
+clang++ -S main.cpp -o main.s</pre>
+</div>
+
+<h2>Stage 3: Assembly</h2>
+<p>The assembler converts assembly code into machine code (object files).</p>
+
+<h3>What the Assembler Does:</h3>
+<ul>
+<li>Translates assembly mnemonics to binary</li>
+<li>Creates object files (.o or .obj)</li>
+<li>Generates symbol tables</li>
+</ul>
+
+<h3>Object File Format:</h3>
+<ul>
+<li><strong>ELF</strong> (Executable and Linkable Format) - Linux/Unix</li>
+<li><strong>PE</strong> (Portable Executable) - Windows</li>
+<li><strong>Mach-O</strong> - macOS</li>
+</ul>
+
+<h3>Generating Object Files:</h3>
+<div class="code-block">
+<pre># From assembly
+as main.s -o main.o
+
+# Directly from source
+g++ -c main.cpp -o main.o</pre>
+</div>
+
+<h2>Stage 4: Linking</h2>
+<p>The linker combines multiple object files and libraries into a single executable.</p>
+
+<h3>What the Linker Does:</h3>
+<ul>
+<li>Resolves symbols (functions, variables)</li>
+<li>Combines object files</li>
+<li>Links with libraries</li>
+<li>Creates the final executable</li>
+</ul>
+
+<h3>Types of Linking:</h3>
+<ol>
+<li><strong>Static Linking</strong>: Libraries are included in the executable</li>
+<li><strong>Dynamic Linking</strong>: Libraries are loaded at runtime</li>
+</ol>
+
+<h3>Example with Multiple Files:</h3>
+<p><strong>math.cpp:</strong></p>
+<div class="code-block">
+<pre>int add(int a, int b) {
+    return a + b;
+}</pre>
+</div>
+
+<p><strong>main.cpp:</strong></p>
+<div class="code-block">
+<pre>#include &lt;iostream&gt;
+
+extern int add(int a, int b);
+
+int main() {
+    std::cout &lt;&lt; add(5, 3) &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<p><strong>Compilation and Linking:</strong></p>
+<div class="code-block">
+<pre># Compile to object files
+g++ -c math.cpp -o math.o
+g++ -c main.cpp -o main.o
+
+# Link object files
+g++ math.o main.o -o program
+
+# Or all in one command
+g++ math.cpp main.cpp -o program</pre>
+</div>
+
+<h2>Common Compiler Options</h2>
+
+<h3>GCC/Clang Options:</h3>
+<div class="code-block">
+<pre># Basic compilation
+g++ program.cpp -o program
+
+# Specify C++ standard
+g++ -std=c++20 program.cpp -o program
+
+# Enable warnings
+g++ -Wall -Wextra program.cpp -o program
+
+# Optimization levels
+g++ -O1 program.cpp -o program      # Basic optimization
+g++ -O2 program.cpp -o program      # Standard optimization
+g++ -O3 program.cpp -o program      # Aggressive optimization
+g++ -Os program.cpp -o program      # Size optimization
+g++ -Oz program.cpp -o program      # Aggressive size optimization
+
+# Debug information
+g++ -g program.cpp -o program       # Include debug symbols
+
+# Define macros
+g++ -DDEBUG program.cpp -o program
+
+# Include directories
+g++ -I/include/path program.cpp -o program
+
+# Library directories and libraries
+g++ -L/lib/path -lmylib program.cpp -o program
+
+# Show compilation commands
+g++ -v program.cpp -o program       # Verbose output</pre>
+</div>
+
+<h2>Build Systems</h2>
+<p>For larger projects, manual compilation becomes impractical. Build systems automate the process.</p>
+
+<h3>Make</h3>
+<p><strong>Makefile Example:</strong></p>
+<div class="code-block">
+<pre>CC = g++
+CFLAGS = -Wall -std=c++20
+TARGET = program
+SRCS = main.cpp math.cpp utils.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean</pre>
+</div>
+
+<h3>CMake</h3>
+<p><strong>CMakeLists.txt Example:</strong></p>
+<div class="code-block">
+<pre>cmake_minimum_required(VERSION 3.10)
+project(MyProject)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(program main.cpp math.cpp utils.cpp)
+
+target_include_directories(program PRIVATE include)
+target_link_libraries(program PRIVATE mylib)</pre>
+</div>
+
+<h2>Compilation Errors and Solutions</h2>
+
+<h3>Common Preprocessor Errors:</h3>
+<ol>
+<li><strong>"No such file or directory"</strong>
+   <ul>
+   <li>Cause: Missing header file</li>
+   <li>Solution: Check include paths and file names</li>
+   </ul>
+</li>
+<li><strong>"Macro redefined"</strong>
+   <ul>
+   <li>Cause: Multiple definitions of the same macro</li>
+   <li>Solution: Use <code>#ifndef</code> guards or <code>#pragma once</code></li>
+   </ul>
+</li>
+</ol>
+
+<h3>Common Compiler Errors:</h3>
+<ol>
+<li><strong>"Syntax error"</strong>
+   <ul>
+   <li>Cause: Invalid C++ syntax</li>
+   <li>Solution: Check the line and previous lines for syntax issues</li>
+   </ul>
+</li>
+<li><strong>"Undefined reference to"</strong>
+   <ul>
+   <li>Cause: Missing function definition</li>
+   <li>Solution: Ensure all functions are defined and linked</li>
+   </ul>
+</li>
+<li><strong>"Multiple definition of"</strong>
+   <ul>
+   <li>Cause: Same function/variable defined in multiple places</li>
+   <li>Solution: Use <code>inline</code> or separate declaration/definition</li>
+   </ul>
+</li>
+</ol>
+
+<h3>Common Linker Errors:</h3>
+<ol>
+<li><strong>"Cannot find -lxxx"</strong>
+   <ul>
+   <li>Cause: Missing library</li>
+   <li>Solution: Install the library or check library paths</li>
+   </ul>
+</li>
+<li><strong>"Undefined symbols"</strong>
+   <ul>
+   <li>Cause: Missing implementations</li>
+   <li>Solution: Link all necessary object files and libraries</li>
+   </ul>
+</li>
+</ol>
+
+<h2>Optimization</h2>
+
+<h3>Compiler Optimization Levels:</h3>
+<ul>
+<li><strong>-O0</strong>: No optimization (default for debug builds)</li>
+<li><strong>-O1</strong>: Basic optimizations</li>
+<li><strong>-O2</strong>: Standard optimizations (recommended for release)</li>
+<li><strong>-O3</strong>: Aggressive optimizations (may increase code size)</li>
+<li><strong>-Os</strong>: Optimize for size</li>
+<li><strong>-Ofast</strong>: Fast optimizations (may violate standards)</li>
+</ul>
+
+<h3>Optimization Techniques:</h3>
+<ol>
+<li><strong>Constant Folding</strong>: Evaluate constants at compile time</li>
+<li><strong>Dead Code Elimination</strong>: Remove unused code</li>
+<li><strong>Inline Expansion</strong>: Replace function calls with function bodies</li>
+<li><strong>Loop Unrolling</strong>: Reduce loop overhead</li>
+<li><strong>Vectorization</strong>: Use SIMD instructions</li>
+</ol>
+
+<h2>Debugging Builds</h2>
+
+<h3>Debug vs Release Builds:</h3>
+<div class="code-block">
+<pre># Debug build (no optimization, with debug symbols)
+g++ -g -O0 -DDEBUG program.cpp -o program_debug
+
+# Release build (optimized, no debug symbols)
+g++ -O3 -DNDEBUG program.cpp -o program_release</pre>
+</div>
+
+<h3>Debug Information Formats:</h3>
+<ul>
+<li><strong>DWARF</strong>: Linux/Unix default</li>
+<li><strong>PDB</strong>: Windows debug database</li>
+<li><strong>STABS</strong>: Older format</li>
+</ul>
+
+<h2>Cross-Compilation</h2>
+<p>Compiling for a different target platform:</p>
+<div class="code-block">
+<pre># Cross-compile for ARM
+arm-linux-gnueabihf-g++ program.cpp -o program_arm
+
+# Cross-compile for Windows (on Linux)
+x86_64-w64-mingw32-g++ program.cpp -o program.exe</pre>
+</div>
+
+<h2>Best Practices</h2>
+<ol>
+<li><strong>Use consistent compiler flags</strong>: Standardize across your project</li>
+<li><strong>Enable warnings</strong>: Treat warnings as errors (<code>-Werror</code>)</li>
+<li><strong>Separate debug and release builds</strong>: Different optimization levels</li>
+<li><strong>Use version control</strong>: Track build configurations</li>
+<li><strong>Document build process</strong>: Include build instructions</li>
+<li><strong>Test on multiple platforms</strong>: Ensure portability</li>
+<li><strong>Use static analysis tools</strong>: Catch issues early</li>
+</ol>
+
+<h2>Advanced Topics</h2>
+
+<h3>Template Instantiation:</h3>
+<p>Templates are instantiated during compilation, which can significantly increase compile times.</p>
+
+<h3>Link-Time Optimization (LTO):</h3>
+<div class="code-block">
+<pre>g++ -flto -O2 program.cpp -o program</pre>
+</div>
+
+<h3>Profile-Guided Optimization (PGO):</h3>
+<div class="code-block">
+<pre># Step 1: Build with profiling instrumentation
+g++ -fprofile-generate -O2 program.cpp -o program
+
+# Step 2: Run the program to generate profile data
+./program
+
+# Step 3: Rebuild using the profile data
+g++ -fprofile-use -O2 program.cpp -o program_optimized</pre>
+</div>
+
+<p>Understanding the compilation process helps you write better code, debug more effectively, and optimize your programs for performance and size.</p>`,
+                codeExample: `// This example demonstrates various compilation concepts
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+// Conditional compilation example
+#ifdef DEBUG
+    #define DEBUG_LOG(x) std::cout &lt;&lt; "[DEBUG] " &lt;&lt; x &lt;&lt; std::endl
+#else
+    #define DEBUG_LOG(x)
+#endif
+
+// Macro example
+#define PI 3.14159
+#define SQUARE(x) ((x) * (x))
+
+// Function that will be optimized
+inline int add(int a, int b) {
+    return a + b;
+}
+
+// Template function (instantiated at compile time)
+template&lt;typename T&gt;
+T multiply(T a, T b) {
+    return a * b;
+}
+
+int main() {
+    DEBUG_LOG("Program starting");
+    
+    // Using macros
+    double radius = 5.0;
+    double area = PI * SQUARE(radius);
+    std::cout &lt;&lt; "Area of circle: " &lt;&lt; area &lt;&lt; std::endl;
+    
+    // Using inline function
+    int result = add(10, 20);
+    std::cout &lt;&lt; "10 + 20 = " &lt;&lt; result &lt;&lt; std::endl;
+    
+    // Using template function
+    std::cout &lt;&lt; "Template multiply (int): " &lt;&lt; multiply(5, 3) &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Template multiply (double): " &lt;&lt; multiply(5.5, 2.0) &lt;&lt; std::endl;
+    
+    // Vector example (STL)
+    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+    std::cout &lt;&lt; "Vector elements: ";
+    for (int num : numbers) {
+        std::cout &lt;&lt; num &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+    
+    DEBUG_LOG("Program ending");
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Build System Project',
+                    description: 'Create a multi-file project with a proper build system (Makefile or CMake) that demonstrates the complete compilation process.',
+                    starterCode: `// Create a multi-file project with:
+// 1. A header file with function declarations
+// 2. Multiple source files with implementations
+// 3. A main program that uses all functions
+// 4. A Makefile or CMakeLists.txt for building
+
+// Your project structure should be:
+// project/
+// ├── include/
+// │   └── utils.h
+// ├── src/
+// │   ├── math.cpp
+// │   ├── string.cpp
+// │   └── main.cpp
+// ├── build/
+// └── Makefile (or CMakeLists.txt)
+
+// Write the files and build system configuration`,
+                    solution: `// include/utils.h
+#ifndef UTILS_H
+#define UTILS_H
+
+#include &lt;string&gt;
+
+namespace utils {
+    int add(int a, int b);
+    int multiply(int a, int b);
+    std::string toUpperCase(const std::string& str);
+    std::string reverseString(const std::string& str);
+}
+
+#endif
+
+// src/math.cpp
+#include "../include/utils.h"
+
+int utils::add(int a, int b) {
+    return a + b;
+}
+
+int utils::multiply(int a, int b) {
+    return a * b;
+}
+
+// src/string.cpp
+#include "../include/utils.h"
+#include &lt;algorithm&gt;
+
+std::string utils::toUpperCase(const std::string& str) {
+    std::string result = str;
+    std::transform(result.begin(), result.end(), result.begin(), ::toupper);
+    return result;
+}
+
+std::string utils::reverseString(const std::string& str) {
+    return std::string(str.rbegin(), str.rend());
+}
+
+// src/main.cpp
+#include &lt;iostream&gt;
+#include "../include/utils.h"
+
+int main() {
+    std::cout &lt;&lt; "=== Utils Library Demo ===" &lt;&lt; std::endl;
+    
+    // Test math functions
+    int x = 10, y = 5;
+    std::cout &lt;&lt; x &lt;&lt; " + " &lt;&lt; y &lt;&lt; " = " &lt;&lt; utils::add(x, y) &lt;&lt; std::endl;
+    std::cout &lt;&lt; x &lt;&lt; " * " &lt;&lt; y &lt;&lt; " = " &lt;&lt; utils::multiply(x, y) &lt;&lt; std::endl;
+    
+    // Test string functions
+    std::string text = "Hello, World!";
+    std::cout &lt;&lt; "Original: " &lt;&lt; text &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Upper: " &lt;&lt; utils::toUpperCase(text) &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Reversed: " &lt;&lt; utils::reverseString(text) &lt;&lt; std::endl;
+    
+    return 0;
+}
+
+// Makefile
+CXX = g++
+CXXFLAGS = -Wall -std=c++20 -Iinclude
+SRCDIR = src
+OBJDIR = build
+TARGET = program
+
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $&lt; -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(TARGET)
+
+.PHONY: all clean
+
+// CMakeLists.txt (alternative to Makefile)
+// cmake_minimum_required(VERSION 3.10)
+// project(UtilsDemo)
+// 
+// set(CMAKE_CXX_STANDARD 20)
+// set(CMAKE_CXX_STANDARD_REQUIRED ON)
+// 
+// include_directories(include)
+// 
+// set(SOURCES
+//     src/math.cpp
+//     src/string.cpp
+//     src/main.cpp
+// )
+// 
+// add_executable(program ${SOURCES})
+// 
+// set_target_properties(program PROPERTIES
+//     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+// )`,
+                    hints: [
+                        'Organize files in proper directories (include/, src/, build/)',
+                        'Use header guards in your header file',
+                        'Implement all declared functions in source files',
+                        'Create a proper Makefile with variables for easy configuration',
+                        'Include clean target in your Makefile',
+                        'Use proper include paths in compiler flags'
+                    ]
+                }]
+            },
+            {
+                id: '1.6',
+                title: 'Coding Standards & Best Practices',
+                difficulty: 'beginner',
+                content: `<h1>Coding Standards and Best Practices</h1>
+<p>Writing clean, maintainable code is as important as writing functional code. Good coding standards ensure consistency and readability across projects.</p>
+
+<h2>Why Coding Standards Matter</h2>
+<ol>
+<li><strong>Readability</strong>: Code is read more often than it's written</li>
+<li><strong>Maintainability</strong>: Easier to modify and extend</li>
+<li><strong>Collaboration</strong>: Team members can understand each other's code</li>
+<li><strong>Debugging</strong>: Easier to identify and fix issues</li>
+<li><strong>Professionalism</strong>: Demonstrates attention to detail</li>
+</ol>
+
+<h2>Naming Conventions</h2>
+
+<h3>Variables and Functions</h3>
+<p>Use descriptive, meaningful names:</p>
+<div class="code-block">
+<pre>// Bad
+int x;
+int a, b, c;
+void calc();
+
+// Good
+int student_age;
+int width, height, depth;
+double calculate_area();</pre>
+</div>
+
+<h3>Common Naming Conventions:</h3>
+
+<ol>
+<li><strong>snake_case</strong> (for variables and functions):</li>
+</ol>
+<div class="code-block">
+<pre>int student_count;
+void print_message();
+double calculate_average();</pre>
+</div>
+
+<ol start="2">
+<li><strong>PascalCase</strong> (for classes and types):</li>
+</ol>
+<div class="code-block">
+<pre>class StudentRecord;
+class DatabaseConnection;
+struct Point2D;</pre>
+</div>
+
+<ol start="3">
+<li><strong>UPPER_CASE</strong> (for constants and macros):</li>
+</ol>
+<div class="code-block">
+<pre>const int MAX_STUDENTS = 100;
+const double GRAVITY = 9.81;
+#define DEBUG_MODE</pre>
+</div>
+
+<ol start="4">
+<li><strong>camelCase</strong> (less common in C++, but sometimes used):</li>
+</ol>
+<div class="code-block">
+<pre>int studentCount;  // Less common in C++
+void printMessage();</pre>
+</div>
+
+<h3>Consistent Examples:</h3>
+<div class="code-block">
+<pre>// Constants
+const int MAX_BUFFER_SIZE = 1024;
+const double GRAVITY = 9.81;
+
+// Variables
+int student_age;
+std::string student_name;
+bool is_valid;
+
+// Functions
+int calculate_sum(int a, int b);
+void print_error(const std::string& message);
+bool is_valid_input(int value);
+
+// Classes
+class StudentDatabase;
+class FileHandler;
+class NetworkConnection;
+
+// Member variables (common conventions)
+class Person {
+private:
+    std::string name_;      // Trailing underscore
+    int age_;               // Trailing underscore
+    bool is_active_;        // Trailing underscore
+    
+    // Or
+    std::string m_name;     // m_ prefix
+    int m_age;              // m_ prefix
+};</pre>
+</div>
+
+<h2>Code Formatting</h2>
+
+<h3>Indentation and Spacing</h3>
+<p>Use consistent indentation (2 or 4 spaces, no tabs):</p>
+<div class="code-block">
+<pre>// Good - 4 spaces
+if (condition) {
+    do_something();
+    do_something_else();
+}
+
+// Good - 2 spaces
+if (condition) {
+  do_something();
+  do_something_else();
+}
+
+// Bad - inconsistent
+if (condition) {
+  do_something();
+    do_something_else();
+}</pre>
+</div>
+
+<h3>Braces Placement</h3>
+<p>Choose a consistent style:</p>
+<div class="code-block">
+<pre>// K&R style (common in C++)
+if (condition) {
+    // code
+}
+
+// Allman style
+if (condition)
+{
+    // code
+}
+
+// Stroustrup style
+if (condition) {
+    // code
+}
+else {
+    // code
+}</pre>
+</div>
+
+<h3>Spacing Around Operators</h3>
+<div class="code-block">
+<pre>// Good
+int result = a + b;
+if (x == y) {
+    // code
+}
+
+// Bad
+int result=a+b;
+if(x==y){
+    // code
+}</pre>
+</div>
+
+<h2>Comments and Documentation</h2>
+
+<h3>When to Comment</h3>
+<p>Comment <strong>why</strong>, not <strong>what</strong>:</p>
+<div class="code-block">
+<pre>// Bad - obvious comment
+int x = 5;  // Set x to 5
+
+// Good - explains the reason
+int timeout_seconds = 30;  // Wait 30 seconds before connection timeout
+
+// Good - explains complex logic
+// Using binary search for O(log n) performance
+int find_index(const std::vector&lt;int&gt;& arr, int target) {
+    // implementation
+}</pre>
+</div>
+
+<h3>Comment Types</h3>
+<div class="code-block">
+<pre>// Single-line comment
+int variable = 10;
+
+/*
+ * Multi-line comment for detailed explanations
+ * This can span multiple lines and is useful for
+ * complex algorithms or important notes
+ */
+
+// TODO comments for future work
+// TODO: Implement error handling
+
+// FIXME comments for known issues
+// FIXME: This algorithm has O(n²) complexity
+
+/// Doxygen-style documentation comment
+/// @brief Calculates the factorial of a number
+/// @param n The number to calculate factorial for
+/// @return The factorial of n
+int factorial(int n);</pre>
+</div>
+
+<h2>Function Design Principles</h2>
+
+<h3>Single Responsibility</h3>
+<p>Each function should do one thing well:</p>
+<div class="code-block">
+<pre>// Bad - multiple responsibilities
+void process_user_data() {
+    // Read from file
+    // Validate data
+    // Transform data
+    // Save to database
+    // Send notification
+}
+
+// Good - single responsibility
+std::vector&lt;UserData&gt; read_user_data(const std::string& filename);
+bool validate_user_data(const UserData& data);
+UserData transform_user_data(const UserData& data);
+bool save_to_database(const UserData& data);
+void send_notification(const UserData& data);</pre>
+</div>
+
+<h3>Function Length</h3>
+<p>Keep functions short and focused:</p>
+<div class="code-block">
+<pre>// Bad - too long
+void complex_function() {
+    // 100+ lines of code
+    // Multiple responsibilities
+    // Hard to understand and test
+}
+
+// Good - short and focused
+void simple_function() {
+    // 10-20 lines maximum
+    // Single responsibility
+    // Easy to understand and test
+}</pre>
+</div>
+
+<h3>Parameter Guidelines</h3>
+<div class="code-block">
+<pre>// Good - meaningful parameter names
+void calculate_area(double length, double width);
+
+// Good - use const references for large objects
+void process_data(const std::vector&lt;int&gt;& large_vector);
+
+// Good - use references for output parameters
+bool parse_string(const std::string& input, int& output_value);
+
+// Bad - too many parameters
+void complex_function(int a, int b, int c, int d, int e, int f);
+
+// Better - use a struct
+struct FunctionParams {
+    int a, b, c, d, e, f;
+};
+void complex_function(const FunctionParams& params);</pre>
+</div>
+
+<h2>Error Handling</h2>
+
+<h3>Return Values vs Exceptions</h3>
+<div class="code-block">
+<pre>// Using return values for simple cases
+bool try_operation(int input, int& output);
+
+// Using exceptions for exceptional cases
+class DatabaseException : public std::exception {
+public:
+    const char* what() const noexcept override {
+        return "Database operation failed";
+    }
+};
+
+void perform_database_operation() {
+    if (database_not_available) {
+        throw DatabaseException();
+    }
+}</pre>
+</div>
+
+<h3>Assert Statements</h3>
+<p>Use assertions for debugging:</p>
+<div class="code-block">
+<pre>#include &lt;cassert&gt;
+
+void process_array(int* array, size_t size) {
+    assert(array != nullptr && "Array pointer cannot be null");
+    assert(size > 0 && "Array size must be positive");
+    
+    // Process array
+}</pre>
+</div>
+
+<h2>Memory Management</h2>
+
+<h3>Smart Pointers (Modern C++)</h3>
+<div class="code-block">
+<pre>#include &lt;memory&gt;
+
+// Good - using smart pointers
+void create_object() {
+    auto obj = std::make_unique&lt;MyClass&gt;();
+    auto shared_obj = std::make_shared&lt;MyClass&gt;();
+    // Automatically managed
+}
+
+// Bad - raw pointers with manual management
+void create_object_legacy() {
+    MyClass* obj = new MyClass();
+    // Must remember to delete
+    delete obj;
+}</pre>
+</div>
+
+<h3>RAII (Resource Acquisition Is Initialization)</h3>
+<div class="code-block">
+<pre>// Good - RAII pattern
+class FileHandler {
+public:
+    FileHandler(const std::string& filename) {
+        file_ = std::fopen(filename.c_str(), "r");
+        if (!file_) {
+            throw std::runtime_error("Cannot open file");
+        }
+    }
+    
+    ~FileHandler() {
+        if (file_) {
+            std::fclose(file_);
+        }
+    }
+    
+    // ... other methods ...
+    
+private:
+    std::FILE* file_;
+};</pre>
+</div>
+
+<h2>Code Organization</h2>
+
+<h3>File Organization</h3>
+<div class="code-block">
+<pre// Header file: myclass.h
+#ifndef MYCLASS_H
+#define MYCLASS_H
+
+#include &lt;string&gt;
+
+class MyClass {
+public:
+    MyClass();
+    void method();
+    
+private:
+    std::string data_;
+};
+
+#endif</pre>
+</div>
+
+<div class="code-block">
+<pre// Source file: myclass.cpp
+#include "myclass.h"
+#include &lt;iostream&gt;
+
+MyClass::MyClass() {
+    // Constructor implementation
+}
+
+void MyClass::method() {
+    // Method implementation
+}</pre>
+</div>
+
+<h3>Include Order</h3>
+<div class="code-block">
+<pre>// Standard library headers
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+// Third-party library headers
+#include &lt;boost/filesystem.hpp&gt;
+
+// Project headers
+#include "myclass.h"
+#include "utils.h"</pre>
+</div>
+
+<h2>Performance Considerations</h2>
+
+<h3>Pass by Reference</h3>
+<div class="code-block">
+<pre// Bad - expensive copy
+void process_vector(std::vector&lt;int&gt; data);
+
+// Good - const reference (no copy)
+void process_vector(const std::vector&lt;int&gt;& data);
+
+// Good - reference for modification
+void modify_vector(std::vector&lt;int&gt;& data);</pre>
+</div>
+
+<h3>Reserve Capacity</h3>
+<div class="code-block">
+<pre// Bad - multiple reallocations
+std::vector&lt;int&gt; vec;
+for (int i = 0; i &lt; 1000; ++i) {
+    vec.push_back(i);
+}
+
+// Good - reserve capacity once
+std::vector&lt;int&gt; vec;
+vec.reserve(1000);
+for (int i = 0; i &lt; 1000; ++i) {
+    vec.push_back(i);
+}</pre>
+</div>
+
+<h2>Testing and Debugging</h2>
+
+<h3>Unit Testing Structure</h3>
+<div class="code-block">
+<pre// Test file: test_myclass.cpp
+#include "myclass.h"
+#include &lt;cassert&gt;
+
+void test_myclass() {
+    MyClass obj;
+    
+    // Test case 1
+    obj.method();
+    assert(expected_result == actual_result);
+    
+    // Test case 2
+    // ...
+}
+
+int main() {
+    test_myclass();
+    std::cout &lt;&lt; "All tests passed!" &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h3>Debug Output</h3>
+<div class="code-block">
+<pre#include &lt;iostream&gt;
+
+// Conditional debug output
+#ifdef DEBUG
+    #define DEBUG_LOG(x) std::cout &lt;&lt; x &lt;&lt; std::endl
+#else
+    #define DEBUG_LOG(x)
+#endif
+
+void function() {
+    DEBUG_LOG("Entering function");
+    // ... function code ...
+    DEBUG_LOG("Exiting function");
+}</pre>
+</div>
+
+<h2>Version Control Best Practices</h2>
+
+<h3>Commit Messages</h3>
+<div class="code-block">
+<pre// Good commit messages
+git commit -m "Add user authentication module"
+git commit -m "Fix memory leak in FileHandler class"
+git commit -m "Improve performance of data processing algorithm"
+
+// Bad commit messages
+git commit -m "fixed stuff"
+git commit -m "update"
+git commit -m "asdf"</pre>
+</div>
+
+<h3>Branch Strategy</h3>
+<div class="code-block">
+<pre// Feature branch workflow
+git checkout -b feature/user-authentication
+// ... work on feature ...
+git commit -m "Add user authentication module"
+git checkout main
+git merge feature/user-authentication
+git branch -d feature/user-authentication</pre>
+</div>
+
+<h2>Security Considerations</h2>
+
+<h3>Input Validation</h3>
+<div class="code-block">
+<pre#include &lt;limits&gt;
+
+bool validate_input(int value) {
+    return value >= 0 && value &lt;= std::numeric_limits&lt;int&gt;::max();
+}
+
+void safe_function(int input) {
+    if (!validate_input(input)) {
+        throw std::invalid_argument("Invalid input value");
+    }
+    // ... safe to use input ...
+}</pre>
+</div>
+
+<h3>Buffer Safety</h3>
+<div class="code-block">
+<pre// Bad - potential buffer overflow
+char buffer[100];
+strcpy(buffer, user_input);  // Dangerous!
+
+// Good - safe string operations
+char buffer[100];
+strncpy(buffer, user_input, sizeof(buffer) - 1);
+buffer[sizeof(buffer) - 1] = '\\0';
+
+// Better - use std::string
+std::string safe_string = user_input;</pre>
+</div>
+
+<h2>Documentation Standards</h2>
+
+<h3>README Template</h3>
+<div class="code-block">
+<pre# Project Name
+
+## Description
+Brief description of the project.
+
+## Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Requirements
+- C++20 compatible compiler
+- CMake 3.10 or higher
+- Boost library
+
+## Building
+\`\`\`bash
+mkdir build
+cd build
+cmake ..
+make
+\`\`\`
+
+## Usage
+\`\`\`bash
+./program_name
+\`\`\`
+
+## License
+MIT License</pre>
+</div>
+
+<p>Following these coding standards will help you write professional, maintainable, and high-quality C++ code that others can easily understand and work with.</p>`,
+                codeExample: `#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;memory&gt;
+#include &lt;cassert&gt;
+
+/**
+ * @brief Represents a student with basic information
+ * 
+ * This class demonstrates proper C++ coding standards including
+ * encapsulation, RAII, and modern C++ features.
+ */
+class Student {
+private:
+    std::string name_;
+    int age_;
+    double gpa_;
+
+    /**
+     * @brief Validates if age is within reasonable bounds
+     * @param age The age to validate
+     * @return true if age is valid, false otherwise
+     */
+    bool validate_age(int age) const {
+        return age >= 16 && age <= 100;
+    }
+
+    /**
+     * @brief Validates if GPA is within valid range
+     * @param gpa The GPA to validate
+     * @return true if GPA is valid, false otherwise
+     */
+    bool validate_gpa(double gpa) const {
+        return gpa >= 0.0 && gpa <= 4.0;
+    }
+
+public:
+    /**
+     * @brief Construct a new Student object
+     * @param name Student's full name
+     * @param age Student's age
+     * @param gpa Student's GPA
+     * @throws std::invalid_argument if parameters are invalid
+     */
+    Student(const std::string& name, int age, double gpa) 
+        : name_(name), age_(age), gpa_(gpa) {
+        
+        if (!validate_age(age_)) {
+            throw std::invalid_argument("Age must be between 16 and 100");
+        }
+        
+        if (!validate_gpa(gpa_)) {
+            throw std::invalid_argument("GPA must be between 0.0 and 4.0");
+        }
+    }
+
+    // Getters
+    const std::string& get_name() const { return name_; }
+    int get_age() const { return age_; }
+    double get_gpa() const { return gpa_; }
+
+    // Setters with validation
+    void set_age(int age) {
+        if (!validate_age(age)) {
+            throw std::invalid_argument("Age must be between 16 and 100");
+        }
+        age_ = age;
+    }
+
+    void set_gpa(double gpa) {
+        if (!validate_gpa(gpa)) {
+            throw std::invalid_argument("GPA must be between 0.0 and 4.0");
+        }
+        gpa_ = gpa;
+    }
+
+    /**
+     * @brief Display student information
+     */
+    void display() const {
+        std::cout << "Student: " << name_ 
+                  << ", Age: " << age_ 
+                  << ", GPA: " << gpa_ << std::endl;
+    }
+};
+
+/**
+ * @brief Manages a collection of students using modern C++ practices
+ */
+class StudentManager {
+private:
+    std::vector&lt;std::unique_ptr&lt;Student&gt;&gt; students_;
+
+public:
+    /**
+     * @brief Add a new student to the collection
+     * @param name Student name
+     * @param age Student age
+     * @param gpa Student GPA
+     * @return true if student was added successfully
+     */
+    bool add_student(const std::string& name, int age, double gpa) {
+        try {
+            auto student = std::make_unique&lt;Student&gt;(name, age, gpa);
+            students_.push_back(std::move(student));
+            return true;
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "Error adding student: " << e.what() << std::endl;
+            return false;
+        }
+    }
+
+    /**
+     * @brief Display all students
+     */
+    void display_all() const {
+        std::cout << "=== Student List ===" << std::endl;
+        for (const auto& student : students_) {
+            student->display();
+        }
+    }
+
+    /**
+     * @brief Get the number of students
+     * @return Number of students in the collection
+     */
+    size_t get_count() const {
+        return students_.size();
+    }
+};
+
+// Unit test function
+void test_student_class() {
+    // Test valid student creation
+    try {
+        Student student("John Doe", 20, 3.5);
+        assert(student.get_name() == "John Doe");
+        assert(student.get_age() == 20);
+        assert(student.get_gpa() == 3.5);
+        std::cout << "✓ Student creation test passed" << std::endl;
+    } catch (...) {
+        std::cerr << "✗ Student creation test failed" << std::endl;
+    }
+
+    // Test invalid student creation
+    try {
+        Student invalid_student("Invalid", 150, 5.0);
+        std::cerr << "✗ Invalid student creation test failed" << std::endl;
+    } catch (const std::invalid_argument&) {
+        std::cout << "✓ Invalid student creation test passed" << std::endl;
+    }
+}
+
+int main() {
+    // Run unit tests
+    std::cout << "=== Running Tests ===" << std::endl;
+    test_student_class();
+    
+    // Demonstrate usage
+    std::cout << "\\n=== Student Manager Demo ===" << std::endl;
+    StudentManager manager;
+    
+    // Add students
+    manager.add_student("Alice Johnson", 20, 3.8);
+    manager.add_student("Bob Smith", 21, 3.2);
+    manager.add_student("Carol Williams", 22, 3.9);
+    
+    // Try to add invalid student
+    manager.add_student("Invalid Student", 15, 5.5);
+    
+    // Display all students
+    manager.display_all();
+    
+    std::cout << "\\nTotal students: " << manager.get_count() << std::endl;
+    
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Code Refactoring Challenge',
+                    description: 'Refactor poorly written code to follow best practices and coding standards. Improve naming, formatting, organization, and structure.',
+                    starterCode: `// Poorly written code that needs refactoring
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+class b {
+public:
+    b(int x, int y) { x_ = x; y_ = y; }
+    int calc() { return x_ * y_; }
+private:
+    int x_, y_;
+};
+
+void doit(std::vector&lt;int&gt;& v) {
+    for(int i=0;i&lt;v.size();i++) {
+        if(v[i]%2==0) {
+            v[i]=v[i]*2;
+        }
+    }
+}
+
+void pr(const std::vector&lt;int&gt;& v) {
+    for(int i=0;i&lt;v.size();i++) {
+        std::cout&lt;&lt;v[i]&lt;&lt;" ";
+    }
+    std::cout&lt;&lt;std::endl;
+}
+
+int main() {
+    std::vector&lt;int&gt; nums;
+    for(int i=1;i&lt;=10;i++) {
+        nums.push_back(i);
+    }
+    
+    std::cout&lt;&lt;"Before: ";
+    pr(nums);
+    
+    doit(nums);
+    
+    std::cout&lt;&lt;"After: ";
+    pr(nums);
+    
+    b box(5,3);
+    std::cout&lt;&lt;"Area: "&lt;&lt;box.calc()&lt;&lt;std::endl;
+    
+    return 0;
+}`,
+                    solution: `#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+/**
+ * @brief Represents a rectangle with width and height
+ */
+class Rectangle {
+public:
+    /**
+     * @brief Construct a new Rectangle
+     * @param width The width of the rectangle
+     * @param height The height of the rectangle
+     */
+    Rectangle(int width, int height) 
+        : width_(width), height_(height) {
+        if (width_ &lt;= 0 || height_ &lt;= 0) {
+            throw std::invalid_argument("Width and height must be positive");
+        }
+    }
+    
+    /**
+     * @brief Calculate the area of the rectangle
+     * @return The area (width * height)
+     */
+    int calculateArea() const {
+        return width_ * height_;
+    }
+    
+    /**
+     * @brief Get the width of the rectangle
+     * @return The width
+     */
+    int getWidth() const { return width_; }
+    
+    /**
+     * @brief Get the height of the rectangle
+     * @return The height
+     */
+    int getHeight() const { return height_; }
+
+private:
+    int width_;
+    int height_;
+};
+
+/**
+ * @brief Double all even numbers in a vector
+ * @param numbers The vector to process
+ */
+void doubleEvenNumbers(std::vector&lt;int&gt;& numbers) {
+    for (auto& num : numbers) {
+        if (num % 2 == 0) {
+            num *= 2;
+        }
+    }
+}
+
+/**
+ * @brief Print a vector of integers
+ * @param numbers The vector to print
+ */
+void printVector(const std::vector&lt;int&gt;& numbers) {
+    for (const auto& num : numbers) {
+        std::cout &lt;&lt; num &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+}
+
+/**
+ * @brief Create a vector with numbers from 1 to n
+ * @param n The upper limit
+ * @return Vector containing numbers 1 to n
+ */
+std::vector&lt;int&gt; createNumberSequence(int n) {
+    std::vector&lt;int&gt; result;
+    result.reserve(n);  // Pre-allocate memory
+    
+    for (int i = 1; i &lt;= n; ++i) {
+        result.push_back(i);
+    }
+    
+    return result;
+}
+
+int main() {
+    try {
+        // Create and display initial sequence
+        auto numbers = createNumberSequence(10);
+        
+        std::cout &lt;&lt; "Before processing: ";
+        printVector(numbers);
+        
+        // Process the numbers
+        doubleEvenNumbers(numbers);
+        
+        std::cout &lt;&lt; "After processing: ";
+        printVector(numbers);
+        
+        // Create and use rectangle
+        Rectangle rectangle(5, 3);
+        std::cout &lt;&lt; "Rectangle area: " &lt;&lt; rectangle.calculateArea() &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Rectangle dimensions: " &lt;&lt; rectangle.getWidth() 
+                  &lt;&lt; " x " &lt;&lt; rectangle.getHeight() &lt;&lt; std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr &lt;&lt; "Error: " &lt;&lt; e.what() &lt;&lt; std::endl;
+        return 1;
+    }
+    
+    return 0;
+}`,
+                    hints: [
+                        'Use descriptive class and function names',
+                        'Add proper documentation comments',
+                        'Use range-based for loops instead of index-based loops',
+                        'Add proper error handling',
+                        'Use const member functions where appropriate',
+                        'Improve variable naming and code organization',
+                        'Add input validation',
+                        'Use proper formatting and spacing'
+                    ]
+                }]
+            },
+            {
+                id: '1.7',
+                title: 'Capstone Project',
+                difficulty: 'intermediate',
+                content: `<h1>Module 1 Capstone Project</h1>
+<p>Now it's time to apply everything you've learned in Module 1. This capstone project will test your understanding of C++ fundamentals and help you build a complete, practical application.</p>
+
+<h2>Project: Student Management System</h2>
+
+<h3>Overview</h3>
+<p>Create a command-line Student Management System that allows users to:</p>
+<ul>
+<li>Add student records</li>
+<li>View all students</li>
+<li>Search for students by name or ID</li>
+<li>Save student data to files</li>
+<li>Load student data from files</li>
+<li>Generate basic statistics</li>
+</ul>
+
+<h3>Requirements</h3>
+
+<h4>Core Features</h4>
+<ol>
+<li><strong>Student Class</strong>: Create a well-designed Student class with proper encapsulation</li>
+<li><strong>Input/Output</strong>: Handle user input and output with proper validation</li>
+<li><strong>File Operations</strong>: Save and load student data to/from files</li>
+<li><strong>Menu System</strong>: Create an interactive menu-driven interface</li>
+<li><strong>Error Handling</strong>: Implement robust error handling throughout</li>
+</ol>
+
+<h4>Technical Requirements</h4>
+<ul>
+<li>Use proper coding standards and naming conventions</li>
+<li>Implement multi-file project structure</li>
+<li>Use header guards and proper organization</li>
+<li>Include comprehensive comments and documentation</li>
+<li>Follow best practices for memory management</li>
+</ul>
+
+<h3>Project Structure</h3>
+<div class="code-block">
+<pre>student_management/
+├── include/
+│   ├── student.h
+│   ├── student_manager.h
+│   └── utils.h
+├── src/
+│   ├── student.cpp
+│   ├── student_manager.cpp
+│   ├── utils.cpp
+│   └── main.cpp
+├── data/
+│   └── students.txt
+├── build/
+├── Makefile (or CMakeLists.txt)
+└── README.md</pre>
+</div>
+
+<h3>Implementation Guide</h3>
+
+<h4>Step 1: Student Class (student.h/student.cpp)</h4>
+<div class="code-block">
+<pre// include/student.h
+#ifndef STUDENT_H
+#define STUDENT_H
+
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+class Student {
+private:
+    int id_;
+    std::string name_;
+    int age_;
+    double gpa_;
+    
+public:
+    Student(int id, const std::string& name, int age, double gpa);
+    
+    // Getters
+    int getId() const;
+    std::string getName() const;
+    int getAge() const;
+    double getGpa() const;
+    
+    // Setters with validation
+    void setName(const std::string& name);
+    void setAge(int age);
+    void setGpa(double gpa);
+    
+    // Display student information
+    void display() const;
+    
+    // File I/O operations
+    void saveToFile(std::ofstream& outFile) const;
+    static Student loadFromFile(std::ifstream& inFile);
+    
+    // Validation
+    bool isValid() const;
+};
+
+#endif</pre>
+</div>
+
+<h4>Step 2: Student Manager (student_manager.h/student_manager.cpp)</h4>
+<div class="code-block">
+<pre// include/student_manager.h
+#ifndef STUDENT_MANAGER_H
+#define STUDENT_MANAGER_H
+
+#include "student.h"
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+class StudentManager {
+private:
+    std::vector&lt;Student&gt; students_;
+    int nextId_;
+    
+public:
+    StudentManager();
+    
+    // Core operations
+    void addStudent(const std::string& name, int age, double gpa);
+    bool removeStudent(int id);
+    Student* findStudent(int id);
+    std::vector&lt;Student*&gt; findStudentsByName(const std::string& name);
+    
+    // Display operations
+    void displayAllStudents() const;
+    void displayStudent(int id) const;
+    
+    // File operations
+    bool saveToFile(const std::string& filename) const;
+    bool loadFromFile(const std::string& filename);
+    
+    // Statistics
+    int getStudentCount() const;
+    double getAverageGpa() const;
+    void displayStatistics() const;
+    
+    // Utility
+    void clearAllStudents();
+    bool isIdExists(int id) const;
+};
+
+#endif</pre>
+</div>
+
+<h4>Step 3: Utility Functions (utils.h/utils.cpp)</h4>
+<div class="code-block">
+<pre// include/utils.h
+#ifndef UTILS_H
+#define UTILS_H
+
+#include &lt;string&gt;
+#include &lt;limits&gt;
+
+namespace utils {
+    // Input validation
+    int getIntInput(const std::string& prompt, int min = std::numeric_limits&lt;int&gt;::min(), 
+                    int max = std::numeric_limits&lt;int&gt;::max());
+    double getDoubleInput(const std::string& prompt, double min = std::numeric_limits&lt;double&gt;::min(), 
+                         double max = std::numeric_limits&lt;double&gt;::max());
+    std::string getStringInput(const std::string& prompt);
+    
+    // String utilities
+    std::string toLowerCase(const std::string& str);
+    bool stringContains(const std::string& str, const std::string& substr);
+    
+    // File utilities
+    bool fileExists(const std::string& filename);
+    std::string getValidFilename(const std::string& prompt);
+    
+    // Menu utilities
+    void clearScreen();
+    void pauseExecution();
+    void displayHeader(const std::string& title);
+}
+
+#endif</pre>
+</div>
+
+<h4>Step 4: Main Program (main.cpp)</h4>
+<div class="code-block">
+<pre// src/main.cpp
+#include "student_manager.h"
+#include "utils.h"
+#include &lt;iostream&gt;
+
+void displayMenu() {
+    utils::displayHeader("Student Management System");
+    std::cout &lt;&lt; "1. Add Student" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "2. View All Students" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "3. Search Student by ID" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "4. Search Students by Name" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "5. Remove Student" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "6. Display Statistics" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "7. Save to File" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "8. Load from File" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "9. Clear All Students" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "0. Exit" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Enter your choice: ";
+}
+
+void addStudentMenu(StudentManager& manager) {
+    utils::displayHeader("Add New Student");
+    
+    std::string name = utils::getStringInput("Enter student name: ");
+    int age = utils::getIntInput("Enter student age: ", 16, 100);
+    double gpa = utils::getDoubleInput("Enter student GPA: ", 0.0, 4.0);
+    
+    manager.addStudent(name, age, gpa);
+    std::cout &lt;&lt; "Student added successfully!" &lt;&lt; std::endl;
+    utils::pauseExecution();
+}
+
+void searchByIdMenu(StudentManager& manager) {
+    utils::displayHeader("Search Student by ID");
+    int id = utils::getIntInput("Enter student ID: ");
+    
+    Student* student = manager.findStudent(id);
+    if (student) {
+        student->display();
+    } else {
+        std::cout &lt;&lt; "Student with ID " &lt;&lt; id &lt;&lt; " not found." &lt;&lt; std::endl;
+    }
+    utils::pauseExecution();
+}
+
+void searchByNameMenu(StudentManager& manager) {
+    utils::displayHeader("Search Students by Name");
+    std::string name = utils::getStringInput("Enter student name (or part of name): ");
+    
+    auto results = manager.findStudentsByName(name);
+    if (results.empty()) {
+        std::cout &lt;&lt; "No students found with name containing '" &lt;&lt; name &lt;&lt; "'." &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Found " &lt;&lt; results.size() &lt;&lt; " student(s):" &lt;&lt; std::endl;
+        for (auto* student : results) {
+            student->display();
+            std::cout &lt;&lt; "---" &lt;&lt; std::endl;
+        }
+    }
+    utils::pauseExecution();
+}
+
+int main() {
+    StudentManager manager;
+    
+    // Try to load existing data
+    if (utils::fileExists("data/students.txt")) {
+        if (manager.loadFromFile("data/students.txt")) {
+            std::cout &lt;&lt; "Loaded " &lt;&lt; manager.getStudentCount() &lt;&lt; " student(s) from file." &lt;&lt; std::endl;
+        }
+    }
+    
+    int choice;
+    do {
+        utils::clearScreen();
+        displayMenu();
+        choice = utils::getIntInput("", 0, 9);
+        
+        switch (choice) {
+            case 1:
+                addStudentMenu(manager);
+                break;
+            case 2: {
+                utils::displayHeader("All Students");
+                manager.displayAllStudents();
+                utils::pauseExecution();
+                break;
+            }
+            case 3:
+                searchByIdMenu(manager);
+                break;
+            case 4:
+                searchByNameMenu(manager);
+                break;
+            case 5: {
+                utils::displayHeader("Remove Student");
+                int id = utils::getIntInput("Enter student ID to remove: ");
+                if (manager.removeStudent(id)) {
+                    std::cout &lt;&lt; "Student removed successfully!" &lt;&lt; std::endl;
+                } else {
+                    std::cout &lt;&lt; "Student not found." &lt;&lt; std::endl;
+                }
+                utils::pauseExecution();
+                break;
+            }
+            case 6: {
+                utils::displayHeader("Statistics");
+                manager.displayStatistics();
+                utils::pauseExecution();
+                break;
+            }
+            case 7: {
+                std::string filename = utils::getValidFilename("Enter filename to save: ");
+                if (manager.saveToFile(filename)) {
+                    std::cout &lt;&lt; "Data saved successfully to " &lt;&lt; filename &lt;&lt; std::endl;
+                } else {
+                    std::cout &lt;&lt; "Failed to save data to " &lt;&lt; filename &lt;&lt; std::endl;
+                }
+                utils::pauseExecution();
+                break;
+            }
+            case 8: {
+                std::string filename = utils::getValidFilename("Enter filename to load: ");
+                if (manager.loadFromFile(filename)) {
+                    std::cout &lt;&lt; "Data loaded successfully from " &lt;&lt; filename &lt;&lt; std::endl;
+                } else {
+                    std::cout &lt;&lt; "Failed to load data from " &lt;&lt; filename &lt;&lt; std::endl;
+                }
+                utils::pauseExecution();
+                break;
+            }
+            case 9: {
+                utils::displayHeader("Clear All Students");
+                char confirm;
+                std::cout &lt;&lt; "Are you sure you want to clear all students? (y/n): ";
+                std::cin &gt;&gt; confirm;
+                if (confirm == 'y' || confirm == 'Y') {
+                    manager.clearAllStudents();
+                    std::cout &lt;&lt; "All students cleared!" &lt;&lt; std::endl;
+                }
+                utils::pauseExecution();
+                break;
+            }
+            case 0:
+                std::cout &lt;&lt; "Thank you for using Student Management System!" &lt;&lt; std::endl;
+                break;
+            default:
+                std::cout &lt;&lt; "Invalid choice. Please try again." &lt;&lt; std::endl;
+                utils::pauseExecution();
+        }
+    } while (choice != 0);
+    
+    // Auto-save on exit
+    manager.saveToFile("data/students.txt");
+    
+    return 0;
+}</pre>
+</div>
+
+<h4>Step 5: Build System (Makefile or CMakeLists.txt)</h4>
+<div class="code-block">
+<pre# Makefile
+CXX = g++
+CXXFLAGS = -Wall -std=c++20 -Iinclude
+SRCDIR = src
+OBJDIR = build
+TARGET = student_management
+
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $&lt; -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean run</pre>
+</div>
+
+<h3>Advanced Features (Optional)</h3>
+<p>If you want to challenge yourself further, consider adding these features:</p>
+<ol>
+<li><strong>Edit Student</strong>: Allow editing existing student information</li>
+<li><strong>Sort Students</strong>: Sort by name, age, GPA, or ID</li>
+<li><strong>Filter Students</strong>: Filter by age range or GPA range</li>
+<li><strong>Backup System</strong>: Create automatic backups</li>
+<li><strong>Import/Export</strong>: Support CSV or JSON formats</li>
+<li><strong>User Authentication</strong>: Simple login system</li>
+<li><strong>Data Validation</strong>: More robust input validation</li>
+<li><strong>Search History</strong>: Keep track of recent searches</li>
+<li><strong>Batch Operations</strong>: Add multiple students at once</li>
+<li><strong>Reports</strong>: Generate detailed reports</li>
+</ol>
+
+<h3>Testing Your Application</h3>
+<p>Create a comprehensive test plan:</p>
+<ol>
+<li><strong>Unit Tests</strong>: Test each class and function individually</li>
+<li><strong>Integration Tests</strong>: Test interactions between components</li>
+<li><strong>User Interface Tests</strong>: Test the menu system and user interactions</li>
+<li><strong>File I/O Tests</strong>: Test saving and loading with various scenarios</li>
+<li><strong>Edge Cases</strong>: Test with empty data, invalid inputs, etc.</li>
+</ol>
+
+<h3>Sample Test Cases</h3>
+<div class="code-block">
+<pre// test_student.cpp
+#include "student.h"
+#include &lt;cassert&gt;
+
+void testStudentCreation() {
+    Student student(1, "John Doe", 20, 3.5);
+    assert(student.getId() == 1);
+    assert(student.getName() == "John Doe");
+    assert(student.getAge() == 20);
+    assert(student.getGpa() == 3.5);
+    assert(student.isValid());
+}
+
+void testStudentValidation() {
+    Student student(2, "Jane Smith", -5, 5.0);
+    assert(!student.isValid());  // Invalid age and GPA
+}
+
+int main() {
+    testStudentCreation();
+    testStudentValidation();
+    std::cout &lt;&lt; "All student tests passed!" &lt;&lt; std::endl;
+    return 0;
+}</pre>
+</div>
+
+<h3>Project Submission Checklist</h3>
+<p>When you complete your project, ensure you have:</p>
+<ul>
+<li>[ ] All required features implemented</li>
+<li>[ ] Proper error handling throughout</li>
+<li>[ ] Comprehensive comments and documentation</li>
+<li>[ ] Consistent coding style and naming conventions</li>
+<li>[ ] Working build system</li>
+<li>[ ] README file with instructions</li>
+<li>[ ] Test cases that pass</li>
+<li>[ ] No memory leaks or warnings</li>
+<li>[ ] User-friendly interface</li>
+<li>[ ] File operations working correctly</li>
+</ul>
+
+<p>This capstone project will demonstrate your mastery of C++ fundamentals and prepare you for more advanced topics in the upcoming modules.</p>`,
+                codeExample: `// This is a sample implementation of the Student class for the capstone project
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;limits&gt;
+#include &lt;algorithm&gt;
+
+class Student {
+private:
+    int id_;
+    std::string name_;
+    int age_;
+    double gpa_;
+
+    bool validateAge(int age) const {
+        return age >= 16 && age <= 100;
+    }
+
+    bool validateGpa(double gpa) const {
+        return gpa >= 0.0 && gpa <= 4.0;
+    }
+
+public:
+    Student(int id, const std::string& name, int age, double gpa)
+        : id_(id), name_(name), age_(age), gpa_(gpa) {
+        
+        if (!validateAge(age_)) {
+            throw std::invalid_argument("Age must be between 16 and 100");
+        }
+        if (!validateGpa(gpa_)) {
+            throw std::invalid_argument("GPA must be between 0.0 and 4.0");
+        }
+    }
+
+    // Getters
+    int getId() const { return id_; }
+    std::string getName() const { return name_; }
+    int getAge() const { return age_; }
+    double getGpa() const { return gpa_; }
+
+    // Setters with validation
+    void setName(const std::string& name) {
+        if (!name.empty()) {
+            name_ = name;
+        }
+    }
+
+    void setAge(int age) {
+        if (validateAge(age)) {
+            age_ = age;
+        } else {
+            throw std::invalid_argument("Age must be between 16 and 100");
+        }
+    }
+
+    void setGpa(double gpa) {
+        if (validateGpa(gpa)) {
+            gpa_ = gpa;
+        } else {
+            throw std::invalid_argument("GPA must be between 0.0 and 4.0");
+        }
+    }
+
+    void display() const {
+        std::cout &lt;&lt; "ID: " &lt;&lt; id_ 
+                  &lt;&lt; ", Name: " &lt;&lt; name_
+                  &lt;&lt; ", Age: " &lt;&lt; age_
+                  &lt;&lt; ", GPA: " &lt;&lt; gpa_ &lt;&lt; std::endl;
+    }
+
+    void saveToFile(std::ofstream& outFile) const {
+        outFile &lt;&lt; id_ &lt;&lt; " " &lt;&lt; name_ &lt;&lt; " " &lt;&lt; age_ &lt;&lt; " " &lt;&lt; gpa_;
+    }
+
+    static Student loadFromFile(std::ifstream& inFile) {
+        int id, age;
+        std::string name;
+        double gpa;
+        
+        inFile &gt;&gt; id;
+        inFile.ignore(); // Ignore space before name
+        std::getline(inFile, name, ' ');
+        inFile &gt;&gt; age &gt;&gt; gpa;
+        
+        return Student(id, name, age, gpa);
+    }
+
+    bool isValid() const {
+        return !name_.empty() && validateAge(age_) && validateGpa(gpa_);
+    }
+};
+
+// Simple demonstration of the Student class usage
+int main() {
+    try {
+        // Create some students
+        Student student1(1, "Alice Johnson", 20, 3.8);
+        Student student2(2, "Bob Smith", 21, 3.2);
+        Student student3(3, "Carol Williams", 22, 3.9);
+
+        // Display students
+        std::cout &lt;&lt; "=== Student Information ===" &lt;&lt; std::endl;
+        student1.display();
+        student2.display();
+        student3.display();
+
+        // Save students to file
+        std::ofstream outFile("students.txt");
+        if (outFile.is_open()) {
+            student1.saveToFile(outFile);
+            outFile &lt;&lt; std::endl;
+            student2.saveToFile(outFile);
+            outFile &lt;&lt; std::endl;
+            student3.saveToFile(outFile);
+            outFile &lt;&lt; std::endl;
+            outFile.close();
+            std::cout &lt;&lt; "\\nStudents saved to file successfully!" &lt;&lt; std::endl;
+        }
+
+        // Load students from file
+        std::ifstream inFile("students.txt");
+        if (inFile.is_open()) {
+            std::cout &lt;&lt; "\\n=== Loading Students from File ===" &lt;&lt; std::endl;
+            std::string line;
+            while (std::getline(inFile, line)) {
+                std::istringstream iss(line);
+                Student loaded = Student::loadFromFile(iss);
+                loaded.display();
+            }
+            inFile.close();
+        }
+
+        // Demonstrate validation
+        try {
+            Student invalidStudent(4, "Invalid Student", 15, 5.0);
+        } catch (const std::invalid_argument& e) {
+            std::cout &lt;&lt; "\\nValidation error caught: " &lt;&lt; e.what() &lt;&lt; std::endl;
+        }
+
+    } catch (const std::exception& e) {
+        std::cerr &lt;&lt; "Error: " &lt;&lt; e.what() &lt;&lt; std::endl;
+        return 1;
+    }
+
+    return 0;
+}`,
+                exercises: [{
+                    title: 'Student Management System',
+                    description: 'Implement the complete Student Management System as described in the capstone project. This will test all the concepts learned in Module 1.',
+                    starterCode: `// Implement the complete Student Management System
+// Follow the project structure and requirements outlined in the capstone project
+// Create all necessary files and implement all features
+
+// Your project should include:
+// 1. Student class with proper encapsulation
+// 2. StudentManager class for managing collections
+// 3. Utility functions for input validation and helpers
+// 4. Main program with menu-driven interface
+// 5. File I/O operations
+// 6. Proper error handling
+// 7. Build system (Makefile or CMakeLists.txt)
+// 8. Documentation (README.md)
+
+// Start by creating the project structure and implementing each component step by step.`,
+                    solution: `// This is a complete solution implementation. Due to the complexity and length,
+// I'll provide the key files. You would need to create these files in the proper directory structure.
+
+// include/student.h
+#ifndef STUDENT_H
+#define STUDENT_H
+
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+class Student {
+private:
+    int id_;
+    std::string name_;
+    int age_;
+    double gpa_;
+    
+    bool validateAge(int age) const;
+    bool validateGpa(double gpa) const;
+
+public:
+    Student(int id, const std::string& name, int age, double gpa);
+    
+    // Getters
+    int getId() const { return id_; }
+    std::string getName() const { return name_; }
+    int getAge() const { return age_; }
+    double getGpa() const { return gpa_; }
+    
+    // Setters with validation
+    void setName(const std::string& name);
+    void setAge(int age);
+    void setGpa(double gpa);
+    
+    // Display student information
+    void display() const;
+    void displayBrief() const;
+    
+    // File I/O operations
+    void saveToFile(std::ofstream& outFile) const;
+    static Student loadFromFile(std::ifstream& inFile);
+    
+    // Validation
+    bool isValid() const;
+    
+    // Comparison operators
+    bool operator==(const Student& other) const;
+    bool operator&lt;(const Student& other) const;
+};
+
+#endif
+
+// src/student.cpp
+#include "../include/student.h"
+#include &lt;iomanip&gt;
+
+Student::Student(int id, const std::string& name, int age, double gpa)
+    : id_(id), name_(name), age_(age), gpa_(gpa) {
+}
+
+bool Student::validateAge(int age) const {
+    return age >= 16 && age <= 100;
+}
+
+bool Student::validateGpa(double gpa) const {
+    return gpa >= 0.0 && gpa <= 4.0;
+}
+
+void Student::setName(const std::string& name) {
+    if (!name.empty()) {
+        name_ = name;
+    }
+}
+
+void Student::setAge(int age) {
+    if (validateAge(age)) {
+        age_ = age;
+    }
+}
+
+void Student::setGpa(double gpa) {
+    if (validateGpa(gpa)) {
+        gpa_ = gpa;
+    }
+}
+
+void Student::display() const {
+    std::cout &lt;&lt; "Student ID: " &lt;&lt; id_ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Name: " &lt;&lt; name_ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Age: " &lt;&lt; age_ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "GPA: " &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; gpa_ &lt;&lt; std::endl;
+}
+
+void Student::displayBrief() const {
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(6) &lt;&lt; id_
+              &lt;&lt; std::setw(25) &lt;&lt; name_
+              &lt;&lt; std::setw(6) &lt;&lt; age_
+              &lt;&lt; std::setw(6) &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; gpa_ &lt;&lt; std::endl;
+}
+
+void Student::saveToFile(std::ofstream& outFile) const {
+    outFile &lt;&lt; id_ &lt;&lt; " " &lt;&lt; name_ &lt;&lt; " " &lt;&lt; age_ &lt;&lt; " " &lt;&lt; gpa_;
+}
+
+Student Student::loadFromFile(std::ifstream& inFile) {
+    int id, age;
+    std::string name;
+    double gpa;
+    
+    inFile &gt;&gt; id;
+    inFile.ignore(); // Ignore space before name
+    std::getline(inFile, name, ' ');
+    inFile &gt;&gt; age &gt;&gt; gpa;
+    
+    return Student(id, name, age, gpa);
+}
+
+bool Student::isValid() const {
+    return !name_.empty() && validateAge(age_) && validateGpa(gpa_);
+}
+
+bool Student::operator==(const Student& other) const {
+    return id_ == other.id_;
+}
+
+bool Student::operator&lt;(const Student& other) const {
+    return name_ &lt; other.name_;
+}
+
+// Due to length constraints, I'll provide abbreviated versions of the other files.
+// You would need to implement the complete versions following the same patterns.
+
+// include/student_manager.h
+#ifndef STUDENT_MANAGER_H
+#define STUDENT_MANAGER_H
+
+#include "student.h"
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+class StudentManager {
+private:
+    std::vector&lt;Student&gt; students_;
+    int nextId_;
+    
+    int generateNextId();
+
+public:
+    StudentManager();
+    
+    // Core operations
+    void addStudent(const std::string& name, int age, double gpa);
+    bool removeStudent(int id);
+    Student* findStudent(int id);
+    std::vector&lt;Student*&gt; findStudentsByName(const std::string& name);
+    
+    // Display operations
+    void displayAllStudents() const;
+    void displayStudent(int id) const;
+    
+    // File operations
+    bool saveToFile(const std::string& filename) const;
+    bool loadFromFile(const std::string& filename);
+    
+    // Statistics
+    int getStudentCount() const;
+    double getAverageGpa() const;
+    void displayStatistics() const;
+    
+    // Utility
+    void clearAllStudents();
+    bool isIdExists(int id) const;
+};
+
+#endif
+
+// include/utils.h
+#ifndef UTILS_H
+#define UTILS_H
+
+#include &lt;string&gt;
+#include &lt;limits&gt;
+
+namespace utils {
+    int getIntInput(const std::string& prompt, int min = std::numeric_limits&lt;int&gt;::min(), 
+                    int max = std::numeric_limits&lt;int&gt;::max());
+    double getDoubleInput(const std::string& prompt, double min = std::numeric_limits&lt;double&gt;::min(), 
+                         double max = std::numeric_limits&lt;double&gt;::max());
+    std::string getStringInput(const std::string& prompt);
+    
+    std::string toLowerCase(const std::string& str);
+    bool stringContains(const std::string& str, const std::string& substr);
+    
+    bool fileExists(const std::string& filename);
+    std::string getValidFilename(const std::string& prompt);
+    
+    void clearScreen();
+    void pauseExecution();
+    void displayHeader(const std::string& title);
+}
+
+#endif
+
+// The implementation files (.cpp) and main.cpp would follow the patterns shown above,
+// implementing all the methods declared in the header files.
+
+// Makefile
+CXX = g++
+CXXFLAGS = -Wall -std=c++20 -Iinclude
+SRCDIR = src
+OBJDIR = build
+TARGET = student_management
+
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $&lt; -o $@
+
+clean:
+	rm -rf $(OBJDIR) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean run`,
+                    hints: [
+                        'Start by implementing the Student class first',
+                        'Test each component independently before integrating',
+                        'Use the provided structure as a guide but feel free to enhance it',
+                        'Focus on getting basic functionality working first, then add advanced features',
+                        'Test file operations thoroughly',
+                        'Use proper error handling throughout',
+                        'Follow the coding standards discussed in earlier topics'
+                    ]
+                }]
+            }
+        ];
+
+        // State management
+        let currentTopic = 0;
+        let completedTopics = new Set();
+        let quizAnswers = {};
+        let quizSubmitted = new Set();
+
+        // Initialize the application
+        function init() {
+            updateProgress();
+            loadTopic(0);
+        }
+
+        // Load a specific topic
+        function loadTopic(topicIndex) {
+            currentTopic = topicIndex;
+            const topic = cppModule1[topicIndex];
+            
+            // Update UI
+            document.getElementById('topicTitle').textContent = `${topic.id}: ${topic.title}`;
+            document.getElementById('topicDescription').textContent = 
+                `${topic.difficulty === 'beginner' ? 'Beginner-friendly' : 'Intermediate level'}`;
+            
+            // Load content
+            document.getElementById('contentTab').innerHTML = topic.content;
+            
+            // Load code example if available
+            if (topic.codeExample) {
+                document.getElementById('codeExample').textContent = topic.codeExample;
+                document.querySelector('[data-tab="example"]').style.display = 'block';
+            } else {
+                document.querySelector('[data-tab="example"]').style.display = 'none';
+            }
+            
+            // Update complete button
+            const completeBtn = document.getElementById('completeBtn');
+            if (completedTopics.has(topic.id)) {
+                completeBtn.textContent = 'Completed';
+                completeBtn.disabled = true;
+                completeBtn.className = 'px-3 py-2 text-sm bg-green-600 text-white rounded-lg cursor-not-allowed';
+            } else {
+                completeBtn.textContent = 'Mark Complete';
+                completeBtn.disabled = false;
+                completeBtn.className = 'px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700';
+            }
+            
+            // Update sidebar
+            updateSidebar();
+        }
+
+        // Update sidebar highlighting
+        function updateSidebar() {
+            document.querySelectorAll('.topic-btn').forEach((btn, index) => {
+                if (index === currentTopic) {
+                    btn.className = 'topic-btn w-full text-left p-3 rounded-lg transition-colors bg-blue-100 text-blue-800 border border-blue-200';
+                } else {
+                    btn.className = 'topic-btn w-full text-left p-3 rounded-lg transition-colors hover:bg-slate-100';
+                }
+            });
+        }
+
+        // Set current topic
+        function setCurrentTopic(index) {
+            loadTopic(index);
+        }
+
+        // Mark topic as complete
+        function markComplete() {
+            const topic = cppModule1[currentTopic];
+            completedTopics.add(topic.id);
+            updateProgress();
+            loadTopic(currentTopic); // Refresh to update button
+        }
+
+        // Update progress
+        function updateProgress() {
+            const progress = (completedTopics.size / cppModule1.length) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `${Math.round(progress)}%`;
+            document.getElementById('completedCount').textContent = completedTopics.size;
+            document.getElementById('totalCount').textContent = cppModule1.length;
+            
+            // Update topic icons
+            document.querySelectorAll('.topic-icon').forEach((icon, index) => {
+                const topic = cppModule1[index];
+                if (completedTopics.has(topic.id)) {
+                    icon.className = 'fas fa-check-circle text-green-600 topic-icon';
+                } else {
+                    icon.className = 'far fa-circle text-slate-400 topic-icon';
+                }
+            });
+        }
+
+        // Tab switching
+        function showTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.className = 'tab-btn pb-2 px-1 border-b-2 border-blue-600 text-blue-600 font-medium';
+                } else {
+                    btn.className = 'tab-btn pb-2 px-1 border-b-2 border-transparent text-slate-600 hover:text-slate-800';
+                }
+            });
+            
+            // Show/hide content
+            if (tabName === 'content') {
+                document.getElementById('contentTab').style.display = 'block';
+                document.getElementById('exampleTab').style.display = 'none';
+            } else {
+                document.getElementById('contentTab').style.display = 'none';
+                document.getElementById('exampleTab').style.display = 'block';
+            }
+        }
+
+        // Show exercise modal
+        function showExercise() {
+            const topic = cppModule1[currentTopic];
+            if (!topic.exercises || topic.exercises.length === 0) return;
+            
+            const exercise = topic.exercises[0];
+            
+            document.getElementById('exerciseTitle').textContent = exercise.title;
+            document.getElementById('exerciseDescription').textContent = exercise.description;
+            document.getElementById('starterCode').textContent = exercise.starterCode;
+            document.getElementById('solutionCode').textContent = exercise.solution;
+            
+            // Load hints
+            const hintsList = document.getElementById('hintsList');
+            hintsList.innerHTML = '';
+            exercise.hints.forEach(hint => {
+                const li = document.createElement('li');
+                li.textContent = hint;
+                hintsList.appendChild(li);
+            });
+            
+            document.getElementById('exerciseModal').classList.remove('hidden');
+            document.getElementById('exerciseModal').classList.add('flex');
+        }
+
+        // Close exercise modal
+        function closeExercise() {
+            document.getElementById('exerciseModal').classList.add('hidden');
+            document.getElementById('exerciseModal').classList.remove('flex');
+        }
+
+        // Show quiz modal
+        function showQuiz() {
+            const topic = cppModule1[currentTopic];
+            if (!topic.quiz || topic.quiz.length === 0) return;
+            
+            document.getElementById('quizTitle').textContent = `Quiz: ${topic.title}`;
+            
+            // Reset quiz state for this topic
+            if (!quizSubmitted.has(topic.id)) {
+                quizAnswers = {};
+                document.getElementById('quizResults').classList.add('hidden');
+                document.getElementById('quizQuestions').classList.remove('hidden');
+            }
+            
+            // Load questions
+            const questionsContainer = document.getElementById('quizQuestions');
+            questionsContainer.innerHTML = '';
+            
+            topic.quiz.forEach((question, qIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'space-y-3';
+                questionDiv.innerHTML = `
+                    <h4 class="font-semibold">
+                        ${qIndex + 1}. ${question.question}
+                    </h4>
+                    <div class="space-y-2">
+                        ${question.options.map((option, oIndex) => `
+                            <div class="quiz-option">
+                                <input type="radio" 
+                                       name="${question.id}" 
+                                       id="${question.id}_${oIndex}"
+                                       value="${oIndex}"
+                                       ${quizAnswers[question.id] === oIndex ? 'checked' : ''}
+                                       onchange="handleQuizAnswer('${question.id}', ${oIndex})">
+                                <label for="${question.id}_${oIndex}" 
+                                       class="block p-3 border border-slate-300 rounded-lg cursor-pointer">
+                                    ${option}
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // Show feedback if submitted
+                if (quizSubmitted.has(topic.id)) {
+                    const isCorrect = quizAnswers[question.id] === question.correctAnswer;
+                    questionDiv.innerHTML += `
+                        <div class="text-sm p-3 rounded-lg ${
+                            isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                        }">
+                            <strong>${isCorrect ? 'Correct!' : 'Incorrect!'}</strong>
+                            <p class="mt-1">${question.explanation}</p>
+                        </div>
+                    `;
+                }
+                
+                questionsContainer.appendChild(questionDiv);
+            });
+            
+            // Add submit button if not submitted
+            if (!quizSubmitted.has(topic.id)) {
+                const submitBtn = document.createElement('button');
+                submitBtn.textContent = 'Submit Quiz';
+                submitBtn.className = 'w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 mt-4';
+                submitBtn.onclick = () => submitQuiz(topic.id);
+                questionsContainer.appendChild(submitBtn);
+            } else {
+                // Show results
+                document.getElementById('quizQuestions').classList.add('hidden');
+                document.getElementById('quizResults').classList.remove('hidden');
+                updateQuizResults(topic.id);
+            }
+            
+            document.getElementById('quizModal').classList.remove('hidden');
+            document.getElementById('quizModal').classList.add('flex');
+        }
+
+        // Handle quiz answer selection
+        function handleQuizAnswer(questionId, answerIndex) {
+            quizAnswers[questionId] = answerIndex;
+        }
+
+        // Submit quiz
+        function submitQuiz(topicId) {
+            quizSubmitted.add(topicId);
+            showQuiz(); // Refresh to show results
+        }
+
+        // Update quiz results
+        function updateQuizResults(topicId) {
+            const topic = cppModule1.find(t => t.id === topicId);
+            if (!topic?.quiz) return;
+            
+            let correct = 0;
+            topic.quiz.forEach(q => {
+                if (quizAnswers[q.id] === q.correctAnswer) {
+                    correct++;
+                }
+            });
+            
+            const score = (correct / topic.quiz.length) * 100;
+            document.getElementById('quizScore').textContent = `${score.toFixed(0)}%`;
+            
+            let feedback = 'Keep practicing!';
+            if (score >= 80) {
+                feedback = 'Excellent work!';
+            } else if (score >= 60) {
+                feedback = 'Good job!';
+            }
+            document.getElementById('quizFeedback').textContent = feedback;
+        }
+
+        // Close quiz modal
+        function closeQuiz() {
+            document.getElementById('quizModal').classList.add('hidden');
+            document.getElementById('quizModal').classList.remove('flex');
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

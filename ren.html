@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Multimedia Demo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .media-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 700px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    }
+    h3 {
+        margin-top: 0;
+        color: #555;
+    }
+    video, audio, embed, object {
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+    button {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<h2>Interactive Multimedia Demo</h2>
+
+<div class="media-container">
+    <h3>Audio Example</h3>
+    <audio id="myAudio" controls>
+        <source src="audio_sample.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- JS controls for audio -->
+    <button onclick="playAudio()">Play</button>
+    <button onclick="pauseAudio()">Pause</button>
+</div>
+
+<div class="media-container">
+    <h3>Video Example with Subtitles</h3>
+    <video id="myVideo" controls width="640" height="360" poster="poster_image.jpg">
+        <source src="video_sample.mp4" type="video/mp4">
+        <source src="video_sample.webm" type="video/webm">
+        <track id="trackEn" kind="subtitles" src="subtitles_en.vtt" srclang="en" label="English" default>
+        <track id="trackEs" kind="subtitles" src="subtitles_es.vtt" srclang="es" label="Spanish">
+        Your browser does not support the video tag.
+    </video>
+    <!-- JS controls for video -->
+    <button onclick="playVideo()">Play Video</button>
+    <button onclick="pauseVideo()">Pause Video</button>
+    <button onclick="toggleSubtitles('en')">English Subtitles</button>
+    <button onclick="toggleSubtitles('es')">Spanish Subtitles</button>
+</div>
+
+<div class="media-container">
+    <h3>Embedded PDF using &lt;embed&gt;</h3>
+    <embed src="sample.pdf" type="application/pdf" width="600" height="400">
+</div>
+
+<div class="media-container">
+    <h3>Embedded Object using &lt;object&gt;</h3>
+    <object data="https://www.youtube.com/watch?v=Inos9HmrFUE&pp=ugUHEgVlbi1VUw%3D%3D" type="video" width="600" height="400">
+        <param name="toolbar" value="true">
+        <param name="navpanes" value="true">
+        <p>Your browser does not support embedded objects. <a href="sample.pdf">Download PDF instead.</a></p>
+    </object>
+</div>
+
+<script>
+    // Audio controls
+    const audio = document.getElementById('myAudio');
+    function playAudio() { audio.play(); }
+    function pauseAudio() { audio.pause(); }
+
+    // Video controls
+    const video = document.getElementById('myVideo');
+    function playVideo() { video.play(); }
+    function pauseVideo() { video.pause(); }
+
+    // Toggle subtitles by language
+    function toggleSubtitles(lang) {
+        for (let i = 0; i < video.textTracks.length; i++) {
+            const track = video.textTracks[i];
+            track.mode = (track.language === lang) ? 'showing' : 'hidden';
+        }
+    }
+</script>
+
+</body>
+</html>

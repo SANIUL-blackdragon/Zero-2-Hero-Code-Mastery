@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Mastery Journey - Complete Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .phase-card {
+            transition: all 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .math-content {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+        .exercise-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .concept-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            transition: all 0.2s ease;
+        }
+        .concept-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            stroke: #3b82f6;
+            stroke-width: 4;
+            fill: transparent;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        .offline-indicator {
+            background: #059669;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-4">
+                AI/ML Mastery Journey
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                From Theory to Innovation: The Complete Path to ML Mastery
+            </p>
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg max-w-4xl mx-auto">
+                <p class="text-lg font-semibold text-gray-800 mb-2">🎯 This isn't just learning ML - it's becoming an ML architect</p>
+                <p class="text-gray-700">
+                    Complete this journey and you won't just use ML tools - you'll understand, derive, optimize, and innovate them. 
+                    From mathematical foundations to research breakthroughs.
+                </p>
+            </div>
+            <div class="flex items-center justify-center gap-4 mt-4">
+                <span class="offline-indicator">✓ Offline Ready</span>
+                <span class="text-sm text-gray-500">Complete Chapter 1: Mathematical Foundations</span>
+            </div>
+            <div id="lastSaved" class="text-sm text-gray-500 mt-4" style="display: none;">
+                Last saved: <span id="savedTime"></span>
+            </div>
+        </div>
+
+        <!-- Save Progress Button -->
+        <div class="flex justify-center mb-6">
+            <button onclick="saveProgress()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                <i data-lucide="save" class="w-4 h-4"></i>
+                Save Progress
+            </button>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex items-center gap-2 mb-4">
+                <i data-lucide="target" class="w-5 h-5 text-blue-600"></i>
+                <h2 class="text-xl font-semibold">Overall Progress</h2>
+            </div>
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span>Journey Completion</span>
+                    <span id="overallProgress">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="overallProgressBar" class="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-gray-600">
+                    Complete all 6 phases to master AI/ML from fundamentals to research level
+                </p>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="flex items-center justify-center min-h-[400px]" style="display: none;">
+            <div class="text-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600">Loading your learning journey...</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent">
+            <!-- Phase Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="phaseCards">
+                <!-- Phase cards will be generated by JavaScript -->
+            </div>
+
+            <!-- Detailed View -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-2">Phase Details</h2>
+                    <p class="text-gray-600">Explore detailed topics and learning objectives for each phase</p>
+                </div>
+                
+                <!-- Tab Navigation -->
+                <div class="grid grid-cols-3 lg:grid-cols-6 gap-2 mb-6" id="tabNavigation">
+                    <!-- Tab buttons will be generated by JavaScript -->
+                </div>
+                
+                <!-- Tab Content -->
+                <div id="tabContent">
+                    <!-- Tab content will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-500 text-sm">
+            <p class="font-semibold text-gray-700 mb-2">🚀 From ML Consumer to ML Architect</p>
+            <p class="mb-2">Follow this structured path to progress from theoretical foundations to cutting-edge research and practical implementation.</p>
+            <p class="mb-2">Each phase builds upon the previous one - master the fundamentals before advancing!</p>
+            <p class="mb-2">Don't forget to save your progress regularly!</p>
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-lg max-w-2xl mx-auto mt-4">
+                <p class="font-semibold text-gray-800 mb-1">⚠️ Important Reminder:</p>
+                <p class="text-gray-700">
+                    Mastery requires deep hands-on practice, not just reading. Every phase should be paired with coding exercises, 
+                    projects, and experiments. Otherwise, it's just theory.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Enhanced Phase data with comprehensive Chapter 1
+        const phasesData = [
+            {
+                id: 1,
+                title: "Mathematical & Theoretical Foundations",
+                description: "Build the mathematical bedrock for understanding ML algorithms",
+                icon: "book-open",
+                topics: [
+                    "Linear Algebra (vectors, matrices, eigenvalues, SVD)",
+                    "Probability & Statistics (Bayes' theorem, distributions, expectation)",
+                    "Calculus (gradients, partial derivatives, chain rule, optimization)",
+                    "Information Theory basics (entropy, KL-divergence, cross-entropy)",
+                    "Optimization theory (gradient descent, convex optimization, Lagrangians)",
+                    "Numerical Methods (floating point arithmetic, numerical stability)",
+                    "Graph Theory (graphs, trees, network algorithms)",
+                    "Complex Analysis (complex numbers, analytic functions)",
+                    "Differential Equations (ODEs, PDEs in ML contexts)",
+                    "Functional Analysis (Hilbert spaces, operators in ML)",
+                    "Measure Theory (Lebesgue integration, probability foundations)",
+                    "Topology (metric spaces, continuity in high dimensions)"
+                ],
+                goal: "Be able to derive ML algorithms from scratch, not just use them.",
+                outcome: "You'll understand how neural networks process data at the deepest level. If you see a linear regression equation, you know why it's exactly that way.",
+                practice: "Code exercises: Implement matrix operations from scratch, derive gradient descent, calculate entropy manually.",
+                progress: 0,
+                completed: false,
+                detailedContent: {
+                    linearAlgebra: {
+                        title: "Linear Algebra: The Language of ML",
+                        concepts: [
+                            {
+                                name: "Vectors and Vector Spaces",
+                                description: "Vectors are fundamental building blocks in ML. Understand vector operations, norms, and spaces.",
+                                math: "\\vec{v} = [v_1, v_2, ..., v_n]^T \\in \\mathbb{R}^n",
+                                details: "Vectors represent data points, features, and directions in ML. Key operations include addition, scalar multiplication, dot product, and cross product.",
+                                applications: "Used in word embeddings, feature vectors, neural network inputs/outputs"
+                            },
+                            {
+                                name: "Matrices and Matrix Operations",
+                                description: "Matrices represent linear transformations and data relationships.",
+                                math: "A \\in \\mathbb{R}^{m \\times n}, \\quad B \\in \\mathbb{R}^{n \\times p}, \\quad C = AB \\in \\mathbb{R}^{m \\times p}",
+                                details: "Matrix multiplication, transpose, inverse, and decomposition are essential for understanding neural networks and data transformations.",
+                                applications: "Weight matrices in neural networks, covariance matrices, data transformations"
+                            },
+                            {
+                                name: "Eigenvalues and Eigenvectors",
+                                description: "Special vectors that don't change direction under linear transformation.",
+                                math: "A\\vec{v} = \\lambda\\vec{v}",
+                                details: "Eigenvalues and eigenvectors reveal the fundamental properties of linear transformations and are crucial for PCA and understanding neural network behavior.",
+                                applications: "Principal Component Analysis (PCA), spectral clustering, stability analysis"
+                            },
+                            {
+                                name: "Singular Value Decomposition (SVD)",
+                                description: "Factorization of a matrix into three matrices.",
+                                math: "A = U\\Sigma V^T",
+                                details: "SVD is one of the most important matrix decompositions in ML, used for dimensionality reduction, recommendation systems, and understanding matrix structure.",
+                                applications: "Dimensionality reduction, collaborative filtering, image compression"
+                            },
+                            {
+                                name: "Matrix Calculus",
+                                description: "Derivatives involving matrices and vectors.",
+                                math: "\\frac{\\partial f}{\\partial X}, \\quad \\frac{\\partial \\vec{y}}{\\partial \\vec{x}}",
+                                details: "Essential for understanding backpropagation and optimization in neural networks. Includes gradients, Jacobians, and Hessians.",
+                                applications: "Backpropagation, gradient descent, neural network training"
+                            }
+                        ],
+                        exercises: [
+                            "Implement vector addition, subtraction, and scalar multiplication from scratch",
+                            "Code matrix multiplication without using built-in libraries",
+                            "Calculate eigenvalues and eigenvectors for a 2x2 matrix manually",
+                            "Implement SVD decomposition using power iteration method",
+                            "Compute gradients for matrix-valued functions"
+                        ]
+                    },
+                    probability: {
+                        title: "Probability & Statistics: The Foundation of Uncertainty",
+                        concepts: [
+                            {
+                                name: "Basic Probability Theory",
+                                description: "Fundamental concepts of probability and random variables.",
+                                math: "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)",
+                                details: "Understanding probability spaces, events, and random variables is essential for ML algorithms that deal with uncertainty.",
+                                applications: "Bayesian inference, probabilistic models, uncertainty quantification"
+                            },
+                            {
+                                name: "Probability Distributions",
+                                description: "Mathematical functions describing likelihood of outcomes.",
+                                math: "f(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}",
+                                details: "Normal, Bernoulli, Poisson, and exponential distributions are fundamental in ML for modeling data and noise.",
+                                applications: "Data modeling, noise modeling, generative models"
+                            },
+                            {
+                                name: "Bayes' Theorem",
+                                description: "Fundamental theorem for updating beliefs with evidence.",
+                                math: "P(A|B) = \\frac{P(B|A)P(A)}{P(B)}",
+                                details: "Bayes' theorem is the foundation of Bayesian inference and many ML algorithms including Naive Bayes and Bayesian neural networks.",
+                                applications: "Spam detection, medical diagnosis, Bayesian neural networks"
+                            },
+                            {
+                                name: "Expectation and Variance",
+                                description: "Measures of central tendency and spread.",
+                                math: "E[X] = \\sum x P(X=x), \\quad Var(X) = E[(X-E[X])^2]",
+                                details: "Understanding expectation and variance is crucial for analyzing ML algorithm performance and stability.",
+                                applications: "Loss functions, model evaluation, uncertainty estimation"
+                            },
+                            {
+                                name: "Maximum Likelihood Estimation",
+                                description: "Method for estimating parameters by maximizing likelihood.",
+                                math: "\\hat{\\theta} = \\arg\\max_\\theta P(X|\\theta)",
+                                details: "MLE is a fundamental parameter estimation technique used throughout ML for training models.",
+                                applications: "Parameter estimation in neural networks, statistical modeling"
+                            }
+                        ],
+                        exercises: [
+                            "Calculate probabilities for compound events using probability rules",
+                            "Implement probability distribution functions (normal, binomial, Poisson)",
+                            "Solve Bayesian inference problems manually",
+                            "Compute expectation and variance for different distributions",
+                            "Derive maximum likelihood estimators for simple models"
+                        ]
+                    },
+                    calculus: {
+                        title: "Calculus: The Mathematics of Change",
+                        concepts: [
+                            {
+                                name: "Derivatives and Gradients",
+                                description: "Rates of change and slopes in multiple dimensions.",
+                                math: "\\frac{df}{dx} = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+                                details: "Derivatives are fundamental for optimization algorithms and understanding how neural networks learn.",
+                                applications: "Gradient descent, backpropagation, sensitivity analysis"
+                            },
+                            {
+                                name: "Partial Derivatives",
+                                description: "Derivatives with respect to one variable while holding others constant.",
+                                math: "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1,...,x_i+h,...,x_n) - f(x_1,...,x_n)}{h}",
+                                details: "Essential for multivariate optimization and understanding neural network parameter updates.",
+                                applications: "Neural network training, multivariate optimization"
+                            },
+                            {
+                                name: "Chain Rule",
+                                description: "Rule for differentiating composite functions.",
+                                math: "\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}",
+                                details: "The chain rule is the mathematical foundation of backpropagation in neural networks.",
+                                applications: "Backpropagation, automatic differentiation"
+                            },
+                            {
+                                name: "Taylor Series",
+                                description: "Approximation of functions using polynomials.",
+                                math: "f(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + ...",
+                                details: "Taylor series are used for function approximation and understanding optimization landscapes.",
+                                applications: "Optimization algorithms, function approximation"
+                            },
+                            {
+                                name: "Multivariate Optimization",
+                                description: "Finding minima and maxima of functions with multiple variables.",
+                                math: "\\nabla f = \\left[\\frac{\\partial f}{\\partial x_1}, \\frac{\\partial f}{\\partial x_2}, ..., \\frac{\\partial f}{\\partial x_n}\\right]^T",
+                                details: "Optimization in multiple dimensions is essential for training neural networks and ML models.",
+                                applications: "Neural network training, hyperparameter optimization"
+                            }
+                        ],
+                        exercises: [
+                            "Compute derivatives of various functions manually",
+                            "Calculate partial derivatives for multivariate functions",
+                            "Apply chain rule to complex functions",
+                            "Find Taylor series expansions for common functions",
+                            "Solve multivariate optimization problems"
+                        ]
+                    },
+                    informationTheory: {
+                        title: "Information Theory: Quantifying Information",
+                        concepts: [
+                            {
+                                name: "Entropy",
+                                description: "Measure of uncertainty or information content.",
+                                math: "H(X) = -\\sum_{i=1}^{n} p_i \\log_2 p_i",
+                                details: "Entropy quantifies the uncertainty in a random variable and is fundamental for understanding information content.",
+                                applications: "Decision trees, feature selection, information bottleneck"
+                            },
+                            {
+                                name: "Cross-Entropy",
+                                description: "Measure of difference between probability distributions.",
+                                math: "H(p,q) = -\\sum_{i=1}^{n} p_i \\log_2 q_i",
+                                details: "Cross-entropy is widely used as a loss function in classification tasks and measures the difference between predicted and true distributions.",
+                                applications: "Classification loss functions, model evaluation"
+                            },
+                            {
+                                name: "KL-Divergence",
+                                description: "Measure of how one probability distribution differs from another.",
+                                math: "D_{KL}(P||Q) = \\sum_{i=1}^{n} P(i) \\log \\frac{P(i)}{Q(i)}",
+                                details: "KL-divergence measures the information loss when approximating one distribution with another.",
+                                applications: "Variational inference, model comparison, information bottleneck"
+                            },
+                            {
+                                name: "Mutual Information",
+                                description: "Measure of dependence between two random variables.",
+                                math: "I(X;Y) = \\sum_{y \\in Y} \\sum_{x \\in X} p(x,y) \\log \\frac{p(x,y)}{p(x)p(y)}",
+                                details: "Mutual information quantifies the amount of information obtained about one random variable by observing another.",
+                                applications: "Feature selection, information bottleneck, representation learning"
+                            }
+                        ],
+                        exercises: [
+                            "Calculate entropy for different probability distributions",
+                            "Compute cross-entropy between predicted and true distributions",
+                            "Calculate KL-divergence between distributions",
+                            "Find mutual information between variables",
+                            "Apply information theory concepts to feature selection"
+                        ]
+                    },
+                    optimization: {
+                        title: "Optimization Theory: Finding the Best Solution",
+                        concepts: [
+                            {
+                                name: "Gradient Descent",
+                                description: "Iterative optimization algorithm for finding local minima.",
+                                math: "\\theta_{t+1} = \\theta_t - \\alpha \\nabla f(\\theta_t)",
+                                details: "Gradient descent is the foundation of most ML optimization algorithms and neural network training.",
+                                applications: "Neural network training, linear regression, logistic regression"
+                            },
+                            {
+                                name: "Convex Optimization",
+                                description: "Optimization of convex functions over convex sets.",
+                                math: "f(\\lambda x + (1-\\lambda)y) \\leq \\lambda f(x) + (1-\\lambda)f(y)",
+                                details: "Convex optimization guarantees finding global minima and is fundamental for many ML algorithms.",
+                                applications: "Support Vector Machines, linear regression, logistic regression"
+                            },
+                            {
+                                name: "Lagrangian Multipliers",
+                                description: "Method for optimization with constraints.",
+                                math: "\\mathcal{L}(x,\\lambda) = f(x) + \\lambda g(x)",
+                                details: "Lagrangian multipliers allow optimization under constraints, essential for many ML problems.",
+                                applications: "Constrained optimization, SVM training, regularization"
+                            },
+                            {
+                                name: "Second-Order Methods",
+                                description: "Optimization using second derivative information.",
+                                math: "\\theta_{t+1} = \\theta_t - [H_f(\\theta_t)]^{-1} \\nabla f(\\theta_t)",
+                                details: "Newton's method and quasi-Newton methods use curvature information for faster convergence.",
+                                applications: "Fast optimization, Hessian-based methods"
+                            },
+                            {
+                                name: "Stochastic Optimization",
+                                description: "Optimization using random subsets of data.",
+                                math: "\\theta_{t+1} = \\theta_t - \\alpha \\nabla f_i(\\theta_t)",
+                                details: "Stochastic methods are essential for large-scale ML problems where full gradient computation is expensive.",
+                                applications: "Large-scale neural network training, online learning"
+                            }
+                        ],
+                        exercises: [
+                            "Implement gradient descent for simple functions",
+                            "Solve constrained optimization problems using Lagrangian multipliers",
+                            "Apply Newton's method to optimization problems",
+                            "Implement stochastic gradient descent",
+                            "Compare different optimization algorithms on test functions"
+                        ]
+                    },
+                    numericalMethods: {
+                        title: "Numerical Methods: Practical Computation",
+                        concepts: [
+                            {
+                                name: "Floating Point Arithmetic",
+                                description: "Representation and computation with real numbers in computers.",
+                                math: "x = \\pm (1 + f) \\times 2^e",
+                                details: "Understanding floating point representation is crucial for numerical stability in ML algorithms.",
+                                applications: "Numerical stability, precision handling"
+                            },
+                            {
+                                name: "Numerical Stability",
+                                description: "Ensuring algorithms produce accurate results despite computational errors.",
+                                details: "Numerical stability is essential for reliable ML implementations, especially in deep learning.",
+                                applications: "Neural network training, matrix operations"
+                            },
+                            {
+                                name: "Matrix Factorization",
+                                description: "Decomposing matrices into simpler components.",
+                                math: "A = LU, \\quad A = QR, \\quad A = U\\Sigma V^T",
+                                details: "Matrix factorizations are fundamental for solving linear systems and dimensionality reduction.",
+                                applications: "Linear systems, dimensionality reduction, recommendation systems"
+                            },
+                            {
+                                name: "Numerical Integration",
+                                description: "Approximating definite integrals computationally.",
+                                math: "\\int_a^b f(x)dx \\approx \\sum_{i=1}^{n} w_i f(x_i)",
+                                details: "Numerical integration is used in various ML contexts including Bayesian inference and physics-informed ML.",
+                                applications: "Bayesian inference, expected value computation"
+                            }
+                        ],
+                        exercises: [
+                            "Implement floating point operations and analyze precision",
+                            "Test numerical stability of different algorithms",
+                            "Implement matrix factorization methods",
+                            "Code numerical integration techniques",
+                            "Analyze conditioning of matrices"
+                        ]
+                    }
+                }
+            },
+            {
+                id: 2,
+                title: "Core Machine Learning Algorithms",
+                description: "Master classical ML algorithms and their applications",
+                icon: "brain",
+                topics: [
+                    "Linear Regression, Logistic Regression",
+                    "Decision Trees, Random Forests",
+                    "SVMs",
+                    "k-NN, k-Means, DBSCAN",
+                    "PCA, dimensionality reduction",
+                    "Naive Bayes, HMMs, Bayesian inference"
+                ],
+                goal: "Understand when/why these beat deep learning (e.g. small data, explainability).",
+                outcome: "You're not guessing - you're calculating. Know which tool to pick for small data, explainable models, or edge cases where deep learning is overkill.",
+                practice: "Projects: Build each algorithm from NumPy, compare performance on real datasets, analyze trade-offs.",
+                progress: 0,
+                completed: false
+            },
+            {
+                id: 3,
+                title: "Deep Learning Foundations",
+                description: "Dive into neural networks and modern deep learning",
+                icon: "target",
+                topics: [
+                    "Neural Networks (MLP, forward/backprop, activation functions)",
+                    "Optimization tricks (SGD, Adam, learning rate schedules, regularization, dropout)",
+                    "CNNs (vision)",
+                    "RNNs, LSTMs, GRUs (sequences)",
+                    "Transformers (attention, BERT, GPT, vision transformers)",
+                    "Autoencoders, GANs, Diffusion Models"
+                ],
+                goal: "Know architectures so well you can implement one from scratch in PyTorch/TensorFlow.",
+                outcome: "Can implement a network from scratch, not just call model.fit(). You know how each weight updates, why gradients vanish, why batch norm helps.",
+                practice: "Code: Build MLP from NumPy, implement backprop manually, recreate CNN/RNN architectures, experiment with attention mechanisms.",
+                progress: 0,
+                completed: false
+            },
+            {
+                id: 4,
+                title: "Practical ML Engineering",
+                description: "Learn to build and deploy production ML systems",
+                icon: "settings",
+                topics: [
+                    "ML Pipelines: Data preprocessing, feature engineering",
+                    "Model Evaluation: Precision/recall, F1, ROC, AUC, cross-validation",
+                    "Deployment: Serving models with Flask/FastAPI, Docker, Kubernetes",
+                    "Scalability: Distributed training (PyTorch DDP, Horovod, Ray)",
+                    "MLOps: Experiment tracking (MLflow, Weights & Biases), CI/CD for ML"
+                ],
+                goal: "You're not just training models, you're running production-grade systems.",
+                outcome: "Can turn research ideas into production-grade systems, not just academic exercises. You're shipping code that people can actually use.",
+                practice: "Build end-to-end: Data pipeline → model training → API deployment → monitoring. Containerize models, set up CI/CD.",
+                progress: 0,
+                completed: false
+            },
+            {
+                id: 5,
+                title: "Specialized Domains",
+                description: "Explore advanced ML applications and specializations",
+                icon: "rocket",
+                topics: [
+                    "NLP: Transformers, LLM finetuning, embeddings, retrieval-augmented generation",
+                    "Computer Vision: Object detection, segmentation, video analysis",
+                    "Reinforcement Learning: Q-learning, policy gradients, PPO",
+                    "Graph ML: GNNs, knowledge graphs",
+                    "Generative AI: Music, images, 3D, multi-modal"
+                ],
+                goal: "Be able to pivot into any ML subfield.",
+                outcome: "You can pivot into any subfield of ML, and tackle specialized projects confidently.",
+                practice: "Choose one domain: Fine-tune LLMs, build object detection, train RL agents, implement GNNs, or create generative models.",
+                progress: 0,
+                completed: false
+            },
+            {
+                id: 6,
+                title: "Research & Beyond",
+                description: "Contribute to the field and stay at the cutting edge",
+                icon: "microscope",
+                topics: [
+                    "Read ML papers (NeurIPS, ICML, ICLR, CVPR)",
+                    "Reproduce state-of-the-art results",
+                    "Innovate new architectures/losses/optimizers",
+                    "Contribute to open-source ML projects"
+                ],
+                goal: "Transition from 'student of ML' → 'builder of ML'.",
+                outcome: "You're now creating ML knowledge, not just consuming it. You go from 'student' → 'innovator'.",
+                practice: "Read 1 paper/week, reproduce SOTA results, experiment with novel architectures, contribute to PyTorch/TensorFlow.",
+                progress: 0,
+                completed: false
+            }
+        ];
+
+        let phases = [...phasesData];
+        let currentTab = 'phase1';
+
+        // Load progress from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('ai-ml-progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                phases = phases.map(phase => {
+                    const savedPhase = data.phases.find(p => p.id === phase.id);
+                    return savedPhase ? { ...phase, progress: savedPhase.progress, completed: savedPhase.completed } : phase;
+                });
+                
+                if (data.lastSaved) {
+                    document.getElementById('lastSaved').style.display = 'block';
+                    document.getElementById('savedTime').textContent = new Date(data.lastSaved).toLocaleString();
+                }
+            }
+            renderApp();
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            const data = {
+                phases: phases.map(({ id, progress, completed }) => ({ id, progress, completed })),
+                lastSaved: new Date().toISOString()
+            };
+            localStorage.setItem('ai-ml-progress', JSON.stringify(data));
+            
+            document.getElementById('lastSaved').style.display = 'block';
+            document.getElementById('savedTime').textContent = new Date(data.lastSaved).toLocaleString();
+            
+            // Show save confirmation
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Saved!';
+            button.classList.add('bg-green-600');
+            button.classList.remove('bg-blue-600');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-blue-600');
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        // Toggle phase completion
+        function togglePhaseCompletion(phaseId) {
+            phases = phases.map(phase => 
+                phase.id === phaseId 
+                    ? { 
+                        ...phase, 
+                        completed: !phase.completed,
+                        progress: !phase.completed ? 100 : 0
+                      }
+                    : phase
+            );
+            renderApp();
+        }
+
+        // Update phase progress
+        function updateProgress(phaseId, delta) {
+            phases = phases.map(phase => 
+                phase.id === phaseId 
+                    ? { 
+                        ...phase, 
+                        progress: Math.max(0, Math.min(100, phase.progress + delta)),
+                        completed: phase.progress + delta >= 100
+                      }
+                    : phase
+            );
+            renderApp();
+        }
+
+        // Switch tab
+        function switchTab(tabId) {
+            currentTab = tabId;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Calculate overall progress
+        function getOverallProgress() {
+            return phases.reduce((sum, phase) => sum + phase.progress, 0) / phases.length;
+        }
+
+        // Render phase cards
+        function renderPhaseCards() {
+            const container = document.getElementById('phaseCards');
+            container.innerHTML = phases.map(phase => {
+                // Determine link for each phase
+                const phaseLink = `phase-${phase.id}.html`;
+                return `
+                    <a href="${phaseLink}" class="block focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg group">
+                        <div class="phase-card bg-white rounded-lg shadow-lg p-6 ${phase.completed ? 'ring-2 ring-green-500' : ''} group-hover:shadow-xl group-hover:-translate-y-1 transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-lg ${phase.completed ? 'bg-green-100 text-green-600' : 'bg-blue-100 text-blue-600'}">
+                                        <i data-lucide="${phase.icon}" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Phase ${phase.id}</h3>
+                                        <p class="text-sm text-gray-600">${phase.title}</p>
+                                    </div>
+                                </div>
+                                <button onclick="event.preventDefault();togglePhaseCompletion(${phase.id})" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                                    ${phase.completed 
+                                        ? '<i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>' 
+                                        : '<i data-lucide="circle" class="w-5 h-5 text-gray-400"></i>'
+                                    }
+                                </button>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 mb-4">${phase.description}</p>
+                            
+                            <div class="space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span>Progress</span>
+                                    <span>${phase.progress}%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full transition-all duration-300" style="width: ${phase.progress}%"></div>
+                                </div>
+                                
+                                <div class="space-y-1">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm font-medium">Topics:</span>
+                                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">${phase.topics.length}</span>
+                                    </div>
+                                    <div class="text-xs text-gray-500 space-y-1">
+                                        ${phase.topics.slice(0, 3).map((topic, index) => `
+                                            <div class="flex items-center gap-1">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                ${topic}
+                                            </div>
+                                        `).join('')}
+                                        ${phase.topics.length > 3 ? `<div class="text-gray-400">+${phase.topics.length - 3} more topics...</div>` : ''}
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-2 border-t">
+                                    <p class="text-sm font-medium text-gray-700">📚 Goal:</p>
+                                    <p class="text-xs text-gray-600 mt-1">${phase.goal}</p>
+                                    <div class="mt-2 p-2 bg-green-50 rounded border-l-2 border-green-400">
+                                        <p class="text-xs font-medium text-green-800">🎯 Outcome:</p>
+                                        <p class="text-xs text-green-700">${phase.outcome}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        // Render tab navigation
+        function renderTabNavigation() {
+            const container = document.getElementById('tabNavigation');
+            container.innerHTML = phases.map(phase => `
+                <button onclick="switchTab('phase${phase.id}')" 
+                        class="tab-button px-3 py-2 text-xs rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors ${currentTab === `phase${phase.id}` ? 'active' : ''}"
+                        data-tab="phase${phase.id}">
+                    Phase ${phase.id}
+                </button>
+            `).join('');
+        }
+
+        // Render detailed content for Phase 1
+        function renderPhase1DetailedContent() {
+            const phase = phases[0];
+            const detailedContent = phase.detailedContent;
+            
+            return `
+                <div class="space-y-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-lg ${phase.completed ? 'bg-green-100 text-green-600' : 'bg-blue-100 text-blue-600'}">
+                            <i data-lucide="${phase.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">${phase.title}</h3>
+                            <p class="text-gray-600">${phase.description}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                        <h4 class="font-semibold text-blue-800 mb-2">🎯 Learning Goal</h4>
+                        <p class="text-blue-700">${phase.goal}</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                        <h4 class="font-semibold text-green-800 mb-2">✅ Expected Outcome</h4>
+                        <p class="text-green-700">${phase.outcome}</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                        <h4 class="font-semibold text-purple-800 mb-2">💻 Hands-on Practice</h4>
+                        <p class="text-purple-700">${phase.practice}</p>
+                    </div>
+                    
+                    <!-- Linear Algebra Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="calculator" class="w-5 h-5 text-blue-600"></i>
+                            ${detailedContent.linearAlgebra.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.linearAlgebra.concepts.map(concept => `
+                                <div class="border-l-4 border-blue-200 pl-4">
+                                    <h5 class="font-semibold text-blue-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    <div class="math-content">
+                                        <p class="text-sm font-mono">${concept.math}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.linearAlgebra.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Probability & Statistics Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="bar-chart" class="w-5 h-5 text-green-600"></i>
+                            ${detailedContent.probability.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.probability.concepts.map(concept => `
+                                <div class="border-l-4 border-green-200 pl-4">
+                                    <h5 class="font-semibold text-green-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    <div class="math-content">
+                                        <p class="text-sm font-mono">${concept.math}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.probability.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Calculus Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-purple-600"></i>
+                            ${detailedContent.calculus.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.calculus.concepts.map(concept => `
+                                <div class="border-l-4 border-purple-200 pl-4">
+                                    <h5 class="font-semibold text-purple-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    <div class="math-content">
+                                        <p class="text-sm font-mono">${concept.math}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.calculus.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Information Theory Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="info" class="w-5 h-5 text-indigo-600"></i>
+                            ${detailedContent.informationTheory.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.informationTheory.concepts.map(concept => `
+                                <div class="border-l-4 border-indigo-200 pl-4">
+                                    <h5 class="font-semibold text-indigo-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    <div class="math-content">
+                                        <p class="text-sm font-mono">${concept.math}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.informationTheory.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Optimization Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-600"></i>
+                            ${detailedContent.optimization.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.optimization.concepts.map(concept => `
+                                <div class="border-l-4 border-yellow-200 pl-4">
+                                    <h5 class="font-semibold text-yellow-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    <div class="math-content">
+                                        <p class="text-sm font-mono">${concept.math}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.optimization.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Numerical Methods Section -->
+                    <div class="concept-card">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-5 h-5 text-red-600"></i>
+                            ${detailedContent.numericalMethods.title}
+                        </h4>
+                        <div class="space-y-4">
+                            ${detailedContent.numericalMethods.concepts.map(concept => `
+                                <div class="border-l-4 border-red-200 pl-4">
+                                    <h5 class="font-semibold text-red-800">${concept.name}</h5>
+                                    <p class="text-sm text-gray-600 mb-2">${concept.description}</p>
+                                    ${concept.math ? `
+                                        <div class="math-content">
+                                            <p class="text-sm font-mono">${concept.math}</p>
+                                        </div>
+                                    ` : ''}
+                                    <p class="text-sm text-gray-700 mb-2">${concept.details}</p>
+                                    <div class="bg-gray-50 p-2 rounded text-xs">
+                                        <strong>Applications:</strong> ${concept.applications}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="exercise-box">
+                                <h5 class="font-semibold text-orange-800 mb-2">📝 Exercises</h5>
+                                <ul class="text-sm text-orange-700 space-y-1">
+                                    ${detailedContent.numericalMethods.exercises.map(exercise => `
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-orange-500 mt-1">•</span>
+                                            ${exercise}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Tracking -->
+                    <div class="bg-white border rounded-lg p-4">
+                        <h4 class="font-semibold mb-3">Progress Tracking</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span>${phase.progress}%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full transition-all duration-300" style="width: ${phase.progress}%"></div>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <button onclick="updateProgress(${phase.id}, 10)" 
+                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                    +10%
+                                </button>
+                                <button onclick="updateProgress(${phase.id}, 25)" 
+                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                    +25%
+                                </button>
+                                <button onclick="updateProgress(${phase.id}, -10)" 
+                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                    -10%
+                                </button>
+                                <button onclick="updateProgress(${phase.id}, -25)" 
+                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                    -25%
+                                </button>
+                                <button onclick="togglePhaseCompletion(${phase.id})" 
+                                        class="px-3 py-1 text-sm rounded-lg transition-colors ${phase.completed ? 'border border-gray-300 hover:bg-gray-50' : 'bg-blue-600 text-white hover:bg-blue-700'}">
+                                    ${phase.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render tab content
+        function renderTabContent() {
+            const container = document.getElementById('tabContent');
+            container.innerHTML = phases.map(phase => {
+                if (phase.id === 1) {
+                    return `
+                        <div id="phase${phase.id}" class="tab-content ${currentTab === `phase${phase.id}` ? 'active' : ''}">
+                            ${renderPhase1DetailedContent()}
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div id="phase${phase.id}" class="tab-content ${currentTab === `phase${phase.id}` ? 'active' : ''}">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="p-3 rounded-lg ${phase.completed ? 'bg-green-100 text-green-600' : 'bg-blue-100 text-blue-600'}">
+                                    <i data-lucide="${phase.icon}" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold">${phase.title}</h3>
+                                    <p class="text-gray-600">${phase.description}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                                        Topics to Master
+                                    </h4>
+                                    <div class="space-y-2">
+                                        ${phase.topics.map((topic, index) => `
+                                            <div class="flex items-start gap-2 text-sm">
+                                                <div class="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>${topic}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-semibold mb-3 flex items-center gap-2">
+                                        <i data-lucide="target" class="w-4 h-4"></i>
+                                        Learning Goal
+                                    </h4>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <p class="text-sm text-blue-800">${phase.goal}</p>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                        <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                            <i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i>
+                                            Expected Outcome
+                                        </h4>
+                                        <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                                            <p class="text-sm text-green-800">${phase.outcome}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <h4 class="font-semibold mb-2 flex items-center gap-2">
+                                            <i data-lucide="code" class="w-4 h-4 text-purple-600"></i>
+                                            Hands-on Practice
+                                        </h4>
+                                        <div class="bg-purple-50 p-3 rounded-lg border-l-4 border-purple-400">
+                                            <p class="text-sm text-purple-800">${phase.practice}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <h4 class="font-semibold mb-3">Progress Tracking</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex justify-between text-sm">
+                                                <span>Completion</span>
+                                                <span>${phase.progress}%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full transition-all duration-300" style="width: ${phase.progress}%"></div>
+                                            </div>
+                                            <div class="flex gap-2 flex-wrap">
+                                                <button onclick="updateProgress(${phase.id}, 25)" 
+                                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                                    +25%
+                                                </button>
+                                                <button onclick="updateProgress(${phase.id}, -25)" 
+                                                        class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                                    -25%
+                                                </button>
+                                                <button onclick="togglePhaseCompletion(${phase.id})" 
+                                                        class="px-3 py-1 text-sm rounded-lg transition-colors ${phase.completed ? 'border border-gray-300 hover:bg-gray-50' : 'bg-blue-600 text-white hover:bg-blue-700'}">
+                                                    ${phase.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+
+        // Update overall progress
+        function updateOverallProgress() {
+            const overallProgress = getOverallProgress();
+            document.getElementById('overallProgress').textContent = `${Math.round(overallProgress)}%`;
+            document.getElementById('overallProgressBar').style.width = `${overallProgress}%`;
+        }
+
+        // Render entire application
+        function renderApp() {
+            renderPhaseCards();
+            renderTabNavigation();
+            renderTabContent();
+            updateOverallProgress();
+            
+            // Re-initialize Lucide icons for dynamically added content
+            lucide.createIcons();
+            
+            // Re-initialize MathJax for mathematical content
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+        });
+
+        // Configure MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</body>
+</html>
