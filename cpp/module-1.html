@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: C++ Fundamentals - Complete Mastery Guide</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --code-bg: #2d3748;
+            --code-text: #e2e8f0;
+            --sidebar-bg: #34495e;
+            --sidebar-text: #ecf0f1;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 20px;
+            overflow-y: scroll;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: var(--sidebar-text);
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+            flex: 1;
+            max-width: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .module {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .module-header .toggle {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .module-header.active .toggle {
+            transform: rotate(180deg);
+        }
+
+        .module-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        .topic {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .topic h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .example {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .example h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .note h4 {
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .warning h4 {
+            color: #721c24;
+            margin-bottom: 5px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .difficulty.beginner {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz {
+            background: #f0f8ff;
+            border: 1px solid #b8daff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .quiz h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            margin-left: 20px;
+        }
+
+        .quiz-option {
+            margin: 5px 0;
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+        }
+
+        .quiz-button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .quiz-button:hover {
+            background: var(--primary-color);
+        }
+
+        .quiz-result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .quiz-result.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .quiz-result.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .exercise {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .exercise h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .exercise-button {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .exercise-button:hover {
+            background: #219653;
+        }
+
+        .exercise-solution {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f1f8e9;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-color);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .interactive-terminal {
+            background: #1e1e1e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .terminal-header {
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .terminal-button.close {
+            background: #ff5f56;
+        }
+
+        .terminal-button.minimize {
+            background: #ffbd2e;
+        }
+
+        .terminal-button.maximize {
+            background: #27c93f;
+        }
+
+        .terminal-title {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.8em;
+        }
+
+        .terminal-body {
+            padding: 10px;
+        }
+
+        .terminal-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .terminal-prompt {
+            color: #27c93f;
+            margin-right: 5px;
+        }
+
+        .terminal-command {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: 'Courier New', monospace;
+            outline: none;
+        }
+
+        .key-concept {
+            background: #e3f2fd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .key-concept h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .learning-path {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .learning-step {
+            flex: 1;
+            min-width: 200px;
+            margin: 5px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .learning-step.completed {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+        }
+
+        .learning-step.active {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Module 1: C++ Fundamentals</h2>
+            <ul>
+                <li><a href="#introduction">1.1 Introduction to C++</a></li>
+                <li><a href="#program-structure">1.2 Basic Program Structure</a></li>
+                <li><a href="#input-output">1.3 Basic Input/Output</a></li>
+                <li><a href="#compilation">1.4 Compilation Process</a></li>
+                <li><a href="#quiz-section">Knowledge Check</a></li>
+                <li><a href="#exercises">Practical Exercises</a></li>
+                <li><a href="#resources">Additional Resources</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Module 1: C++ Fundamentals</h1>
+                <p>Complete Mastery Guide - From Zero to Hero</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+                <p>Learning Progress: <span id="progressText">0%</span></p>
+            </div>
+
+            <div class="learning-path">
+                <div class="learning-step active" id="step1">
+                    <div class="step-number">1</div>
+                    <h4>Learn Theory</h4>
+                    <p>Study the fundamental concepts</p>
+                </div>
+                <div class="learning-step" id="step2">
+                    <div class="step-number">2</div>
+                    <h4>Answer Questions</h4>
+                    <p>Test your understanding</p>
+                </div>
+                <div class="learning-step" id="step3">
+                    <div class="step-number">3</div>
+                    <h4>Practice Coding</h4>
+                    <p>Implement what you've learned</p>
+                </div>
+                <div class="learning-step" id="step4">
+                    <div class="step-number">4</div>
+                    <h4>Master the Module</h4>
+                    <p>Complete all challenges</p>
+                </div>
+            </div>
+
+            <!-- 1.1 Introduction to C++ -->
+            <div class="module" id="introduction">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>1.1 Introduction to C++ <span class="difficulty beginner">Beginner</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content active">
+                    <div class="topic">
+                        <h3>What is C++?</h3>
+                        <p>C++ is a powerful general-purpose programming language created by Bjarne Stroustrup at Bell Labs in 1979. It was developed as an extension of the C programming language, originally named "C with Classes" before being renamed C++ in 1983.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Key Concept: The Evolution of C++</h4>
+                            <p>C++ has evolved through several major standards, each adding new features and improvements:</p>
+                            <ul>
+                                <li><strong>C++98</strong> (1998): First standardized version</li>
+                                <li><strong>C++03</strong> (2003): Minor bug fixes</li>
+                                <li><strong>C++11</strong> (2011): Major update with modern features</li>
+                                <li><strong>C++14</strong> (2014): Incremental improvements</li>
+                                <li><strong>C++17</strong> (2017): More features and library updates</li>
+                                <li><strong>C++20</strong> (2020): Concepts, modules, coroutines</li>
+                                <li><strong>C++23</strong> (2023): Latest standard with new features</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>First C++ Program - "Hello, World!"</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="interactive-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimize"></div>
+                                <div class="terminal-button maximize"></div>
+                                <div class="terminal-title">Terminal</div>
+                            </div>
+                            <div class="terminal-body">
+                                <div>$ g++ hello.cpp -o hello</div>
+                                <div>$ ./hello</div>
+                                <div>Hello, World!</div>
+                                <div>$</div>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Understanding the "Hello, World!" Program</h4>
+                            <ul>
+                                <li><code>#include &lt;iostream&gt;</code> - Includes the input/output stream library</li>
+                                <li><code>int main()</code> - The main function where program execution begins</li>
+                                <li><code>std::cout</code> - Standard character output stream (usually the console)</li>
+                                <li><code>&lt;&lt;</code> - Stream insertion operator</li>
+                                <li><code>std::endl</code> - Inserts a newline and flushes the output buffer</li>
+                                <li><code>return 0;</code> - Indicates successful program execution</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Why Learn C++?</h3>
+                        <p>C++ remains one of the most popular programming languages for several reasons:</p>
+                        
+                        <div class="key-concept">
+                            <h4>Key Advantages of C++</h4>
+                            <ul>
+                                <li><strong>Performance</strong>: C++ offers near-hardware level performance, making it ideal for system programming, game development, and high-performance applications.</li>
+                                <li><strong>Control</strong>: Provides fine-grained control over system resources, especially memory management.</li>
+                                <li><strong>Object-Oriented Programming</strong>: Supports OOP principles like encapsulation, inheritance, and polymorphism.</li>
+                                <li><strong>Generic Programming</strong>: Templates allow writing code that works with different data types.</li>
+                                <li><strong>Large Ecosystem</strong>: Extensive libraries, frameworks, and tools available.</li>
+                                <li><strong>Industry Standard</strong>: Widely used in industries like gaming, finance, embedded systems, and high-frequency trading.</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Real-World Applications of C++</h4>
+                            <ul>
+                                <li><strong>Operating Systems</strong>: Parts of Windows, macOS, and Linux are written in C++</li>
+                                <li><strong>Game Development</strong>: Unreal Engine, Unity (parts), and many game studios use C++</li>
+                                <li><strong>Web Browsers</strong>: Chrome, Firefox, and Safari use C++ for performance-critical components</li>
+                                <li><strong>Databases</strong>: MySQL, MongoDB, and PostgreSQL are built with C++</li>
+                                <li><strong>Scientific Computing</strong>: Used in simulations, data analysis, and research</li>
+                                <li><strong>Embedded Systems</strong>: Automotive systems, IoT devices, and industrial controllers</li>
+                                <li><strong>Financial Systems</strong>: High-frequency trading platforms and banking systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>C++ Programming Paradigms</h3>
+                        <p>C++ is a multi-paradigm language, supporting several programming styles:</p>
+                        
+                        <div class="key-concept">
+                            <h4>Programming Paradigms in C++</h4>
+                            <ul>
+                                <li><strong>Procedural Programming</strong>: C++ retains all features of C, allowing procedural programming with functions and structured code.</li>
+                                <li><strong>Object-Oriented Programming (OOP)</strong>: C++ was originally designed to add OOP features to C, including classes, objects, inheritance, and polymorphism.</li>
+                                <li><strong>Generic Programming</strong>: Templates allow writing code that works with multiple data types without being rewritten for each type.</li>
+                                <li><strong>Functional Programming</strong>: Modern C++ (C++11 and later) includes features like lambda expressions that support functional programming concepts.</li>
+                                <li><strong>Metaprogramming</strong>: Template metaprogramming allows computation at compile-time, enabling powerful optimizations and code generation.</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Example: Different Paradigms in C++</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;functional&gt;
+
+// Procedural approach
+int add_procedural(int a, int b) {
+    return a + b;
+}
+
+// Object-Oriented approach
+class Calculator {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+};
+
+// Generic approach
+template&lt;typename T&gt;
+T add_generic(T a, T b) {
+    return a + b;
+}
+
+// Functional approach (C++11)
+int main() {
+    // Procedural
+    int result1 = add_procedural(5, 3);
+    
+    // Object-Oriented
+    Calculator calc;
+    int result2 = calc.add(5, 3);
+    
+    // Generic
+    int result3 = add_generic(5, 3);
+    double result4 = add_generic(5.5, 3.3);
+    
+    // Functional with lambda
+    auto add_lambda = [](int a, int b) { return a + b; };
+    int result5 = add_lambda(5, 3);
+    
+    std::cout &lt;&lt; "Results: " &lt;&lt; result1 &lt;&lt ", " &lt;&lt; result2 &lt;&lt ", " 
+              &lt;&lt; result3 &lt;&lt ", " &lt;&lt; result4 &lt;&lt ", " &lt;&lt; result5 &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>C++ vs Other Languages</h3>
+                        <p>Understanding how C++ compares to other popular programming languages helps in choosing the right tool for the job.</p>
+                        
+                        <div class="key-concept">
+                            <h4>C++ vs C</h4>
+                            <ul>
+                                <li>C++ is a superset of C (with minor exceptions)</li>
+                                <li>C++ adds object-oriented features not present in C</li>
+                                <li>C++ includes exception handling, templates, and other modern features</li>
+                                <li>C++ has stronger type checking than C</li>
+                                <li>C code can generally be compiled with a C++ compiler</li>
+                            </ul>
+                        </div>
+
+                        <div class="key-concept">
+                            <h4>C++ vs Java</h4>
+                            <ul>
+                                <li>C++ is compiled to machine code; Java is compiled to bytecode that runs on a virtual machine</li>
+                                <li>C++ allows manual memory management; Java uses garbage collection</li>
+                                <li>C++ supports multiple inheritance; Java supports single inheritance with interfaces</li>
+                                <li>C++ has templates; Java has generics</li>
+                                <li>C++ generally offers better performance; Java offers better portability</li>
+                            </ul>
+                        </div>
+
+                        <div class="key-concept">
+                            <h4>C++ vs Python</h4>
+                            <ul>
+                                <li>C++ is statically typed; Python is dynamically typed</li>
+                                <li>C++ is compiled; Python is interpreted</li>
+                                <li>C++ requires explicit memory management; Python uses garbage collection</li>
+                                <li>C++ is much faster for computation-intensive tasks</li>
+                                <li>Python is generally easier to learn and write</li>
+                                <li>C++ is used for performance-critical code; Python is often used for scripting and rapid development</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning">
+                            <h4>When to Choose C++</h4>
+                            <p>Choose C++ when you need:
+                            <ul>
+                                <li>Maximum performance and efficiency</li>
+                                <li>Direct hardware access and low-level control</li>
+                                <li>Object-oriented design with performance</li>
+                                <li>System programming or embedded development</li>
+                                <li>Game development or graphics programming</li>
+                                <li>High-frequency trading or financial applications</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.2 Basic Program Structure -->
+            <div class="module" id="program-structure">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>1.2 Basic Program Structure <span class="difficulty beginner">Beginner</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="topic">
+                        <h3>Anatomy of a C++ Program</h3>
+                        <p>Every C++ program follows a basic structure that consists of several key components. Understanding these components is essential for writing and reading C++ code.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Basic Components of a C++ Program</h4>
+                            <ol>
+                                <li><strong>Preprocessor Directives</strong>: Instructions processed before compilation (e.g., #include)</li>
+                                <li><strong>Namespaces</strong>: Used to avoid naming conflicts (e.g., using namespace std;)</li>
+                                <li><strong>Function Declarations/Definitions</strong>: Blocks of code that perform specific tasks</li>
+                                <li><strong>Variables</strong>: Named storage locations for data</li>
+                                <li><strong>Statements</strong>: Instructions that perform actions</li>
+                                <li><strong>Expressions</strong>: Combinations of values, variables, and operators</li>
+                                <li><strong>Comments</strong>: Explanatory text ignored by the compiler</li>
+                            </ol>
+                        </div>
+
+                        <div class="example">
+                            <h4>Complete Program Structure Example</h4>
+                            <div class="code-block">
+                                <pre>// Preprocessor directive to include input/output stream library
+#include &lt;iostream&gt;
+
+// Using directive to avoid typing std:: before standard library features
+using namespace std;
+
+// Function declaration
+void greet();
+
+// Global variable (can be accessed by any function)
+int globalVar = 100;
+
+// Main function - program entry point
+int main() {
+    // Local variable (only accessible within main)
+    int localVar = 50;
+    
+    // Output statement
+    cout &lt;&lt; "Global variable: " &lt;&lt; globalVar &lt;&lt; endl;
+    cout &lt;&lt; "Local variable: " &lt;&lt; localVar &lt;&lt; endl;
+    
+    // Function call
+    greet();
+    
+    // Return statement indicating successful execution
+    return 0;
+}
+
+// Function definition
+void greet() {
+    cout &lt;&lt; "Hello from the greet function!" &lt;&lt; endl;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Preprocessor Directives</h3>
+                        <p>Preprocessor directives are instructions that are processed before the actual compilation of the code begins. They all start with a hash symbol (#).</p>
+                        
+                        <div class="key-concept">
+                            <h4>Common Preprocessor Directives</h4>
+                            <ul>
+                                <li><code>#include</code>: Includes the contents of a file (header or source)</li>
+                                <li><code>#define</code>: Defines a macro or symbolic constant</li>
+                                <li><code>#undef</code>: Undefines a macro</li>
+                                <li><code>#ifdef</code>: Checks if a macro is defined</li>
+                                <li><code>#ifndef</code>: Checks if a macro is not defined</li>
+                                <li><code>#endif</code>: Ends a conditional block</li>
+                                <li><code>#if</code>: Conditional compilation</li>
+                                <li><code>#else</code>: Alternative for #if</li>
+                                <li><code>#elif</code>: Else if for #if</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Preprocessor Directives Examples</h4>
+                            <div class="code-block">
+                                <pre>// Including standard library headers
+#include &lt;iostream&gt;     // Input/output stream
+#include &lt;string&gt;       // String manipulation
+#include &lt;vector&gt;       // Dynamic array container
+
+// Including custom headers
+#include "myheader.h"    // Custom header file
+
+// Defining constants
+#define PI 3.14159
+#define MAX_SIZE 100
+
+// Conditional compilation
+#define DEBUG_MODE 1
+
+#ifdef DEBUG_MODE
+    cout &lt;&lt; "Debug mode is enabled" &lt;&lt; endl;
+#endif
+
+// Header guards to prevent multiple inclusion
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
+// Header content goes here
+
+#endif // MYHEADER_H</pre>
+                            </div>
+                        </div>
+
+                        <div class="warning">
+                            <h4>Header Guards</h4>
+                            <p>Header guards are essential to prevent multiple inclusion of the same header file, which can cause compilation errors due to redefinition of types, functions, or variables. The pattern <code>#ifndef ... #define ... #endif</code> is the traditional way to implement header guards.</p>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Namespaces</h3>
+                        <p>Namespaces are used to organize code into logical groups and to prevent name collisions that can occur especially when your code base includes multiple libraries.</p>
+                        
+                        <div class="key-concept">
+                            <h4>The std Namespace</h4>
+                            <p>The C++ standard library is defined in the <code>std</code> namespace. When you use standard library features, you need to either:</p>
+                            <ol>
+                                <li>Prefix them with <code>std::</code></li>
+                                <li>Use a <code>using</code> declaration for specific items</li>
+                                <li>Use a <code>using namespace std;</code> directive (not recommended in headers)</li>
+                            </ol>
+                        </div>
+
+                        <div class="example">
+                            <h4>Namespace Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+// Method 1: Using std:: prefix
+int main() {
+    std::cout &lt;&lt; "Hello with std:: prefix" &lt;&lt; std::endl;
+    return 0;
+}
+
+// Method 2: Using declaration
+#include &lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int main() {
+    cout &lt;&lt; "Hello with using declaration" &lt;&lt; endl;
+    return 0;
+}
+
+// Method 3: Using directive (not recommended for headers)
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello with using directive" &lt;&lt; endl;
+    return 0;
+}
+
+// Creating custom namespaces
+namespace Math {
+    const double PI = 3.14159;
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+namespace Physics {
+    const double GRAVITY = 9.81;
+    double calculateForce(double mass, double acceleration) {
+        return mass * acceleration;
+    }
+}
+
+int main() {
+    // Using custom namespaces
+    double sum = Math::add(5.5, 3.3);
+    double force = Physics::calculateForce(10.0, 2.0);
+    
+    std::cout &lt;&lt; "Sum: " &lt;&lt; sum &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Force: " &lt;&lt; force &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Best Practices for Namespaces</h4>
+                            <ul>
+                                <li>In header files, always use the explicit <code>std::</code> prefix to avoid namespace pollution</li>
+                                <li>In implementation files, you can use <code>using</code> declarations for frequently used standard library features</li>
+                                <li>Avoid <code>using namespace std;</code> in header files as it affects all files that include the header</li>
+                                <li>Create your own namespaces for your libraries to avoid conflicts with other code</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>The main() Function</h3>
+                        <p>The <code>main()</code> function is the entry point of every C++ program. When the operating system runs your program, it starts by calling the <code>main()</code> function.</p>
+                        
+                        <div class="key-concept">
+                            <h4>main() Function Signatures</h4>
+                            <p>The <code>main()</code> function can have two valid signatures:</p>
+                            <ol>
+                                <li><code>int main()</code> - No parameters</li>
+                                <li><code>int main(int argc, char* argv[])</code> - With command-line arguments</li>
+                            </ol>
+                            <p>In both cases, the function returns an <code>int</code> value to the operating system:
+                            <ul>
+                                <li><code>0</code> or <code>EXIT_SUCCESS</code>: Program executed successfully</li>
+                                <li>Non-zero value or <code>EXIT_FAILURE</code>: Program encountered an error</li>
+                            </ul>
+                            </p>
+                        </div>
+
+                        <div class="example">
+                            <h4>main() Function Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+// Simple main function
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;  // Indicates successful execution
+}
+
+// main() function with command-line arguments
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main(int argc, char* argv[]) {
+    std::cout &lt;&lt; "Number of arguments: " &lt;&lt; argc &lt;&lt; std::endl;
+    
+    for (int i = 0; i &lt; argc; ++i) {
+        std::cout &lt;&lt; "Argument " &lt;&lt; i &lt;&lt; ": " &lt;&lt; argv[i] &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}
+
+// Using EXIT_SUCCESS and EXIT_FAILURE
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;  // For EXIT_SUCCESS and EXIT_FAILURE
+
+int main(int argc, char* argv[]) {
+    if (argc &lt; 2) {
+        std::cerr &lt;&lt; "Error: Missing argument" &lt;&lt; std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    std::cout &lt;&lt; "Processing: " &lt;&lt; argv[1] &lt;&lt; std::endl;
+    
+    return EXIT_SUCCESS;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="interactive-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimize"></div>
+                                <div class="terminal-button maximize"></div>
+                                <div class="terminal-title">Terminal</div>
+                            </div>
+                            <div class="terminal-body">
+                                <div>$ g++ program.cpp -o program</div>
+                                <div>$ ./program arg1 arg2 arg3</div>
+                                <div>Number of arguments: 4</div>
+                                <div>Argument 0: ./program</div>
+                                <div>Argument 1: arg1</div>
+                                <div>Argument 2: arg2</div>
+                                <div>Argument 3: arg3</div>
+                                <div>$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Comments</h3>
+                        <p>Comments are explanatory notes in the source code that are ignored by the compiler. They are essential for making code readable and maintainable.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Types of Comments in C++</h4>
+                            <ul>
+                                <li><strong>Single-line comments</strong>: Start with <code>//</code> and continue to the end of the line</li>
+                                <li><strong>Multi-line comments</strong>: Start with <code>/*</code> and end with <code>*/</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Comment Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+// This is a single-line comment
+
+/*
+ * This is a multi-line comment.
+ * It can span multiple lines.
+ */
+
+/**
+ * This is a documentation comment.
+ * Often used to document functions and classes.
+ * Some tools can extract these to generate documentation.
+ */
+
+int main() {
+    // Variable declaration with comment
+    int age = 25;  // Age in years
+    
+    /* 
+     * This is a block comment
+     * inside a function
+     */
+    std::cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Best Practices for Comments</h4>
+                            <ul>
+                                <li>Comment the "why" rather than the "what" - focus on explaining the reasoning behind the code</li>
+                                <li>Keep comments up-to-date with the code - outdated comments can be misleading</li>
+                                <li>Use clear and concise language</li>
+                                <li>Avoid obvious comments like "x = 5; // Assign 5 to x"</li>
+                                <li>Use documentation comments for public APIs to generate documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.3 Basic Input/Output -->
+            <div class="module" id="input-output">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>1.3 Basic Input/Output <span class="difficulty beginner">Beginner</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="topic">
+                        <h3>Introduction to I/O Streams</h3>
+                        <p>C++ uses streams for input and output operations. A stream is an abstraction that represents a sequence of bytes flowing into or out of your program. The <code>&lt;iostream&gt;</code> library provides the basic I/O functionality.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Standard Stream Objects</h4>
+                            <ul>
+                                <li><code>std::cout</code>: Standard character output stream (usually the console)</li>
+                                <li><code>std::cin</code>: Standard character input stream (usually the keyboard)</li>
+                                <li><code>std::cerr</code>: Standard error stream for error messages (unbuffered)</li>
+                                <li><code>std::clog</code>: Standard logging stream for logging messages (buffered)</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Basic Output with cout</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+int main() {
+    // Outputting a string
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    
+    // Outputting multiple values
+    int age = 25;
+    std::cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; std::endl;
+    
+    // Outputting without a newline
+    std::cout &lt;&lt; "This is on the same line. ";
+    std::cout &lt;&lt; "This continues the line." &lt;&lt; std::endl;
+    
+    // Using different newline methods
+    std::cout &lt;&lt; "Method 1: Using std::endl" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Method 2: Using \\n" &lt;&lt; "\n";
+    
+    // Outputting special characters
+    std::cout &lt;&lt; "Tab:\tSeparated\tValues" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Quote: \"Hello\"" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Backslash: \\" &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>std::endl vs \n</h4>
+                            <ul>
+                                <li><code>std::endl</code>: Inserts a newline character and flushes the output buffer</li>
+                                <li><code>\n</code>: Inserts a newline character but doesn't flush the buffer</li>
+                                <li>Flushing the buffer ensures that the output is immediately written to the console, but it can impact performance</li>
+                                <li>For performance-critical code, use <code>\n</code> instead of <code>std::endl</code></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Input with cin</h3>
+                        <p>The <code>std::cin</code> object is used to read input from the standard input device (usually the keyboard). It uses the extraction operator (<code>&gt;&gt;</code>) to read values into variables.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Basic Input Operations</h4>
+                            <ul>
+                                <li><code>std::cin &gt;&gt; variable;</code>: Reads a value into the variable</li>
+                                <li><code>std::cin</code> skips whitespace (spaces, tabs, newlines) by default</li>
+                                <li>Input operations can be chained to read multiple values</li>
+                                <li><code>std::cin</code> has a boolean value that can be checked to see if the input was successful</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Basic Input Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Reading an integer
+    int age;
+    std::cout &lt;&lt; "Enter your age: ";
+    std::cin &gt;&gt; age;
+    std::cout &lt;&lt; "You entered: " &lt;&lt; age &lt;&lt; std::endl;
+    
+    // Reading multiple values
+    int x, y;
+    std::cout &lt;&lt; "Enter two numbers separated by space: ";
+    std::cin &gt;&gt; x &gt;&gt; y;
+    std::cout &lt;&lt; "Sum: " &lt;&lt; x + y &lt;&lt; std::endl;
+    
+    // Reading a string (only reads until first whitespace)
+    std::string name;
+    std::cout &lt;&lt; "Enter your first name: ";
+    std::cin &gt;&gt; name;
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+    
+    // Clearing the input buffer
+    std::cin.ignore();  // Ignores the next character (usually the newline)
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="interactive-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimize"></div>
+                                <div class="terminal-button maximize"></div>
+                                <div class="terminal-title">Terminal</div>
+                            </div>
+                            <div class="terminal-body">
+                                <div>$ g++ input.cpp -o input</div>
+                                <div>$ ./input</div>
+                                <div>Enter your age: 25</div>
+                                <div>You entered: 25</div>
+                                <div>Enter two numbers separated by space: 10 20</div>
+                                <div>Sum: 30</div>
+                                <div>Enter your first name: John</div>
+                                <div>Hello, John!</div>
+                                <div>$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Reading Strings with getline()</h3>
+                        <p>The <code>std::cin &gt;&gt;</code> operator has limitations when reading strings that contain spaces. For reading entire lines of text, we use the <code>std::getline()</code> function.</p>
+                        
+                        <div class="key-concept">
+                            <h4>getline() Function</h4>
+                            <ul>
+                                <li><code>std::getline(std::cin, string_variable)</code>: Reads an entire line into a string variable</li>
+                                <li>Reads until a newline character is encountered</li>
+                                <li>The newline character is extracted but not stored in the string</li>
+                                <li>Can specify a custom delimiter as a third parameter</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>getline() Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Reading a full name with spaces
+    std::string fullName;
+    std::cout &lt;&lt; "Enter your full name: ";
+    std::getline(std::cin, fullName);
+    std::cout &lt;&lt; "Hello, " &lt;&lt; fullName &lt;&lt; "!" &lt;&lt; std::endl;
+    
+    // Reading multiple lines
+    std::string address;
+    std::cout &lt;&lt; "Enter your address (press Enter twice to finish):" &lt;&lt; std::endl;
+    std::string line;
+    while (std::getline(std::cin, line) && !line.empty()) {
+        address += line + "\n";
+    }
+    std::cout &lt;&lt; "Your address:" &lt;&lt; std::endl;
+    std::cout &lt;&lt; address &lt;&lt; std::endl;
+    
+    // Using a custom delimiter
+    std::string csvData;
+    std::cout &lt;&lt; "Enter comma-separated values: ";
+    std::getline(std::cin, csvData, ',');
+    std::cout &lt;&lt; "First value: " &lt;&lt; csvData &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="warning">
+                            <h4>Mixing cin and getline()</h4>
+                            <p>When mixing <code>std::cin &gt;&gt;</code> and <code>std::getline()</code>, you need to be careful about the newline character left in the input buffer. After using <code>std::cin &gt;&gt;</code>, call <code>std::cin.ignore()</code> to clear the buffer before using <code>std::getline()</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Error Handling with cin</h3>
+                        <p>Input operations can fail for various reasons, such as entering invalid data. C++ provides ways to check and handle input errors.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Checking Input State</h4>
+                            <ul>
+                                <li><code>std::cin.fail()</code>: Returns true if the last input operation failed</li>
+                                <li><code>std::cin.good()</code>: Returns true if the stream is in a good state</li>
+                                <li><code>std::cin.bad()</code>: Returns true if there's a serious error</li>
+                                <li><code>std::cin.eof()</code>: Returns true if end-of-file is reached</li>
+                                <li><code>std::cin.clear()</code>: Clears error flags</li>
+                                <li><code>std::cin.ignore()</code>: Discards characters from the input buffer</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Input Error Handling Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;limits&gt;  // For std::numeric_limits
+
+int main() {
+    int number;
+    
+    std::cout &lt;&lt; "Enter an integer: ";
+    
+    // Check if input is valid
+    while (!(std::cin &gt;&gt; number)) {
+        std::cout &lt;&lt; "Invalid input. Please enter an integer: ";
+        
+        // Clear the error flag
+        std::cin.clear();
+        
+        // Discard the rest of the line
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+    }
+    
+    std::cout &lt;&lt; "You entered: " &lt;&lt; number &lt;&lt; std::endl;
+    
+    // Example with range validation
+    int age;
+    do {
+        std::cout &lt;&lt; "Enter your age (1-120): ";
+        
+        while (!(std::cin &gt;&gt; age)) {
+            std::cout &lt;&lt; "Invalid input. Please enter a number: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+        }
+        
+        if (age &lt; 1 || age &gt; 120) {
+            std::cout &lt;&lt; "Age must be between 1 and 120." &lt;&lt; std::endl;
+        }
+    } while (age &lt; 1 || age &gt; 120);
+    
+    std::cout &lt;&lt; "Your age is: " &lt;&lt; age &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Manipulators and Formatting</h3>
+                        <p>C++ provides manipulators that can be used with I/O streams to format input and output. These manipulators are defined in the <code>&lt;iomanip&gt;</code> header.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Common Output Manipulators</h4>
+                            <ul>
+                                <li><code>std::setw(n)</code>: Sets the field width to n characters</li>
+                                <li><code>std::setprecision(n)</code>: Sets the precision for floating-point values</li>
+                                <li><code>std::fixed</code>: Uses fixed-point notation for floating-point values</li>
+                                <li><code>std::scientific</code>: Uses scientific notation for floating-point values</li>
+                                <li><code>std::setfill(c)</code>: Sets the fill character to c</li>
+                                <li><code>std::left</code>: Left-aligns the output</li>
+                                <li><code>std::right</code>: Right-aligns the output</li>
+                                <li><code>std::boolalpha</code>: Outputs boolean values as "true" or "false"</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Output Formatting Examples</h4>
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Setting width and fill character
+    std::cout &lt;&lt; std::setw(20) &lt;&lt; std::setfill('*') &lt;&lt; "Hello" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::setw(20) &lt;&lt; std::setfill('-') &lt;&lt; "World" &lt;&lt; std::endl;
+    
+    // Floating-point formatting
+    double pi = 3.14159265359;
+    std::cout &lt;&lt; "Default: " &lt;&lt; pi &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Fixed: " &lt;&lt; std::fixed &lt;&lt; pi &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Scientific: " &lt;&lt; std::scientific &lt;&lt; pi &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Precision 2: " &lt;&lt; std::setprecision(2) &lt;&lt; pi &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Precision 5: " &lt;&lt; std::setprecision(5) &lt;&lt; pi &lt;&lt; std::endl;
+    
+    // Reset to default
+    std::cout &lt;&lt; std::defaultfloat;
+    
+    // Boolean formatting
+    bool flag = true;
+    std::cout &lt;&lt; "Default bool: " &lt;&lt; flag &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Boolalpha: " &lt;&lt; std::boolalpha &lt;&lt; flag &lt;&lt; std::endl;
+    
+    // Alignment
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(15) &lt;&lt; "Left" &lt;&lt; "|" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::right &lt;&lt; std::setw(15) &lt;&lt; "Right" &lt;&lt; "|" &lt;&lt; std::endl;
+    
+    // Creating a formatted table
+    std::cout &lt;&lt; "\nFormatted Table:\n";
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(15) &lt;&lt; "Name" 
+              &lt;&lt; std::setw(10) &lt;&lt; "Age" 
+              &lt;&lt; std::setw(10) &lt;&lt; "Score" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::string(35, '-') &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(15) &lt;&lt; "Alice" 
+              &lt;&lt; std::setw(10) &lt;&lt; 25 
+              &lt;&lt; std::setw(10) &lt;&lt; 95.5 &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(15) &lt;&lt; "Bob" 
+              &lt;&lt; std::setw(10) &lt;&lt; 30 
+              &lt;&lt; std::setw(10) &lt;&lt; 87.2 &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="interactive-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-button close"></div>
+                                <div class="terminal-button minimize"></div>
+                                <div class="terminal-button maximize"></div>
+                                <div class="terminal-title">Terminal</div>
+                            </div>
+                            <div class="terminal-body">
+                                <div>$ g++ format.cpp -o format</div>
+                                <div>$ ./format</div>
+                                <div>***************Hello</div>
+                                <div>---------------World</div>
+                                <div>Default: 3.14159</div>
+                                <div>Fixed: 3.141593</div>
+                                <div>Scientific: 3.141593e+00</div>
+                                <div>Precision 2: 3.14</div>
+                                <div>Precision 5: 3.1416</div>
+                                <div>Default bool: 1</div>
+                                <div>Boolalpha: true</div>
+                                <div>Left           |</div>
+                                <div>          Right|</div>
+                                <div>Formatted Table:</div>
+                                <div>Name           Age       Score    </div>
+                                <div>-----------------------------------</div>
+                                <div>Alice          25        95.5     </div>
+                                <div>Bob            30        87.2     </div>
+                                <div>$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.4 Compilation Process -->
+            <div class="module" id="compilation">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>1.4 Compilation Process <span class="difficulty beginner">Beginner</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="topic">
+                        <h3>Understanding the Compilation Process</h3>
+                        <p>The compilation process transforms human-readable C++ source code into machine-readable executable code. This process involves several stages, each with a specific purpose.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Stages of Compilation</h4>
+                            <ol>
+                                <li><strong>Preprocessing</strong>: Handles preprocessor directives (#include, #define, etc.)</li>
+                                <li><strong>Compilation</strong>: Translates preprocessed code into assembly code</li>
+                                <li><strong>Assembly</strong>: Converts assembly code into machine code (object files)</li>
+                                <li><strong>Linking</strong>: Combines object files and libraries into an executable</li>
+                            </ol>
+                        </div>
+
+                        <div class="example">
+                            <h4>Compilation Process Visualization</h4>
+                            <div class="code-block">
+                                <pre>Source Code (program.cpp)
+        |
+        v
+Preprocessing (program.i)
+        |
+        v
+Compilation (program.s)
+        |
+        v
+Assembly (program.o)
+        |
+        v
+Linking (program.exe/program.out)
+        |
+        v
+Executable Program</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Preprocessing Stage</h3>
+                        <p>The preprocessing stage is the first step in the compilation process. The preprocessor handles all directives that begin with a hash symbol (#).</p>
+                        
+                        <div class="key-concept">
+                            <h4>Preprocessor Tasks</h4>
+                            <ul>
+                                <li><strong>File Inclusion</strong>: Replaces #include directives with the contents of the specified files</li>
+                                <li><strong>Macro Expansion</strong>: Replaces macros defined with #define</li>
+                                <li><strong>Conditional Compilation</strong>: Processes #ifdef, #ifndef, #if, #else, #elif, and #endif directives</li>
+                                <li><strong>Comment Removal</strong>: Removes all comments from the source code</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Preprocessing Example</h4>
+                            <div class="code-block">
+                                <pre>// Original source code (program.cpp)
+#include &lt;iostream&gt;
+#define PI 3.14159
+#define SQUARE(x) ((x) * (x))
+
+int main() {
+    double radius = 5.0;
+    double area = PI * SQUARE(radius);
+    std::cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; std::endl;
+    return 0;
+}
+
+// After preprocessing (program.i)
+// Contents of iostream included here (thousands of lines)
+// ...
+
+int main() {
+    double radius = 5.0;
+    double area = 3.14159 * ((radius) * (radius));
+    std::cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; std::endl;
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Viewing Preprocessed Output</h4>
+                            <p>You can see the preprocessed output using the -E flag with g++:
+                            <div class="code-block">
+                                <pre>g++ -E program.cpp -o program.i</pre>
+                            </div>
+                            This can be useful for debugging macro expansions and understanding how includes work.</p>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Compilation Stage</h3>
+                        <p>The compilation stage takes the preprocessed code and translates it into assembly language, which is a low-level representation of the code that's specific to the target architecture.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Compiler Tasks</h4>
+                            <ul>
+                                <li><strong>Lexical Analysis</strong>: Breaks the code into tokens (keywords, identifiers, operators, etc.)</li>
+                                <li><strong>Syntax Analysis</strong>: Checks if the code follows the grammar rules of C++</li>
+                                <li><strong>Semantic Analysis</strong>: Checks for semantic errors (type mismatches, undeclared variables, etc.)</li>
+                                <li><strong>Optimization</strong>: Applies various optimizations to improve performance</li>
+                                <li><strong>Code Generation</strong>: Generates assembly code from the analyzed and optimized code</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Assembly Code Example</h4>
+                            <div class="code-block">
+                                <pre>// C++ code
+int add(int a, int b) {
+    return a + b;
+}
+
+// Generated assembly code (x86-64)
+add:
+    pushq   %rbp
+    movq    %rsp, %rbp
+    movl    %edi, -4(%rbp)
+    movl    %esi, -8(%rbp)
+    movl    -4(%rbp), %eax
+    addl    -8(%rbp), %eax
+    popq    %rbp
+    ret</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Viewing Assembly Output</h4>
+                            <p>You can see the assembly output using the -S flag with g++:
+                            <div class="code-block">
+                                <pre>g++ -S program.cpp -o program.s</pre>
+                            </div>
+                            This can be useful for performance optimization and understanding how your code translates to machine instructions.</p>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Assembly Stage</h3>
+                        <p>The assembly stage converts the assembly code into machine code, creating object files. These object files contain binary code but are not yet executable.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Object Files</h4>
+                            <ul>
+                                <li>Contain machine code for the compiled source</li>
+                                <li>Include information for the linker (symbols, relocation entries, etc.)</li>
+                                <li>Have extensions like .o (Linux/macOS) or .obj (Windows)</li>
+                                <li>Cannot be executed directly because they may reference external symbols</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Creating Object Files</h4>
+                            <div class="code-block">
+                                <pre>// Compile to object file only
+g++ -c program.cpp -o program.o
+
+// View object file information
+objdump -t program.o  // Show symbols
+objdump -d program.o  // Disassemble code
+nm program.o          // List symbols</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Linking Stage</h3>
+                        <p>The linking stage is the final step in creating an executable. The linker combines one or more object files and libraries into a single executable program.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Linker Tasks</h4>
+                            <ul>
+                                <li><strong>Symbol Resolution</strong>: Resolves references to external symbols (functions and variables)</li>
+                                <li><strong>Relocation</strong>: Adjusts code and data addresses to match the final memory layout</li>
+                                <li><strong>Library Inclusion</strong>: Includes code from standard and user-defined libraries</li>
+                                <li><strong>Address Assignment</strong>: Assigns final memory addresses to code and data</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Linking Example</h4>
+                            <div class="code-block">
+                                <pre>// Compile and link in one step
+g++ program.cpp -o program
+
+// Compile to object files first, then link
+g++ -c main.cpp -o main.o
+g++ -c utils.cpp -o utils.o
+g++ main.o utils.o -o program
+
+// Link with external libraries
+g++ program.cpp -o program -lm  // Link with math library
+g++ program.cpp -o program -lpthread  // Link with pthread library</pre>
+                            </div>
+                        </div>
+
+                        <div class="warning">
+                            <h4>Common Linking Errors</h4>
+                            <ul>
+                                <li><strong>Undefined Reference</strong>: Occurs when a function or variable is declared but not defined</li>
+                                <li><strong>Multiple Definition</strong>: Occurs when the same symbol is defined in multiple object files</li>
+                                <li><strong>Missing Libraries</strong>: Occurs when required libraries are not specified during linking</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Common Compiler Flags</h3>
+                        <p>Compilers like g++ provide various flags to control the compilation process. Understanding these flags is essential for effective C++ development.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Essential g++ Flags</h4>
+                            <ul>
+                                <li><code>-o filename</code>: Specifies the output file name</li>
+                                <li><code>-c</code>: Compile only, do not link (creates object file)</li>
+                                <li><code>-E</code>: Preprocess only, do not compile</li>
+                                <li><code>-S</code>: Compile only, do not assemble (creates assembly file)</li>
+                                <li><code>-g</code>: Include debug information</li>
+                                <li><code>-O0, -O1, -O2, -O3</code>: Optimization levels (0 = no optimization, 3 = maximum optimization)</li>
+                                <li><code>-Wall</code>: Enable all warning messages</li>
+                                <li><code>-Werror</code>: Treat warnings as errors</li>
+                                <li><code>-std=c++11, -std=c++14, -std=c++17, -std=c++20</code>: Specify C++ standard</li>
+                                <li><code>-I directory</code>: Add directory to include search path</li>
+                                <li><code>-L directory</code>: Add directory to library search path</li>
+                                <li><code>-l library</code>: Link with library</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h4>Compiler Flag Examples</h4>
+                            <div class="code-block">
+                                <pre>// Basic compilation
+g++ program.cpp -o program
+
+// With debug information
+g++ -g program.cpp -o program
+
+// With optimization level 2
+g++ -O2 program.cpp -o program
+
+// With all warnings and treat warnings as errors
+g++ -Wall -Werror program.cpp -o program
+
+// Using C++20 standard
+g++ -std=c++20 program.cpp -o program
+
+// With custom include directory
+g++ -I./include program.cpp -o program
+
+// With custom library directory and library
+g++ -L./lib program.cpp -o program -lmylib</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Build Systems and Makefiles</h3>
+                        <p>For larger projects with multiple source files, manually compiling each file becomes tedious. Build systems like Make automate this process.</p>
+                        
+                        <div class="key-concept">
+                            <h4>Makefile Basics</h4>
+                            <p>A Makefile contains rules that specify how to build targets (usually executables or object files) from dependencies (source files). Each rule has the format:</p>
+                            <div class="code-block">
+                                <pre>target: dependencies
+    command</pre>
+                            </div>
+                        </div>
+
+                        <div class="example">
+                            <h4>Simple Makefile Example</h4>
+                            <div class="code-block">
+                                <pre># Makefile for a simple C++ project
+
+# Variables
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+TARGET = program
+SRCS = main.cpp utils.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+# Default target
+all: $(TARGET)
+
+# Link the executable
+$(TARGET): $(OBJS)
+    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+# Compile source files into object files
+%.o: %.cpp
+    $(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean up build artifacts
+clean:
+    rm -f $(OBJS) $(TARGET)
+
+# Phony targets (targets that don't represent files)
+.PHONY: all clean</pre>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <h4>Using the Makefile</h4>
+                            <div class="code-block">
+                                <pre>make          # Build the program
+make clean    # Remove object files and executable
+make all      # Same as 'make'</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="module" id="quiz-section">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>Knowledge Check <span class="difficulty intermediate">Intermediate</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="quiz">
+                        <h3>Test Your Understanding of Module 1</h3>
+                        
+                        <div class="quiz-question">
+                            <p>1. Who created C++ and when was it first developed?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q1" value="a" id="q1a">
+                                    <label for="q1a">Dennis Ritchie in 1972</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q1" value="b" id="q1b">
+                                    <label for="q1b">Bjarne Stroustrup in 1979</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q1" value="c" id="q1c">
+                                    <label for="q1c">James Gosling in 1995</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q1" value="d" id="q1d">
+                                    <label for="q1d">Guido van Rossum in 1991</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                            <div class="quiz-result" id="q1-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>2. What is the purpose of the #include directive?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" value="a" id="q2a">
+                                    <label for="q2a">To define a macro</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" value="b" id="q2b">
+                                    <label for="q2b">To include the contents of a file</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" value="c" id="q2c">
+                                    <label for="q2c">To start a conditional compilation block</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" value="d" id="q2d">
+                                    <label for="q2d">To declare a variable</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q2', 'b')">Check Answer</button>
+                            <div class="quiz-result" id="q2-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>3. What is the correct way to read a line of text that may contain spaces in C++?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q3" value="a" id="q3a">
+                                    <label for="q3a">std::cin >> variable;</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q3" value="b" id="q3b">
+                                    <label for="q3b">std::cin.getline(variable);</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q3" value="c" id="q3c">
+                                    <label for="q3c">std::getline(std::cin, variable);</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q3" value="d" id="q3d">
+                                    <label for="q3d">variable = std::cin.read();</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q3', 'c')">Check Answer</button>
+                            <div class="quiz-result" id="q3-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>4. Which of the following is NOT a stage in the C++ compilation process?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q4" value="a" id="q4a">
+                                    <label for="q4a">Preprocessing</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q4" value="b" id="q4b">
+                                    <label for="q4b">Compilation</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q4" value="c" id="q4c">
+                                    <label for="q4c">Interpretation</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q4" value="d" id="q4d">
+                                    <label for="q4d">Linking</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q4', 'c')">Check Answer</button>
+                            <div class="quiz-result" id="q4-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>5. What is the purpose of the std::endl manipulator?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q5" value="a" id="q5a">
+                                    <label for="q5a">To end the program</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q5" value="b" id="q5b">
+                                    <label for="q5b">To insert a newline character and flush the output buffer</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q5" value="c" id="q5c">
+                                    <label for="q5c">To clear the input buffer</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q5" value="d" id="q5d">
+                                    <label for="q5d">To align text to the left</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                            <div class="quiz-result" id="q5-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>6. What does the -g flag do when compiling with g++?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q6" value="a" id="q6a">
+                                    <label for="q6a">Enables maximum optimization</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q6" value="b" id="q6b">
+                                    <label for="q6b">Includes debug information</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q6" value="c" id="q6c">
+                                    <label for="q6c">Specifies the C++ standard</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q6" value="d" id="q6d">
+                                    <label for="q6d">Enables all warnings</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q6', 'b')">Check Answer</button>
+                            <div class="quiz-result" id="q6-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>7. What is the purpose of header guards in C++?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q7" value="a" id="q7a">
+                                    <label for="q7a">To protect against malicious code</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q7" value="b" id="q7b">
+                                    <label for="q7b">To prevent multiple inclusion of the same header file</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q7" value="c" id="q7c">
+                                    <label for="q7c">To optimize compilation speed</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q7" value="d" id="q7d">
+                                    <label for="q7d">To document the header file</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q7', 'b')">Check Answer</button>
+                            <div class="quiz-result" id="q7-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>8. Which of the following is the correct way to define a constant in modern C++?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q8" value="a" id="q8a">
+                                    <label for="q8a">#define PI 3.14159</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q8" value="b" id="q8b">
+                                    <label for="q8b">const double PI = 3.14159;</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q8" value="c" id="q8c">
+                                    <label for="q8c">constexpr double PI = 3.14159;</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q8" value="d" id="q8d">
+                                    <label for="q8d">All of the above are valid, but constexpr is preferred for compile-time constants</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q8', 'd')">Check Answer</button>
+                            <div class="quiz-result" id="q8-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>9. What is the difference between std::cout and std::cerr?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q9" value="a" id="q9a">
+                                    <label for="q9a">std::cout is for input, std::cerr is for output</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q9" value="b" id="q9b">
+                                    <label for="q9b">std::cout is buffered, std::cerr is unbuffered</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q9" value="c" id="q9c">
+                                    <label for="q9c">std::cout is for standard output, std::cerr is for error messages</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q9" value="d" id="q9d">
+                                    <label for="q9d">Both b and c are correct</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q9', 'd')">Check Answer</button>
+                            <div class="quiz-result" id="q9-result"></div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p>10. What is the purpose of the main() function in C++?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q10" value="a" id="q10a">
+                                    <label for="q10a">It's the entry point of every C++ program</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q10" value="b" id="q10b">
+                                    <label for="q10b">It's where all variables must be declared</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q10" value="c" id="q10c">
+                                    <label for="q10c">It's the only function that can be called from outside the program</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q10" value="d" id="q10d">
+                                    <label for="q10d">Both a and c are correct</label>
+                                </div>
+                            </div>
+                            <button class="quiz-button" onclick="checkAnswer('q10', 'd')">Check Answer</button>
+                            <div class="quiz-result" id="q10-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercises Section -->
+            <div class="module" id="exercises">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>Practical Exercises <span class="difficulty intermediate">Intermediate</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="exercise">
+                        <h3>Exercise 1: Hello, World! Variations</h3>
+                        <p>Create a program that prints "Hello, World!" in different ways:</p>
+                        <ol>
+                            <li>Print it on a single line</li>
+                            <li>Print it with each word on a separate line</li>
+                            <li>Print it inside a box made of asterisks</li>
+                            <li>Print it with a border of dashes above and below</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution1')">Show Solution</button>
+                        <div class="exercise-solution" id="solution1">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+int main() {
+    // 1. Print on a single line
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    
+    // 2. Print with each word on a separate line
+    std::cout &lt;&lt; "Hello,\nWorld!" &lt;&lt; std::endl;
+    
+    // 3. Print inside a box made of asterisks
+    std::cout &lt;&lt; "***************" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "* Hello, World! *" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "***************" &lt;&lt; std::endl;
+    
+    // 4. Print with a border of dashes
+    std::cout &lt;&lt; "---------------" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "---------------" &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 2: Basic Input/Output</h3>
+                        <p>Write a program that:</p>
+                        <ol>
+                            <li>Asks the user for their name</li>
+                            <li>Asks the user for their age</li>
+                            <li>Prints a personalized greeting with their name and age</li>
+                            <li>Calculates and displays the year they were born (assuming the current year is 2023)</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution2')">Show Solution</button>
+                        <div class="exercise-solution" id="solution2">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+    int age;
+    const int currentYear = 2023;
+    
+    // Ask for name
+    std::cout &lt;&lt; "Enter your name: ";
+    std::getline(std::cin, name);
+    
+    // Ask for age
+    std::cout &lt;&lt; "Enter your age: ";
+    std::cin &gt;&gt; age;
+    
+    // Calculate birth year
+    int birthYear = currentYear - age;
+    
+    // Print personalized greeting
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl;
+    std::cout &lt;&lt; "You were born in " &lt;&lt; birthYear &lt;&lt; "." &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 3: Simple Calculator</h3>
+                        <p>Create a simple calculator program that:</p>
+                        <ol>
+                            <li>Asks the user for two numbers</li>
+                            <li>Asks the user for an operation (+, -, *, /)</li>
+                            <li>Performs the operation and displays the result</li>
+                            <li>Handles division by zero gracefully</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution3')">Show Solution</button>
+                        <div class="exercise-solution" id="solution3">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+
+int main() {
+    double num1, num2;
+    char operation;
+    
+    // Get input from user
+    std::cout &lt;&lt; "Enter first number: ";
+    std::cin &gt;&gt; num1;
+    
+    std::cout &lt;&lt; "Enter operation (+, -, *, /): ";
+    std::cin &gt;&gt; operation;
+    
+    std::cout &lt;&lt; "Enter second number: ";
+    std::cin &gt;&gt; num2;
+    
+    // Perform operation based on user input
+    switch (operation) {
+        case '+':
+            std::cout &lt;&lt; "Result: " &lt;&lt; num1 + num2 &lt;&lt; std::endl;
+            break;
+        case '-':
+            std::cout &lt;&lt; "Result: " &lt;&lt; num1 - num2 &lt;&lt; std::endl;
+            break;
+        case '*':
+            std::cout &lt;&lt; "Result: " &lt;&lt; num1 * num2 &lt;&lt; std::endl;
+            break;
+        case '/':
+            if (num2 != 0) {
+                std::cout &lt;&lt; "Result: " &lt;&lt; num1 / num2 &lt;&lt; std::endl;
+            } else {
+                std::cout &lt;&lt; "Error: Division by zero is not allowed." &lt;&lt; std::endl;
+            }
+            break;
+        default:
+            std::cout &lt;&lt; "Error: Invalid operation." &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 4: Formatted Output</h3>
+                        <p>Write a program that creates a formatted table of products with the following columns:</p>
+                        <ol>
+                            <li>Product ID (left-aligned, width 10)</li>
+                            <li>Product Name (left-aligned, width 20)</li>
+                            <li>Price (right-aligned, width 10, 2 decimal places)</li>
+                            <li>Quantity (right-aligned, width 8)</li>
+                        </ol>
+                        <p>Include at least 5 products with different data types.</p>
+                        <button class="exercise-button" onclick="toggleSolution('solution4')">Show Solution</button>
+                        <div class="exercise-solution" id="solution4">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+struct Product {
+    std::string id;
+    std::string name;
+    double price;
+    int quantity;
+};
+
+int main() {
+    // Create a vector of products
+    std::vector&lt;Product&gt; products = {
+        {"P001", "Laptop", 999.99, 10},
+        {"P002", "Mouse", 19.99, 50},
+        {"P003", "Keyboard", 49.99, 30},
+        {"P004", "Monitor", 299.99, 15},
+        {"P005", "USB Cable", 9.99, 100}
+    };
+    
+    // Print table header
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(10) &lt;&lt; "Product ID" 
+              &lt;&lt; std::setw(20) &lt;&lt; "Product Name" 
+              &lt;&lt; std::right &lt;&lt; std::setw(10) &lt;&lt; "Price" 
+              &lt;&lt; std::setw(8) &lt;&lt; "Quantity" &lt;&lt; std::endl;
+    
+    // Print separator line
+    std::cout &lt;&lt; std::string(48, '-') &lt;&lt; std::endl;
+    
+    // Set fixed-point notation for prices
+    std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(2);
+    
+    // Print each product
+    for (const auto& product : products) {
+        std::cout &lt;&lt; std::left &lt;&lt; std::setw(10) &lt;&lt; product.id 
+                  &lt;&lt; std::setw(20) &lt;&lt; product.name 
+                  &lt;&lt; std::right &lt;&lt; std::setw(10) &lt;&lt; product.price 
+                  &lt;&lt; std::setw(8) &lt;&lt; product.quantity &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 5: Command-Line Arguments</h3>
+                        <p>Create a program that accepts command-line arguments and:</p>
+                        <ol>
+                            <li>Prints the number of arguments</li>
+                            <li>Prints each argument on a separate line</li>
+                            <li>If the first argument is "--help", prints a help message</li>
+                            <li>If the first argument is "--version", prints a version number</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution5')">Show Solution</button>
+                        <div class="exercise-solution" id="solution5">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+void printHelp() {
+    std::cout &lt;&lt; "Usage: program [options]" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Options:" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "  --help     Show this help message" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "  --version  Show version information" &lt;&lt; std::endl;
+}
+
+void printVersion() {
+    std::cout &lt;&lt; "Program Version 1.0.0" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Compiled on " &lt;&lt; __DATE__ &lt;&lt; " at " &lt;&lt; __TIME__ &lt;&lt; std::endl;
+}
+
+int main(int argc, char* argv[]) {
+    // Check for help or version flags
+    if (argc > 1) {
+        std::string firstArg = argv[1];
+        if (firstArg == "--help") {
+            printHelp();
+            return 0;
+        } else if (firstArg == "--version") {
+            printVersion();
+            return 0;
+        }
+    }
+    
+    // Print number of arguments
+    std::cout &lt;&lt; "Number of arguments: " &lt;&lt; argc &lt;&lt; std::endl;
+    
+    // Print each argument
+    std::cout &lt;&lt; "Arguments:" &lt;&lt; std::endl;
+    for (int i = 0; i &lt; argc; ++i) {
+        std::cout &lt;&lt; "  " &lt;&lt; i &lt;&lt; ": " &lt;&lt; argv[i] &lt;&lt; std::endl;
+    }
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 6: Input Validation</h3>
+                        <p>Write a program that asks the user for a number between 1 and 100 and:</p>
+                        <ol>
+                            <li>Validates that the input is a valid integer</li>
+                            <li>Validates that the number is within the specified range</li>
+                            <li>Displays an appropriate error message if the input is invalid</li>
+                            <li>Repeats the prompt until valid input is received</li>
+                            <li>Prints a success message with the validated number</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution6')">Show Solution</button>
+                        <div class="exercise-solution" id="solution6">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;limits&gt;
+
+int main() {
+    int number;
+    bool validInput = false;
+    
+    while (!validInput) {
+        std::cout &lt;&lt; "Enter a number between 1 and 100: ";
+        
+        // Check if input is a valid integer
+        if (!(std::cin &gt;&gt; number)) {
+            std::cout &lt;&lt; "Error: Invalid input. Please enter a number." &lt;&lt; std::endl;
+            
+            // Clear the error flag
+            std::cin.clear();
+            
+            // Discard the rest of the line
+            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+            
+            continue;
+        }
+        
+        // Check if the number is within the valid range
+        if (number &lt; 1 || number &gt; 100) {
+            std::cout &lt;&lt; "Error: Number must be between 1 and 100." &lt;&lt; std::endl;
+        } else {
+            validInput = true;
+        }
+    }
+    
+    // Print success message
+    std::cout &lt;&lt; "Success! You entered the number " &lt;&lt; number &lt;&lt; "." &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 7: Multi-File Program</h3>
+                        <p>Create a simple multi-file program with the following structure:</p>
+                        <ol>
+                            <li>A header file (functions.h) that declares two functions:
+                                <ul>
+                                    <li>int add(int a, int b) - adds two integers</li>
+                                    <li>double multiply(double a, double b) - multiplies two doubles</li>
+                                </ul>
+                            </li>
+                            <li>A source file (functions.cpp) that implements these functions</li>
+                            <li>A main program (main.cpp) that uses these functions</li>
+                            <li>Create a Makefile to compile and link the program</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution7')">Show Solution</button>
+                        <div class="exercise-solution" id="solution7">
+                            <div class="code-block">
+                                <pre>// functions.h
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
+int add(int a, int b);
+double multiply(double a, double b);
+
+#endif // FUNCTIONS_H</pre>
+                            </div>
+                            <div class="code-block">
+                                <pre>// functions.cpp
+#include "functions.h"
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double multiply(double a, double b) {
+    return a * b;
+}</pre>
+                            </div>
+                            <div class="code-block">
+                                <pre>// main.cpp
+#include &lt;iostream&gt;
+#include "functions.h"
+
+int main() {
+    // Test the add function
+    int x = 5, y = 3;
+    int sum = add(x, y);
+    std::cout &lt;&lt; x &lt;&lt; " + " &lt;&lt; y &lt;&lt; " = " &lt;&lt; sum &lt;&lt; std::endl;
+    
+    // Test the multiply function
+    double a = 2.5, b = 4.0;
+    double product = multiply(a, b);
+    std::cout &lt;&lt; a &lt;&lt; " * " &lt;&lt; b &lt;&lt; " = " &lt;&lt; product &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                            <div class="code-block">
+                                <pre># Makefile
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+TARGET = program
+SRCS = main.cpp functions.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+%.o: %.cpp
+    $(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+    rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 8: Advanced Input/Output</h3>
+                        <p>Create a program that:</p>
+                        <ol>
+                            <li>Asks the user for their personal information:
+                                <ul>
+                                    <li>Full name (may contain spaces)</li>
+                                    <li>Age (integer)</li>
+                                    <li>Height in meters (double)</li>
+                                    <li>Weight in kilograms (double)</li>
+                                </ul>
+                            </li>
+                            <li>Calculates and displays their BMI (Body Mass Index) using the formula: BMI = weight / (height * height)</li>
+                            <li>Displays the BMI category:
+                                <ul>
+                                    <li>Underweight: BMI < 18.5</li>
+                                    <li>Normal weight: 18.5 ≤ BMI < 25</li>
+                                    <li>Overweight: 25 ≤ BMI < 30</li>
+                                    <li>Obese: BMI ≥ 30</li>
+                                </ul>
+                            </li>
+                            <li>Formats all output neatly with appropriate labels</li>
+                        </ol>
+                        <button class="exercise-button" onclick="toggleSolution('solution8')">Show Solution</button>
+                        <div class="exercise-solution" id="solution8">
+                            <div class="code-block">
+                                <pre>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;string&gt;
+#include &lt;limits&gt;
+
+int main() {
+    std::string fullName;
+    int age;
+    double height, weight;
+    
+    // Get user input
+    std::cout &lt;&lt; "=== Personal Information ===" &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; "Enter your full name: ";
+    std::getline(std::cin, fullName);
+    
+    std::cout &lt;&lt; "Enter your age: ";
+    while (!(std::cin &gt;&gt; age) || age &lt;= 0) {
+        std::cout &lt;&lt; "Invalid age. Please enter a positive integer: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+    }
+    
+    std::cout &lt;&lt; "Enter your height in meters: ";
+    while (!(std::cin &gt;&gt; height) || height &lt;= 0) {
+        std::cout &lt;&lt; "Invalid height. Please enter a positive number: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+    }
+    
+    std::cout &lt;&lt; "Enter your weight in kilograms: ";
+    while (!(std::cin &gt;&gt; weight) || weight &lt;= 0) {
+        std::cout &lt;&lt; "Invalid weight. Please enter a positive number: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+    }
+    
+    // Calculate BMI
+    double bmi = weight / (height * height);
+    
+    // Determine BMI category
+    std::string category;
+    if (bmi &lt; 18.5) {
+        category = "Underweight";
+    } else if (bmi &lt; 25) {
+        category = "Normal weight";
+    } else if (bmi &lt; 30) {
+        category = "Overweight";
+    } else {
+        category = "Obese";
+    }
+    
+    // Display results
+    std::cout &lt;&lt; "\n=== Results ===" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Name:" &lt;&lt; fullName &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Age:" &lt;&lt; age &lt;&lt; " years" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Height:" &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; height &lt;&lt; " m" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Weight:" &lt;&lt; std::fixed &lt;&lt; std::setprecision(2) &lt;&lt; weight &lt;&lt; " kg" &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "BMI:" &lt;&lt; std::fixed &lt;&lt; std::setprecision(1) &lt;&lt; bmi &lt;&lt; std::endl;
+    std::cout &lt;&lt; std::left &lt;&lt; std::setw(20) &lt;&lt; "Category:" &lt;&lt; category &lt;&lt; std::endl;
+    
+    return 0;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="module" id="resources">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <h2>Additional Resources <span class="difficulty beginner">Beginner</span></h2>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="module-content">
+                    <div class="topic">
+                        <h3>Online Resources</h3>
+                        <ul>
+                            <li><a href="https://cplusplus.com" target="_blank">cplusplus.com</a> - Comprehensive C++ reference and tutorials</li>
+                            <li><a href="https://en.cppreference.com" target="_blank">cppreference.com</a> - Detailed C++ standard library reference</li>
+                            <li><a href="https://www.learncpp.com" target="_blank">LearnCpp.com</a> - Free C++ tutorial for beginners</li>
+                            <li><a href="https://www.coursera.org/learn/cpp" target="_blank">Coursera: C++ For C Programmers</a> - Online course by University of California</li>
+                            <li><a href="https://www.edx.org/course/introduction-c-plus-plus" target="_blank">edX: Introduction to C++</a> - Free online course</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Books</h3>
+                        <ul>
+                            <li><strong>"C++ Primer" by Stanley B. Lippman, Josée Lajoie, and Barbara E. Moo</strong> - Comprehensive introduction to C++</li>
+                            <li><strong>"Effective C++" by Scott Meyers</strong> - Best practices and common pitfalls</li>
+                            <li><strong>"The C++ Programming Language" by Bjarne Stroustrup</strong> - The definitive reference by the creator of C++</li>
+                            <li><strong>"Programming: Principles and Practice Using C++" by Bjarne Stroustrup</strong> - Beginner-friendly introduction</li>
+                            <li><strong>"Effective Modern C++" by Scott Meyers</strong> - Focus on C++11 and C++14 features</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Development Tools</h3>
+                        <ul>
+                            <li><strong>Compilers:</strong>
+                                <ul>
+                                    <li><a href="https://gcc.gnu.org" target="_blank">GCC (GNU Compiler Collection)</a> - Most popular C++ compiler on Linux</li>
+                                    <li><a href="https://clang.llvm.org" target="_blank">Clang</a> - Modern C++ compiler with excellent error messages</li>
+                                    <li><a href="https://visualstudio.microsoft.com" target="_blank">MSVC</a> - Microsoft Visual C++ compiler for Windows</li>
+                                </ul>
+                            </li>
+                            <li><strong>IDEs:</strong>
+                                <ul>
+                                    <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> - Lightweight, extensible editor with C++ support</li>
+                                    <li><a href="https://visualstudio.microsoft.com" target="_blank">Visual Studio</a> - Full-featured IDE for Windows development</li>
+                                    <li><a href="https://www.jetbrains.com/clion" target="_blank">CLion</a> - Cross-platform C++ IDE by JetBrains</li>
+                                    <li><a href="https://www.qt.io" target="_blank">Qt Creator</a> - Cross-platform IDE for Qt development</li>
+                                </ul>
+                            </li>
+                            <li><strong>Build Systems:</strong>
+                                <ul>
+                                    <li><a href="https://cmake.org" target="_blank">CMake</a> - Cross-platform build system generator</li>
+                                    <li><a href="https://www.gnu.org/software/make" target="_blank">Make</a> - Traditional build tool for Unix-like systems</li>
+                                    <li><a href="https://mesonbuild.com" target="_blank">Meson</a> - Fast and user-friendly build system</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Practice Platforms</h3>
+                        <ul>
+                            <li><a href="https://www.hackerrank.com/domains/cpp" target="_blank">HackerRank C++ Domain</a> - Coding challenges for C++</li>
+                            <li><a href="https://leetcode.com" target="_blank">LeetCode</a> - Algorithm and data structure problems</li>
+                            <li><a href="https://www.codewars.com" target="_blank">Codewars</a> - Programming challenges with a martial arts theme</li>
+                            <li><a href="https://exercism.io/tracks/cpp" target="_blank">Exercism C++ Track</a> - Free coding exercises with mentor feedback</li>
+                            <li><a href="https://www.codechef.com" target="_blank">CodeChef</a> - Competitive programming platform</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Communities and Forums</h3>
+                        <ul>
+                            <li><a href="https://stackoverflow.com/questions/tagged/c%2b%2b" target="_blank">Stack Overflow C++ Tag</a> - Q&A for C++ programming</li>
+                            <li><a href="https://www.reddit.com/r/cpp" target="_blank">Reddit /r/cpp</a> - C++ discussion forum</li>
+                            <li><a href="https://isocpp.org" target="_blank">Standard C++ Foundation</a> - Official C++ resource</li>
+                            <li><a href="https://cpplang.slack.com" target="_blank">C++ Slack Community</a> - Real-time chat with C++ developers</li>
+                            <li><a href="https://discord.gg/cplusplus" target="_blank">C++ Discord Server</a> - Community for C++ programmers</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Video Resources</h3>
+                        <ul>
+                            <li><a href="https://www.youtube.com/user/BoQian" target="_blank">Bo Qian's YouTube Channel</a> - Advanced C++ tutorials</li>
+                            <li><a href="https://www.youtube.com/user/TheChernoProject" target="_blank">The Cherno's C++ Series</a> - Comprehensive C++ tutorial series</li>
+                            <li><a href="https://www.youtube.com/user/thenewboston" target="_blank">thenewboston's C++ Tutorials</a> - Beginner-friendly tutorials</li>
+                            <li><a href="https://channel9.msdn.com/Series/C9-Lectures-Stephan-T-Lavavej-Standard-Template-Library-STL-" target="_blank">Stephan T. Lavavej's STL Series</a> - Deep dive into the Standard Template Library</li>
+                            <li><a href="https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb" target="_blank">The Cherno's C++ Series</a> - Complete C++ tutorial series</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic">
+                        <h3>Next Steps</h3>
+                        <p>After completing Module 1, you're ready to move on to more advanced C++ topics. Here's a suggested learning path:</p>
+                        <ol>
+                            <li><strong>Module 2: Data Types & Variables</strong> - Learn about C++ data types, variables, and memory management</li>
+                            <li><strong>Module 3: Operators & Expressions</strong> - Master C++ operators and how to build expressions</li>
+                            <li><strong>Module 4: Control Structures</strong> - Learn to control program flow with conditionals and loops</li>
+                            <li><strong>Module 5: Functions</strong> - Understand functions, parameters, and return values</li>
+                            <li><strong>Module 6: Arrays & Strings</strong> - Work with collections of data and text manipulation</li>
+                        </ol>
+                        <p>Remember to practice regularly and work on small projects to reinforce your learning. Happy coding!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" disabled>Previous Module</button>
+                <button class="nav-btn" onclick="window.location.href='#module2'">Next Module</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle module content
+        function toggleModule(header) {
+            const content = header.nextElementSibling;
+            const isActive = content.classList.contains('active');
+            
+            // Close all modules
+            document.querySelectorAll('.module-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.module-header').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Open clicked module if it wasn't active
+            if (!isActive) {
+                content.classList.add('active');
+                header.classList.add('active');
+            }
+            
+            updateProgress();
+        }
+
+        // Toggle solution visibility
+        function toggleSolution(solutionId) {
+            const solution = document.getElementById(solutionId);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+            } else {
+                solution.style.display = 'block';
+            }
+        }
+
+        // Check quiz answer
+        function checkAnswer(questionId, correctAnswer) {
+            const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+            const resultDiv = document.getElementById(`${questionId}-result`);
+            
+            if (!selectedOption) {
+                resultDiv.textContent = "Please select an answer.";
+                resultDiv.className = "quiz-result incorrect";
+                resultDiv.style.display = "block";
+                return;
+            }
+            
+            if (selectedOption.value === correctAnswer) {
+                resultDiv.textContent = "Correct! Well done.";
+                resultDiv.className = "quiz-result correct";
+            } else {
+                resultDiv.textContent = "Incorrect. Please try again.";
+                resultDiv.className = "quiz-result incorrect";
+            }
+            
+            resultDiv.style.display = "block";
+        }
+
+        // Update learning progress
+        function updateProgress() {
+            const modules = document.querySelectorAll('.module-content.active');
+            const totalModules = document.querySelectorAll('.module-content').length;
+            const progress = Math.round((modules.length / totalModules) * 100);
+            
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `${progress}%`;
+            
+            // Update learning path
+            if (progress >= 25) {
+                document.getElementById('step1').classList.add('completed');
+                document.getElementById('step2').classList.add('active');
+            }
+            if (progress >= 50) {
+                document.getElementById('step2').classList.add('completed');
+                document.getElementById('step3').classList.add('active');
+            }
+            if (progress >= 75) {
+                document.getElementById('step3').classList.add('completed');
+                document.getElementById('step4').classList.add('active');
+            }
+            if (progress >= 100) {
+                document.getElementById('step4').classList.add('completed');
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Open first module by default
+            const firstModule = document.querySelector('.module-header');
+            if (firstModule) {
+                toggleModule(firstModule);
+            }
+            
+            // Smooth scrolling for sidebar links
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // Open the module if it's closed
+                        const moduleHeader = targetElement.querySelector('.module-header');
+                        if (moduleHeader && !targetElement.querySelector('.module-content').classList.contains('active')) {
+                            toggleModule(moduleHeader);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
