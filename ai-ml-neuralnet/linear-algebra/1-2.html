@@ -1,0 +1,2968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Vector Spaces - Theory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00203f;
+            --secondary-color: #4ecdc4;
+            --accent-color: #ff6b6b;
+            --light-bg: #f5f9fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background-color: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .nav-btn i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+        
+        /* Table of Contents Sidebar */
+        .toc-sidebar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background-color: var(--light-bg);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            z-index: 999;
+            transition: transform 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .toc-sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar-toggle {
+            position: absolute;
+            top: 10px;
+            right: -40px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toc-header {
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .toc-title {
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc-title i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .toc-content {
+            padding: 20px;
+        }
+        
+        .toc-section {
+            margin-bottom: 25px;
+        }
+        
+        .toc-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc-section-title i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+        }
+        
+        .toc-item {
+            margin-bottom: 8px;
+        }
+        
+        .toc-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+        
+        .toc-link:hover {
+            background-color: rgba(78, 205, 196, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .toc-link.active {
+            background-color: rgba(78, 205, 196, 0.2);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .toc-link i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            padding-top: 70px;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+            width: calc(100% - 300px);
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+            width: 100%;
+        }
+        
+        .section {
+            padding: 40px 50px;
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+        }
+        
+        .section-title i {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            font-size: 36px;
+        }
+        
+        .section-number {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            font-weight: 700;
+        }
+        
+        /* Cover Section */
+        .cover-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('https://picsum.photos/seed/advanced-vector-spaces-mathematics/1280/720.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            padding: 0;
+        }
+        
+        .cover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 32, 63, 0.85);
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 80%;
+        }
+        
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+        
+        .cover-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .accent-line {
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0 auto 40px;
+        }
+        
+        /* Content Boxes */
+        .definition-box {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 5px solid var(--secondary-color);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .definition-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .definition-title i {
+            color: var(--secondary-color);
+            margin-right: 12px;
+            font-size: 32px;
+        }
+        
+        .definition-text {
+            font-size: 22px;
+            line-height: 1.5;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .property-box {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 32, 63, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .property-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .property-title i {
+            color: var(--secondary-color);
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        
+        .property-list {
+            list-style-type: none;
+            margin-left: 5px;
+        }
+        
+        .property-item {
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .property-item:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        
+        .formula-box {
+            background-color: rgba(78, 205, 196, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        
+        .formula {
+            font-size: 22px;
+            margin: 10px 0;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        
+        .example-box {
+            background-color: rgba(78, 205, 196, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 18px;
+            color: var(--primary-color);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .theorem-box {
+            background: linear-gradient(135deg, var(--primary-color), #004080);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 6px 16px rgba(0, 32, 63, 0.2);
+            text-align: center;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .theorem-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .theorem-title i {
+            margin-right: 15px;
+            font-size: 36px;
+        }
+        
+        .theorem-content {
+            font-size: 24px;
+            line-height: 1.6;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 70px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        /* Mobile Responsiveness */
+        .menu-toggle {
+            display: none;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .toc-sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .toc-sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .sidebar-toggle {
+                display: none;
+            }
+            
+            .cover-title {
+                font-size: 48px;
+            }
+            
+            .cover-subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .definition-text, .property-item {
+                font-size: 18px;
+            }
+            
+            .formula {
+                font-size: 18px;
+            }
+            
+            .theorem-content {
+                font-size: 20px;
+            }
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="material-icons">auto_stories</i>
+                Advanced Vector Spaces
+            </div>
+            <div class="nav-buttons">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="material-icons">menu</i>
+                </button>
+                <a href="../linear-algebra.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.1
+                </button></a>
+                <a href="1-3.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.3
+                </button></a>
+                <a href="1-4.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.4
+                </button></a>
+                <a href="1-5.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.5
+                </button></a>
+                <a href="1-6.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.6
+                </button></a>
+                <a href="1-7.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.7
+                </button></a>
+                <a href="1-8.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.8
+                </button></a>
+                <a href="1-9.html"><button class="nav-btn">
+                <i class="material-icons">book</i>
+                    Chap-1.9
+                </button></a>
+                <button class="nav-btn" id="prevBtn">
+                    <i class="material-icons">arrow_back</i>
+                    Previous
+                </button>
+                <button class="nav-btn" id="nextBtn">
+                    Next
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc-sidebar" id="tocSidebar">
+        <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="material-icons" id="toggleIcon">chevron_left</i>
+        </button>
+        <div class="toc-header">
+            <h2 class="toc-title">
+                <i class="material-icons">menu_book</i>
+                Table of Contents
+            </h2>
+        </div>
+        <div class="toc-content">
+            <div class="toc-section">
+                <h3 class="toc-section-title">
+                    <i class="material-icons">home</i>
+                    Introduction
+                </h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#cover" class="toc-link">
+                            <i class="material-icons">book</i>
+                            Cover
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <h3 class="toc-section-title">
+                    <i class="material-icons">category</i>
+                    Foundations
+                </h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#vector-spaces" class="toc-link">
+                            <i class="material-icons">functions</i>
+                            Vector Spaces
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#examples" class="toc-link">
+                            <i class="material-icons">grid_on</i>
+                            Examples
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#subspaces" class="toc-link">
+                            <i class="material-icons">category</i>
+                            Subspaces
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#subspace-tests" class="toc-link">
+                            <i class="material-icons">check_circle</i>
+                            Subspace Tests
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <h3 class="toc-section-title">
+                    <i class="material-icons">linear_scale</i>
+                    Structure
+                </h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#linear-independence" class="toc-link">
+                            <i class="material-icons">call_split</i>
+                            Linear Independence
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#basis-dimension" class="toc-link">
+                            <i class="material-icons">straighten</i>
+                            Basis & Dimension
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#coordinate-systems" class="toc-link">
+                            <i class="material-icons">grid_on</i>
+                            Coordinate Systems
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <h3 class="toc-section-title">
+                    <i class="material-icons">transform</i>
+                    Transformations
+                </h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#linear-transformations" class="toc-link">
+                            <i class="material-icons">swap_horiz</i>
+                            Linear Maps
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#matrix-representation" class="toc-link">
+                            <i class="material-icons">grid_view</i>
+                            Matrix Representation
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#kernel-range" class="toc-link">
+                            <i class="material-icons">call_split</i>
+                            Kernel & Range
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#rank-nullity" class="toc-link">
+                            <i class="material-icons">calculate</i>
+                            Rank-Nullity
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <h3 class="toc-section-title">
+                    <i class="material-icons">square_foot</i>
+                    Advanced Topics
+                </h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#inner-product" class="toc-link">
+                            <i class="material-icons">functions</i>
+                            Inner Product Spaces
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#orthogonality" class="toc-link">
+                            <i class="material-icons">call_merge</i>
+                            Orthogonality
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#gram-schmidt" class="toc-link">
+                            <i class="material-icons">swap_vert</i>
+                            Gram-Schmidt
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#projections" class="toc-link">
+                            <i class="material-icons">call_split</i>
+                            Orthogonal Projections
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#normed-spaces" class="toc-link">
+                            <i class="material-icons">straighten</i>
+                            Normed Spaces
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#isomorphisms" class="toc-link">
+                            <i class="material-icons">swap_horiz</i>
+                            Isomorphisms
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#dual-spaces" class="toc-link">
+                            <i class="material-icons">transform</i>
+                            Dual Spaces
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Cover Section -->
+        <section id="cover" class="cover-section">
+            <div class="cover-overlay"></div>
+            <div class="cover-content">
+                <div class="section-number">Section 1.2</div>
+                <h1 class="cover-title">Advanced Vector Spaces - Theory</h1>
+                <div class="accent-line"></div>
+                <h2 class="cover-subtitle">A Comprehensive Exploration of Abstract Vector Spaces, Linear Transformations, and Inner Product Spaces</h2>
+            </div>
+        </section>
+        <!-- Vector Spaces Section -->
+        <section id="vector-spaces" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.1</span>
+                Vector Spaces - Definition and Axioms
+            </h1>
+            
+            <div class="definition-box">
+                <h2 class="definition-title">
+                    <i class="material-icons">auto_stories</i>
+                    Definition
+                </h2>
+                <p class="definition-text">
+                    A <span class="highlight">vector space</span> is a set <span class="math">V</span> equipped with two operations:
+                    <br><br>
+                    • <span class="highlight">Vector addition</span>: <span class="math">+ : V × V → V</span>
+                    <br>
+                    • <span class="highlight">Scalar multiplication</span>: <span class="math">· : ℝ × V → V</span>
+                    <br><br>
+                    satisfying the following 10 axioms for all <span class="math">u, v, w ∈ V</span> and <span class="math">a, b ∈ ℝ</span>
+                </p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">add_circle</i>
+                        Addition Axioms
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Closure</span>: <span class="math">u + v ∈ V</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Commutativity</span>: <span class="math">u + v = v + u</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Associativity</span>: <span class="math">(u + v) + w = u + (v + w)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Zero Vector</span>: <span class="math">∃ 0 ∈ V</span> such that <span class="math">u + 0 = u</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Additive Inverse</span>: <span class="math">∃ -u ∈ V</span> such that <span class="math">u + (-u) = 0</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">close</i>
+                        Scalar Multiplication Axioms
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Closure</span>: <span class="math">a·u ∈ V</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Distributivity (vector)</span>: <span class="math">a·(u + v) = a·u + a·v</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Distributivity (scalar)</span>: <span class="math">(a + b)·u = a·u + b·u</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Associativity</span>: <span class="math">(ab)·u = a·(b·u)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Identity</span>: <span class="math">1·u = u</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Examples Section -->
+        <section id="examples" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.2</span>
+                Examples of Vector Spaces
+            </h1>
+            
+            <p class="definition-text">
+                Vector spaces appear throughout mathematics and its applications. Here are some fundamental examples:
+            </p>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">grid_on</i>
+                        Euclidean Space
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">ℝⁿ</span>: n-tuples of real numbers</p>
+                        <p>• Addition: <span class="math">(x₁,...,xₙ) + (y₁,...,yₙ) = (x₁+y₁,...,xₙ+yₙ)</span></p>
+                        <p>• Scalar mult: <span class="math">c(x₁,...,xₙ) = (cx₁,...,cxₙ)</span></p>
+                        <p>• Dimension: <span class="math">n</span></p>
+                        <p>• Standard basis: <span class="math">e₁=(1,0,...,0), e₂=(0,1,...,0), ..., eₙ=(0,0,...,1)</span></p>
+                    </div>
+                    <div class="example-box">
+                        <p>Most intuitive example with clear geometric interpretation</p>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">functions</i>
+                        Function Spaces
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">F[a,b]</span>: Real-valued functions on interval [a,b]</p>
+                        <p>• Addition: <span class="math">(f+g)(x) = f(x) + g(x)</span></p>
+                        <p>• Scalar mult: <span class="math">(cf)(x) = c·f(x)</span></p>
+                        <p>• Zero vector: <span class="math">0(x) = 0</span> for all <span class="math">x</span></p>
+                        <p>• Subspaces: <span class="highlight">C[a,b]</span> (continuous), <span class="highlight">Cⁿ[a,b]</span> (n-times differentiable)</p>
+                    </div>
+                    <div class="example-box">
+                        <p>Infinite-dimensional space with applications in differential equations</p>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">view_column</i>
+                        Matrix Spaces
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">M_{m×n}</span>: m×n matrices with real entries</p>
+                        <p>• Addition: <span class="math">(A+B)_{ij} = A_{ij} + B_{ij}</span></p>
+                        <p>• Scalar mult: <span class="math">(cA)_{ij} = c·A_{ij}</span></p>
+                        <p>• Zero vector: <span class="math">0_{m×n}</span> (all entries zero)</p>
+                        <p>• Dimension: <span class="math">m×n</span></p>
+                        <p>• Basis: matrices with single 1 and rest 0</p>
+                    </div>
+                    <div class="example-box">
+                        <p>Fundamental in linear transformations and data representation</p>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">show_chart</i>
+                        Polynomial Spaces
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">Pₙ</span>: Polynomials of degree ≤ n</p>
+                        <p>• Addition: <span class="math">(p+q)(x) = p(x) + q(x)</span></p>
+                        <p>• Scalar mult: <span class="math">(cp)(x) = c·p(x)</span></p>
+                        <p>• Zero vector: <span class="math">p(x) = 0</span> (zero polynomial)</p>
+                        <p>• Dimension: <span class="math">n+1</span></p>
+                        <p>• Standard basis: <span class="math">{1, x, x², ..., xⁿ}</span></p>
+                    </div>
+                    <div class="example-box">
+                        <p>Used in approximation theory and interpolation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Subspaces Section -->
+        <section id="subspaces" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.3</span>
+                Subspaces - Definition and Properties
+            </h1>
+            
+            <div class="definition-box">
+                <h2 class="definition-title">
+                    <i class="material-icons">auto_stories</i>
+                    Definition
+                </h2>
+                <p class="definition-text">
+                    A <span class="highlight">subspace</span> of a vector space <span class="math">V</span> is a subset <span class="math">W ⊆ V</span> that is itself a vector space under the operations inherited from <span class="math">V</span>.
+                </p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Subspace Criterion
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Non-empty</span>: <span class="math">W ≠ ∅</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Closed under addition</span>: <span class="math">∀ u,v ∈ W: u+v ∈ W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Closed under scalar multiplication</span>: <span class="math">∀ v ∈ W, ∀ c ∈ ℝ: c·v ∈ W</span>
+                        </li>
+                    </ul>
+                    <div class="theorem-box">
+                        <h4 class="theorem-title">
+                            <i class="material-icons">lightbulb</i>
+                            Simplified Test
+                        </h4>
+                        <div class="theorem-content">
+                            <span class="math">W</span> is a subspace of <span class="math">V</span> if and only if:
+                            <br><br>
+                            <span class="highlight">∀ u,v ∈ W, ∀ c ∈ ℝ: u+v ∈ W</span> and <span class="highlight">c·u ∈ W</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">category</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Contains zero vector</span>: <span class="math">0 ∈ W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Closed under linear combinations</span>: <span class="math">∀ v₁,...,vₙ ∈ W, ∀ c₁,...,cₙ ∈ ℝ: c₁v₁ + ... + cₙvₙ ∈ W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Inherits operations</span>: Addition and scalar multiplication in <span class="math">W</span> are the same as in <span class="math">V</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Intersection property</span>: The intersection of any collection of subspaces is a subspace
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Dimension constraint</span>: <span class="math">dim(W) ≤ dim(V)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Subspace Tests Section -->
+        <section id="subspace-tests" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.4</span>
+                Subspace Examples and Tests
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">check_circle</i>
+                        Valid Subspace Examples
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">Lines through origin</span> in <span class="math">ℝ²</span></p>
+                        <p>• Set: <span class="math">{(x,y) | y = mx}</span> for fixed <span class="math">m</span></p>
+                        <p>• Contains: <span class="math">(0,0)</span></p>
+                        <p>• Closed under: addition and scalar multiplication</p>
+                        <br>
+                        <p><span class="highlight">Solution sets of homogeneous systems</span></p>
+                        <p>• Set: <span class="math">{x | Ax = 0}</span> for matrix <span class="math">A</span></p>
+                        <p>• Called: <span class="highlight">null space</span> of <span class="math">A</span></p>
+                        <p>• Dimension: <span class="math">n - rank(A)</span></p>
+                    </div>
+                    <div class="example-box">
+                        <h4 class="example-title">Verification Process</h4>
+                        <div>
+                            1. Check if <span class="math">0 ∈ W</span><br>
+                            2. Verify <span class="math">u,v ∈ W ⇒ u+v ∈ W</span><br>
+                            3. Verify <span class="math">v ∈ W, c ∈ ℝ ⇒ c·v ∈ W</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">cancel</i>
+                        Non-Subspace Examples
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">Lines not through origin</span> in <span class="math">ℝ²</span></p>
+                        <p>• Set: <span class="math">{(x,y) | y = mx + b}</span> where <span class="math">b ≠ 0</span></p>
+                        <p>• Fails: Does not contain <span class="math">(0,0)</span></p>
+                        <p>• Also: Not closed under addition or scalar multiplication</p>
+                        <br>
+                        <p><span class="highlight">Unit circle</span> in <span class="math">ℝ²</span></p>
+                        <p>• Set: <span class="math">{(x,y) | x² + y² = 1}</span></p>
+                        <p>• Contains: <span class="math">(1,0)</span> and <span class="math">(0,1)</span></p>
+                        <p>• Fails: <span class="math">(1,0) + (0,1) = (1,1)</span> not on unit circle</p>
+                        <p>• Also: <span class="math">2·(1,0) = (2,0)</span> not on unit circle</p>
+                    </div>
+                    <div class="example-box">
+                        <h4 class="example-title">Common Pitfalls</h4>
+                        <div>
+                            1. Sets not containing zero vector<br>
+                            2. Sets bounded in some way<br>
+                            3. Sets defined by non-linear equations<br>
+                            4. Sets with constraints on vector magnitude
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">functions</i>
+                        Function Subspaces
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">Even functions</span> in <span class="math">F[-a,a]</span></p>
+                        <p>• Set: <span class="math">{f | f(-x) = f(x) for all x}</span></p>
+                        <p>• Contains: zero function <span class="math">f(x) = 0</span></p>
+                        <p>• Closed under: addition and scalar multiplication</p>
+                        <br>
+                        <p><span class="highlight">Polynomials of degree ≤ n</span> in <span class="math">F[a,b]</span></p>
+                        <p>• Set: <span class="math">{p | p(x) = a₀ + a₁x + ... + aₙxⁿ}</span></p>
+                        <p>• Dimension: <span class="math">n+1</span></p>
+                        <p>• Basis: <span class="math">{1, x, x², ..., xⁿ}</span></p>
+                    </div>
+                    <div class="example-box">
+                        <h4 class="example-title">Function Space Tests</h4>
+                        <div>
+                            1. Verify zero function satisfies the condition<br>
+                            2. Check if property preserved under addition<br>
+                            3. Check if property preserved under scalar multiplication
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">view_column</i>
+                        Matrix Subspaces
+                    </h3>
+                    <div class="definition-text">
+                        <p><span class="highlight">Symmetric matrices</span> in <span class="math">M_{n×n}</span></p>
+                        <p>• Set: <span class="math">{A | Aᵀ = A}</span></p>
+                        <p>• Contains: zero matrix</p>
+                        <p>• Dimension: <span class="math">n(n+1)/2</span></p>
+                        <br>
+                        <p><span class="highlight">Upper triangular matrices</span> in <span class="math">M_{n×n}</span></p>
+                        <p>• Set: <span class="math">{A | A_{ij} = 0 for i > j}</span></p>
+                        <p>• Contains: zero matrix</p>
+                        <p>• Dimension: <span class="math">n(n+1)/2</span></p>
+                    </div>
+                    <div class="example-box">
+                        <h4 class="example-title">Matrix Space Tests</h4>
+                        <div>
+                            1. Verify zero matrix satisfies the condition<br>
+                            2. Check if property preserved under addition<br>
+                            3. Check if property preserved under scalar multiplication
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Linear Independence Section -->
+        <section id="linear-independence" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.5</span>
+                Linear Independence and Dependence
+            </h1>
+            
+            <div class="grid-2">
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">auto_stories</i>
+                        Linear Independence
+                    </h2>
+                    <p class="definition-text">
+                        A set of vectors <span class="math">{v₁, v₂, ..., vₙ}</span> is <span class="highlight">linearly independent</span> if the only solution to:
+                        <br><br>
+                        <span class="math">c₁v₁ + c₂v₂ + ... + cₙvₙ = 0</span>
+                        <br><br>
+                        is <span class="math">c₁ = c₂ = ... = cₙ = 0</span>
+                    </p>
+                </div>
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">auto_stories</i>
+                        Linear Dependence
+                    </h2>
+                    <p class="definition-text">
+                        A set of vectors <span class="math">{v₁, v₂, ..., vₙ}</span> is <span class="highlight">linearly dependent</span> if there exist scalars <span class="math">c₁, c₂, ..., cₙ</span>, not all zero, such that:
+                        <br><br>
+                        <span class="math">c₁v₁ + c₂v₂ + ... + cₙvₙ = 0</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Unique representation</span>: In a linearly independent set, each vector has a unique representation as a linear combination
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Redundancy</span>: In a linearly dependent set, at least one vector is a linear combination of the others
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Zero vector</span>: Any set containing the zero vector is linearly dependent
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Subset property</span>: Every subset of a linearly independent set is linearly independent
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <h4 class="example-title">Test Method</h4>
+                        <div>
+                            Form matrix <span class="math">A</span> with vectors as columns and solve <span class="math">Ax = 0</span>. If only trivial solution exists, vectors are linearly independent.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Geometric Interpretation
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">In ℝ²</span>: Two vectors are linearly independent if they point in different directions (not parallel)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">In ℝ³</span>: Three vectors are linearly independent if they don't lie in the same plane
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">General case</span>: Vectors are linearly independent if each adds a new dimension to the space they span
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Maximum size</span>: In an <span class="math">n</span>-dimensional space, any set with more than <span class="math">n</span> vectors is linearly dependent
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <h4 class="example-title">Visualization</h4>
+                        <div>
+                            Linear independence means no vector is "redundant" - each provides unique information that cannot be replicated by the others.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Basis and Dimension Section -->
+        <section id="basis-dimension" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.6</span>
+                Basis and Dimension
+            </h1>
+            
+            <div class="grid-2">
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">auto_stories</i>
+                        Basis
+                    </h2>
+                    <p class="definition-text">
+                        A <span class="highlight">basis</span> for a vector space <span class="math">V</span> is a linearly independent set of vectors that <span class="highlight">spans</span> <span class="math">V</span>.
+                        <br><br>
+                        • Every vector in <span class="math">V</span> can be uniquely expressed as a linear combination of basis vectors
+                        <br>
+                        • Minimal spanning set
+                        <br>
+                        • Maximal linearly independent set
+                    </p>
+                </div>
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">straighten</i>
+                        Dimension
+                    </h2>
+                    <p class="definition-text">
+                        The <span class="highlight">dimension</span> of a vector space <span class="math">V</span>, denoted <span class="math">dim(V)</span>, is the number of vectors in any basis for <span class="math">V</span>.
+                        <br><br>
+                        • All bases for a vector space have the same number of elements
+                        <br>
+                        • <span class="math">dim(ℝⁿ) = n</span>
+                        <br>
+                        • <span class="math">dim(Pₙ) = n+1</span> (polynomials of degree ≤ n)
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Unique representation</span>: For any basis <span class="math">B = {v₁,...,vₙ}</span>, every <span class="math">v ∈ V</span> has a unique representation <span class="math">v = c₁v₁ + ... + cₙvₙ</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Extension theorem</span>: Any linearly independent set can be extended to a basis
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Reduction theorem</span>: Any spanning set can be reduced to a basis
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Subspace dimension</span>: If <span class="math">W ⊆ V</span>, then <span class="math">dim(W) ≤ dim(V)</span>
+                        </li>
+                    </ul>
+                    <div class="theorem-box">
+                        <h4 class="theorem-title">
+                            <i class="material-icons">lightbulb</i>
+                            Basis Theorem
+                        </h4>
+                        <div class="theorem-content">
+                            If <span class="math">V</span> is finite-dimensional with <span class="math">dim(V) = n</span>, then:
+                            <br>• Any linearly independent set with <span class="math">n</span> vectors is a basis
+                            <br>• Any spanning set with <span class="math">n</span> vectors is a basis
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">category</i>
+                        Standard Bases
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">ℝⁿ</span>: Standard basis <span class="math">{e₁,e₂,...,eₙ}</span> where <span class="math">eᵢ</span> has 1 in position <span class="math">i</span> and 0 elsewhere
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Pₙ</span>: Standard basis <span class="math">{1,x,x²,...,xⁿ}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">M_{m×n}</span>: Standard basis consists of matrices with single 1 and rest 0
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Function spaces</span>: Various bases including orthogonal polynomials, Fourier basis
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        Standard basis for <span class="math">ℝ³</span>: <span class="math">e₁ = (1,0,0), e₂ = (0,1,0), e₃ = (0,0,1)</span>
+                        <br>Any vector <span class="math">v = (a,b,c)</span> can be written as <span class="math">v = ae₁ + be₂ + ce₃</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Coordinate Systems Section -->
+        <section id="coordinate-systems" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.7</span>
+                Coordinate Systems and Change of Basis
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">grid_on</i>
+                        Coordinate Systems
+                    </h3>
+                    <div class="definition-text">
+                        <p>Given a basis <span class="math">B = {v₁, v₂, ..., vₙ}</span> for vector space <span class="math">V</span>, any vector <span class="math">v ∈ V</span> can be uniquely represented as:</p>
+                        <div class="formula-box">
+                            <div class="formula">v = c₁v₁ + c₂v₂ + ... + cₙvₙ</div>
+                        </div>
+                        <p>The <span class="highlight">coordinate vector</span> of <span class="math">v</span> relative to <span class="math">B</span> is:</p>
+                        <div class="formula-box">
+                            <div class="formula">[v]₈ = [c₁, c₂, ..., cₙ]ᵀ</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            In <span class="math">ℝ²</span> with standard basis <span class="math">B = {e₁, e₂}</span>, the vector <span class="math">v = (3, 2)</span> has coordinates <span class="math">[v]₈ = [3, 2]ᵀ</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">transform</i>
+                        Change of Basis Matrix
+                    </h3>
+                    <div class="definition-text">
+                        <p>Let <span class="math">B = {v₁, v₂, ..., vₙ}</span> and <span class="math">C = {w₁, w₂, ..., wₙ}</span> be two bases for <span class="math">V</span>.</p>
+                        <p>The <span class="highlight">change of basis matrix</span> from <span class="math">B</span> to <span class="math">C</span>, denoted <span class="math">P_{C←B}</span>, satisfies:</p>
+                        <div class="formula-box">
+                            <div class="formula">[v]C = P_{C←B} [v]B</div>
+                        </div>
+                        <ul class="property-list">
+                            <li class="property-item">Columns of <span class="math">P_{C←B}</span> are <span class="math">[v₁]C, [v₂]C, ..., [vₙ]C</span></li>
+                            <li class="property-item"><span class="math">P_{C←B}</span> is always invertible</li>
+                            <li class="property-item"><span class="math">P_{B←C} = (P_{C←B})⁻¹</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">swap_horiz</i>
+                        Computing Change of Basis
+                    </h3>
+                    <div class="definition-text">
+                        <p>To find <span class="math">P_{C←B}</span>:</p>
+                        <ul class="property-list">
+                            <li class="property-item">Express each basis vector of <span class="math">B</span> in terms of <span class="math">C</span></li>
+                            <li class="property-item">For each <span class="math">vᵢ ∈ B</span>, find <span class="math">[vᵢ]C</span></li>
+                            <li class="property-item">These coordinate vectors form the columns of <span class="math">P_{C←B}</span></li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            In <span class="math">ℝ²</span>, if <span class="math">B = {e₁, e₂}</span> and <span class="math">C = {(1,1), (1,-1)}</span>, then:
+                            <br><span class="math">P_{C←B} = [[1/2, 1/2], [1/2, -1/2]]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">insights</i>
+                        Applications and Properties
+                    </h3>
+                    <div class="definition-text">
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Linear transformations</span>: Matrix representation depends on basis choice</li>
+                            <li class="property-item"><span class="highlight">Similar matrices</span>: <span class="math">A</span> and <span class="math">B</span> similar if <span class="math">B = P⁻¹AP</span> for some invertible <span class="math">P</span></li>
+                            <li class="property-item"><span class="highlight">Diagonalization</span>: Finding basis where transformation matrix is diagonal</li>
+                            <li class="property-item"><span class="highlight">Computational efficiency</span>: Some problems simpler in specific bases</li>
+                        </ul>
+                        <div class="formula-box">
+                            <div class="formula">[T(v)]C = [T]_{C←B} [v]B</div>
+                            <div class="formula">[T]_{C←C} = P_{C←B} [T]_{B←B} P_{B←C}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Linear Transformations Section -->
+        <section id="linear-transformations" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.8</span>
+                Linear Transformations - Definition and Properties
+            </h1>
+            
+            <div class="definition-box">
+                <h2 class="definition-title">
+                    <i class="material-icons">auto_stories</i>
+                    Definition
+                </h2>
+                <p class="definition-text">
+                    A <span class="highlight">linear transformation</span> is a function <span class="math">T: V → W</span> between vector spaces that satisfies:
+                    <br><br>
+                    • <span class="highlight">Additivity</span>: <span class="math">T(u + v) = T(u) + T(v)</span> for all <span class="math">u, v ∈ V</span>
+                    <br>
+                    • <span class="highlight">Homogeneity</span>: <span class="math">T(c·v) = c·T(v)</span> for all <span class="math">v ∈ V</span> and all scalars <span class="math">c</span>
+                    <br><br>
+                    Equivalently, <span class="math">T</span> preserves linear combinations:
+                    <br>
+                    <span class="math">T(c₁v₁ + c₂v₂ + ... + cₙvₙ) = c₁T(v₁) + c₂T(v₂) + ... + cₙT(vₙ)</span>
+                </p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Zero vector preservation</span>: <span class="math">T(0_V) = 0_W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Inverse preservation</span>: <span class="math">T(-v) = -T(v)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Subspace mapping</span>: Image of subspace is subspace
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Linear independence</span>: Maps independent sets to independent sets if injective
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Composition</span>: Composition of linear transformations is linear
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        The derivative operator <span class="math">D: Pₙ → Pₙ₋₁</span> defined by <span class="math">D(p) = p'</span> is a linear transformation.
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">category</i>
+                        Types of Linear Transformations
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Isomorphism</span>: Bijective linear transformation
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Endomorphism</span>: <span class="math">T: V → V</span> (maps space to itself)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Automorphism</span>: Bijective endomorphism
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Projection</span>: <span class="math">T∘T = T</span> (idempotent)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Nilpotent</span>: <span class="math">Tᵏ = 0</span> for some <span class="math">k</span>
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        The rotation matrix <span class="math">R_θ = [cosθ -sinθ; sinθ cosθ]</span> is an automorphism of <span class="math">ℝ²</span>.
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Operations on Linear Transformations
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Addition</span>: <span class="math">(T + S)(v) = T(v) + S(v)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Scalar multiplication</span>: <span class="math">(cT)(v) = c·T(v)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Composition</span>: <span class="math">(T∘S)(v) = T(S(v))</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Inverse</span>: <span class="math">T⁻¹(T(v)) = v</span> (if bijective)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Adjoint</span>: <span class="math">⟨T(u),v⟩ = ⟨u,T*(v)⟩</span> (in inner product spaces)
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Geometric Interpretation
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Preserves lines</span>: Maps lines to lines
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Preserves origin</span>: Maps origin to origin
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Preserves parallelism</span>: Parallel lines map to parallel lines
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Uniform scaling</span>: Scales all vectors in a subspace uniformly
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Structure preservation</span>: Maintains vector space structure
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Matrix Representation Section -->
+        <section id="matrix-representation" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.9</span>
+                Matrix Representation of Linear Transformations
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">grid_on</i>
+                        Standard Matrix Representation
+                    </h3>
+                    <div class="definition-text">
+                        <p>For a linear transformation <span class="math">T: ℝⁿ → ℝᵐ</span>, the <span class="highlight">standard matrix</span> <span class="math">[T]</span> is constructed by:</p>
+                        <ul class="property-list">
+                            <li class="property-item">Apply <span class="math">T</span> to standard basis vectors <span class="math">e₁, e₂, ..., eₙ</span></li>
+                            <li class="property-item">Results <span class="math">T(e₁), T(e₂), ..., T(eₙ)</span> form columns of <span class="math">[T]</span></li>
+                            <li class="property-item">For any <span class="math">v ∈ ℝⁿ</span>: <span class="math">T(v) = [T]v</span></li>
+                        </ul>
+                        <div class="formula-box">
+                            <div class="formula">[T] = [T(e₁) | T(e₂) | ... | T(eₙ)]</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            For rotation <span class="math">T: ℝ² → ℝ²</span> by angle <span class="math">θ</span>:
+                            <br><span class="math">T(e₁) = (cosθ, sinθ)</span>, <span class="math">T(e₂) = (-sinθ, cosθ)</span>
+                            <br><span class="math">[T] = [cosθ -sinθ; sinθ cosθ]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">swap_horiz</i>
+                        General Matrix Representation
+                    </h3>
+                    <div class="definition-text">
+                        <p>For <span class="math">T: V → W</span> with bases <span class="math">B = {v₁,...,vₙ}</span> for <span class="math">V</span> and <span class="math">C = {w₁,...,wₘ}</span> for <span class="math">W</span>:</p>
+                        <ul class="property-list">
+                            <li class="property-item">Apply <span class="math">T</span> to each basis vector <span class="math">vⱼ</span></li>
+                            <li class="property-item">Express <span class="math">T(vⱼ)</span> in basis <span class="math">C</span>: <span class="math">T(vⱼ) = Σᵢ aᵢⱼwᵢ</span></li>
+                            <li class="property-item">Matrix <span class="math">[T]_{C←B}</span> has entries <span class="math">aᵢⱼ</span></li>
+                            <li class="property-item">For any <span class="math">v ∈ V</span>: <span class="math">[T(v)]C = [T]_{C←B} [v]B</span></li>
+                        </ul>
+                        <div class="formula-box">
+                            <div class="formula">[T]_{C←B} = [[T(v₁)]C | [T(v₂)]C | ... | [T(vₙ)]C]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">transform</i>
+                        Change of Basis Effects
+                    </h3>
+                    <div class="definition-text">
+                        <p>Matrix representation depends on choice of bases:</p>
+                        <ul class="property-list">
+                            <li class="property-item">If <span class="math">B', C'</span> are new bases:</li>
+                            <li class="property-item"><span class="math">[T]_{C'←B'} = P_{C'←C} [T]_{C←B} P_{B←B'}</span></li>
+                            <li class="property-item">Where <span class="math">P</span> are change of basis matrices</li>
+                            <li class="property-item">For <span class="math">T: V → V</span> with same basis: <span class="math">[T]_{B'} = P⁻¹[T]_B P</span></li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Similarity:</div>
+                            Matrices representing the same transformation with different bases are <span class="highlight">similar</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Operations and Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Composition</span>: <span class="math">[T∘S]_{C←A} = [T]_{C←B} [S]_{B←A}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Inverse</span>: If <span class="math">T</span> invertible, <span class="math">[T⁻¹]_{B←C} = ([T]_{C←B})⁻¹</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Rank</span>: <span class="math">rank(T) = rank([T])</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Nullity</span>: <span class="math">nullity(T) = nullity([T])</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Eigenvalues</span>: Same for all matrix representations of <span class="math">T</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">dim(V) = rank(T) + nullity(T)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Kernel and Range Section -->
+        <section id="kernel-range" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.10</span>
+                Kernel and Range of Linear Transformations
+            </h1>
+            
+            <div class="grid-2">
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">call_split</i>
+                        Kernel (Null Space)
+                    </h2>
+                    <p class="definition-text">
+                        For a linear transformation <span class="math">T: V → W</span>, the <span class="highlight">kernel</span> is:
+                        <br><br>
+                        <span class="math">ker(T) = {v ∈ V | T(v) = 0}</span>
+                        <br><br>
+                        • Subspace of domain <span class="math">V</span>
+                        <br>
+                        • Measures how much <span class="math">T</span> "collapses" the space
+                        <br>
+                        • Also called <span class="highlight">null space</span> of <span class="math">T</span>
+                    </p>
+                </div>
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">call_merge</i>
+                        Range (Image)
+                    </h2>
+                    <p class="definition-text">
+                        For a linear transformation <span class="math">T: V → W</span>, the <span class="highlight">range</span> is:
+                        <br><br>
+                        <span class="math">range(T) = {T(v) | v ∈ V}</span>
+                        <br><br>
+                        • Subspace of codomain <span class="math">W</span>
+                        <br>
+                        • All possible outputs of <span class="math">T</span>
+                        <br>
+                        • Also called <span class="highlight">image</span> of <span class="math">T</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Subspace property</span>: Both <span class="math">ker(T)</span> and <span class="math">range(T)</span> are subspaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Injectivity</span>: <span class="math">T</span> is injective iff <span class="math">ker(T) = {0}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Surjectivity</span>: <span class="math">T</span> is surjective iff <span class="math">range(T) = W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Composition</span>: <span class="math">ker(T) ⊆ ker(S∘T)</span> and <span class="math">range(S∘T) ⊆ range(S)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Matrix connection</span>: For matrix <span class="math">A</span>, <span class="math">ker(A) = null(A)</span> and <span class="math">range(A) = col(A)</span>
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        For <span class="math">T: ℝ³ → ℝ²</span> defined by <span class="math">T(x,y,z) = (x,y)</span>:
+                        <br>• <span class="math">ker(T) = {(0,0,z) | z ∈ ℝ}</span>
+                        <br>• <span class="math">range(T) = ℝ²</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Computational Methods
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Kernel calculation</span>: Solve <span class="math">T(v) = 0</span> or <span class="math">Ax = 0</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Range calculation</span>: Span of columns of matrix or <span class="math">{T(v₁),...,T(vₙ)}</span> for basis <span class="math">{v₁,...,vₙ}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Dimension</span>: <span class="math">nullity(T) = dim(ker(T))</span>, <span class="math">rank(T) = dim(range(T))</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Basis finding</span>: Use Gaussian elimination for matrix representations
+                        </li>
+                    </ul>
+                    <div class="theorem-box">
+                        <h4 class="theorem-title">
+                            <i class="material-icons">lightbulb</i>
+                            Rank-Nullity Theorem
+                        </h4>
+                        <div class="theorem-content">
+                            For any linear transformation <span class="math">T: V → W</span> with <span class="math">dim(V) = n</span>:
+                            <br><br>
+                            <span class="math">dim(ker(T)) + dim(range(T)) = n</span>
+                            <br><br>
+                            Or equivalently: <span class="math">nullity(T) + rank(T) = dim(V)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Geometric Interpretation
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Kernel</span>: "Collapsed" dimension - vectors mapped to zero
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Range</span>: "Output" dimension - space covered by transformation
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Projection</span>: For projection <span class="math">P</span>, <span class="math">ker(P)</span> is orthogonal to <span class="math">range(P)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Rotation</span>: For rotation <span class="math">R</span>, <span class="math">ker(R) = {0}</span> and <span class="math">range(R)</span> is entire space
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Dimension reduction</span>: <span class="math">dim(ker(T))</span> measures "lost" dimensions
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">insights</i>
+                        Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Differential equations</span>: Solution spaces as kernels of differential operators
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Computer graphics</span>: Projection transformations and their null spaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Data compression</span>: Range of transformation represents compressed data
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Machine learning</span>: Feature spaces as ranges of embedding transformations
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Control theory</span>: Controllable and observable subspaces
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Rank-Nullity Section -->
+        <section id="rank-nullity" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.11</span>
+                Rank-Nullity Theorem and Applications
+            </h1>
+            
+            <div class="theorem-box">
+                <h2 class="theorem-title">
+                    <i class="material-icons">lightbulb</i>
+                    Rank-Nullity Theorem
+                </h2>
+                <div class="theorem-content">
+                    For any linear transformation <span class="math">T: V → W</span> between finite-dimensional vector spaces:
+                    <br><br>
+                    <span class="highlight">dim(ker(T)) + dim(range(T)) = dim(V)</span>
+                    <br><br>
+                    Equivalently, for any matrix <span class="math">A ∈ M_{m×n}</span>:
+                    <br><br>
+                    <span class="highlight">nullity(A) + rank(A) = n</span>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Matrix Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">System analysis</span>: Determines solution space dimension for <span class="math">Ax = b</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Matrix inversion</span>: <span class="math">A</span> invertible iff <span class="math">nullity(A) = 0</span> and <span class="math">rank(A) = n</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Least squares</span>: Relates to rank of design matrix
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">SVD computation</span>: Number of non-zero singular values equals rank
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        For <span class="math">A = [1 2 3; 4 5 6]</span>, <span class="math">rank(A) = 2</span>, so <span class="math">nullity(A) = 3 - 2 = 1</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Linear Transformation Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Injectivity test</span>: <span class="math">T</span> injective iff <span class="math">nullity(T) = 0</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Surjectivity test</span>: <span class="math">T</span> surjective iff <span class="math">rank(T) = dim(W)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Isomorphism</span>: <span class="math">T</span> isomorphism iff <span class="math">nullity(T) = 0</span> and <span class="math">rank(T) = dim(V) = dim(W)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Dimension analysis</span>: Predicts dimension of solution spaces
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        For projection <span class="math">P: ℝ³ → ℝ²</span>, <span class="math">rank(P) = 2</span>, so <span class="math">nullity(P) = 3 - 2 = 1</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">science</i>
+                        Scientific Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Differential equations</span>: Solution space dimension analysis
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Quantum mechanics</span>: State space and observable operators
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Signal processing</span>: Filter design and frequency analysis
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Control theory</span>: Controllability and observability
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">trending_up</i>
+                        Machine Learning Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Feature spaces</span>: Dimension of embedding spaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Neural networks</span>: Rank of weight matrices
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">PCA</span>: Dimension reduction via rank truncation
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Data compression</span>: Low-rank approximations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Inner Product Spaces Section -->
+        <section id="inner-product" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.12</span>
+                Inner Product Spaces - Definition and Properties
+            </h1>
+            
+            <div class="definition-box">
+                <h2 class="definition-title">
+                    <i class="material-icons">auto_stories</i>
+                    Definition
+                </h2>
+                <p class="definition-text">
+                    An <span class="highlight">inner product</span> on a vector space <span class="math">V</span> is a function <span class="math">⟨·,·⟩: V×V→ℝ</span> satisfying:
+                    <br><br>
+                    • <span class="highlight">Symmetry</span>: <span class="math">⟨u,v⟩ = ⟨v,u⟩</span> for all <span class="math">u,v ∈ V</span>
+                    <br>
+                    • <span class="highlight">Linearity</span>: <span class="math">⟨au+bv,w⟩ = a⟨u,w⟩ + b⟨v,w⟩</span> for all <span class="math">u,v,w ∈ V</span> and <span class="math">a,b ∈ ℝ</span>
+                    <br>
+                    • <span class="highlight">Positive-definiteness</span>: <span class="math">⟨v,v⟩ ≥ 0</span> for all <span class="math">v ∈ V</span>, and <span class="math">⟨v,v⟩ = 0</span> iff <span class="math">v = 0</span>
+                    <br><br>
+                    A vector space equipped with an inner product is called an <span class="highlight">inner product space</span>.
+                </p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">straighten</i>
+                        Norm and Distance
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Norm</span>: <span class="math">||v|| = √⟨v,v⟩</span> (length of vector)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Distance</span>: <span class="math">d(u,v) = ||u-v||</span> (distance between vectors)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Unit vector</span>: <span class="math">û = v/||v||</span> (normalized vector)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Cauchy-Schwarz</span>: <span class="math">|⟨u,v⟩| ≤ ||u||·||v||</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">||v|| ≥ 0 and ||v|| = 0 iff v = 0</div>
+                        <div class="formula">||cv|| = |c|·||v|| for any scalar c</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">category</i>
+                        Examples of Inner Products
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Dot product in ℝⁿ</span>: <span class="math">⟨u,v⟩ = u₁v₁ + u₂v₂ + ... + uₙvₙ</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Weighted inner product</span>: <span class="math">⟨u,v⟩_w = Σwᵢuᵢvᵢ</span> where <span class="math">wᵢ > 0</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Function space</span>: <span class="math">⟨f,g⟩ = ∫f(x)g(x)dx</span> over interval [a,b]
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Matrix space</span>: <span class="math">⟨A,B⟩ = tr(AᵀB)</span> (Frobenius inner product)
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        In <span class="math">ℝ²</span> with standard inner product, <span class="math">⟨(3,4),(1,2)⟩ = 3·1 + 4·2 = 11</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Orthogonality</span>: <span class="math">u ⊥ v</span> if <span class="math">⟨u,v⟩ = 0</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Pythagorean theorem</span>: If <span class="math">u ⊥ v</span>, then <span class="math">||u+v||² = ||u||² + ||v||²</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Parallelogram law</span>: <span class="math">||u+v||² + ||u-v||² = 2(||u||² + ||v||²)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Polarization identity</span>: <span class="math">⟨u,v⟩ = ¼(||u+v||² - ||u-v||²)</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">⟨u,v⟩ = ½(||u+v||² - ||u||² - ||v||²)</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Geometric Interpretation
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Angle</span>: <span class="math">cos θ = ⟨u,v⟩/(||u||·||v||)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Projection</span>: <span class="math">projᵥu = (⟨u,v⟩/⟨v,v⟩)v</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Orthogonal complement</span>: <span class="math">W⊥ = {v | ⟨v,w⟩ = 0 for all w ∈ W}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Orthogonal decomposition</span>: <span class="math">V = W ⊕ W⊥</span> for any subspace <span class="math">W</span>
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        In <span class="math">ℝ³</span>, the angle between <span class="math">v = (1,0,0)</span> and <span class="math">w = (1,1,0)</span> is <span class="math">θ = 45°</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Orthogonality Section -->
+        <section id="orthogonality" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.13</span>
+                Orthogonality and Orthogonal Sets
+            </h1>
+            
+            <div class="grid-2">
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">auto_stories</i>
+                        Orthogonality
+                    </h2>
+                    <p class="definition-text">
+                        Two vectors <span class="math">u</span> and <span class="math">v</span> in an inner product space are <span class="highlight">orthogonal</span> if their inner product is zero:
+                        <br><br>
+                        <span class="math">u ⊥ v</span> if and only if <span class="math">⟨u,v⟩ = 0</span>
+                        <br><br>
+                        • Orthogonal vectors are <span class="highlight">linearly independent</span>
+                        <br>
+                        • Zero vector is orthogonal to all vectors
+                        <br>
+                        • Generalizes the concept of perpendicularity
+                    </p>
+                </div>
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">category</i>
+                        Orthogonal Sets
+                    </h2>
+                    <p class="definition-text">
+                        A set <span class="math">S = {v₁, v₂, ..., vₙ}</span> is an <span class="highlight">orthogonal set</span> if all vectors in <span class="math">S</span> are pairwise orthogonal:
+                        <br><br>
+                        <span class="math">⟨vᵢ, vⱼ⟩ = 0</span> for all <span class="math">i ≠ j</span>
+                        <br><br>
+                        • If additionally <span class="math">||vᵢ|| = 1</span> for all <span class="math">i</span>, then <span class="math">S</span> is an <span class="highlight">orthonormal set</span>
+                        <br>
+                        • Orthogonal sets of non-zero vectors are linearly independent
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Linear independence</span>: Any orthogonal set of non-zero vectors is linearly independent
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Pythagorean theorem</span>: If <span class="math">u ⊥ v</span>, then <span class="math">||u+v||² = ||u||² + ||v||²</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Orthogonal decomposition</span>: Any vector can be written as sum of orthogonal components
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Basis property</span>: Orthogonal basis simplifies coordinate calculations
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">If {v₁,...,vₙ} is orthogonal, then ||c₁v₁+...+cₙvₙ||² = |c₁|²||v₁||² + ... + |cₙ|²||vₙ||²</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Orthogonal Complements
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Definition</span>: <span class="math">W⊥ = {v ∈ V | ⟨v,w⟩ = 0 for all w ∈ W}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Subspace property</span>: <span class="math">W⊥</span> is always a subspace
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Double complement</span>: <span class="math">(W⊥)⊥ = W</span> for finite-dimensional subspaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Direct sum</span>: <span class="math">V = W ⊕ W⊥</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Dimension relation</span>: <span class="math">dim(W) + dim(W⊥) = dim(V)</span>
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        In <span class="math">ℝ³</span>, if <span class="math">W = span{(1,0,0)}</span>, then <span class="math">W⊥ = span{(0,1,0), (0,0,1)}</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Orthogonal Projections
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Projection formula</span>: <span class="math">proj_W(v) = Σ⟨v,uᵢ⟩uᵢ</span> for orthonormal basis <span class="math">{uᵢ}</span> of <span class="math">W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Orthogonal projection</span>: <span class="math">v = proj_W(v) + proj_{W⊥}(v)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Best approximation</span>: <span class="math">proj_W(v)</span> is closest vector in <span class="math">W</span> to <span class="math">v</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Projection matrix</span>: <span class="math">P = A(AᵀA)⁻¹Aᵀ</span> where columns of <span class="math">A</span> form basis for <span class="math">W</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">||v - proj_W(v)|| ≤ ||v - w|| for all w ∈ W</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">apps</i>
+                        Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Least squares</span>: Solving overdetermined systems
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Fourier series</span>: Function approximation with orthogonal basis
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Signal processing</span>: Orthogonal frequency division
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Quantum mechanics</span>: Orthogonal state vectors
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Machine learning</span>: Feature extraction, dimensionality reduction
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        QR decomposition uses orthogonal matrices for numerical stability
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Gram-Schmidt Section -->
+        <section id="gram-schmidt" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.14</span>
+                Gram-Schmidt Process and QR Decomposition
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">swap_vert</i>
+                        Gram-Schmidt Process
+                    </h3>
+                    <div class="definition-text">
+                        <p>Algorithm to convert a basis <span class="math">{v₁, v₂, ..., vₙ}</span> into an <span class="highlight">orthogonal basis</span> <span class="math">{u₁, u₂, ..., uₙ}</span>:</p>
+                        <div class="formula-box">
+                            u₁ = v₁<br>
+                            u₂ = v₂ - proj_{u₁}(v₂)<br>
+                            u₃ = v₃ - proj_{u₁}(v₃) - proj_{u₂}(v₃)<br>
+                            ...<br>
+                            uₖ = vₖ - Σ_{i=1}^{k-1} proj_{uᵢ}(vₖ)
+                        </div>
+                        <p>Where <span class="math">proj_{u}(v) = (⟨v,u⟩/⟨u,u⟩)u</span></p>
+                        <div class="formula-box">
+                            <div class="formula">uₖ = vₖ - Σ_{i=1}^{k-1} (⟨vₖ,uᵢ⟩/⟨uᵢ,uᵢ⟩)uᵢ</div>
+                        </div>
+                        <p>To get <span class="highlight">orthonormal</span> basis, normalize each <span class="math">uₖ</span>:</p>
+                        <div class="formula-box">
+                            <div class="formula">êₖ = uₖ/||uₖ||</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">grid_view</i>
+                        QR Decomposition
+                    </h3>
+                    <div class="definition-text">
+                        <p>Factorization of matrix <span class="math">A ∈ ℝᵐˣⁿ</span> as <span class="math">A = QR</span> where:</p>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Q</span>: <span class="math">m × m</span> orthogonal matrix (<span class="math">QᵀQ = I</span>)</li>
+                            <li class="property-item"><span class="highlight">R</span>: <span class="math">m × n</span> upper triangular matrix</li>
+                        </ul>
+                        <p>For <span class="math">rank(A) = n</span>, <span class="math">R</span> has positive diagonal entries</p>
+                        <div class="formula-box">
+                            <div class="formula">A = [a₁ | a₂ | ... | aₙ] = Q [r₁₁ r₁₂ ... r₁ₙ; 0 r₂₂ ... r₂ₙ; ⋱ ⋮; 0 ... 0 rₙₙ]</div>
+                        </div>
+                        <p><span class="highlight">Reduced QR</span>: <span class="math">A = Q₁R₁</span> where <span class="math">Q₁ ∈ ℝᵐˣⁿ</span> and <span class="math">R₁ ∈ ℝⁿˣⁿ</span></p>
+                        <div class="example-box">
+                            <div class="example-title">Connection:</div>
+                            Columns of <span class="math">Q</span> are orthonormal basis from Gram-Schmidt applied to columns of <span class="math">A</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">build</i>
+                        Implementation Methods
+                    </h3>
+                    <div class="definition-text">
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Classical Gram-Schmidt</span>: Direct implementation of algorithm</li>
+                            <li class="property-item"><span class="highlight">Modified Gram-Schmidt</span>: More numerically stable</li>
+                            <li class="property-item"><span class="highlight">Householder reflections</span>: More stable for QR decomposition</li>
+                            <li class="property-item"><span class="highlight">Givens rotations</span>: Useful for sparse matrices</li>
+                        </ul>
+                        <div class="formula-box">
+                            // Modified Gram-Schmidt<br>
+                            for k = 1 to n<br>
+                            &nbsp;&nbsp;rₖₖ = ||vₖ||<br>
+                            &nbsp;&nbsp;qₖ = vₖ/rₖₖ<br>
+                            &nbsp;&nbsp;for j = k+1 to n<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;rₖⱼ = qₖᵀvⱼ<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;vⱼ = vⱼ - rₖⱼqₖ<br>
+                            &nbsp;&nbsp;end<br>
+                            end
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">apps</i>
+                        Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item"><span class="highlight">Least squares</span>: Solve <span class="math">Ax = b</span> via <span class="math">Rx = Qᵀb</span></li>
+                        <li class="property-item"><span class="highlight">Eigenvalue computation</span>: QR algorithm</li>
+                        <li class="property-item"><span class="highlight">Orthogonalization</span>: Creating orthonormal bases</li>
+                        <li class="property-item"><span class="highlight">Numerical stability</span>: Better conditioned than LU</li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Least Squares Example:</div>
+                        For overdetermined system <span class="math">Ax = b</span>, QR gives:
+                        <br><span class="math">||Ax - b||² = ||QRx - b||² = ||Rx - Qᵀb||²</span>
+                        <br>Solve upper triangular system <span class="math">Rx = Qᵀb</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula">minₓ ||Ax - b||₂ = minₓ ||Rx - Qᵀb||₂</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Orthogonal Projections Section -->
+        <section id="projections" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.15</span>
+                Orthogonal Projections and Applications
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">call_split</i>
+                        Orthogonal Projection
+                    </h3>
+                    <div class="definition-text">
+                        <p>For a subspace <span class="math">W</span> of inner product space <span class="math">V</span>, the <span class="highlight">orthogonal projection</span> of vector <span class="math">v ∈ V</span> onto <span class="math">W</span> is the unique vector <span class="math">proj_W(v) ∈ W</span> such that:</p>
+                        <div class="formula-box">
+                            <div class="formula">v - proj_W(v) ⊥ W</div>
+                        </div>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Orthogonal decomposition</span>: <span class="math">v = proj_W(v) + proj_{W⊥}(v)</span></li>
+                            <li class="property-item"><span class="highlight">Projection formula</span>: If <span class="math">{u₁,...,uₖ}</span> orthonormal basis for <span class="math">W</span>: <span class="math">proj_W(v) = Σ⟨v,uᵢ⟩uᵢ</span></li>
+                            <li class="property-item"><span class="highlight">Idempotent</span>: <span class="math">proj_W∘proj_W = proj_W</span></li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            In <span class="math">ℝ³</span>, projection of <span class="math">v = (1,2,3)</span> onto <span class="math">W = span{(1,0,0), (0,1,0)}</span> is <span class="math">proj_W(v) = (1,2,0)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">grid_on</i>
+                        Projection Matrix
+                    </h3>
+                    <div class="definition-text">
+                        <p>For subspace <span class="math">W</span> with basis vectors as columns of <span class="math">A</span>, the projection matrix is:</p>
+                        <div class="formula-box">
+                            <div class="formula">P = A(AᵀA)⁻¹Aᵀ</div>
+                        </div>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Properties</span>: <span class="math">P² = P</span>, <span class="math">Pᵀ = P</span></li>
+                            <li class="property-item"><span class="highlight">Orthogonal case</span>: If <span class="math">A</span> has orthonormal columns, <span class="math">P = AAᵀ</span></li>
+                            <li class="property-item"><span class="highlight">Projection formula</span>: <span class="math">proj_W(v) = Pv</span></li>
+                            <li class="property-item"><span class="highlight">Residual</span>: <span class="math">v - Pv = (I-P)v</span></li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            For <span class="math">W = span{(1,1)}</span> in <span class="math">ℝ²</span>, <span class="math">A = [1; 1]</span>, <span class="math">P = ½[1 1; 1 1]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Best approximation</span>: <span class="math">proj_W(v)</span> is closest point in <span class="math">W</span> to <span class="math">v</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Minimum distance</span>: <span class="math">||v - proj_W(v)|| ≤ ||v - w||</span> for all <span class="math">w ∈ W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Norm inequality</span>: <span class="math">||proj_W(v)|| ≤ ||v||</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Pythagorean theorem</span>: <span class="math">||v||² = ||proj_W(v)||² + ||proj_{W⊥}(v)||²</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Linearity</span>: <span class="math">proj_W(au+bv) = a·proj_W(u) + b·proj_W(v)</span>
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">||v - proj_W(v)|| = min_{w∈W} ||v - w||</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">apps</i>
+                        Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Least squares</span>: Minimize <span class="math">||Ax - b||²</span> via <span class="math">x = (AᵀA)⁻¹Aᵀb</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Signal processing</span>: Noise filtering, signal reconstruction
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Computer graphics</span>: Shadow projection, 3D rendering
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Statistics</span>: Regression analysis, ANOVA
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Quantum mechanics</span>: Measurement operators
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example - Least Squares:</div>
+                        For overdetermined system <span class="math">Ax = b</span>, the solution minimizing <span class="math">||Ax - b||²</span> is <span class="math">x = (AᵀA)⁻¹Aᵀb</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Normed Spaces Section -->
+        <section id="normed-spaces" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.16</span>
+                Normed Spaces and Metrics
+            </h1>
+            
+            <div class="grid-2">
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">straighten</i>
+                        Normed Spaces
+                    </h2>
+                    <p class="definition-text">
+                        A <span class="highlight">norm</span> on a vector space <span class="math">V</span> is a function <span class="math">||·||: V → ℝ</span> satisfying:
+                        <br><br>
+                        • <span class="highlight">Positive definiteness</span>: <span class="math">||v|| ≥ 0</span> and <span class="math">||v|| = 0</span> iff <span class="math">v = 0</span>
+                        <br>
+                        • <span class="highlight">Absolute homogeneity</span>: <span class="math">||αv|| = |α|·||v||</span> for all scalars <span class="math">α</span>
+                        <br>
+                        • <span class="highlight">Triangle inequality</span>: <span class="math">||u+v|| ≤ ||u|| + ||v||</span>
+                        <br><br>
+                        A vector space equipped with a norm is called a <span class="highlight">normed space</span>.
+                    </p>
+                </div>
+                <div class="definition-box">
+                    <h2 class="definition-title">
+                        <i class="material-icons">swap_horiz</i>
+                        Metrics
+                    </h2>
+                    <p class="definition-text">
+                        A <span class="highlight">metric</span> (distance function) on a set <span class="math">X</span> is a function <span class="math">d: X×X → ℝ</span> satisfying:
+                        <br><br>
+                        • <span class="highlight">Non-negativity</span>: <span class="math">d(x,y) ≥ 0</span> and <span class="math">d(x,y) = 0</span> iff <span class="math">x = y</span>
+                        <br>
+                        • <span class="highlight">Symmetry</span>: <span class="math">d(x,y) = d(y,x)</span>
+                        <br>
+                        • <span class="highlight">Triangle inequality</span>: <span class="math">d(x,z) ≤ d(x,y) + d(y,z)</span>
+                        <br><br>
+                        Every norm induces a metric: <span class="math">d(u,v) = ||u-v||</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">category</i>
+                        Examples of Norms
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Euclidean norm</span> (<span class="math">ℓ²</span>): <span class="math">||v||₂ = √(Σ|vᵢ|²)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Taxicab norm</span> (<span class="math">ℓ¹</span>): <span class="math">||v||₁ = Σ|vᵢ|</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Maximum norm</span> (<span class="math">ℓ^∞</span>): <span class="math">||v||_∞ = max|vᵢ|</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">p-norm</span>: <span class="math">||v||ₚ = (Σ|vᵢ|ᵖ)^(¹/ᵖ)</span> for <span class="math">p ≥ 1</span>
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        For <span class="math">v = (3,4)</span> in <span class="math">ℝ²</span>:
+                        <br>• <span class="math">||v||₂ = √(3²+4²) = 5</span>
+                        <br>• <span class="math">||v||₁ = |3|+|4| = 7</span>
+                        <br>• <span class="math">||v||_∞ = max(|3|,|4|) = 4</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Norm Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Reverse triangle inequality</span>: <span class="math">|||u|| - ||v||| ≤ ||u-v||</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Continuity</span>: Norm is a continuous function
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Unit sphere</span>: <span class="math">{v | ||v|| = 1}</span> is closed and bounded
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Equivalence of norms</span>: In finite dimensions, all norms are equivalent
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">c₁||v||ₐ ≤ ||v||ᵦ ≤ c₂||v||ₐ</div>
+                        <div class="formula">for some constants c₁, c₂ > 0</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">functions</i>
+                        Function Space Norms
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Supremum norm</span>: <span class="math">||f||_∞ = sup{|f(x)| | x ∈ [a,b]}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Lᵖ norm</span>: <span class="math">||f||ₚ = (∫|f(x)|ᵖdx)^(¹/ᵖ)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Sobolev norm</span>: Includes derivatives of <span class="math">f</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Matrix norms</span>: Frobenius, operator, spectral norms
+                        </li>
+                    </ul>
+                    <div class="example-box">
+                        <div class="example-title">Example:</div>
+                        For <span class="math">f(x) = x²</span> on <span class="math">[0,1]</span>:
+                        <br>• <span class="math">||f||_∞ = 1</span>
+                        <br>• <span class="math">||f||₂ = √(∫₀¹x⁴dx) = √(1/5) ≈ 0.447</span>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Applications
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Optimization</span>: Constrained minimization, gradient descent
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Approximation theory</span>: Best approximation in different norms
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Machine learning</span>: Regularization (L₁, L₂ norms)
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Functional analysis</span>: Banach spaces, Hilbert spaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Signal processing</span>: Signal reconstruction, compression
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">LASSO: minₓ ||Ax-b||₂² + λ||x||₁</div>
+                        <div class="formula">Ridge: minₓ ||Ax-b||₂² + λ||x||₂²</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Isomorphisms Section -->
+        <section id="isomorphisms" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.17</span>
+                Isomorphisms and Isomorphic Spaces
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">swap_horiz</i>
+                        Isomorphism Definition
+                    </h3>
+                    <div class="definition-text">
+                        <p>A linear transformation <span class="math">T: V → W</span> is an <span class="highlight">isomorphism</span> if:</p>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Bijective</span>: Both injective and surjective</li>
+                            <li class="property-item"><span class="highlight">Invertible</span>: Exists <span class="math">T⁻¹: W → V</span> such that <span class="math">T⁻¹∘T = id_V</span> and <span class="math">T∘T⁻¹ = id_W</span></li>
+                        </ul>
+                        <p>Two vector spaces <span class="math">V</span> and <span class="math">W</span> are <span class="highlight">isomorphic</span> (<span class="math">V ≅ W</span>) if there exists an isomorphism between them.</p>
+                        <div class="formula-box">
+                            <div class="formula">T is isomorphic iff ker(T) = {0} and range(T) = W</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            The map <span class="math">T: ℝ² → P₁</span> defined by <span class="math">T(a,b) = a + bx</span> is an isomorphism
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">rule</i>
+                        Key Properties
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Dimension preservation</span>: If <span class="math">V ≅ W</span>, then <span class="math">dim(V) = dim(W)</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Converse</span>: If <span class="math">dim(V) = dim(W) = n</span>, then <span class="math">V ≅ W</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Composition</span>: Composition of isomorphisms is an isomorphism
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Inverse</span>: Inverse of an isomorphism is an isomorphism
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Equivalence relation</span>: Isomorphism is reflexive, symmetric, and transitive
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">All n-dimensional vector spaces over the same field are isomorphic</div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">calculate</i>
+                        Constructing Isomorphisms
+                    </h3>
+                    <div class="definition-text">
+                        <p>To construct an isomorphism <span class="math">T: V → W</span>:</p>
+                        <ul class="property-list">
+                            <li class="property-item">Choose bases <span class="math">B = {v₁,...,vₙ}</span> for <span class="math">V</span> and <span class="math">C = {w₁,...,wₙ}</span> for <span class="math">W</span></li>
+                            <li class="property-item">Define <span class="math">T(vᵢ) = wᵢ</span> for each basis vector</li>
+                            <li class="property-item">Extend linearly: <span class="math">T(Σcᵢvᵢ) = Σcᵢwᵢ</span></li>
+                        </ul>
+                        <p>The <span class="highlight">matrix representation</span> of <span class="math">T</span> with respect to <span class="math">B</span> and <span class="math">C</span> is the identity matrix.</p>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            For <span class="math">V = P₂</span> and <span class="math">W = ℝ³</span>, define <span class="math">T(a+bx+cx²) = (a,b,c)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Applications and Significance
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Classification</span>: Classifies vector spaces up to isomorphism by dimension
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Coordinate systems</span>: Isomorphism between abstract space and <span class="math">ℝⁿ</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Linear transformations</span>: Study in one space applies to all isomorphic spaces
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Duality</span>: Isomorphism between space and its dual
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Machine learning</span>: Feature space isomorphisms for dimensionality reduction
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">V ≅ ℝⁿ where n = dim(V)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dual Spaces Section -->
+        <section id="dual-spaces" class="section">
+            <h1 class="section-title">
+                <span class="section-number">1.2.18</span>
+                Dual Spaces and Applications in Machine Learning
+            </h1>
+            
+            <div class="grid-2">
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">swap_horiz</i>
+                        Dual Space Definition
+                    </h3>
+                    <div class="definition-text">
+                        <p>The <span class="highlight">dual space</span> of a vector space <span class="math">V</span>, denoted <span class="math">V*</span>, is the space of all linear functionals on <span class="math">V</span>:</p>
+                        <div class="formula-box">
+                            <div class="formula">V* = {f: V → ℝ | f is linear}</div>
+                        </div>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Operations</span>: <span class="math">(f+g)(v) = f(v) + g(v)</span>, <span class="math">(cf)(v) = c·f(v)</span></li>
+                            <li class="property-item"><span class="highlight">Dimension</span>: <span class="math">dim(V*) = dim(V)</span> for finite-dimensional <span class="math">V</span></li>
+                            <li class="property-item"><span class="highlight">Dual basis</span>: If <span class="math">{v₁,...,vₙ}</span> is basis for <span class="math">V</span>, then dual basis <span class="math">{f₁,...,fₙ}</span> satisfies <span class="math">fᵢ(vⱼ) = δᵢⱼ</span></li>
+                        </ul>
+                        <div class="example-box">
+                            <div class="example-title">Example:</div>
+                            For <span class="math">V = ℝ³</span>, the dual basis of standard basis is the set of projection functionals <span class="math">f₁(x,y,z) = x</span>, <span class="math">f₂(x,y,z) = y</span>, <span class="math">f₃(x,y,z) = z</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">transform</i>
+                        Double Dual and Natural Isomorphism
+                    </h3>
+                    <div class="definition-text">
+                        <p>The <span class="highlight">double dual</span> <span class="math">V**</span> is the dual of the dual space <span class="math">V*</span>:</p>
+                        <ul class="property-list">
+                            <li class="property-item"><span class="highlight">Natural isomorphism</span>: <span class="math">φ: V → V**</span> defined by <span class="math">φ(v)(f) = f(v)</span></li>
+                            <li class="property-item"><span class="highlight">Canonical</span>: Does not depend on choice of basis</li>
+                            <li class="property-item"><span class="highlight">Reflexivity</span>: <span class="math">V</span> is reflexive if <span class="math">φ</span> is an isomorphism</li>
+                            <li class="property-item"><span class="highlight">Finite-dimensional case</span>: All finite-dimensional spaces are reflexive</li>
+                        </ul>
+                        <div class="formula-box">
+                            <div class="formula">φ(v)(f) = f(v)</div>
+                        </div>
+                        <div class="example-box">
+                            <div class="example-title">Significance:</div>
+                            Natural isomorphism allows identifying <span class="math">V</span> with <span class="math">V**</span> without choosing a basis
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">psychology</i>
+                        Applications in Machine Learning
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Kernel methods</span>: Feature maps and kernel functions as elements of dual space
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Support Vector Machines</span>: Dual formulation maximizes margin in dual space
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Representation learning</span>: Learning feature representations in dual space
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Neural networks</span>: Dual space interpretation of activation functions
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">K(x,y) = φ(x)ᵀφ(y)</div>
+                        <div class="formula">where φ: X → V maps to feature space</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-title">SVM Dual Problem:</div>
+                        Maximize <span class="math">Σαᵢ - ½ΣΣαᵢαⱼyᵢyⱼK(xᵢ,xⱼ)</span> subject to constraints
+                    </div>
+                </div>
+                
+                <div class="property-box">
+                    <h3 class="property-title">
+                        <i class="material-icons">insights</i>
+                        Advanced Concepts
+                    </h3>
+                    <ul class="property-list">
+                        <li class="property-item">
+                            <span class="highlight">Annihilator</span>: <span class="math">W⁰ = {f ∈ V* | f(w) = 0 for all w ∈ W}</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Transpose</span>: For <span class="math">T: V → W</span>, <span class="math">T*: W* → V*</span> defined by <span class="math">T*(f) = f∘T</span>
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Adjoint</span>: In inner product spaces, relates to transpose via Riesz representation
+                        </li>
+                        <li class="property-item">
+                            <span class="highlight">Tensors</span>: Multilinear maps as elements of tensor product spaces
+                        </li>
+                    </ul>
+                    <div class="formula-box">
+                        <div class="formula">dim(W) + dim(W⁰) = dim(V)</div>
+                    </div>
+                    <div class="example-box">
+                        <div class="example-title">Application:</div>
+                        Dual spaces provide framework for understanding feature extraction, dimensionality reduction, and manifold learning
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h2 class="footer-title">Advanced Vector Spaces - Theory</h2>
+                <p class="footer-text">
+                    A comprehensive exploration of abstract vector spaces, linear transformations, and inner product spaces with applications in machine learning and data science.
+                </p>
+            </div>
+        </footer>
+    </main>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="material-icons">arrow_upward</i>
+    </div>
+    <script>
+        // Toggle Table of Contents on desktop
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const tocSidebar = document.getElementById('tocSidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        sidebarToggle.addEventListener('click', () => {
+            tocSidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Change icon based on state
+            if (tocSidebar.classList.contains('collapsed')) {
+                toggleIcon.textContent = 'chevron_right';
+            } else {
+                toggleIcon.textContent = 'chevron_left';
+            }
+        });
+        
+        // Toggle Table of Contents on mobile
+        const menuToggle = document.getElementById('menuToggle');
+        
+        menuToggle.addEventListener('click', () => {
+            tocSidebar.classList.toggle('active');
+        });
+        
+        // Active section highlighting in TOC
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Show/hide back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Previous/Next navigation
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        prevBtn.addEventListener('click', () => {
+            const currentSection = document.querySelector('.toc-link.active');
+            if (currentSection) {
+                const prevItem = currentSection.parentElement.previousElementSibling;
+                if (prevItem) {
+                    const prevLink = prevItem.querySelector('.toc-link');
+                    if (prevLink) {
+                        prevLink.click();
+                    }
+                }
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            const currentSection = document.querySelector('.toc-link.active');
+            if (currentSection) {
+                const nextItem = currentSection.parentElement.nextElementSibling;
+                if (nextItem) {
+                    const nextLink = nextItem.querySelector('.toc-link');
+                    if (nextLink) {
+                        nextLink.click();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

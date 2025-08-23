@@ -368,9 +368,6 @@
             position: relative;
             padding-left: 40px;
             counter-increment: item;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         .toc li:before {
             content: "1." counter(item);
@@ -385,33 +382,9 @@
             color: #00203f;
             text-decoration: none;
             transition: color 0.3s;
-            flex-grow: 1;
         }
         .toc a:hover {
             color: #4ecdc4;
-        }
-        .dive-deeper-btn {
-            background-color: #4ecdc4;
-            color: #00203f;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            width:auto;
-        }
-        .dive-deeper-btn:hover {
-            background-color: #00203f;
-            color: #4ecdc4;
-        }
-        .dive-deeper-btn i {
-            margin-left: 5px;
-            font-size: 16px;
         }
         .navigation {
             display: flex;
@@ -1477,6 +1450,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Table of Contents -->
         <div class="toc" id="toc">
             <h2>Chapter 1: Table of Contents</h2>
@@ -1501,16 +1475,17 @@
                 <li><a href="#section1-1-17">1.1.17 Tools and Resources</a></li>
                 <li><a href="#section1-1-18">1.1.18 Assessment and Evaluation</a></li>
                 <li><a href="#section1-1-19">1.1.19 Next Steps</a></li>
-                <li><a href="#section2">1.2 Advanced Vector Spaces - Theory</a><a href="linear-algebra/1-2.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section3">1.3 Advanced Vector Spaces - Applications and Implementation Challenges</a><a href="linear-algebra/1-3.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section4">1.4 Matrix Decompositions Deep Dive - QR Decomposition</a><a href="linear-algebra/1-4.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section5">1.5 Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition</a><a href="linear-algebra/1-5.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section6">1.6 Matrix Decompositions - Applications and Implementation Challenges</a><a href="linear-algebra/1-6.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section7">1.7 Advanced Matrix Calculus - Theory</a><a href="linear-algebra/1-7.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section8">1.8 Advanced Matrix Calculus - Applications and Implementation Challenges</a><a href="linear-algebra/1-8.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
-                <li><a href="#section9">1.9 Conclusion and Further Learning</a><a href="linear-algebra/1-9.html" class="dive-deeper-btn">DIVE DEEPER <i class="material-icons">arrow_forward</i></a></li>
+                <li><a href="#section2">1.2 Advanced Vector Spaces - Theory</a></li>
+                <li><a href="#section3">1.3 Advanced Vector Spaces - Applications and Implementation Challenges</a></li>
+                <li><a href="#section4">1.4 Matrix Decompositions Deep Dive - QR Decomposition</a></li>
+                <li><a href="#section5">1.5 Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition</a></li>
+                <li><a href="#section6">1.6 Matrix Decompositions - Applications and Implementation Challenges</a></li>
+                <li><a href="#section7">1.7 Advanced Matrix Calculus - Theory</a></li>
+                <li><a href="#section8">1.8 Advanced Matrix Calculus - Applications and Implementation Challenges</a></li>
+                <li><a href="#section9">1.9 Conclusion and Further Learning</a></li>
             </ul>
         </div>
+
         <!-- Section 1.1: Introduction and Roadmap Overview -->
         <div class="section" id="section1-1">
             <div class="header">
@@ -1572,11 +1547,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#cover" class="nav-button"><i class="material-icons">arrow_upward</i>Cover</a>
             <a href="#section1-1-1" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.1: What is Linear Algebra? -->
         <div class="section" id="section1-1-1">
             <div class="header">
@@ -1630,11 +1607,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-2" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.2: Historical Context -->
         <div class="section" id="section1-1-2">
             <div class="header">
@@ -1687,11 +1666,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-1" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-3" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.3: Why Study Linear Algebra? -->
         <div class="section" id="section1-1-3">
             <div class="header">
@@ -1750,11 +1731,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-2" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-4" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.4: Linear Algebra in Modern Technology -->
         <div class="section" id="section1-1-4">
             <div class="header">
@@ -1844,11 +1827,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-3" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-5" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.5: Course Structure Overview -->
         <div class="section" id="section1-1-5">
             <div class="header">
@@ -1916,11 +1901,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-4" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-6" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.6: Learning Objectives -->
         <div class="section" id="section1-1-6">
             <div class="header">
@@ -1978,11 +1965,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-5" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-7" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.7: Prerequisites and Background Knowledge -->
         <div class="section" id="section1-1-7">
             <div class="header">
@@ -2057,11 +2046,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-6" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-8" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.8: Roadmap: Advanced Vector Spaces -->
         <div class="section" id="section1-1-8">
             <div class="header">
@@ -2125,11 +2116,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-7" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-9" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.9: Roadmap: Matrix Decompositions -->
         <div class="section" id="section1-1-9">
             <div class="header">
@@ -2193,11 +2186,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-8" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-10" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.10: Roadmap: Advanced Matrix Calculus -->
         <div class="section" id="section1-1-10">
             <div class="header">
@@ -2261,11 +2256,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-9" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-11" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.11: Theoretical vs. Practical Approach -->
         <div class="section" id="section1-1-11">
             <div class="header">
@@ -2314,11 +2311,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-10" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-12" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.12: Learning Strategies -->
         <div class="section" id="section1-1-12">
             <div class="header">
@@ -2395,11 +2394,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-11" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-13" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.13: Mathematical Notation and Conventions -->
         <div class="section" id="section1-1-13">
             <div class="header">
@@ -2469,11 +2470,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-12" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-14" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.14: Fundamental Concepts: Vectors -->
         <div class="section" id="section1-1-14">
             <div class="header">
@@ -2547,11 +2550,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-13" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-15" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.15: Fundamental Concepts: Matrices -->
         <div class="section" id="section1-1-15">
             <div class="header">
@@ -2625,11 +2630,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-14" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-16" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.16: Fundamental Concepts: Linear Transformations -->
         <div class="section" id="section1-1-16">
             <div class="header">
@@ -2703,11 +2710,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-15" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-17" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.17: Tools and Resources -->
         <div class="section" id="section1-1-17">
             <div class="header">
@@ -2789,11 +2798,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-16" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-18" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.18: Assessment and Evaluation -->
         <div class="section" id="section1-1-18">
             <div class="header">
@@ -2854,11 +2865,13 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-17" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section1-1-19" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
         </div>
+
         <!-- Section 1.1.19: Next Steps -->
         <div class="section" id="section1-1-19">
             <div class="header">
@@ -2915,10 +2928,601 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="#section1-1-18" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
             <a href="#section2" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 2: Advanced Vector Spaces - Theory -->
+        <div class="section" id="section2">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.2</span>Advanced Vector Spaces - Theory</h1>
+            </div>
+            <div class="section-content">
+                <div class="theory-grid">
+                    <div class="theory-box">
+                        <h3><i class="material-icons">category</i>Vector Spaces & Subspaces</h3>
+                        <ul>
+                            <li><span class="key-concept">Vector Space</span>: Set <span class="math">V</span> with addition & scalar multiplication satisfying 10 axioms</li>
+                            <li>Examples: <span class="math">ℝⁿ, ℂⁿ, Pₙ</span> (polynomials), <span class="math">M_{m×n}</span> (matrices)</li>
+                            <li><span class="key-concept">Subspace</span>: Non-empty subset <span class="math">W ⊆ V</span> closed under addition & scalar multiplication</li>
+                            <li>Subspace criterion: <span class="math">∀ u,v ∈ W, ∀ c ∈ ℝ</span>: <span class="math">u+v ∈ W</span> and <span class="math">c·u ∈ W</span></li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">linear_scale</i>Linear Independence & Basis</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Independence</span>: <span class="math">c₁v₁ + ... + cₙvₙ = 0</span> only when <span class="math">c₁=...=cₙ=0</span></li>
+                            <li><span class="key-concept">Span</span>: <span class="math">span{v₁,...,vₙ} = {c₁v₁ + ... + cₙvₙ | cᵢ ∈ ℝ}</span></li>
+                            <li><span class="key-concept">Basis</span>: Linearly independent spanning set</li>
+                            <li><span class="key-concept">Dimension</span>: Number of vectors in any basis</li>
+                            <li>Standard basis: <span class="math">e₁=(1,0,...,0), e₂=(0,1,...,0), ..., eₙ=(0,0,...,1)</span></li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">transform</i>Linear Transformations</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Transformation</span>: <span class="math">T: V → W</span> where <span class="math">T(u+v) = T(u) + T(v)</span> and <span class="math">T(cu) = cT(u)</span></li>
+                            <li><span class="key-concept">Kernel</span>: <span class="math">ker(T) = {v ∈ V | T(v) = 0}</span> (subspace of <span class="math">V</span>)</li>
+                            <li><span class="key-concept">Range</span>: <span class="math">range(T) = {T(v) | v ∈ V}</span> (subspace of <span class="math">W</span>)</li>
+                            <li><span class="key-concept">Matrix Representation</span>: <span class="math">[T]_{β→γ}</span> where <span class="math">β, γ</span> are bases</li>
+                        </ul>
+                    </div>
+                    <div class="theory-box">
+                        <h3><i class="material-icons">square_foot</i>Inner Product Spaces</h3>
+                        <ul>
+                            <li><span class="key-concept">Inner Product</span>: Function <span class="math">⟨·,·⟩: V×V→ℝ</span> satisfying:
+                                <br>• Symmetry: <span class="math">⟨u,v⟩ = ⟨v,u⟩</span>
+                                <br>• Linearity: <span class="math">⟨au+bv,w⟩ = a⟨u,w⟩ + b⟨v,w⟩</span>
+                                <br>• Positive-definiteness: <span class="math">⟨v,v⟩ ≥ 0</span> and <span class="math">⟨v,v⟩ = 0 ⇔ v=0</span>
+                            </li>
+                            <li><span class="key-concept">Orthogonality</span>: <span class="math">u ⊥ v</span> if <span class="math">⟨u,v⟩ = 0</span></li>
+                            <li><span class="key-concept">Norm</span>: <span class="math">||v|| = √⟨v,v⟩</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="theorem-box">
+                    <h3><i class="material-icons">lightbulb</i>Rank-Nullity Theorem</h3>
+                    <div class="theorem-content">
+                        For any linear transformation <span class="math">T: V → W</span> between finite-dimensional vector spaces:
+                        <br><br>
+                        <span class="highlight">dim(ker(T)) + dim(range(T)) = dim(V)</span>
+                        <br><br>
+                        Equivalently, for any matrix <span class="math">A ∈ M_{m×n}</span>:
+                        <br><br>
+                        <span class="highlight">nullity(A) + rank(A) = n</span>
+                        <br><br>
+                        This theorem connects the dimensions of the kernel and range of a linear transformation, providing a fundamental relationship in linear algebra.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section1-1-19" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section3" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 3: Advanced Vector Spaces - Applications and Implementation Challenges -->
+        <div class="section" id="section3">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.3</span>Advanced Vector Spaces - Applications & Implementation</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Neural Networks</span>: Feature spaces as high-dimensional vector spaces</li>
+                            <li><span class="key-concept">Kernel Methods</span>: Mapping data to higher-dimensional spaces for linear separation</li>
+                            <li><span class="key-concept">Dimensionality Reduction</span>: PCA, t-SNE using vector space projections</li>
+                            <li><span class="key-concept">Geometric Deep Learning</span>: Manifold learning and tangent spaces</li>
+                            <li><span class="key-concept">Word Embeddings</span>: NLP representations as vectors in semantic space</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">fitness_center</i>Key Exercises</h3>
+                        <ul>
+                            <li>Prove <span class="highlight">linear independence/dependence</span> from first principles</li>
+                            <li>Find orthogonal bases using <span class="highlight">Gram-Schmidt process</span></li>
+                            <li>Implement vector space projections without libraries</li>
+                            <li>Calculate null space and column space manually</li>
+                            <li>Prove rank-nullity theorem for specific matrices</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">build</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">Numerical Stability</span>: Implementing modified Gram-Schmidt
+                                <div class="code-block">
+                                for j=1:n<br>
+                                &nbsp;&nbsp;qⱼ = vⱼ/‖vⱼ‖₂<br>
+                                &nbsp;&nbsp;for k=j+1:n<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;rⱼₖ = qⱼᵀvₖ<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;vₖ = vₖ - rⱼₖqⱼ<br>
+                                &nbsp;&nbsp;end<br>
+                                end
+                                </div>
+                            </li>
+                            <li><span class="key-concept">High-Dimensional Spaces</span>: Curse of dimensionality</li>
+                            <li><span class="key-concept">Near-Linear Dependence</span>: Handling ill-conditioned matrices</li>
+                            <li><span class="key-concept">Floating Point Precision</span>: Errors in vector operations</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Hilbert Spaces</span>: Complete inner product spaces, infinite dimensions</li>
+                            <li><span class="key-concept">Tensor Products</span>: Multilinear algebra for higher-order interactions</li>
+                            <li><span class="key-concept">Exterior Algebra</span>: Differential forms and geometric algebra</li>
+                            <li><span class="key-concept">Functional Analysis</span>: Operators on function spaces for ML</li>
+                            <li><span class="key-concept">Manifold Learning</span>: Non-linear dimensionality reduction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section2" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section4" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 4: Matrix Decompositions Deep Dive - QR Decomposition -->
+        <div class="section" id="section4">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.4</span>Matrix Decompositions Deep Dive - QR Decomposition</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">description</i>Theoretical Foundations</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = QR</span> where <span class="math">Q</span> is orthogonal (<span class="math">QᵀQ = I</span>) and <span class="math">R</span> is upper triangular</li>
+                            <li><span class="key-concept">Existence</span>: Every matrix <span class="math">A ∈ ℝᵐˣⁿ</span> with <span class="math">m ≥ n</span> has a QR decomposition</li>
+                            <li><span class="key-concept">Uniqueness</span>: If <span class="math">A</span> has full rank and <span class="math">R</span> has positive diagonal entries, then QR decomposition is unique</li>
+                            <li><span class="key-concept">Types</span>: Full QR (<span class="math">Q ∈ ℝᵐˣᵐ, R ∈ ℝᵐˣⁿ</span>) and Reduced QR (<span class="math">Q ∈ ℝᵐˣⁿ, R ∈ ℝⁿˣⁿ</span>)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">calculate</i>Computation Methods</h3>
+                        <ul>
+                            <li><span class="key-concept">Gram-Schmidt Process</span>: Orthogonalize columns of <span class="math">A</span> to form <span class="math">Q</span></li>
+                            <li><span class="key-concept">Householder Transformations</span>: Reflect vectors through hyperplanes
+                                <div class="formula">
+                                    <span class="math">H = I - 2vvᵀ/||v||²</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Givens Rotations</span>: Rotate in coordinate planes to zero elements</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">auto_awesome</i>Householder Transformations</h3>
+                        <ul>
+                            <li><span class="key-concept">Reflection</span>: Householder matrix reflects vectors about a hyperplane</li>
+                            <li><span class="key-concept">Construction</span>: For vector <span class="math">a</span>, compute <span class="math">v = a ± sign(a₁)||a||e₁</span></li>
+                            <li><span class="key-concept">Algorithm</span>:
+                                <div class="code-block">
+                                for k = 1 to n<br>
+                                &nbsp;&nbsp;x = A[k:m, k]<br>
+                                &nbsp;&nbsp;v = sign(x₁)||x||e₁ + x<br>
+                                &nbsp;&nbsp;v = v/||v||<br>
+                                &nbsp;&nbsp;A[k:m, k:n] = A[k:m, k:n] - 2v(vᵀA[k:m, k:n])<br>
+                                &nbsp;&nbsp;Qₖ = I - 2vvᵀ<br>
+                                end<br>
+                                &nbsp;&nbsp;Q = Q₁Q₂...Qₙ
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">app_settings_alt</i>Applications</h3>
+                        <ul>
+                            <li><span class="key-concept">Linear Systems</span>: Solve <span class="math">Ax = b</span> via <span class="math">QRx = b</span> → <span class="math">Rx = Qᵀb</span></li>
+                            <li><span class="key-concept">Least Squares</span>: Minimize <span class="math">||Ax - b||²</span> by solving <span class="math">Rx = Qᵀb</span></li>
+                            <li><span class="key-concept">Eigenvalue Computation</span>: QR algorithm for finding eigenvalues</li>
+                            <li><span class="key-concept">Orthogonalization</span>: Creating orthonormal bases for subspaces</li>
+                            <li><span class="key-concept">Numerical Stability</span>: More stable than LU decomposition for ill-conditioned matrices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section3" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section5" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 5: Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition -->
+        <div class="section" id="section5">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.5</span>Matrix Decompositions Deep Dive - SVD and Eigenvalue Decomposition</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">view_comfy</i>Singular Value Decomposition</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = UΣVᵀ</span>
+                                <div class="formula">
+                                    <span class="math">U ∈ ℝᵐˣᵐ</span> orthogonal, <span class="math">Σ ∈ ℝᵐˣⁿ</span> diagonal, <span class="math">V ∈ ℝⁿˣⁿ</span> orthogonal
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Existence</span>: Every matrix <span class="math">A ∈ ℝᵐˣⁿ</span> has an SVD</li>
+                            <li><span class="key-concept">Singular Values</span>: Diagonal entries of <span class="math">Σ</span> (σ₁ ≥ σ₂ ≥ ... ≥ 0)</li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Rank = number of non-zero singular values
+                                <br>• <span class="math">||A||₂ = σ₁</span> (largest singular value)
+                                <br>• Singular vectors form orthonormal bases
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">linear_scale</i>Eigenvalue Decomposition</h3>
+                        <ul>
+                            <li><span class="key-concept">Definition</span>: <span class="math">A = VΛV⁻¹</span>
+                                <div class="formula">
+                                    <span class="math">V ∈ ℝⁿˣⁿ</span> eigenvectors, <span class="math">Λ ∈ ℝⁿˣⁿ</span> diagonal eigenvalues
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Existence</span>: Requires <span class="math">n</span> linearly independent eigenvectors</li>
+                            <li><span class="key-concept">Eigenvalues</span>: Roots of characteristic polynomial <span class="math">det(A - λI) = 0</span></li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Trace = sum of eigenvalues
+                                <br>• Determinant = product of eigenvalues
+                                <br>• Powers: <span class="math">Aᵏ = VΛᵏV⁻¹</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">compare_arrows</i>Relationship & Special Cases</h3>
+                        <ul>
+                            <li><span class="key-concept">Connection</span>: For symmetric matrix <span class="math">A</span>:
+                                <br>• SVD: <span class="math">A = UΣVᵀ</span>
+                                <br>• EVD: <span class="math">A = QΛQᵀ</span>
+                                <br>• <span class="math">U = Q</span>, <span class="math">V = Q</span>, <span class="math">Σ = |Λ|</span>
+                            </li>
+                            <li><span class="key-concept">Symmetric Matrices</span>: Always diagonalizable with orthogonal eigenvectors</li>
+                            <li><span class="key-concept">Positive Definite</span>: All eigenvalues positive, Cholesky decomposition</li>
+                            <li><span class="key-concept">Normal Matrices</span>: <span class="math">AAᵀ = AᵀA</span>, unitarily diagonalizable</li>
+                        </ul>
+                        <div class="theorem-box">
+                            <h4><i class="material-icons">lightbulb</i>Spectral Theorem</h4>
+                            <div class="theorem-content">
+                                Every real symmetric matrix <span class="math">A</span> can be diagonalized by an orthogonal matrix: <span class="math">A = QΛQᵀ</span> where <span class="math">QᵀQ = I</span> and <span class="math">Λ</span> is diagonal.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">apps</i>Geometric Interpretations</h3>
+                        <ul>
+                            <li><span class="key-concept">SVD Geometry</span>:
+                                <br>• <span class="math">Vᵀ</span>: Rotate/reflect input space
+                                <br>• <span class="math">Σ</span>: Scale along orthogonal axes
+                                <br>• <span class="math">U</span>: Rotate/reflect output space
+                            </li>
+                            <li><span class="key-concept">EVD Geometry</span>:
+                                <br>• Eigenvectors: Principal axes of transformation
+                                <br>• Eigenvalues: Scaling factors along these axes
+                            </li>
+                            <li><span class="key-concept">Low-Rank Approximation</span>:
+                                <br>• Best rank-k approximation using largest singular values
+                                <br>• Eckart-Young-Mirsky theorem: <span class="math">min||A-B||₂ = σₖ₊₁</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section4" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section6" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 6: Matrix Decompositions - Applications and Implementation Challenges -->
+        <div class="section" id="section6">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.6</span>Matrix Decompositions - Applications and Implementation Challenges</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Recommendation Systems</span>: SVD for collaborative filtering (Netflix, Amazon)</li>
+                            <li><span class="key-concept">Dimensionality Reduction</span>: PCA using eigenvalue decomposition</li>
+                            <li><span class="key-concept">Image Compression</span>: SVD for low-rank approximation</li>
+                            <li><span class="key-concept">Topic Modeling</span>: NMF for document clustering</li>
+                            <li><span class="key-concept">Signal Processing</span>: Filter design, noise reduction</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">code</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">QR with Householder</span>:
+                                <div class="code-block">
+                                for k = 1 to n<br>
+                                &nbsp;&nbsp;x = A[k:m, k]<br>
+                                &nbsp;&nbsp;v = sign(x₁)||x||e₁ + x<br>
+                                &nbsp;&nbsp;v = v/||v||<br>
+                                &nbsp;&nbsp;A[k:m, k:n] = A[k:m, k:n] - 2v(vᵀA[k:m, k:n])<br>
+                                end
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Eigenvalue for Sparse Matrices</span>: Arnoldi Iteration</li>
+                            <li><span class="key-concept">Stable Matrix Inversion</span>: Method 1 (forward substitution)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">warning</i>Edge Cases & Limitations</h3>
+                        <ul>
+                            <li><span class="key-concept">Singular Matrices</span>: Zero determinant, no inverse exists</li>
+                            <li><span class="key-concept">Ill-Conditioned Matrices</span>: Small changes in input cause large changes in output</li>
+                            <li><span class="key-concept">Numerical Stability</span>: Round-off errors in floating-point arithmetic</li>
+                            <li><span class="key-concept">High-Dimensional Data</span>: Curse of dimensionality in decomposition</li>
+                            <li><span class="key-concept">Memory Constraints</span>: Large matrices exceed available memory</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Tensor Decompositions</span>: Higher-order generalizations (CP, Tucker)</li>
+                            <li><span class="key-concept">Non-negative Matrix Factorization</span>: Parts-based representation</li>
+                            <li><span class="key-concept">Randomized Algorithms</span>: Approximate decompositions for large matrices</li>
+                            <li><span class="key-concept">Online/Incremental Methods</span>: Updating decompositions with new data</li>
+                            <li><span class="key-concept">Distributed Implementations</span>: Parallel algorithms for big data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section5" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section7" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 7: Advanced Matrix Calculus - Theory -->
+        <div class="section" id="section7">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.7</span>Advanced Matrix Calculus - Theory</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">functions</i>Matrix Derivatives</h3>
+                        <ul>
+                            <li><span class="key-concept">Scalar-by-Vector</span>: <span class="math">∂f/∂x</span> where <span class="math">f: ℝⁿ → ℝ</span>
+                                <div class="formula">
+                                    <span class="math">∂f/∂x = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Vector-by-Vector</span>: <span class="math">∂f/∂x</span> where <span class="math">f: ℝⁿ → ℝᵐ</span>
+                                <div class="formula">
+                                    <span class="math">[∂f/∂x]ᵢⱼ = ∂fᵢ/∂xⱼ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Scalar-by-Matrix</span>: <span class="math">∂f/∂X</span> where <span class="math">f: ℝᵐˣⁿ → ℝ</span>
+                                <div class="formula">
+                                    <span class="math">[∂f/∂X]ᵢⱼ = ∂f/∂Xᵢⱼ</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">trending_up</i>Gradients and Hessians</h3>
+                        <ul>
+                            <li><span class="key-concept">Gradient</span>: Vector of first derivatives
+                                <div class="formula">
+                                    <span class="math">∇f(x) = ∂f/∂x</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Hessian</span>: Matrix of second derivatives
+                                <div class="formula">
+                                    <span class="math">Hf(x) = ∂²f/∂x∂xᵀ</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Properties</span>:
+                                <br>• Gradient points in direction of steepest ascent
+                                <br>• Hessian symmetric for twice continuously differentiable functions
+                                <br>• Positive definite Hessian ⇒ local minimum
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">sync_alt</i>Matrix Chain Rule & Product Rule</h3>
+                        <ul>
+                            <li><span class="key-concept">Chain Rule</span>:
+                                <div class="formula">
+                                    <span class="math">∂f(g(x))/∂x = (∂g/∂x)ᵀ ∂f/∂g</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Product Rule</span>:
+                                <div class="formula">
+                                    <span class="math">∂(f(x)g(x))/∂x = f(x)∂g/∂x + g(x)∂f/∂x</span>
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Key Identities</span>:
+                                <br>• <span class="math">∂(Ax)/∂x = Aᵀ</span>
+                                <br>• <span class="math">∂(xᵀAx)/∂x = (A + Aᵀ)x</span>
+                                <br>• <span class="math">∂(xᵀA)/∂x = A</span>
+                                <br>• <span class="math">∂(AB)/∂X = A(∂B/∂X) + (∂A/∂X)B</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">speed</i>Optimization in Linear Algebra</h3>
+                        <ul>
+                            <li><span class="key-concept">Gradient Descent</span>: <span class="math">xₖ₊₁ = xₖ - α∇f(xₖ)</span></li>
+                            <li><span class="key-concept">Newton's Method</span>: <span class="math">xₖ₊₁ = xₖ - [Hf(xₖ)]⁻¹∇f(xₖ)</span></li>
+                            <li><span class="key-concept">Conjugate Gradient</span>: For quadratic systems <span class="math">Ax = b</span></li>
+                            <li><span class="key-concept">Optimization Conditions</span>:
+                                <br>• First-order: <span class="math">∇f(x*) = 0</span>
+                                <br>• Second-order: <span class="math">Hf(x*) ≽ 0</span>
+                            </li>
+                        </ul>
+                        <div class="theorem-box">
+                            <h4><i class="material-icons">lightbulb</i>Taylor's Theorem for Matrices</h4>
+                            <div class="theorem-content">
+                                For a twice differentiable function <span class="math">f: ℝⁿ → ℝ</span>:
+                                <br><br>
+                                <span class="math">f(x+p) = f(x) + pᵀ∇f(x) + ½pᵀHf(x+tp)p</span> for some <span class="math">t ∈ (0,1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section6" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section8" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 8: Advanced Matrix Calculus - Applications and Implementation Challenges -->
+        <div class="section" id="section8">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.8</span>Advanced Matrix Calculus - Applications and Implementation Challenges</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">psychology</i>Applications in Machine Learning</h3>
+                        <ul>
+                            <li><span class="key-concept">Backpropagation</span>: Chain rule for computing gradients in neural networks</li>
+                            <li><span class="key-concept">Optimization Algorithms</span>: SGD, Adam, RMSprop using gradient information</li>
+                            <li><span class="key-concept">Probabilistic Models</span>: Maximum likelihood estimation, EM algorithm</li>
+                            <li><span class="key-concept">Natural Gradient</span>: Using Fisher information matrix for optimization</li>
+                            <li><span class="key-concept">Second-Order Methods</span>: Newton's method, quasi-Newton methods</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">code</i>Implementation Challenges</h3>
+                        <ul>
+                            <li><span class="key-concept">Efficient Gradient Computation</span>:
+                                <div class="code-block">
+                                # Backpropagation example<br>
+                                def backprop(X, y, params):<br>
+                                &nbsp;&nbsp;# Forward pass<br>
+                                &nbsp;&nbsp;activations = forward_pass(X, params)<br>
+                                &nbsp;&nbsp;# Compute loss gradient<br>
+                                &nbsp;&nbsp;d_loss = compute_loss_gradient(activations[-1], y)<br>
+                                &nbsp;&nbsp;# Backward pass<br>
+                                &nbsp;&nbsp;grads = backward_pass(activations, d_loss)<br>
+                                &nbsp;&nbsp;return grads
+                                </div>
+                            </li>
+                            <li><span class="key-concept">Numerical Stability</span>: Vanishing/exploding gradients</li>
+                            <li><span class="key-concept">Large-Scale Optimization</span>: Distributed, mini-batch methods</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">fitness_center</i>Key Exercises</h3>
+                        <ul>
+                            <li>Derive gradients for common ML loss functions:
+                                <br>• MSE: <span class="math">∇(½||y-Xw||²) = Xᵀ(Xw-y)</span>
+                                <br>• Cross-entropy: <span class="math">∇(-y·log(σ(Xw))) = Xᵀ(σ(Xw)-y)</span>
+                            </li>
+                            <li>Implement gradient descent from scratch</li>
+                            <li>Compute Hessian for optimization problems:
+                                <br>• For MSE: <span class="math">H = XᵀX</span>
+                                <br>• For regularized problems: <span class="math">H = XᵀX + λI</span>
+                            </li>
+                            <li>Implement automatic differentiation for simple functions</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">rocket_launch</i>Advanced Topics</h3>
+                        <ul>
+                            <li><span class="key-concept">Matrix Calculus in Deep Learning</span>: Higher-order derivatives, tensor calculus</li>
+                            <li><span class="key-concept">Differential Geometry</span>: Manifold optimization, Riemannian gradient descent</li>
+                            <li><span class="key-concept">Stochastic Optimization</span>: Variance reduction techniques, adaptive methods</li>
+                            <li><span class="key-concept">Implicit Differentiation</span>: Differentiating through optimization problems</li>
+                            <li><span class="key-concept">Matrix Calculus Libraries</span>: JAX, TensorFlow, PyTorch autograd</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section7" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#section9" class="nav-button">Next<i class="material-icons">arrow_downward</i></a>
+        </div>
+
+        <!-- Section 9: Conclusion and Further Learning -->
+        <div class="section" id="section9">
+            <div class="header">
+                <h1 class="section-title"><span class="section-number">1.9</span>Conclusion and Further Learning</h1>
+            </div>
+            <div class="section-content">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3><i class="material-icons">summarize</i>Key Takeaways</h3>
+                        <ul>
+                            <li><span class="key-concept">Theoretical Foundations</span>: Vector spaces, matrix decompositions, and calculus form the backbone of linear algebra</li>
+                            <li><span class="key-concept">Practical Implementations</span>: Numerical stability, efficient algorithms, and handling edge cases are critical</li>
+                            <li><span class="key-concept">ML Applications</span>: From neural networks to recommendation systems, linear algebra powers modern AI</li>
+                            <li><span class="key-concept">Dual Mastery</span>: Both theoretical understanding and implementation skills are essential</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">auto_awesome</i>Importance of Balance</h3>
+                        <ul>
+                            <li><span class="key-concept">Theory → Practice</span>: Mathematical concepts guide implementation decisions</li>
+                            <li><span class="key-concept">Practice → Theory</span>: Implementation challenges reveal deeper theoretical insights</li>
+                            <li><span class="key-concept">Iterative Learning</span>: Cycle between understanding theory and building practical skills</li>
+                            <li><span class="key-concept">Holistic Approach</span>: Combine mathematical rigor with computational thinking</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">menu_book</i>Further Learning Resources</h3>
+                        <ul>
+                            <li><span class="key-concept">Textbooks</span>: 
+                                <br>• Linear Algebra Done Right (Axler)
+                                <br>• Matrix Computations (Golub & Van Loan)
+                                <br>• Numerical Linear Algebra (Trefethen & Bau)
+                            </li>
+                            <li><span class="key-concept">Online Courses</span>: MIT 18.06, Coursera, Khan Academy</li>
+                            <li><span class="key-concept">Software Libraries</span>: NumPy, SciPy, LAPACK, JAX</li>
+                            <li><span class="key-concept">Research Papers</span>: ARPACK, BLAS, numerical stability literature</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3><i class="material-icons">trending_up</i>Next Steps in Your Journey</h3>
+                        <ul>
+                            <li><span class="key-concept">Implement Algorithms</span>: Code decompositions from scratch</li>
+                            <li><span class="key-concept">Solve Real Problems</span>: Apply concepts to ML projects</li>
+                            <li><span class="key-concept">Explore Advanced Topics</span>: Tensor calculus, differential geometry</li>
+                            <li><span class="key-concept">Join Communities</span>: Contribute to open-source projects</li>
+                            <li><span class="key-concept">Continuous Learning</span>: Mathematics is a journey, not a destination</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="motivation-box">
+                    <h3>The Journey to Mastery</h3>
+                    <p>"Linear algebra is not just a mathematical discipline—it's a language that unlocks the deeper structure of data and algorithms. Master both its theory and implementation, and you'll possess a powerful toolkit for solving complex problems in machine learning and beyond."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="#section8" class="nav-button"><i class="material-icons">arrow_upward</i>Previous</a>
+            <a href="#toc" class="nav-button">Table of Contents<i class="material-icons">menu</i></a>
         </div>
     </div>
 </body>
