@@ -2,7 +2,7 @@
 
 > **From zero → hero.**
 > One repo. One learning path. Real lessons. Real exercises. No fluff.
-> Created and maintained by **Saniul (SANIUL-blackdragon)** — for my younger brother, for myself, for anyone who wants to actually learn how to code.
+> Created and maintained by **Saniul (SANIUL-blackdragon)** — for myself, for anyone who wants to actually learn how to code.
 
 ---
 
