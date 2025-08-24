@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZERO-2-MASTERY</title>
+    <title>Contact Us - ZERO-2-MASTERY</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -291,7 +291,7 @@
         /* Banner styles */
         .banner {
             width: 100%;
-            min-height: 1200px;
+            min-height: 500px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -363,78 +363,6 @@
             margin-right: auto;
             transform: translateZ(30px);
         }
-        .info-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 60px;
-            transform-style: preserve-3d;
-            transform: translateZ(30px);
-        }
-        .info-card {
-            width: 300px;
-            height: 150px;
-            background: rgba(33, 139, 194, 0.2);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(90, 208, 235, 0.3);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(90, 208, 235, 0.1) 0%, rgba(90, 208, 235, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            transform: translateZ(5px);
-        }
-        .info-card:hover::before {
-            opacity: 1;
-        }
-        .info-card:hover {
-            transform: translateY(-10px) rotateX(5deg) translateZ(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--turquoise-blue);
-            margin-bottom: 15px;
-            animation: iconPulse 2s infinite;
-            transform: translateZ(20px);
-        }
-        @keyframes iconPulse {
-            0% { transform: translateZ(20px) scale(1); }
-            50% { transform: translateZ(30px) scale(1.2); }
-            100% { transform: translateZ(20px) scale(1); }
-        }
-        .info-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--scandal);
-            margin-bottom: 10px;
-            transform: translateZ(15px);
-        }
-        .info-card p {
-            font-size: 0.9rem;
-            color: var(--gull-gray);
-            transform: translateZ(10px);
-        }
         /* Main content styles */
         .main-content {
             padding: 80px 20px;
@@ -467,88 +395,52 @@
             border-radius: 2px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
-        .cards-container {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            transform-style: preserve-3d;
-            transform: translateZ(20px);
+            margin-bottom: 60px;
         }
-        .card {
-            background: rgba(19, 56, 84, 0.6);
-            backdrop-filter: blur(10px);
+        .contact-card {
+            background: rgba(33, 139, 194, 0.2);
+            backdrop-filter: blur(5px);
             border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(90, 208, 235, 0.2);
-            height: 450px;
-            display: flex;
-            flex-direction: column;
+            padding: 30px;
+            border: 1px solid rgba(90, 208, 235, 0.3);
+            transition: all 0.3s ease;
             transform-style: preserve-3d;
             perspective: 1000px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(90, 208, 235, 0.1), rgba(33, 139, 194, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 1;
-            transform: translateZ(5px);
-        }
-        .card:hover::before {
-            opacity: 1;
-        }
-        .card:hover {
-            transform: translateY(-15px) rotateX(5deg) translateZ(30px);
+        .contact-card:hover {
+            transform: translateY(-10px) rotateX(5deg) translateZ(30px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
-        .card-header {
-            padding: 25px 25px 15px;
-            position: relative;
-            z-index: 2;
-            transform: translateZ(20px);
-        }
-        .card-icon {
+        .contact-icon {
             font-size: 3rem;
             color: var(--turquoise-blue);
-            margin-bottom: 15px;
-            display: inline-block;
+            margin-bottom: 20px;
             transform: translateZ(30px);
         }
-        .card-title {
-            font-size: 1.8rem;
+        .contact-name {
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--scandal);
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             font-family: 'Orbitron', sans-serif;
             transform: translateZ(20px);
         }
-        .card-content {
-            padding: 0 25px 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 2;
-            transform: translateZ(15px);
-        }
-        .card-description {
-            font-size: 1rem;
+        .contact-info {
+            font-size: 1.1rem;
             color: var(--gull-gray);
             margin-bottom: 20px;
-            flex-grow: 1;
-            transform: translateZ(10px);
+            transform: translateZ(15px);
         }
-        .card-button {
+        .contact-button {
             background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
             color: var(--firefly);
             border: none;
@@ -560,13 +452,14 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            align-self: flex-start;
             position: relative;
             overflow: hidden;
             transform: translateZ(20px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            display: inline-block;
         }
-        .card-button::before {
+        .contact-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -577,93 +470,10 @@
             transition: left 0.5s ease;
             transform: translateZ(5px);
         }
-        .card-button:hover::before {
+        .contact-button:hover::before {
             left: 0;
         }
-        .card-button:hover {
-            transform: translateZ(30px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(90, 208, 235, 0.4);
-        }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        .modal-content {
-            background: linear-gradient(145deg, var(--elephant), var(--downriver));
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(90, 208, 235, 0.3);
-            transform: scale(0.7) translateZ(-50px);
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-        }
-        .modal.active .modal-content {
-            transform: scale(1) translateZ(50px);
-            opacity: 1;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gull-gray);
-            transition: color 0.3s ease;
-            transform: translateZ(20px);
-        }
-        .modal-close:hover {
-            color: var(--turquoise-blue);
-        }
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--scandal);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif;
-            transform: translateZ(20px);
-        }
-        .modal-text {
-            font-size: 1.1rem;
-            color: var(--gull-gray);
-            margin-bottom: 30px;
-            line-height: 1.6;
-            transform: translateZ(15px);
-        }
-        .modal-button {
-            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
-            color: var(--firefly);
-            border: none;
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transform: translateZ(20px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        .modal-button:hover {
+        .contact-button:hover {
             transform: translateZ(30px) scale(1.05);
             box-shadow: 0 10px 25px rgba(90, 208, 235, 0.4);
         }
@@ -754,21 +564,8 @@
                 font-size: 0.8rem;
             }
             
-            .info-cards {
-                gap: 15px;
-            }
-            
-            .info-card {
-                width: 100%;
-                max-width: 300px;
-            }
-            
             .section-title {
                 font-size: 2rem;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
             }
         }
         
@@ -792,134 +589,6 @@
             .section-title {
                 font-size: 1.8rem;
             }
-        }
-        /* Animations for each card */
-        .html-card .card-icon {
-            animation: htmlIcon 3s ease-in-out infinite;
-        }
-        @keyframes htmlIcon {
-            0%, 100% { transform: translateZ(30px) rotate(0deg) scale(1); }
-            50% { transform: translateZ(40px) rotate(10deg) scale(1.1); }
-        }
-        .css-card .card-icon {
-            animation: cssIcon 4s ease-in-out infinite;
-        }
-        @keyframes cssIcon {
-            0%, 100% { transform: translateZ(30px) translateY(0); }
-            25% { transform: translateZ(40px) translateY(-10px); }
-            50% { transform: translateZ(30px) translateY(0); }
-            75% { transform: translateZ(40px) translateY(10px); }
-        }
-        .js-card .card-icon {
-            animation: jsIcon 2s ease-in-out infinite;
-        }
-        @keyframes jsIcon {
-            0%, 100% { transform: translateZ(30px) rotate(0deg); }
-            25% { transform: translateZ(40px) rotate(-5deg); }
-            75% { transform: translateZ(40px) rotate(5deg); }
-        }
-        .cpp-card .card-icon {
-            animation: cppIcon 3.5s ease-in-out infinite;
-        }
-        @keyframes cppIcon {
-            0%, 100% { transform: translateZ(30px) scale(1); }
-            50% { transform: translateZ(40px) scale(1.2); }
-        }
-        .c-card .card-icon {
-            animation: cIcon 2.5s ease-in-out infinite;
-        }
-        @keyframes cIcon {
-            0%, 100% { transform: translateZ(30px) translateX(0); }
-            50% { transform: translateZ(40px) translateX(10px); }
-        }
-        .python-card .card-icon {
-            animation: pythonIcon 3s ease-in-out infinite;
-        }
-        @keyframes pythonIcon {
-            0%, 100% { transform: translateZ(30px) skew(0deg, 0deg); }
-            25% { transform: translateZ(40px) skew(5deg, 5deg); }
-            75% { transform: translateZ(40px) skew(-5deg, -5deg); }
-        }
-        .ai-card .card-icon {
-            animation: aiIcon 4s ease-in-out infinite;
-        }
-        @keyframes aiIcon {
-            0%, 100% { transform: translateZ(30px) rotate(0deg) scale(1); }
-            25% { transform: translateZ(40px) rotate(-10deg) scale(1.1); }
-            50% { transform: translateZ(30px) rotate(0deg) scale(1); }
-            75% { transform: translateZ(40px) rotate(10deg) scale(1.1); }
-        }
-        /* Interactive hover effects for cards */
-        .html-card:hover {
-            box-shadow: 0 0 30px rgba(227, 76, 38, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(227, 76, 38, 0.5);
-        }
-        .css-card:hover {
-            box-shadow: 0 0 30px rgba(33, 150, 243, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(33, 150, 243, 0.5);
-        }
-        .js-card:hover {
-            box-shadow: 0 0 30px rgba(247, 223, 30, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(247, 223, 30, 0.5);
-        }
-        .cpp-card:hover {
-            box-shadow: 0 0 30px rgba(0, 119, 181, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(0, 119, 181, 0.5);
-        }
-        .c-card:hover {
-            box-shadow: 0 0 30px rgba(168, 169, 173, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(168, 169, 173, 0.5);
-        }
-        .python-card:hover {
-            box-shadow: 0 0 30px rgba(52, 73, 94, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(52, 73, 94, 0.5);
-        }
-        .ai-card:hover {
-            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(155, 89, 182, 0.5);
-        }
-        /* Floating animation for info cards */
-        .info-card:nth-child(1) {
-            animation: float1 6s ease-in-out infinite;
-        }
-        .info-card:nth-child(2) {
-            animation: float2 7s ease-in-out infinite;
-        }
-        .info-card:nth-child(3) {
-            animation: float3 8s ease-in-out infinite;
-        }
-        .info-card:nth-child(4) {
-            animation: float4 9s ease-in-out infinite;
-        }
-        .info-card:nth-child(5) {
-            animation: float5 10s ease-in-out infinite;
-        }
-        .info-card:nth-child(6) {
-            animation: float6 11s ease-in-out infinite;
-        }
-        @keyframes float1 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-15px) translateZ(40px); }
-        }
-        @keyframes float2 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-20px) translateZ(40px); }
-        }
-        @keyframes float3 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-10px) translateZ(40px); }
-        }
-        @keyframes float4 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-18px) translateZ(40px); }
-        }
-        @keyframes float5 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-12px) translateZ(40px); }
-        }
-        @keyframes float6 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-22px) translateZ(40px); }
         }
         /* Interactive cursor effect */
         .cursor {
@@ -1046,172 +715,66 @@
             <span>ZERO-2-MASTERY</span>
         </div>
         <div class="navbar-menu">
-            <a href="contact.html"><div class="navbar-item">Contact</div></a>
+            <a href="index.html"><div class="navbar-item">Home</div></a>
             <div class="navbar-item">Contribute</div>
             <a href="README.html"><div class="navbar-item">About</div></a>
         </div>
     </nav>
+    
     <!-- Banner -->
     <header class="banner" id="banner">
         <div class="banner-image"></div>
         <div class="banner-content">
-            <h1 class="banner-title glitch" data-text="ZERO-2-MASTERY">
-                <span>Z</span><span>E</span><span>R</span><span>O</span><br><span>2</span><br><span>M</span><span>A</span><span>S</span><span>T</span><span>E</span><span>R</span><span>Y</span>
-            </h1>
-            <p class="banner-subtitle neon-text text-3d">Free fun school for learning skills that matter</p>
-            
-            <div class="info-cards">
-                <div class="info-card">
-                    <i class="fas fa-gift"></i>
-                    <h3>Free Access</h3>
-                    <p>Zero cost learning resources • Open-source platform • No permission to monetize • Barrier-free education</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Comprehensive Learning</h3>
-                    <p>Beginner to mastery path • Multiple programming languages • In-depth concept coverage • Structured curriculum</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Hands-On Approach</h3>
-                    <p>Practical projects • Real-world applications • Interactive exercises • Learn by doing methodology</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Community-Driven</h3>
-                    <p>Vibrant learner community • Expert contributions • Collaborative learning • Knowledge sharing</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Beginner-Friendly</h3>
-                    <p>No prior experience needed • Step-by-step guidance • Clear explanations • Gradual complexity increase</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Future-Ready Skills</h3>
-                    <p>In-demand technologies • AI/ML fundamentals • Industry-relevant skills • Career advancement</p>
-                </div>
-            </div>
+            <h1 class="banner-title glitch" data-text="Contact Us">Contact Us</h1>
+            <p class="banner-subtitle neon-text text-3d">Connect with us through any of these platforms</p>
         </div>
     </header>
+    
     <!-- Main Content -->
     <main class="main-content">
-        <h2 class="section-title glitch" data-text="Explore Our BITEZ">Explore Our BITEZ</h2>
-        
-        <div class="cards-container">
-            <!-- HTML Card -->
-            <div class="card html-card" data-status="available">
-                <div class="card-header">
-                    <i class="fab fa-html5 card-icon"></i>
-                    <h3 class="card-title">HTML</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Master the foundation of web development with comprehensive HTML guides from basic structure to advanced semantic elements.
-                    </p>
-                    <button class="card-button" data-target="html">
-                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+        <div class="contact-grid">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3 class="contact-name">Email</h3>
+                <p class="contact-info">contact@zero2mastery.com</p>
+                <a href="mailto:contact@zero2mastery.com" class="contact-button">Send Email</a>
             </div>
             
-            <!-- CSS Card -->
-            <div class="card css-card" data-status="available">
-                <div class="card-header">
-                    <i class="fab fa-css3-alt card-icon"></i>
-                    <h3 class="card-title">CSS</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Learn to style beautiful websites with CSS, including Flexbox, Grid, animations, and responsive design techniques.
-                    </p>
-                    <button class="card-button" data-target="css">
-                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+            <!-- GitHub Card -->
+            <div class="contact-card">
+                <i class="fab fa-github contact-icon"></i>
+                <h3 class="contact-name">GitHub</h3>
+                <p class="contact-info">github.com/zero2mastery</p>
+                <a href="https://github.com/zero2mastery" target="_blank" class="contact-button">View Profile</a>
             </div>
             
-            <!-- JavaScript Card -->
-            <div class="card js-card" data-status="available">
-                <div class="card-header">
-                    <i class="fab fa-js-square card-icon"></i>
-                    <h3 class="card-title">JavaScript</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Dive into JavaScript programming, from basic syntax to advanced concepts like closures, async programming, and DOM manipulation.
-                    </p>
-                    <button class="card-button" data-target="javascript">
-                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+            <!-- Reddit Card -->
+            <div class="contact-card">
+                <i class="fab fa-reddit contact-icon"></i>
+                <h3 class="contact-name">Reddit</h3>
+                <p class="contact-info">r/zero2mastery</p>
+                <a href="https://reddit.com/r/zero2mastery" target="_blank" class="contact-button">Join Community</a>
             </div>
             
-            <!-- C++ Card -->
-            <div class="card cpp-card" data-status="available">
-                <div class="card-header">
-                    <i class="fas fa-code card-icon"></i>
-                    <h3 class="card-title">C++</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Learn systems programming with C++, covering memory management, OOP concepts, STL, and performance optimization techniques.
-                    </p>
-                    <button class="card-button" data-target="cpp">
-                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+            <!-- Discord Card -->
+            <div class="contact-card">
+                <i class="fab fa-discord contact-icon"></i>
+                <h3 class="contact-name">Discord</h3>
+                <p class="contact-info">discord.gg/zero2mastery</p>
+                <a href="https://discord.gg/zero2mastery" target="_blank" class="contact-button">Join Server</a>
             </div>
             
-            <!-- C Card -->
-            <div class="card c-card" data-status="inprogress">
-                <div class="card-header">
-                    <i class="fas fa-microchip card-icon"></i>
-                    <h3 class="card-title">C</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Master the fundamentals of programming with C, including pointers, memory allocation, and low-level system interactions.
-                    </p>
-                    <button class="card-button" data-target="c">
-                        Coming Soon <i class="fas fa-clock ml-2"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Python Card -->
-            <div class="card python-card" data-status="available">
-                <div class="card-header">
-                    <i class="fab fa-python card-icon"></i>
-                    <h3 class="card-title">Python</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Explore Python programming, from basic syntax to advanced topics like data structures, algorithms, and object-oriented design.
-                    </p>
-                    <button class="card-button" data-target="python">
-                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- AI/ML/Neural Nets Card -->
-            <div class="card ai-card" data-status="inprogress">
-                <div class="card-header">
-                    <i class="fas fa-brain card-icon"></i>
-                    <h3 class="card-title">AI/ML/Neural Nets</h3>
-                </div>
-                <div class="card-content">
-                    <p class="card-description">
-                        Dive deep into artificial intelligence, machine learning algorithms, and neural network architectures from mathematical foundations to implementation.
-                    </p>
-                    <button class="card-button" data-target="ai">
-                        Coming Soon <i class="fas fa-clock ml-2"></i>
-                    </button>
-                </div>
+            <!-- Instagram Card -->
+            <div class="contact-card">
+                <i class="fab fa-instagram contact-icon"></i>
+                <h3 class="contact-name">Instagram</h3>
+                <p class="contact-info">@zero2mastery</p>
+                <a href="https://instagram.com/zero2mastery" target="_blank" class="contact-button">Follow Us</a>
             </div>
         </div>
     </main>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -1230,15 +793,7 @@
             </div>
         </div>
     </footer>
-    <!-- Modal for In Progress Cards -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">×</span>
-            <h2 class="modal-title">Coming Soon!</h2>
-            <p class="modal-text" id="modal-text">This BITEZ is currently in development and will be available soon.</p>
-            <button class="modal-button" id="modal-button">Got it!</button>
-        </div>
-    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Hide loader when page is loaded
@@ -1307,7 +862,7 @@
             });
             
             // Add hover effect to interactive elements
-            const interactiveElements = document.querySelectorAll('button, a, .card, .navbar-item, .social-link, .card-button, .modal-close, .modal-button');
+            const interactiveElements = document.querySelectorAll('button, a, .navbar-item, .social-link, .contact-button');
             
             interactiveElements.forEach(element => {
                 element.addEventListener('mouseenter', function() {
@@ -1319,63 +874,6 @@
                     cursor.classList.remove('hover');
                     cursorFollower.remove('hover');
                 });
-            });
-            
-            // Modal functionality
-            const modal = document.getElementById('modal');
-            const modalText = document.getElementById('modal-text');
-            const modalClose = document.querySelector('.modal-close');
-            const modalButton = document.getElementById('modal-button');
-            
-            // Modal texts
-            const modalTexts = [
-                "This BITEZ is currently in development and will be available soon. Stay tuned!",
-                "We're working hard to bring you this content. Check back later for updates!",
-                "Our team is crafting an exceptional learning experience for you. Coming soon!",
-                "This mastery guide is in the works. We appreciate your patience!",
-                "Good things come to those who wait! This BITEZ will be available shortly."
-            ];
-            
-            // Add click event to card buttons
-            const cardButtons = document.querySelectorAll('.card-button');
-            cardButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const card = this.closest('.card');
-                    const status = card.getAttribute('data-status');
-                    
-                    if (status === 'available') {
-                        // Navigate to the BITEZ page (placeholder action)
-                        const target = this.getAttribute('data-target');
-                        console.log(`Navigating to ${target} BITEZ...`);
-                        // In a real implementation, this would navigate to the BITEZ page
-                    } else if (status === 'inprogress') {
-                        // Show modal with random text
-                        const randomText = modalTexts[Math.floor(Math.random() * modalTexts.length)];
-                        modalText.textContent = randomText;
-                        modal.style.display = 'flex';
-                        setTimeout(() => {
-                            modal.classList.add('active');
-                        }, 10);
-                    }
-                });
-            });
-            
-            // Close modal
-            function closeModal() {
-                modal.classList.remove('active');
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 300);
-            }
-            
-            modalClose.addEventListener('click', closeModal);
-            modalButton.addEventListener('click', closeModal);
-            
-            // Close modal when clicking outside of it
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    closeModal();
-                }
             });
             
             // Navbar item click handlers
@@ -1403,11 +901,13 @@
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.pageYOffset;
                 const bannerImage = document.querySelector('.banner-image');
-                bannerImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+                if (bannerImage) {
+                    bannerImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+                }
             });
             
             // Add tilt effect to cards
-            const cards = document.querySelectorAll('.card');
+            const cards = document.querySelectorAll('.contact-card');
             cards.forEach(card => {
                 card.addEventListener('mousemove', function(e) {
                     const rect = this.getBoundingClientRect();
@@ -1429,7 +929,7 @@
             });
             
             // Add ripple effect to buttons
-            const buttons = document.querySelectorAll('button');
+            const buttons = document.querySelectorAll('button, .contact-button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     const ripple = document.createElement('span');
