@@ -607,6 +607,29 @@
             pointer-events: none;
             transition: transform 0.2s ease-out;
         }
+        /* Enhanced particle effects */
+        .particle-glow {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(2px);
+        }
+        .particle-trail {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .particle-pulse {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particlePulse 2s infinite;
+        }
+        @keyframes particlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 0.3; }
+        }
         /* Interactive cursor effect */
         .cursor {
             width: 20px;
@@ -1131,11 +1154,9 @@
     <div class="loader" id="loader">
         <div class="loader-circle"></div>
     </div>
-
     <!-- Custom cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-
     <!-- Animated background -->
     <div class="bg-animation">
         <span></span>
@@ -1149,13 +1170,10 @@
         <span></span>
         <span></span>
     </div>
-
     <!-- Interactive particles -->
     <div class="interactive-particles" id="interactive-particles"></div>
-
     <!-- Background events container -->
     <div class="bg-events" id="bg-events"></div>
-
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1163,7 +1181,6 @@
             <p class="header-subtitle neon-text">From zero → hero. One repo. One learning path.</p>
         </div>
     </header>
-
     <!-- Main Content -->
     <main class="container">
         <div class="content">
@@ -1209,11 +1226,11 @@ cpp/
 css/
   css-complete-guide.html
 html/
-  html-master-course.html
+  html-master-BITEZ.html
 images/
   indexBanner.webp
 js/
-  javascript-master-course.html
+  javascript-master-BITEZ.html
 py/
   python-mastery-guide.html</pre>
                 </div>
@@ -1262,13 +1279,13 @@ py/
                 <p class="content-text"><code>css-complete-guide.html</code> — CSS target page. Add exercises (flexbox/grid projects).</p>
                 
                 <h4 class="section-subtitle"><code>html/</code></h4>
-                <p class="content-text"><code>html-master-course.html</code> — HTML master course. Add <code>/lessons/</code>, <code>/exercises/</code>, <code>/projects/</code> as you expand.</p>
+                <p class="content-text"><code>html-master-BITEZ.html</code> — HTML master BITEZ. Add <code>/lessons/</code>, <code>/exercises/</code>, <code>/projects/</code> as you expand.</p>
                 
                 <h4 class="section-subtitle"><code>images/</code></h4>
                 <p class="content-text"><code>indexBanner.webp</code> — store all images here; use descriptive filenames and include <code>alt</code> in HTML.</p>
                 
                 <h4 class="section-subtitle"><code>js/</code></h4>
-                <p class="content-text"><code>javascript-master-course.html</code> — JS lessons. Add DOM & mini-project files next to it.</p>
+                <p class="content-text"><code>javascript-master-BITEZ.html</code> — JS lessons. Add DOM & mini-project files next to it.</p>
                 
                 <h4 class="section-subtitle"><code>py/</code></h4>
                 <p class="content-text"><code>python-mastery-guide.html</code> — Python material. Add notebook-like pages or small runnable examples.</p>
@@ -1283,7 +1300,6 @@ py/
                     <pre>1. Clone:
 git clone https://github.com/SANIUL-blackdragon/Zero-2-Hero-Code-Mastery.git
 cd Zero-2-Hero-Code-Mastery
-
 2. Open index.html in your browser (double-click or File → Open). Chrome recommended.</pre>
                 </div>
                 
@@ -1320,7 +1336,7 @@ cd Zero-2-Hero-Code-Mastery
 <!-- Python -->
 <a href="py/python-mastery-guide.html">Python — Mastery Guide</a>
 <!-- JavaScript -->
-<a href="js/javascript-master-course.html">JavaScript — Master Course</a>
+<a href="js/javascript-master-BITEZ.html">JavaScript — Master BITEZ</a>
 <!-- CSS -->
 <a href="css/css-complete-guide.html">CSS — Complete Guide</a>
 <!-- C++ -->
@@ -1328,7 +1344,7 @@ cd Zero-2-Hero-Code-Mastery
 <!-- C -->
 <a href="c/c-programming-complete.html">C — Complete Guide</a>
 <!-- HTML -->
-<a href="html/html-master-course.html">HTML — Master Course</a></pre>
+<a href="html/html-master-BITEZ.html">HTML — Master BITEZ</a></pre>
                 </div>
                 
                 <h4 class="section-subtitle">Linking nested pages</h4>
@@ -1456,7 +1472,6 @@ What to build and which files to create.
             </a>
         </div>
     </main>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1468,7 +1483,6 @@ What to build and which files to create.
             </p>
         </div>
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Hide loader when page is loaded
@@ -1480,7 +1494,7 @@ What to build and which files to create.
             
             // Create interactive particles
             const particlesContainer = document.getElementById('interactive-particles');
-            const particleCount = 80;
+            const particleCount = 150; // Increased particle count
             const particles = [];
             
             for (let i = 0; i < particleCount; i++) {
@@ -1500,7 +1514,9 @@ What to build and which files to create.
                 const colors = [
                     'rgba(90, 208, 235, 0.6)',  // turquoise-blue
                     'rgba(199, 248, 250, 0.4)',  // scandal
-                    'rgba(33, 139, 194, 0.5)'    // curious-blue
+                    'rgba(33, 139, 194, 0.5)',   // curious-blue
+                    'rgba(41, 111, 152, 0.4)',   // jelly-bean
+                    'rgba(18, 80, 133, 0.5)'    // chathams-blue
                 ];
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 
@@ -1512,13 +1528,68 @@ What to build and which files to create.
                     size: size,
                     baseX: parseFloat(particle.style.left),
                     baseY: parseFloat(particle.style.top),
-                    speed: 0.02 + Math.random() * 0.03
+                    speed: 0.02 + Math.random() * 0.03,
+                    type: Math.random() > 0.7 ? 'glow' : 'normal', // 30% chance for glow particles
+                    id: i // Add ID for unique wobble pattern
                 });
+                
+                // Add additional effects for some particles
+                if (particles[i].type === 'glow') {
+                    // Create glow effect
+                    const glow = document.createElement('div');
+                    glow.classList.add('particle-glow');
+                    glow.style.width = `${size * 3}px`;
+                    glow.style.height = `${size * 3}px`;
+                    glow.style.left = particle.style.left;
+                    glow.style.top = particle.style.top;
+                    glow.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    glow.style.opacity = '0.3';
+                    glow.style.filter = 'blur(3px)';
+                    
+                    // Store glow reference
+                    particles[i].glow = glow;
+                    
+                    particlesContainer.appendChild(glow);
+                }
+                
+                // Add trail effect for some particles
+                if (Math.random() > 0.8) {
+                    const trail = document.createElement('div');
+                    trail.classList.add('particle-trail');
+                    trail.style.width = `${size / 2}px`;
+                    trail.style.height = `${size / 2}px`;
+                    trail.style.left = particle.style.left;
+                    trail.style.top = particle.style.top;
+                    trail.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    trail.style.opacity = '0.5';
+                    
+                    // Store trail reference
+                    particles[i].trail = trail;
+                    
+                    particlesContainer.appendChild(trail);
+                }
+                
+                // Add pulse effect for some particles
+                if (Math.random() > 0.85) {
+                    const pulse = document.createElement('div');
+                    pulse.classList.add('particle-pulse');
+                    pulse.style.width = `${size * 2}px`;
+                    pulse.style.height = `${size * 2}px`;
+                    pulse.style.left = particle.style.left;
+                    pulse.style.top = particle.style.top;
+                    pulse.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    pulse.style.opacity = '0.4';
+                    
+                    // Store pulse reference
+                    particles[i].pulse = pulse;
+                    
+                    particlesContainer.appendChild(pulse);
+                }
                 
                 particlesContainer.appendChild(particle);
             }
             
-            // Mouse move effect for particles
+            // Mouse move effect for particles - Bubble-like behavior
             document.addEventListener('mousemove', function(e) {
                 const mouseX = e.clientX / window.innerWidth;
                 const mouseY = e.clientY / window.innerHeight;
@@ -1529,28 +1600,44 @@ What to build and which files to create.
                     const dy = mouseY - particle.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     
-                    // Only affect particles within a certain radius
-                    if (distance < 0.2) {
-                        // Move particles away from mouse
-                        const force = (0.2 - distance) * 2;
-                        particle.x -= dx * force * particle.speed;
-                        particle.y -= dy * force * particle.speed;
-                        
-                        // Apply boundaries
-                        particle.x = Math.max(0, Math.min(1, particle.x));
-                        particle.y = Math.max(0, Math.min(1, particle.y));
-                        
-                        // Update position
-                        particle.element.style.left = `${particle.x * 100}%`;
-                        particle.element.style.top = `${particle.y * 100}%`;
-                    } else {
-                        // Gradually return to base position
-                        particle.x += (particle.baseX - particle.x) * particle.speed;
-                        particle.y += (particle.baseY - particle.y) * particle.speed;
-                        
-                        // Update position
-                        particle.element.style.left = `${particle.x * 100}%`;
-                        particle.element.style.top = `${particle.y * 100}%`;
+                    // Natural upward floating motion (bubbles rise)
+                    particle.y -= particle.speed * 0.01;
+                    
+                    // Add gentle horizontal wobble for natural movement
+                    particle.x += Math.sin(Date.now() / 1000 + particle.id) * 0.002;
+                    
+                    // Subtle interaction with cursor - gentle deflection, not forceful push
+                    if (distance < 0.15) {
+                        const deflection = (0.15 - distance) * 0.5;
+                        particle.x += dx * deflection * 0.05;
+                        particle.y += dy * deflection * 0.05;
+                    }
+                    
+                    // Wrap around screen edges for continuous flow
+                    if (particle.y < -0.1) particle.y = 1.1;
+                    if (particle.x < -0.1) particle.x = 1.1;
+                    if (particle.x > 1.1) particle.x = -0.1;
+                    
+                    // Update position
+                    particle.element.style.left = `${particle.x * 100}%`;
+                    particle.element.style.top = `${particle.y * 100}%`;
+                    
+                    // Update glow position if exists
+                    if (particle.glow) {
+                        particle.glow.style.left = `${particle.x * 100}%`;
+                        particle.glow.style.top = `${particle.y * 100}%`;
+                    }
+                    
+                    // Update trail position if exists
+                    if (particle.trail) {
+                        particle.trail.style.left = `${particle.x * 100}%`;
+                        particle.trail.style.top = `${particle.y * 100}%`;
+                    }
+                    
+                    // Update pulse position if exists
+                    if (particle.pulse) {
+                        particle.pulse.style.left = `${particle.x * 100}%`;
+                        particle.pulse.style.top = `${particle.y * 100}%`;
                     }
                 });
             });
@@ -1737,6 +1824,9 @@ What to build and which files to create.
                 'shootingStar',
                 'blackHole'
             ];
+            
+            // Track the last event time
+            let lastEventTime = Date.now();
             
             function createSupernova() {
                 const supernova = document.createElement('div');
@@ -1957,6 +2047,9 @@ What to build and which files to create.
             
             // Function to trigger a random background event
             function triggerRandomEvent() {
+                // Update the last event time
+                lastEventTime = Date.now();
+                
                 const eventType = eventTypes[Math.floor(Math.random() * eventTypes.length)];
                 
                 switch (eventType) {
@@ -1992,8 +2085,11 @@ What to build and which files to create.
                         break;
                 }
                 
-                // Schedule next event after a random delay (between 1 and 2 minutes)
-                setTimeout(triggerRandomEvent, Math.random() * 60000 + 60000);
+                // Schedule next event after a consistent delay (between 1 and 2 minutes)
+                const nextEventDelay = 60000 + Math.random() * 60000; // 60-120 seconds
+                console.log(`Next event in ${Math.round(nextEventDelay / 1000)} seconds`);
+                
+                setTimeout(triggerRandomEvent, nextEventDelay);
             }
             
             // Start the background events after a delay

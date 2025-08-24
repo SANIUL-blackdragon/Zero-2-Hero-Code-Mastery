@@ -45,7 +45,7 @@ c/
 
 cpp/
   cpp-complete-guide.html
-  html-master-course.html
+  html-master-BITEZ.html
   module-1.html
 
 css/
@@ -57,7 +57,7 @@ images/
   indexBanner.webp
 
 js/
-  javascript-master-course.html
+  javascript-master-BITEZ.html
 
 py/
   python-mastery-guide.html
@@ -108,7 +108,7 @@ Master space for AI / ML / Neural Net material.
 ### `cpp/`
 
 * `cpp-complete-guide.html`, `module-1.html` — C++ lessons.
-* **Note:** `html-master-course.html` looks like it belongs in `/html/`. Consider moving it.
+* **Note:** `html-master-BITEZ.html` looks like it belongs in `/html/`. Consider moving it.
 
 ### `css/`
 
@@ -116,7 +116,7 @@ Master space for AI / ML / Neural Net material.
 
 ### `html/`
 
-* Empty in listing — this should be your most fleshed-out folder (you said HTML is the most complete). Move `html-master-course.html` here if it’s HTML material. Populate with `lessons/`, `exercises/`, `projects/`.
+* Empty in listing — this should be your most fleshed-out folder (you said HTML is the most complete). Move `html-master-BITEZ.html` here if it’s HTML material. Populate with `lessons/`, `exercises/`, `projects/`.
 
 ### `images/`
 
@@ -124,7 +124,7 @@ Master space for AI / ML / Neural Net material.
 
 ### `js/`
 
-* `javascript-master-course.html` — JS lessons. Add DOM & mini-project files next to it.
+* `javascript-master-BITEZ.html` — JS lessons. Add DOM & mini-project files next to it.
 
 ### `py/`
 
@@ -184,7 +184,7 @@ Use **relative links**. They work locally and on Pages.
 <a href="py/python-mastery-guide.html">Python — Mastery Guide</a>
 
 <!-- JavaScript -->
-<a href="js/javascript-master-course.html">JavaScript — Master Course</a>
+<a href="js/javascript-master-BITEZ.html">JavaScript — Master BITEZ</a>
 
 <!-- CSS -->
 <a href="css/css-complete-guide.html">CSS — Complete Guide</a>
