@@ -32,6 +32,7 @@
         
         /* Header Styles */
         .header {
+            max-height: 100px;
             position: fixed;
             top: 0;
             left: 0;
@@ -55,7 +56,7 @@
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 15px;
             font-weight: 700;
         }
         
@@ -68,6 +69,7 @@
         .nav-buttons {
             display: flex;
             gap: 15px;
+            max-width: 1000px;
         }
         
         .nav-btn {
@@ -79,7 +81,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            font-size: 14px;
+            font-size: 10px;
             transition: all 0.3s ease;
         }
         
@@ -113,9 +115,9 @@
         }
         
         .sidebar-toggle {
-            position: absolute;
-            top: 10px;
-            right: -40px;
+            position: fixed;
+            top: 70px;
+            left: 300px;
             width: 40px;
             height: 40px;
             background-color: var(--secondary-color);
@@ -128,6 +130,11 @@
             align-items: center;
             z-index: 1001;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease, transform 0.3s ease;
+        }
+        .toc-sidebar.collapsed + .sidebar-toggle {
+            left: 0;
+            transform: reflectX(180deg);
         }
         
         .toc-header {
@@ -324,6 +331,10 @@
             border-left: 5px solid var(--secondary-color);
             overflow-wrap: break-word;
             word-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+            word-break: break-word;
+            hyphens: auto;
         }
         
         .definition-title {
@@ -346,6 +357,9 @@
             line-height: 1.5;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+            word-break: break-word;
         }
         
         .property-box {
@@ -357,6 +371,10 @@
             border-left: 4px solid var(--secondary-color);
             overflow-wrap: break-word;
             word-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+            word-break: break-word;
+            hyphens: auto;
         }
         
         .property-title {
@@ -387,6 +405,9 @@
             align-items: flex-start;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            max-width: 100%;
+            overflow: hidden;
+            word-break: break-word;
         }
         
         .property-item:before {
@@ -418,17 +439,23 @@
             margin: 20px 0;
             text-align: center;
             overflow-x: auto;
+            max-width: 100%;
+            word-wrap: break-word;
+            word-break: break-all;
         }
         
         .formula {
-            font-size: 22px;
-            margin: 10px 0;
             font-family: 'Times New Roman', serif;
             font-style: italic;
             color: var(--primary-color);
             font-weight: 600;
-            white-space: nowrap;
+            font-size: 22px;
+            margin: 10px 0;
             display: inline-block;
+            white-space: normal;
+            word-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
         }
         
         .example-box {
@@ -484,25 +511,22 @@
         }
         
         /* Grid Layouts */
-        .grid-2 {
+        .grid-2, .grid-3, .grid-4 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             grid-gap: 30px;
             margin-bottom: 30px;
+            max-width: 100%;
+            overflow: visible;
+            align-items: start;
         }
-        
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .grid-4 {
-            display: grid;
+        .grid-2 {
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 25px;
-            margin-bottom: 30px;
+        }
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .grid-4 {
+            grid-template-columns: repeat(2, 1fr);
         }
         
         @media (max-width: 1024px) {
@@ -595,6 +619,10 @@
             
             .theorem-content {
                 font-size: 20px;
+            }
+            
+            .property-box, .definition-box {
+                padding: 20px;
             }
         }
         
@@ -689,9 +717,6 @@
     </header>
     <!-- Table of Contents Sidebar -->
     <aside class="toc-sidebar" id="tocSidebar">
-        <button class="sidebar-toggle" id="sidebarToggle">
-            <i class="material-icons" id="toggleIcon">chevron_left</i>
-        </button>
         <div class="toc-header">
             <h2 class="toc-title">
                 <i class="material-icons">menu_book</i>
@@ -859,6 +884,9 @@
             </div>
         </div>
     </aside>
+    <button class="sidebar-toggle" id="sidebarToggle">
+    <i class="material-icons" id="toggleIcon">chevron_left</i>
+    </button>
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
         <!-- Cover Section -->
@@ -1404,6 +1432,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Coordinate Systems Section -->
         <section id="coordinate-systems" class="section">
             <h1 class="section-title">
@@ -1467,7 +1496,7 @@
                         <div class="example-box">
                             <div class="example-title">Example:</div>
                             In <span class="math">ℝ²</span>, if <span class="math">B = {e₁, e₂}</span> and <span class="math">C = {(1,1), (1,-1)}</span>, then:
-                            <br><span class="math">P_{C←B} = [[1/2, 1/2], [1/2, -1/2]]</span>
+                            <br><span class="math">P_{C←B} = [[1, 1], [1, -1]]</span>
                         </div>
                     </div>
                 </div>
@@ -2093,7 +2122,7 @@
                         </li>
                     </ul>
                     <div class="formula-box">
-                        <div class="formula">⟨u,v⟩ = ½(||u+v||² - ||u||² - ||v||²)</div>
+                        <div class="formula">⟨u,v⟩ = ¼(||u+v||² - ||u-v||²)</div>
                     </div>
                 </div>
                 
@@ -2141,7 +2170,7 @@
                         <br><br>
                         <span class="math">u ⊥ v</span> if and only if <span class="math">⟨u,v⟩ = 0</span>
                         <br><br>
-                        • Orthogonal vectors are <span class="highlight">linearly independent</span>
+                        • Orthogonal sets of non-zero vectors are <span class="highlight">linearly independent</span>
                         <br>
                         • Zero vector is orthogonal to all vectors
                         <br>
@@ -2312,17 +2341,16 @@
                     <div class="definition-text">
                         <p>Factorization of matrix <span class="math">A ∈ ℝᵐˣⁿ</span> as <span class="math">A = QR</span> where:</p>
                         <ul class="property-list">
-                            <li class="property-item"><span class="highlight">Q</span>: <span class="math">m × m</span> orthogonal matrix (<span class="math">QᵀQ = I</span>)</li>
-                            <li class="property-item"><span class="highlight">R</span>: <span class="math">m × n</span> upper triangular matrix</li>
+                            <li class="property-item"><span class="highlight">Full QR</span>: Q is <span class="math">m × m</span> orthogonal matrix (<span class="math">QᵀQ = I</span>) and R is <span class="math">m × n</span> upper triangular with zeros below the diagonal</li>
+                            <li class="property-item"><span class="highlight">Reduced QR</span>: Q is <span class="math">m × n</span> with orthonormal columns and R is <span class="math">n × n</span> upper triangular</li>
                         </ul>
-                        <p>For <span class="math">rank(A) = n</span>, <span class="math">R</span> has positive diagonal entries</p>
+                        <p>By convention, the diagonal entries of R are chosen to be <span class="highlight">positive</span> when <span class="math">rank(A) = n</span>.</p>
                         <div class="formula-box">
                             <div class="formula">A = [a₁ | a₂ | ... | aₙ] = Q [r₁₁ r₁₂ ... r₁ₙ; 0 r₂₂ ... r₂ₙ; ⋱ ⋮; 0 ... 0 rₙₙ]</div>
                         </div>
-                        <p><span class="highlight">Reduced QR</span>: <span class="math">A = Q₁R₁</span> where <span class="math">Q₁ ∈ ℝᵐˣⁿ</span> and <span class="math">R₁ ∈ ℝⁿˣⁿ</span></p>
                         <div class="example-box">
                             <div class="example-title">Connection:</div>
-                            Columns of <span class="math">Q</span> are orthonormal basis from Gram-Schmidt applied to columns of <span class="math">A</span>
+                            Columns of Q form orthonormal basis from Gram-Schmidt applied to columns of A
                         </div>
                     </div>
                 </div>
@@ -2359,19 +2387,19 @@
                         Applications
                     </h3>
                     <ul class="property-list">
-                        <li class="property-item"><span class="highlight">Least squares</span>: Solve <span class="math">Ax = b</span> via <span class="math">Rx = Qᵀb</span></li>
+                        <li class="property-item"><span class="highlight">Least squares</span>: For reduced QR with full column rank A, solve <span class="math">Rx = Qᵀb</span> (since R is square and invertible)</li>
                         <li class="property-item"><span class="highlight">Eigenvalue computation</span>: QR algorithm</li>
                         <li class="property-item"><span class="highlight">Orthogonalization</span>: Creating orthonormal bases</li>
                         <li class="property-item"><span class="highlight">Numerical stability</span>: Better conditioned than LU</li>
                     </ul>
                     <div class="example-box">
                         <div class="example-title">Least Squares Example:</div>
-                        For overdetermined system <span class="math">Ax = b</span>, QR gives:
+                        For overdetermined system <span class="math">Ax = b</span> with full column rank A, reduced QR gives:
                         <br><span class="math">||Ax - b||² = ||QRx - b||² = ||Rx - Qᵀb||²</span>
                         <br>Solve upper triangular system <span class="math">Rx = Qᵀb</span>
                     </div>
                     <div class="formula-box">
-                        <div class="formula">minₓ ||Ax - b||₂ = minₓ ||Rx - Qᵀb||₂</div>
+                        <div class="formula">minₓ ||Ax - b||₂ = minₓ ||Rx - Qᵀb||₂ (for reduced QR with full column rank)</div>
                     </div>
                 </div>
             </div>
