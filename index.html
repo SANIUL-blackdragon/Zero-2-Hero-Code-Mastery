@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERO-2-MASTERY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --turquoise-blue: #5ad0eb;
+            --scandal: #c7f8fa;
+            --curious-blue: #218bc2;
+            --jelly-bean: #296f98;
+            --chathams-blue: #125085;
+            --firefly: #040910;
+            --elephant: #133854;
+            --downriver: #0a2743;
+            --gull-gray: #94acb6;
+            --oxford-blue: #3c515c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--downriver), var(--firefly));
+            color: var(--scandal);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: var(--turquoise-blue);
+            border-radius: 50%;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10, 39, 67, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar.visible {
+            transform: translateY(0);
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--scandal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar-logo i {
+            margin-right: 10px;
+            color: var(--turquoise-blue);
+            font-size: 1.8rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-item {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(90, 208, 235, 0.2);
+            color: var(--scandal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 208, 235, 0.4);
+            transition: left 0.5s ease;
+        }
+
+        .navbar-item:hover::before {
+            left: 0;
+        }
+
+        /* Banner styles */
+        .banner {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/images/indexBanner.webp') center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .banner-content {
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 1200px;
+        }
+
+        .banner-title {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--scandal);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(90, 208, 235, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .banner-title span {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .banner-title span:nth-child(1) { animation-delay: 0s; }
+        .banner-title span:nth-child(2) { animation-delay: 0.1s; }
+        .banner-title span:nth-child(3) { animation-delay: 0.2s; }
+        .banner-title span:nth-child(4) { animation-delay: 0.3s; }
+        .banner-title span:nth-child(5) { animation-delay: 0.4s; }
+        .banner-title span:nth-child(6) { animation-delay: 0.5s; }
+        .banner-title span:nth-child(7) { animation-delay: 0.6s; }
+        .banner-title span:nth-child(8) { animation-delay: 0.7s; }
+        .banner-title span:nth-child(9) { animation-delay: 0.8s; }
+        .banner-title span:nth-child(10) { animation-delay: 0.9s; }
+        .banner-title span:nth-child(11) { animation-delay: 1s; }
+        .banner-title span:nth-child(12) { animation-delay: 1.1s; }
+        .banner-title span:nth-child(13) { animation-delay: 1.2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .banner-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--turquoise-blue);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .info-card {
+            width: 300px;
+            height: 150px;
+            background: rgba(33, 139, 194, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(90, 208, 235, 0.3);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90, 208, 235, 0.1) 0%, rgba(90, 208, 235, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--turquoise-blue);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--scandal);
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--gull-gray);
+        }
+
+        /* Main content styles */
+        .main-content {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--scandal);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(19, 56, 84, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(90, 208, 235, 0.2);
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(90, 208, 235, 0.1), rgba(33, 139, 194, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            padding: 25px 25px 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--turquoise-blue);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            padding: 0 25px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--gull-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-button {
+            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
+            color: var(--firefly);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .card-button:hover::before {
+            left: 0;
+        }
+
+        .card-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(90, 208, 235, 0.4);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, var(--elephant), var(--downriver));
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(90, 208, 235, 0.3);
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gull-gray);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--turquoise-blue);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-text {
+            font-size: 1.1rem;
+            color: var(--gull-gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .modal-button {
+            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
+            color: var(--firefly);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(90, 208, 235, 0.4);
+        }
+
+        /* Footer styles */
+        .footer {
+            background: rgba(4, 9, 16, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(90, 208, 235, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--gull-gray);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(90, 208, 235, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--turquoise-blue);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(90, 208, 235, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--oxford-blue);
+            padding-top: 20px;
+            border-top: 1px solid rgba(90, 208, 235, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 4rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .navbar-menu {
+                gap: 10px;
+            }
+            
+            .navbar-item {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .info-cards {
+                gap: 15px;
+            }
+            
+            .info-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Animations for each card */
+        .html-card .card-icon {
+            animation: htmlIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes htmlIcon {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .css-card .card-icon {
+            animation: cssIcon 4s ease-in-out infinite;
+        }
+
+        @keyframes cssIcon {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(10px); }
+        }
+
+        .js-card .card-icon {
+            animation: jsIcon 2s ease-in-out infinite;
+        }
+
+        @keyframes jsIcon {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .cpp-card .card-icon {
+            animation: cppIcon 3.5s ease-in-out infinite;
+        }
+
+        @keyframes cppIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .c-card .card-icon {
+            animation: cIcon 2.5s ease-in-out infinite;
+        }
+
+        @keyframes cIcon {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .python-card .card-icon {
+            animation: pythonIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes pythonIcon {
+            0%, 100% { transform: skew(0deg, 0deg); }
+            25% { transform: skew(5deg, 5deg); }
+            75% { transform: skew(-5deg, -5deg); }
+        }
+
+        .ai-card .card-icon {
+            animation: aiIcon 4s ease-in-out infinite;
+        }
+
+        @keyframes aiIcon {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-10deg) scale(1.1); }
+            50% { transform: rotate(0deg) scale(1); }
+            75% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        /* Interactive hover effects for cards */
+        .html-card:hover {
+            box-shadow: 0 0 30px rgba(227, 76, 38, 0.5);
+            border-color: rgba(227, 76, 38, 0.5);
+        }
+
+        .css-card:hover {
+            box-shadow: 0 0 30px rgba(33, 150, 243, 0.5);
+            border-color: rgba(33, 150, 243, 0.5);
+        }
+
+        .js-card:hover {
+            box-shadow: 0 0 30px rgba(247, 223, 30, 0.5);
+            border-color: rgba(247, 223, 30, 0.5);
+        }
+
+        .cpp-card:hover {
+            box-shadow: 0 0 30px rgba(0, 119, 181, 0.5);
+            border-color: rgba(0, 119, 181, 0.5);
+        }
+
+        .c-card:hover {
+            box-shadow: 0 0 30px rgba(168, 169, 173, 0.5);
+            border-color: rgba(168, 169, 173, 0.5);
+        }
+
+        .python-card:hover {
+            box-shadow: 0 0 30px rgba(52, 73, 94, 0.5);
+            border-color: rgba(52, 73, 94, 0.5);
+        }
+
+        .ai-card:hover {
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+            border-color: rgba(155, 89, 182, 0.5);
+        }
+
+        /* Glitch effect for banner title */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: var(--turquoise-blue);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: var(--curious-blue);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+            60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
+            80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, 0); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+            40% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 1px); }
+            60% { clip-path: inset(30% 0 40% 0); transform: translate(1px, 2px); }
+            80% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -2px); }
+        }
+
+        /* Floating animation for info cards */
+        .info-card:nth-child(1) {
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .info-card:nth-child(2) {
+            animation: float2 7s ease-in-out infinite;
+        }
+
+        .info-card:nth-child(3) {
+            animation: float3 8s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Interactive cursor effect */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--turquoise-blue);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            opacity: 0.5;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(90, 208, 235, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(90, 208, 235, 0.3);
+        }
+
+        .cursor-follower.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>ZERO-2-MASTERY</span>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-item">Contact</div>
+            <div class="navbar-item">Contribute</div>
+            <div class="navbar-item">About</div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <header class="banner" id="banner">
+        <div class="banner-image"></div>
+        <div class="banner-content">
+            <h1 class="banner-title glitch" data-text="ZERO-2-MASTERY">
+                <span>Z</span><span>E</span><span>R</span><span>O</span><span>-</span><span>2</span><span>-</span><span>M</span><span>A</span><span>S</span><span>T</span><span>E</span><span>R</span><span>Y</span>
+            </h1>
+            <p class="banner-subtitle">Free fun school for learning skills that matter</p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Comprehensive Guides</h3>
+                    <p>In-depth mastery of programming languages and concepts</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Learn By Doing</h3>
+                    <p>Hands-on projects and real-world applications</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Driven</h3>
+                    <p>Join a vibrant community of learners and experts</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h2 class="section-title">Explore Our Courses</h2>
+        
+        <div class="cards-container">
+            <!-- HTML Card -->
+            <div class="card html-card" data-status="available">
+                <div class="card-header">
+                    <i class="fab fa-html5 card-icon"></i>
+                    <h3 class="card-title">HTML</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Master the foundation of web development with comprehensive HTML guides from basic structure to advanced semantic elements.
+                    </p>
+                    <button class="card-button" data-target="html">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- CSS Card -->
+            <div class="card css-card" data-status="available">
+                <div class="card-header">
+                    <i class="fab fa-css3-alt card-icon"></i>
+                    <h3 class="card-title">CSS</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Learn to style beautiful websites with CSS, including Flexbox, Grid, animations, and responsive design techniques.
+                    </p>
+                    <button class="card-button" data-target="css">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- JavaScript Card -->
+            <div class="card js-card" data-status="available">
+                <div class="card-header">
+                    <i class="fab fa-js-square card-icon"></i>
+                    <h3 class="card-title">JavaScript</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Dive into JavaScript programming, from basic syntax to advanced concepts like closures, async programming, and DOM manipulation.
+                    </p>
+                    <button class="card-button" data-target="javascript">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- C++ Card -->
+            <div class="card cpp-card" data-status="available">
+                <div class="card-header">
+                    <i class="fas fa-code card-icon"></i>
+                    <h3 class="card-title">C++</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Learn systems programming with C++, covering memory management, OOP concepts, STL, and performance optimization techniques.
+                    </p>
+                    <button class="card-button" data-target="cpp">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- C Card -->
+            <div class="card c-card" data-status="inprogress">
+                <div class="card-header">
+                    <i class="fas fa-microchip card-icon"></i>
+                    <h3 class="card-title">C</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Master the fundamentals of programming with C, including pointers, memory allocation, and low-level system interactions.
+                    </p>
+                    <button class="card-button" data-target="c">
+                        Coming Soon <i class="fas fa-clock ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Python Card -->
+            <div class="card python-card" data-status="available">
+                <div class="card-header">
+                    <i class="fab fa-python card-icon"></i>
+                    <h3 class="card-title">Python</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Explore Python programming, from basic syntax to advanced topics like data structures, algorithms, and object-oriented design.
+                    </p>
+                    <button class="card-button" data-target="python">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- AI/ML/Neural Nets Card -->
+            <div class="card ai-card" data-status="inprogress">
+                <div class="card-header">
+                    <i class="fas fa-brain card-icon"></i>
+                    <h3 class="card-title">AI/ML/Neural Nets</h3>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        Dive deep into artificial intelligence, machine learning algorithms, and neural network architectures from mathematical foundations to implementation.
+                    </p>
+                    <button class="card-button" data-target="ai">
+                        Coming Soon <i class="fas fa-clock ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 class="footer-title">Join Our Community</h3>
+            <p class="footer-text">
+                Connect with thousands of learners and experts. Share your knowledge, ask questions, and grow together.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 ZERO-2-MASTERY. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for In Progress Cards -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Coming Soon!</h2>
+            <p class="modal-text" id="modal-text">This course is currently in development and will be available soon.</p>
+            <button class="modal-button" id="modal-button">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 30s
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s linear infinite`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            const banner = document.getElementById('banner');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    navbar.classList.add('visible');
+                } else {
+                    navbar.classList.remove('visible');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+            
+            // Custom cursor
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
+            
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(function() {
+                    cursorFollower.style.left = e.clientX + 'px';
+                    cursorFollower.style.top = e.clientY + 'px';
+                }, 100);
+            });
+            
+            // Add hover effect to interactive elements
+            const interactiveElements = document.querySelectorAll('button, a, .card, .navbar-item, .social-link');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    cursor.classList.add('hover');
+                    cursorFollower.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    cursor.classList.remove('hover');
+                    cursorFollower.remove('hover');
+                });
+            });
+            
+            // Modal functionality
+            const modal = document.getElementById('modal');
+            const modalText = document.getElementById('modal-text');
+            const modalClose = document.querySelector('.modal-close');
+            const modalButton = document.getElementById('modal-button');
+            
+            // Modal texts
+            const modalTexts = [
+                "This course is currently in development and will be available soon. Stay tuned!",
+                "We're working hard to bring you this content. Check back later for updates!",
+                "Our team is crafting an exceptional learning experience for you. Coming soon!",
+                "This mastery guide is in the works. We appreciate your patience!",
+                "Good things come to those who wait! This course will be available shortly."
+            ];
+            
+            // Add click event to card buttons
+            const cardButtons = document.querySelectorAll('.card-button');
+            cardButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const status = card.getAttribute('data-status');
+                    
+                    if (status === 'available') {
+                        // Navigate to the course page (placeholder action)
+                        const target = this.getAttribute('data-target');
+                        console.log(`Navigating to ${target} course...`);
+                        // In a real implementation, this would navigate to the course page
+                    } else if (status === 'inprogress') {
+                        // Show modal with random text
+                        const randomText = modalTexts[Math.floor(Math.random() * modalTexts.length)];
+                        modalText.textContent = randomText;
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modal.classList.add('active');
+                        }, 10);
+                    }
+                });
+            });
+            
+            // Close modal
+            function closeModal() {
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+            
+            modalClose.addEventListener('click', closeModal);
+            modalButton.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Navbar item click handlers
+            const navbarItems = document.querySelectorAll('.navbar-item');
+            navbarItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const itemText = this.textContent.toLowerCase();
+                    console.log(`Navigating to ${itemText} page...`);
+                    // In a real implementation, this would navigate to the appropriate page
+                });
+            });
+            
+            // Social link click handlers
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.querySelector('i').classList[1].replace('fa-', '');
+                    console.log(`Opening ${platform}...`);
+                    // In a real implementation, this would open the social media page
+                });
+            });
+            
+            // Add parallax effect to banner image
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                const bannerImage = document.querySelector('.banner-image');
+                bannerImage.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+            });
+            
+            // Add tilt effect to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
