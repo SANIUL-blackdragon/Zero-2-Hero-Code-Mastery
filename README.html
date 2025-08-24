@@ -193,9 +193,94 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10, 39, 67, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .navbar.visible {
+            transform: translateY(0);
+        }
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--scandal);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateZ(20px);
+        }
+        .navbar-logo i {
+            margin-right: 10px;
+            color: var(--turquoise-blue);
+            font-size: 1.8rem;
+            animation: pulse 2s infinite;
+            transform: translateZ(30px);
+        }
+        @keyframes pulse {
+            0% { transform: translateZ(30px) scale(1); }
+            50% { transform: translateZ(30px) scale(1.1); }
+            100% { transform: translateZ(30px) scale(1); }
+        }
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            transform: translateZ(20px);
+        }
+        .navbar-item {
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(90, 208, 235, 0.2);
+            color: var(--scandal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: translateZ(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .navbar-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 208, 235, 0.4);
+            transition: left 0.5s ease;
+            transform: translateZ(5px);
+        }
+        .navbar-item:hover::before {
+            left: 0;
+        }
+        .navbar-item:hover {
+            transform: translateZ(15px) translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
         /* Header styles */
         .header {
-            padding: 60px 0 30px;
+            padding: 120px 0 30px;
             text-align: center;
         }
         .header-title {
@@ -466,11 +551,6 @@
             background: var(--turquoise-blue);
             border-radius: 50%;
             animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(90, 208, 235, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(90, 208, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(90, 208, 235, 0); }
         }
         .toc-link {
             color: var(--gull-gray);
@@ -1146,6 +1226,13 @@
             .section-title {
                 font-size: 1.6rem;
             }
+            .navbar-menu {
+                gap: 10px;
+            }
+            .navbar-item {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -1174,6 +1261,20 @@
     <div class="interactive-particles" id="interactive-particles"></div>
     <!-- Background events container -->
     <div class="bg-events" id="bg-events"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Zero-2-Hero-Code-Mastery</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="index.html"><div class="navbar-item">Home</div></a>
+            <div class="navbar-item">Contact</div>
+            <div class="navbar-item">Contribute</div>
+        </div>
+    </nav>
+    
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1193,7 +1294,7 @@
                     <li class="toc-item"><a href="#quick-snapshot" class="toc-link">Quick snapshot — what's in this repo right now</a></li>
                     <li class="toc-item"><a href="#why-this-repo" class="toc-link">Why this repo exists (short)</a></li>
                     <li class="toc-item"><a href="#folder-structure" class="toc-link">Folder-by-folder (exact current structure + purpose)</a></li>
-                    <li class="toc-item"><a href="#view-locally" class="toc-link">How to view locally (fast) & via GitHub Pages</a></li>
+                    <li class="toc-item"><a href="#accessing-platform" class="toc-link">Accessing the Platform</a></li>
                     <li class="toc-item"><a href="#linking-examples" class="toc-link">Linking examples (copy/paste) — precise for this repo</a></li>
                     <li class="toc-item"><a href="#add-content" class="toc-link">How to add lessons, exercises, assets — step-by-step</a></li>
                     <li class="toc-item"><a href="#templates" class="toc-link">Exercise & lesson templates (exact)</a></li>
@@ -1291,37 +1392,26 @@ py/
                 <p class="content-text"><code>python-mastery-guide.html</code> — Python material. Add notebook-like pages or small runnable examples.</p>
             </div>
             
-            <!-- How to view locally -->
-            <div class="section" id="view-locally">
-                <h3 class="section-title">How to view locally (fast) & via GitHub Pages</h3>
+            <!-- Accessing the Platform -->
+            <div class="section" id="accessing-platform">
+                <h3 class="section-title">Accessing the Platform</h3>
                 
-                <h4 class="section-subtitle">Locally (quick)</h4>
+                <h4 class="section-subtitle">Live Website</h4>
+                <p class="content-text">The platform is already hosted on GitHub Pages and accessible at:</p>
+                <div class="code-block">
+                    <pre>https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/</pre>
+                </div>
+                <p class="content-text">This is the recommended way to access the content as a learner.</p>
+                
+                <h4 class="section-subtitle">Local Viewing (for contributors)</h4>
+                <p class="content-text">If you want to contribute or run the site locally:</p>
                 <div class="code-block">
                     <pre>1. Clone:
 git clone https://github.com/SANIUL-blackdragon/Zero-2-Hero-Code-Mastery.git
 cd Zero-2-Hero-Code-Mastery
 2. Open index.html in your browser (double-click or File → Open). Chrome recommended.</pre>
                 </div>
-                
-                <h4 class="section-subtitle">Local development (optional, better)</h4>
-                <p class="content-text">With Python built-in server:</p>
-                <div class="code-block">
-                    <pre>python -m http.server 8000
-# open http://localhost:8000</pre>
-                </div>
-                <p class="content-text">Or use VS Code + Live Server for auto-reload.</p>
-                
-                <h4 class="section-subtitle">GitHub Pages (publish)</h4>
-                <ol class="list">
-                    <li class="list-item">On GitHub, go to <strong>Settings → Pages</strong>.</li>
-                    <li class="list-item">Select branch: <code>main</code> (or <code>gh-pages</code>) and folder: <code>/root</code> (or <code>/docs</code> if you move site files).</li>
-                    <li class="list-item">Save — site becomes available at:
-                        <div class="code-block">
-                            <pre>https://SANIUL-blackdragon.github.io/Zero-2-Hero-Code-Mastery/</pre>
-                        </div>
-                    </li>
-                </ol>
-                <p class="content-text">Use relative links so pages work locally and on Pages.</p>
+                <p class="content-text">For a better local development experience, use VS Code + Live Server for auto-reload.</p>
             </div>
             
             <!-- Linking examples -->
@@ -1388,9 +1478,6 @@ cd Zero-2-Hero-Code-Mastery
 - Objective 1
 - Objective 2
 **Examples**
-```html
-<!-- example snippet -->
-```
 **Try it / Exercises**
 * [Exercise 1](../exercises/level-1/ex-01.md)</pre>
                 </div>
@@ -1490,6 +1577,22 @@ What to build and which files to create.
                 setTimeout(function() {
                     document.getElementById('loader').classList.add('hidden');
                 }, 500);
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100) {
+                    navbar.classList.add('visible');
+                } else {
+                    navbar.classList.remove('visible');
+                }
+                
+                lastScrollTop = scrollTop;
             });
             
             // Create interactive particles
@@ -1657,7 +1760,7 @@ What to build and which files to create.
             });
             
             // Add hover effect to interactive elements
-            const interactiveElements = document.querySelectorAll('a, button, .toc-item, .list-item');
+            const interactiveElements = document.querySelectorAll('a, button, .toc-item, .list-item, .navbar-item');
             
             interactiveElements.forEach(element => {
                 element.addEventListener('mouseenter', function() {
