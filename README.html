@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-2-Hero-Code-Mastery - README</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --turquoise-blue: #5ad0eb;
+            --scandal: #c7f8fa;
+            --curious-blue: #218bc2;
+            --jelly-bean: #296f98;
+            --chathams-blue: #125085;
+            --firefly: #040910;
+            --elephant: #133854;
+            --downriver: #0a2743;
+            --gull-gray: #94acb6;
+            --oxford-blue: #3c515c;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--downriver), var(--firefly));
+            color: var(--scandal);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-animation span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(90, 208, 235, 0.2);
+            animation: move 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        .bg-animation span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            background: rgba(90, 208, 235, 0.1);
+        }
+        .bg-animation span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            background: rgba(199, 248, 250, 0.1);
+        }
+        .bg-animation span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            background: rgba(33, 139, 194, 0.1);
+        }
+        .bg-animation span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            background: rgba(41, 111, 152, 0.1);
+        }
+        .bg-animation span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            background: rgba(18, 80, 133, 0.1);
+        }
+        .bg-animation span:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+            background: rgba(148, 172, 182, 0.1);
+        }
+        .bg-animation span:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+            background: rgba(90, 208, 235, 0.1);
+        }
+        .bg-animation span:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+            background: rgba(60, 81, 92, 0.1);
+        }
+        .bg-animation span:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+            background: rgba(199, 248, 250, 0.1);
+        }
+        .bg-animation span:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+            background: rgba(33, 139, 194, 0.1);
+        }
+        @keyframes move {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 50%;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+        /* Glitch effect for text */
+        .glitch {
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: var(--turquoise-blue);
+            z-index: -1;
+        }
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: var(--curious-blue);
+            z-index: -2;
+        }
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
+            40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+            60% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
+            80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, 0); }
+        }
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+            40% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 1px); }
+            60% { clip-path: inset(30% 0 40% 0); transform: translate(1px, 2px); }
+            80% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, -2px); }
+        }
+        /* Neon text effect */
+        .neon-text {
+            text-shadow: 
+                0 0 5px var(--turquoise-blue),
+                0 0 10px var(--turquoise-blue),
+                0 0 20px var(--turquoise-blue),
+                0 0 40px var(--curious-blue);
+        }
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header styles */
+        .header {
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        .header-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--scandal);
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .header-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--turquoise-blue);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Content styles */
+        .content {
+            background: rgba(19, 56, 84, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(90, 208, 235, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--turquoise-blue), transparent);
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+        @keyframes titleGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gull-gray);
+            margin-bottom: 30px;
+        }
+        /* Link styles */
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
+            color: var(--firefly);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .github-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .github-link:hover::before {
+            left: 100%;
+        }
+        .github-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(90, 208, 235, 0.4);
+        }
+        .github-link i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        /* Footer styles */
+        .footer {
+            background: rgba(4, 9, 16, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(90, 208, 235, 0.2);
+        }
+        .footer-text {
+            font-size: 1rem;
+            color: var(--gull-gray);
+            margin-bottom: 20px;
+        }
+        /* Code block styles */
+        .code-block {
+            background: rgba(4, 9, 16, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border: 1px solid rgba(90, 208, 235, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(90, 208, 235, 0.05), transparent);
+            pointer-events: none;
+        }
+        .code-block pre {
+            margin: 0;
+            color: var(--scandal);
+        }
+        /* TOC styles */
+        .toc {
+            background: rgba(33, 139, 194, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(90, 208, 235, 0.2);
+            animation: slideInLeft 0.8s ease-out;
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .toc-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .toc-list {
+            list-style-type: none;
+        }
+        .toc-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .toc-item:hover {
+            transform: translateX(5px);
+        }
+        .toc-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--turquoise-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(90, 208, 235, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(90, 208, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(90, 208, 235, 0); }
+        }
+        .toc-link {
+            color: var(--gull-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .toc-link:hover {
+            color: var(--turquoise-blue);
+        }
+        /* Section styles */
+        .section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(90, 208, 235, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--scandal);
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--turquoise-blue);
+        }
+        .section-subtitle {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--turquoise-blue);
+            margin: 25px 0 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .section-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: var(--turquoise-blue);
+            border-radius: 3px;
+        }
+        /* List styles */
+        .list {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .list-item {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            transition: transform 0.3s ease;
+        }
+        .list-item:hover {
+            transform: translateX(5px);
+        }
+        .list-item:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--turquoise-blue);
+        }
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            background-color: var(--turquoise-blue);
+            border-radius: 50%;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+            .content {
+                padding: 20px;
+            }
+            .content-title {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+        /* Interactive cursor effect */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--turquoise-blue);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            opacity: 0.5;
+        }
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(90, 208, 235, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+        }
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(90, 208, 235, 0.3);
+        }
+        .cursor-follower.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--downriver);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(90, 208, 235, 0.2);
+            border-top-color: var(--turquoise-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        /* Text scramble effect */
+        .scramble {
+            display: inline-block;
+            position: relative;
+        }
+        .scramble::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--downriver);
+            animation: scramble-text 5s steps(10) infinite;
+        }
+        @keyframes scramble-text {
+            0% { clip-path: inset(0 0 100% 0); }
+            50% { clip-path: inset(0 0 0 0); }
+            100% { clip-path: inset(100% 0 0 0); }
+        }
+        /* Code typing animation */
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid var(--turquoise-blue);
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--turquoise-blue); }
+        }
+        /* Glow effect on hover */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+        }
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(90, 208, 235, 0.6);
+            transform: translateY(-3px);
+        }
+        /* Floating animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading animation -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title glitch" data-text="Zero-2-Hero-Code-Mastery">Zero-2-Hero-Code-Mastery</h1>
+            <p class="header-subtitle neon-text">From zero → hero. One repo. One learning path.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content">
+            <h2 class="content-title">README</h2>
+            
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3 class="toc-title">Table of Contents</h3>
+                <ul class="toc-list">
+                    <li class="toc-item"><a href="#quick-snapshot" class="toc-link">Quick snapshot — what's in this repo right now</a></li>
+                    <li class="toc-item"><a href="#why-this-repo" class="toc-link">Why this repo exists (short)</a></li>
+                    <li class="toc-item"><a href="#folder-structure" class="toc-link">Folder-by-folder (exact current structure + purpose)</a></li>
+                    <li class="toc-item"><a href="#view-locally" class="toc-link">How to view locally (fast) & via GitHub Pages</a></li>
+                    <li class="toc-item"><a href="#linking-examples" class="toc-link">Linking examples (copy/paste) — precise for this repo</a></li>
+                    <li class="toc-item"><a href="#add-content" class="toc-link">How to add lessons, exercises, assets — step-by-step</a></li>
+                    <li class="toc-item"><a href="#templates" class="toc-link">Exercise & lesson templates (exact)</a></li>
+                    <li class="toc-item"><a href="#solutions-policy" class="toc-link">Solutions policy — keep learners honest</a></li>
+                    <li class="toc-item"><a href="#file-naming" class="toc-link">File naming & organization rules (recommended)</a></li>
+                    <li class="toc-item"><a href="#contributor-flow" class="toc-link">Quick contributor flow (minimal)</a></li>
+                    <li class="toc-item"><a href="#license-contact" class="toc-link">License & contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Quick snapshot -->
+            <div class="section" id="quick-snapshot">
+                <h3 class="section-title">Quick snapshot — what's in this repo right now</h3>
+                <div class="code-block">
+                    <pre>index.html
+LICENSE
+README.md
+ai-ml-neuralnet/
+  ai-ml-complete-guide.html
+  draft.html
+  linear-algebra.html
+  phase-1.html
+  phase-1.txt
+  linear-algebra/1-2.html
+c/
+  c-programming-complete.html
+cpp/
+  cpp-complete-guide.html
+  module-1.html
+css/
+  css-complete-guide.html
+html/
+  html-master-course.html
+images/
+  indexBanner.webp
+js/
+  javascript-master-course.html
+py/
+  python-mastery-guide.html</pre>
+                </div>
+            </div>
+            
+            <!-- Why this repo exists -->
+            <div class="section" id="why-this-repo">
+                <h3 class="section-title">Why this repo exists (short)</h3>
+                <p class="content-text">Because the internet is messy. You shouldn't have to hop through ten sites to learn the basics and still not get exercises. This repo stitches together:</p>
+                <ul class="list">
+                    <li class="list-item"><strong>Lessons</strong> (clear, practical, progressive)</li>
+                    <li class="list-item"><strong>Exercises</strong> (multi-level, acceptance criteria)</li>
+                    <li class="list-item"><strong>Mini projects</strong> (portfolio-worthy)</li>
+                    <li class="list-item"><strong>Capstones</strong> (apply everything)</li>
+                </ul>
+                <p class="content-text">Short: this is a learning <em>system</em>, not a link dump.</p>
+            </div>
+            
+            <!-- Folder-by-folder structure -->
+            <div class="section" id="folder-structure">
+                <h3 class="section-title">Folder-by-folder (exact current structure + purpose)</h3>
+                <p class="content-text">Use this as your source-of-truth for where to add stuff.</p>
+                
+                <h4 class="section-subtitle"><code>index.html</code></h4>
+                <p class="content-text">Your landing page / table of contents. Keep this tidy and updated. Learners should reach everything from here.</p>
+                
+                <h4 class="section-subtitle"><code>LICENSE</code></h4>
+                <p class="content-text">Contains the license (custom — non-commercial use only). See the <code>LICENSE</code> file in the repo root for full terms.</p>
+                
+                <h4 class="section-subtitle"><code>ai-ml-neuralnet/</code></h4>
+                <p class="content-text">Master space for AI / ML / Neural Net material.</p>
+                <ul class="list">
+                    <li class="list-item"><code>ai-ml-complete-guide.html</code> — main AI/ML landing page.</li>
+                    <li class="list-item"><code>linear-algebra.html</code> + <code>linear-algebra/1-2.html</code> — linear algebra lessons.</li>
+                    <li class="list-item"><code>phase-1.*</code> and <code>draft.html</code> — planning + drafts in-progress.</li>
+                </ul>
+                <p class="content-text"><strong>Recommended additions:</strong> <code>ai-ml-neuralnet/exercises/</code>, <code>ai-ml-neuralnet/projects/</code>, and <code>ai-ml-neuralnet/assets/</code> for datasets/images.</p>
+                
+                <h4 class="section-subtitle"><code>c/</code></h4>
+                <p class="content-text"><code>c-programming-complete.html</code> — C guide. Add <code>/exercises/</code> and <code>/projects/</code> as you expand.</p>
+                
+                <h4 class="section-subtitle"><code>cpp/</code></h4>
+                <p class="content-text"><code>cpp-complete-guide.html</code>, <code>module-1.html</code> — C++ lessons.</p>
+                
+                <h4 class="section-subtitle"><code>css/</code></h4>
+                <p class="content-text"><code>css-complete-guide.html</code> — CSS target page. Add exercises (flexbox/grid projects).</p>
+                
+                <h4 class="section-subtitle"><code>html/</code></h4>
+                <p class="content-text"><code>html-master-course.html</code> — HTML master course. Add <code>/lessons/</code>, <code>/exercises/</code>, <code>/projects/</code> as you expand.</p>
+                
+                <h4 class="section-subtitle"><code>images/</code></h4>
+                <p class="content-text"><code>indexBanner.webp</code> — store all images here; use descriptive filenames and include <code>alt</code> in HTML.</p>
+                
+                <h4 class="section-subtitle"><code>js/</code></h4>
+                <p class="content-text"><code>javascript-master-course.html</code> — JS lessons. Add DOM & mini-project files next to it.</p>
+                
+                <h4 class="section-subtitle"><code>py/</code></h4>
+                <p class="content-text"><code>python-mastery-guide.html</code> — Python material. Add notebook-like pages or small runnable examples.</p>
+            </div>
+            
+            <!-- How to view locally -->
+            <div class="section" id="view-locally">
+                <h3 class="section-title">How to view locally (fast) & via GitHub Pages</h3>
+                
+                <h4 class="section-subtitle">Locally (quick)</h4>
+                <div class="code-block">
+                    <pre>1. Clone:
+git clone https://github.com/SANIUL-blackdragon/Zero-2-Hero-Code-Mastery.git
+cd Zero-2-Hero-Code-Mastery
+
+2. Open index.html in your browser (double-click or File → Open). Chrome recommended.</pre>
+                </div>
+                
+                <h4 class="section-subtitle">Local development (optional, better)</h4>
+                <p class="content-text">With Python built-in server:</p>
+                <div class="code-block">
+                    <pre>python -m http.server 8000
+# open http://localhost:8000</pre>
+                </div>
+                <p class="content-text">Or use VS Code + Live Server for auto-reload.</p>
+                
+                <h4 class="section-subtitle">GitHub Pages (publish)</h4>
+                <ol class="list">
+                    <li class="list-item">On GitHub, go to <strong>Settings → Pages</strong>.</li>
+                    <li class="list-item">Select branch: <code>main</code> (or <code>gh-pages</code>) and folder: <code>/root</code> (or <code>/docs</code> if you move site files).</li>
+                    <li class="list-item">Save — site becomes available at:
+                        <div class="code-block">
+                            <pre>https://SANIUL-blackdragon.github.io/Zero-2-Hero-Code-Mastery/</pre>
+                        </div>
+                    </li>
+                </ol>
+                <p class="content-text">Use relative links so pages work locally and on Pages.</p>
+            </div>
+            
+            <!-- Linking examples -->
+            <div class="section" id="linking-examples">
+                <h3 class="section-title">Linking examples (copy/paste) — precise for this repo</h3>
+                <p class="content-text">Use <strong>relative links</strong>. They work locally and on Pages.</p>
+                
+                <h4 class="section-subtitle">From <code>index.html</code> to topic pages</h4>
+                <div class="code-block">
+                    <pre><!-- AI / ML -->
+<a href="ai-ml-neuralnet/ai-ml-complete-guide.html">AI / ML — Complete Guide</a>
+<!-- Python -->
+<a href="py/python-mastery-guide.html">Python — Mastery Guide</a>
+<!-- JavaScript -->
+<a href="js/javascript-master-course.html">JavaScript — Master Course</a>
+<!-- CSS -->
+<a href="css/css-complete-guide.html">CSS — Complete Guide</a>
+<!-- C++ -->
+<a href="cpp/cpp-complete-guide.html">C++ — Complete Guide</a>
+<!-- C -->
+<a href="c/c-programming-complete.html">C — Complete Guide</a>
+<!-- HTML -->
+<a href="html/html-master-course.html">HTML — Master Course</a></pre>
+                </div>
+                
+                <h4 class="section-subtitle">Linking nested pages</h4>
+                <p class="content-text">If you are in <code>ai-ml-neuralnet/linear-algebra/1-2.html</code> and want to go home:</p>
+                <div class="code-block">
+                    <pre><a href="../../index.html">Home</a></pre>
+                </div>
+                
+                <h4 class="section-subtitle">Link between nearby files</h4>
+                <p class="content-text">From <code>ai-ml-neuralnet/linear-algebra.html</code> to the nested page:</p>
+                <div class="code-block">
+                    <pre><a href="linear-algebra/1-2.html">Linear Algebra — Part 1-2</a></pre>
+                </div>
+                <p class="content-text"><strong>Rule of thumb:</strong> prefer relative paths, avoid hard-coded GitHub Pages URLs unless necessary.</p>
+            </div>
+            
+            <!-- How to add content -->
+            <div class="section" id="add-content">
+                <h3 class="section-title">How to add lessons, exercises, assets — step-by-step</h3>
+                <ol class="list">
+                    <li class="list-item">Pick the correct folder (e.g., <code>html/lessons/</code>, <code>ai-ml-neuralnet/exercises/level-1/</code>).</li>
+                    <li class="list-item">Create a clear filename: <code>01-intro.html</code>, <code>ex-01.md</code>.</li>
+                    <li class="list-item">Lesson structure: title → summary → objectives → examples → link to exercises.</li>
+                    <li class="list-item">Exercise structure: problem statement → hints → acceptance criteria (see templates below).</li>
+                    <li class="list-item">Add images to <code>/images</code> and reference them with <code>images/filename.ext</code>.</li>
+                    <li class="list-item">Add an entry to <code>index.html</code> so students can find your new lesson.</li>
+                    <li class="list-item">Commit with a clear message: <code>feat(html): add forms lesson and 3 exercises</code>.</li>
+                    <li class="list-item">Push and open a PR if you want review.</li>
+                </ol>
+            </div>
+            
+            <!-- Templates -->
+            <div class="section" id="templates">
+                <h3 class="section-title">Exercise & lesson templates (exact — copy/paste)</h3>
+                
+                <h4 class="section-subtitle">Lesson (Markdown / HTML)</h4>
+                <div class="code-block">
+                    <pre># Lesson — [Short Title]
+**Summary:** One-two lines.
+**Learning objectives**
+- Objective 1
+- Objective 2
+**Examples**
+```html
+<!-- example snippet -->
+```
+**Try it / Exercises**
+* [Exercise 1](../exercises/level-1/ex-01.md)</pre>
+                </div>
+                
+                <h4 class="section-subtitle">Exercise (Markdown)</h4>
+                <div class="code-block">
+                    <pre># Exercise — [Short title]
+**Difficulty:** Beginner | Intermediate | Advanced  
+**Topic:** HTML / CSS / JS / Python / C++ / AI-ML
+## Task
+What to build and which files to create.
+## Hints
+1. Hint one
+2. Hint two
+## Acceptance criteria
+- Page contains an `<h1>` with the exact text "Hello, Zero-2-Hero!"
+- Include at least one `<p>` with three sentences.
+## Optional: Expected output</pre>
+                </div>
+                <p class="content-text">Put exercises under <code>/exercises/level-x/</code> inside the relevant topic folder.</p>
+            </div>
+            
+            <!-- Solutions policy -->
+            <div class="section" id="solutions-policy">
+                <h3 class="section-title">Solutions policy — keep learners honest</h3>
+                <p class="content-text">Do <strong>not</strong> include full solutions in the same exercise file.</p>
+                <p class="content-text">Options:</p>
+                <ul class="list">
+                    <li class="list-item">Place solutions in <code>/solutions/<topic>/ex-01-solution.html</code>. Keep them out of main learning flow.</li>
+                    <li class="list-item">Or use a separate <code>solutions</code> branch if you want to hide answers from casual viewers of <code>main</code>.</li>
+                </ul>
+                <p class="content-text">Hints are OK inside exercise files. Full solutions go elsewhere.</p>
+            </div>
+            
+            <!-- File naming -->
+            <div class="section" id="file-naming">
+                <h3 class="section-title">File naming & organization rules (recommended)</h3>
+                <ul class="list">
+                    <li class="list-item">Filenames: <code>kebab-case</code> (e.g., <code>01-intro.html</code>, <code>ex-01.md</code>).</li>
+                    <li class="list-item">One lesson per file. One exercise per file. One project per folder.</li>
+                    <li class="list-item">Keep assets in <code>/images</code> and <code>/data</code> with descriptive names and include <code>alt</code> tags for accessibility.</li>
+                    <li class="list-item">Keep index/landing page updated with new content links.</li>
+                </ul>
+            </div>
+            
+            <!-- Contributor flow -->
+            <div class="section" id="contributor-flow">
+                <h3 class="section-title">Quick contributor flow (minimal)</h3>
+                <ol class="list">
+                    <li class="list-item">Fork → <code>git checkout -b feat/<topic>-<short></code> → add content → commit → push.</li>
+                    <li class="list-item">Open Pull Request to <code>main</code>. In the PR description list file paths and how to review.</li>
+                    <li class="list-item">Keep PRs small: one lesson + related exercises per PR is ideal.</li>
+                </ol>
+            </div>
+            
+            <!-- License & contact -->
+            <div class="section" id="license-contact">
+                <h3 class="section-title">License & contact</h3>
+                <p class="content-text"><strong>Full terms:</strong> see the <code>LICENSE</code> file in the repo root.</p>
+                
+                <h4 class="section-subtitle">Key summary (short):</h4>
+                <ul class="list">
+                    <li class="list-item">This repository uses a custom license authored by <strong>MD. SANIUL ISLAM ALIF</strong> (2025).</li>
+                    <li class="list-item">You may <strong>use, copy, modify, merge, publish, distribute, and adapt</strong> the Resources <strong>only for non-commercial purposes</strong>.</li>
+                    <li class="list-item"><strong>Commercial use is prohibited</strong> — including selling, sublicensing, or directly monetizing the materials themselves.</li>
+                    <li class="list-item">The Resources are provided <strong>"as is"</strong> without warranty.</li>
+                    <li class="list-item">By using or contributing, you agree to these terms.</li>
+                </ul>
+                
+                <h4 class="section-subtitle">Contact / contributions:</h4>
+                <p class="content-text">MD. Saniul Islam Alif — <code>mdalifsaniul@gmail.com</code></p>
+                <p class="content-text">If you want to contribute: submit a pull request or email first if you prefer.</p>
+            </div>
+            
+            <a href="https://github.com/SANIUL-blackdragon/Zero-2-Hero-Code-Mastery/blob/fe1c5c593a7bbfea2786a2802aa1bbff04544518/README.md" 
+               target="_blank" class="github-link glow-on-hover float-animation">
+                <i class="fab fa-github"></i>
+                View README on GitHub
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 Zero-2-Hero-Code-Mastery. All rights reserved.
+            </p>
+            <p class="footer-text">
+                Empowering learners to master coding skills.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loader when page is loaded
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.getElementById('loader').classList.add('hidden');
+                }, 500);
+            });
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 30s
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s linear infinite`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Custom cursor
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
+            
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(function() {
+                    cursorFollower.style.left = e.clientX + 'px';
+                    cursorFollower.style.top = e.clientY + 'px';
+                }, 100);
+            });
+            
+            // Add hover effect to interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .toc-item, .list-item');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    cursor.classList.add('hover');
+                    cursorFollower.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    cursor.classList.remove('hover');
+                    cursorFollower.remove('hover');
+                });
+            });
+            
+            // Add ripple effect to the GitHub link
+            const githubLink = document.querySelector('.github-link');
+            
+            githubLink.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Smooth scrolling for TOC links
+            const tocLinks = document.querySelectorAll('.toc-link');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Scroll-triggered animations
+            const sections = document.querySelectorAll('.section');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight / 5 * 4;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    
+                    if (sectionTop < triggerBottom) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check on initial load
+            
+            // Add text scramble effect to section titles
+            const sectionTitles = document.querySelectorAll('.section-title');
+            
+            sectionTitles.forEach(title => {
+                const originalText = title.textContent;
+                let scrambledText = '';
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+                
+                function scrambleText() {
+                    scrambledText = '';
+                    for (let i = 0; i < originalText.length; i++) {
+                        if (Math.random() > 0.7) {
+                            scrambledText += originalText[i];
+                        } else {
+                            scrambledText += characters.charAt(Math.floor(Math.random() * characters.length));
+                        }
+                    }
+                    title.textContent = scrambledText;
+                }
+                
+                let scrambleInterval;
+                
+                // Start scrambling when element is visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            scrambleInterval = setInterval(scrambleText, 100);
+                            setTimeout(() => {
+                                clearInterval(scrambleInterval);
+                                title.textContent = originalText;
+                            }, 2000);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(title);
+            });
+            
+            // Add typing animation to code blocks
+            const codeBlocks = document.querySelectorAll('.code-block pre');
+            
+            codeBlocks.forEach(block => {
+                const originalText = block.textContent;
+                block.textContent = '';
+                block.style.width = '0';
+                block.style.overflow = 'hidden';
+                block.style.whiteSpace = 'nowrap';
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            block.style.width = '100%';
+                            block.style.transition = 'width 3s steps(40, end)';
+                            block.textContent = originalText;
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(block);
+            });
+        });
+    </script>
+</body>
+</html>
