@@ -477,18 +477,13 @@ button:hover {
             });
         });
         
-        // Update preview
+        // Update preview using blob URL approach
         function updatePreview() {
             const html = htmlEditor.getValue();
             const css = cssEditor.getValue();
             const js = jsEditor.getValue();
             
             const previewFrame = document.getElementById('preview-frame');
-            const preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
-            
-            // Extract body content from HTML
-            const bodyContent = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-            const bodyHTML = bodyContent ? bodyContent[1] : html;
             
             // Create a complete HTML document with inline CSS and JavaScript
             const completeHTML = `<!DOCTYPE html>
@@ -499,17 +494,22 @@ button:hover {
     <style>${css}</style>
 </head>
 <body>
-${bodyHTML}
-<script>
-${js}
-</script>
+    ${html.replace(/<script[^>]*><\/script>/g, '')}
+    <script>${js}</script>
 </body>
 </html>`;
             
-            // Write the complete HTML to the iframe
-            preview.open();
-            preview.write(completeHTML);
-            preview.close();
+            // Create a blob and set it as the iframe source
+            const blob = new Blob([completeHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            
+            // Set iframe source to the blob URL
+            previewFrame.src = url;
+            
+            // Clean up the blob URL after a short delay
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 1000);
         }
         
         // Initial preview update
