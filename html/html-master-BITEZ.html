@@ -29,37 +29,39 @@
 </head>
 <body>
     <!-- Home Button -->
-    <div class="home-button-container">
-        <button class="home-button">
-            Home <i class="fas fa-arrow-right ml-2"></i>
-        </button>
+<div class="home-button-container">
+    <button class="home-button">
+        Home <i class="fas fa-arrow-right ml-2"></i>
+    </button>
+    
+    <script>
+        const button = document.querySelector('.home-button');
 
-        <script>
-            const button = document.querySelector('.home-button');
+        button.addEventListener('click', () => {
+            const currentUrl = window.location.href;
 
-            button.addEventListener('click', () => {
-                const currentUrl = window.location.href;
+            // GitHub Pages
+            if (currentUrl.includes('github.io/Zero-2-Hero-Code-Mastery')) {
+                window.location.href = 'https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/index.html';
+            } 
+            // Local file or localhost
+            else {
+                // Go up one folder from the current file
+                const pathParts = window.location.pathname.split('/');
+                pathParts.pop(); // remove current file
+                pathParts.pop(); // remove html folder
+                pathParts.push('index.html'); // add root index.html
 
-                // GitHub Pages
-                if (currentUrl.startsWith('https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery')) {
-                    window.location.href = 'https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/index.html';
-                } 
-                // Local file
-                else if (currentUrl.startsWith('file://')) {
-                    window.location.href = 'file:///D:/IT/index.html'; // replace with your local path
-                } 
-                // Localhost server
-                else if (currentUrl.startsWith('http://localhost') || currentUrl.startsWith('http://127.0.0.1')) {
-                    window.location.href = 'http://localhost/index.html'; // replace with your localhost path
-                } 
-                // Fallback
-                else {
-                    console.warn('Cannot determine environment, using fallback GitHub URL.');
-                    window.location.href = 'https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/index.html';
-                }
-            });
-        </script>
-    </div>
+                // Rebuild path
+                const newPath = pathParts.join('/');
+                const newUrl = window.location.protocol + '//' + window.location.host + newPath;
+
+                window.location.href = newUrl;
+            }
+        });
+    </script>
+</div>
+
     <!-- Header -->
     <header>
         <div class="container">
