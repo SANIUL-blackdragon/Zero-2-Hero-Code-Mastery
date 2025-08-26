@@ -1109,9 +1109,16 @@
                     <p class="card-description">
                         Master the foundation of web development with comprehensive HTML guides from basic structure to advanced semantic elements.
                     </p>
-                <button class="card-button" onclick="window.location.href='html/html-master-BITEZ.html'">
-                    Start Learning <i class="fas fa-arrow-right ml-2"></i>
-                </button>
+                    <button class="card-button" id="html-button">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+
+                    <script>
+                        document.getElementById('html-button').addEventListener('click', function() {
+                            window.location.href = 'html/html-master-BITEZ.html';
+                        });
+                    </script>
+
                 </div>
             </div>
             
