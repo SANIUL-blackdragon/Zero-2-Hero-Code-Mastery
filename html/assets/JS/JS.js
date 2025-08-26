@@ -50,6 +50,7 @@ const BITEZProgress = {
         this.updateStats();
         this.updateAllSectionStatuses();
         this.updateLearningPath();
+        this.updateCompleteButton();
     },
     
     // Get current progress data
@@ -291,6 +292,7 @@ const BITEZProgress = {
         // Update UI elements
         this.updateSectionStatus(sectionId);
         this.updateLearningPath();
+        this.updateCompleteButton();
         
         // Check for achievements
         this.checkForAchievements();
@@ -303,32 +305,55 @@ const BITEZProgress = {
             statusElement.innerHTML = '<i class="fas fa-check-circle complete"></i> Completed';
             statusElement.classList.add('completed');
         }
-        
-        // Update completion button if it exists
-        const completeBtn = document.querySelector('.complete-section-btn');
-        if (completeBtn) {
-            completeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Section Completed!';
-            completeBtn.disabled = true;
-            completeBtn.classList.add('disabled');
-        }
     },
     
     // Update learning path visualization
     updateLearningPath: function() {
         const progress = this.getProgress();
-        const pathSteps = document.querySelectorAll('.path-step');
+        const learningPath = document.getElementById('learning-path');
         
-        pathSteps.forEach((step, index) => {
-            // Remove all status classes
-            step.classList.remove('active', 'completed');
+        if (!learningPath) return;
+        
+        // Clear existing path steps
+        learningPath.innerHTML = '';
+        
+        // Get all section tabs
+        const sectionTabs = document.querySelectorAll('.nav-tab');
+        
+        // Create path steps for each section
+        sectionTabs.forEach((tab, index) => {
+            const pathStep = document.createElement('div');
+            pathStep.className = 'path-step';
+            pathStep.textContent = index + 1;
             
             // Add appropriate class based on progress
             if (index < progress.completedSections.length) {
-                step.classList.add('completed');
+                pathStep.classList.add('completed');
             } else if (index === progress.completedSections.length) {
-                step.classList.add('active');
+                pathStep.classList.add('active');
             }
+            
+            learningPath.appendChild(pathStep);
         });
+    },
+    
+    // Update complete button state
+    updateCompleteButton: function() {
+        const completeBtn = document.getElementById('complete-section-btn');
+        if (!completeBtn) return;
+        
+        const progress = this.getProgress();
+        const currentSection = progress.currentSection;
+        
+        if (progress.completedSections.includes(currentSection)) {
+            completeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Section Completed!';
+            completeBtn.disabled = true;
+            completeBtn.classList.add('disabled');
+        } else {
+            completeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Mark Introduction as Complete';
+            completeBtn.disabled = false;
+            completeBtn.classList.remove('disabled');
+        }
     },
     
     // Update all section statuses on load

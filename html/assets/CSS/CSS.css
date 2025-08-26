@@ -1,5 +1,20 @@
 /* CSS for HTML Master BITEZ Website */
 /* This file should be saved as root/assets/CSS/CSS.css */
+
+/* Import the new color palette */
+:root {
+    --turquoise-blue: #5ad0eb;
+    --scandal: #c7f8fa;
+    --curious-blue: #218bc2;
+    --jelly-bean: #296f98;
+    --chathams-blue: #125085;
+    --firefly: #040910;
+    --elephant: #133854;
+    --downriver: #0a2743;
+    --gull-gray: #94acb6;
+    --oxford-blue: #3c515c;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -485,54 +500,6 @@ tr:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-.learning-path {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 0;
-    position: relative;
-}
-.learning-path::before {
-    content: "";
-    position: absolute;
-    top: 25px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #e2e8f0;
-    z-index: 0;
-}
-.path-step {
-    position: relative;
-    z-index: 1;
-    background: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 3px solid #91e3fc;
-    color: #076f8f;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.path-step.active {
-    background: linear-gradient(135deg, #91e3fc, #f80c0c);
-    color: white;
-    border-color: transparent;
-    transform: scale(1.1);
-}
-.path-step.completed {
-    background: #d4edda;
-    border-color: #28a745;
-    color: #28a745;
-}
-.path-step.completed::after {
-    content: "✓";
-    position: absolute;
-    font-size: 1.2rem;
-}
 .stats-container {
     display: flex;
     justify-content: space-around;
@@ -826,6 +793,132 @@ tr:hover {
     border-color: #2d3748 transparent transparent transparent;
 }
 
+/* Learning Path Styles */
+.learning-path-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.learning-path {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    min-width: max-content;
+    padding: 0 20px;
+}
+
+.learning-path::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: #e2e8f0;
+    z-index: 0;
+}
+
+.path-step {
+    position: relative;
+    z-index: 1;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 3px solid #91e3fc;
+    color: #076f8f;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+.path-step:last-child {
+    margin-right: 0;
+}
+
+.path-step.active {
+    background: linear-gradient(135deg, #91e3fc, #f80c0c);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.1);
+}
+
+.path-step.completed {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.path-step.completed::after {
+    content: "✓";
+    position: absolute;
+    font-size: 1.2rem;
+}
+
+/* Home Button Styles */
+.home-button-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--turquoise-blue), var(--curious-blue));
+    color: var(--firefly);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+}
+
+.home-button i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.home-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+    transform: translateZ(5px);
+}
+
+.home-button:hover::before {
+    left: 0;
+}
+
+.home-button:hover {
+    transform: translateZ(30px) translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(90, 208, 235, 0.4);
+}
+
 /* Responsive design that keeps progress bar and table side by side */
 @media (max-width: 768px) {
     .container {
@@ -866,11 +959,6 @@ tr:hover {
     
     .feature-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .learning-path {
-        overflow-x: auto;
-        padding-bottom: 1rem;
     }
     
     .skill-levels {
@@ -941,6 +1029,28 @@ tr:hover {
     .tooltip-progress {
         font-size: 0.8rem;
     }
+    
+    /* Adjust home button for mobile */
+    .home-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .home-button i {
+        font-size: 1rem;
+        margin-right: 6px;
+    }
+    
+    /* Adjust learning path for mobile */
+    .learning-path {
+        padding: 0 10px;
+    }
+    
+    .path-step {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+    }
 }
 
 /* For very small screens */
@@ -971,5 +1081,23 @@ tr:hover {
     .tooltip-content {
         min-width: 120px;
         padding: 8px 10px;
+    }
+    
+    /* Adjust home button for very small screens */
+    .home-button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .home-button i {
+        font-size: 0.9rem;
+        margin-right: 5px;
+    }
+    
+    /* Adjust learning path for very small screens */
+    .path-step {
+        width: 35px;
+        height: 35px;
+        margin-right: 15px;
     }
 }
