@@ -30,20 +30,33 @@
 <body>
     <!-- Home Button -->
     <div class="home-button-container">
-        <button class="home-button" data-url="https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery">
+        <button class="home-button" data-url-primary="https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery" data-url-fallback="../index.html">
             Home <i class="fas fa-arrow-right ml-2"></i>
         </button>
-
+        
         <script>
-            document.querySelectorAll('.card-button').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const url = btn.getAttribute('data-url');
-                    if(url) window.location.href = url;
+            document.querySelectorAll('.home-button').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const primary = btn.getAttribute('data-url-primary');
+                    const fallback = btn.getAttribute('data-url-fallback');
+
+                    try {
+                        // Test primary URL with a HEAD request
+                        const response = await fetch(primary, { method: 'HEAD' });
+                        if (response.ok) {
+                            window.location.href = primary;
+                        } else {
+                            window.location.href = fallback;
+                        }
+                    } catch (err) {
+                        // If fetch fails (network error), use fallback
+                        window.location.href = fallback;
+                    }
                 });
             });
         </script>
     </div>
-    
+    <!-- Header -->
     <header>
         <div class="container">
             <h1>HTML Master BITEZ</h1>
