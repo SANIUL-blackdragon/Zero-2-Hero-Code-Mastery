@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Tool</title>
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    
+    <!-- CodeMirror Addons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldgutter.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/dialog/dialog.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/CSS/CSS.CSS">
+</head>
+<body>
+    <div class="header">
+        <h1>Web Development Tool</h1>
+        <div class="controls">
+            <button id="run-btn">Run</button>
+            <button id="clear-btn">Clear</button>
+            <button id="find-btn">Find</button>
+        </div>
+    </div>
+    
+    <div class="feature-status">
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Syntax Highlighting</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Line Numbers</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Auto-completion</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Code Folding</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Bracket Matching</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Indentation Guides</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Find & Replace</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Multiple Cursors</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Emmet Support</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Resizable Panels</span>
+        </div>
+        <div class="feature-item feature-complete">
+            <span class="feature-icon">✓</span>
+            <span>Console</span>
+        </div>
+        <div class="feature-item feature-incomplete">
+            <span class="feature-icon">✗</span>
+            <span>Minimap Navigation</span>
+        </div>
+    </div>
+    
+    <div class="app-container">
+        <div class="main-container">
+            <div class="editor-panel">
+                <div class="tabs">
+                    <div class="tab active" data-tab="html">HTML</div>
+                    <div class="tab" data-tab="css">CSS</div>
+                    <div class="tab" data-tab="js">JavaScript</div>
+                </div>
+                
+                <div class="editor-container">
+                    <textarea id="html-editor" title="HTML Editor" placeholder="Enter your HTML code here"><!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>Edit this HTML to see changes in the preview</p>
+    <button id="myButton">Click Me</button>
+    <script src="script.js"></script>
+</body>
+</html></textarea>
+                    
+                    <textarea id="css-editor" style="display: none;">body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+h1 {
+    color: #333;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}</textarea>
+                    
+                    <textarea id="js-editor" style="display: none;">document.getElementById('myButton').addEventListener('click', function() {
+    console.log('Button clicked!');
+});</textarea>
+                </div>
+            </div>
+            
+            <div class="divider" id="horizontal-divider"></div>
+            
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <h2>Preview</h2>
+                    <div class="controls">
+                        <button id="refresh-btn">Refresh</button>
+                    </div>
+                </div>
+                
+                <div class="preview-container">
+                    <iframe id="preview-frame" title="Live preview of your code"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="console-divider" id="console-divider"></div>
+        
+        <div class="console-container" id="console-container">
+            <div class="console-header">
+                <h3>Console</h3>
+                <button id="console-clear-btn">Clear</button>
+            </div>
+            <div class="console-output" id="console-output"></div>
+            <div class="console-input">
+                <span>&gt;</span>
+                <input type="text" id="console-input" placeholder="Enter command...">
+            </div>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <div>Ready</div>
+        <div class="status-controls">
+            <button id="console-toggle-btn">Console</button>
+        </div>
+        <div>HTML | CSS | JavaScript</div>
+    </div>
+    
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    
+    <!-- CodeMirror Addons JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/html-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/css-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/brace-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/xml-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/comment-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/search/search.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/search/searchcursor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/dialog/dialog.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/selection/active-line.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/selection/mark-selection.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchtags.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/comment/comment.min.js"></script>
+    
+    <!-- Emmet support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emmet/1.8.1/emmet.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/JS/JS.JS"></script>
+</body>
+</html>

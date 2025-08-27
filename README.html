@@ -239,15 +239,91 @@
             50% { transform: translateZ(30px) scale(1.1); }
             100% { transform: translateZ(30px) scale(1); }
         }
-        .navbar-menu {
-            display: flex;
-            gap: 20px;
+        /* Hamburger button styles */
+        .hamburger {
+            width: 30px;
+            height: 30px;
+            position: relative;
             transform: translateZ(20px);
+            cursor: pointer;
+            z-index: 1001;
         }
-        .navbar-item {
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: rgba(90, 208, 235, 0.2);
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--scandal);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        .hamburger span:nth-child(2) {
+            top: 10px;
+        }
+        .hamburger span:nth-child(3) {
+            top: 20px;
+        }
+        .hamburger.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        .hamburger.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
+        }
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(145deg, var(--elephant), var(--downriver));
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 0 20px;
+            overflow-y: auto;
+        }
+        .sidebar.active {
+            right: 0;
+        }
+        .sidebar-header {
+            padding: 0 30px 20px;
+            border-bottom: 1px solid rgba(90, 208, 235, 0.2);
+            margin-bottom: 20px;
+        }
+        .sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--scandal);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 30px;
+        }
+        .sidebar-item {
+            padding: 15px 20px;
+            border-radius: 15px;
+            background: rgba(90, 208, 235, 0.1);
             color: var(--scandal);
             font-weight: 600;
             text-transform: uppercase;
@@ -259,24 +335,46 @@
             transform-style: preserve-3d;
             transform: translateZ(10px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
-        .navbar-item::before {
+        .sidebar-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(90, 208, 235, 0.4);
+            background: rgba(90, 208, 235, 0.3);
             transition: left 0.5s ease;
             transform: translateZ(5px);
         }
-        .navbar-item:hover::before {
+        .sidebar-item:hover::before {
             left: 0;
         }
-        .navbar-item:hover {
+        .sidebar-item:hover {
             transform: translateZ(15px) translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .sidebar-item i {
+            margin-right: 10px;
+            color: var(--turquoise-blue);
+        }
+        /* Overlay for sidebar */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
         /* Header styles */
         .header {
@@ -1226,13 +1324,6 @@
             .section-title {
                 font-size: 1.6rem;
             }
-            .navbar-menu {
-                gap: 10px;
-            }
-            .navbar-item {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -1268,12 +1359,38 @@
             <i class="fas fa-graduation-cap"></i>
             <span>Zero-2-Hero-Code-Mastery</span>
         </div>
-        <div class="navbar-menu">
-            <a href="index.html"><div class="navbar-item">Home</div></a>
-            <div class="navbar-item">Contact</div>
-            <div class="navbar-item">Contribute</div>
+        <!-- Hamburger button -->
+        <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Navigation</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="index.html" class="sidebar-item">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="BITEZ.html" class="sidebar-item">
+                <i class="fas fa-book"></i> BITEZ
+            </a>
+            <a href="contact.html" class="sidebar-item">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+            <a href="contribute.html" class="sidebar-item">
+                <i class="fas fa-code-branch"></i> Contribute
+            </a>
+            <a href="README.html" class="sidebar-item">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+        </div>
+    </div>
+    <!-- Overlay for sidebar -->
+    <div class="overlay" id="overlay"></div>
     
     <!-- Header -->
     <header class="header">
@@ -1399,8 +1516,7 @@ py/
                 <h4 class="section-subtitle">Live Website</h4>
                 <p class="content-text">The platform is already hosted on GitHub Pages and accessible at:</p>
                 <div class="code-block">
-                    <a href="https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/" target="_blank" rel="noopener noreferrer
-">https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery</a>
+                    <a href="https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/" target="_blank" rel="noopener noreferrer">https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery</a>
                 </div>
                 <p class="content-text">This is the recommended way to access the content as a learner.</p>
                 
@@ -1596,6 +1712,49 @@ What to build and which files to create.
                 lastScrollTop = scrollTop;
             });
             
+            // Hamburger menu functionality
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            function toggleSidebar() {
+                hamburger.classList.toggle('active');
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+                
+                // Update ARIA attributes
+                const isExpanded = hamburger.classList.contains('active');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+            }
+            
+            function closeSidebar() {
+                hamburger.classList.remove('active');
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+            
+            // Toggle sidebar when hamburger is clicked
+            hamburger.addEventListener('click', toggleSidebar);
+            
+            // Close sidebar when overlay is clicked
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Keyboard navigation for hamburger menu
+            hamburger.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleSidebar();
+                }
+            });
+            
+            // Close sidebar with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                    closeSidebar();
+                }
+            });
+            
             // Create interactive particles
             const particlesContainer = document.getElementById('interactive-particles');
             const particleCount = 150; // Increased particle count
@@ -1761,7 +1920,7 @@ What to build and which files to create.
             });
             
             // Add hover effect to interactive elements
-            const interactiveElements = document.querySelectorAll('a, button, .toc-item, .list-item, .navbar-item');
+            const interactiveElements = document.querySelectorAll('a, button, .toc-item, .list-item, .sidebar-item');
             
             interactiveElements.forEach(element => {
                 element.addEventListener('mouseenter', function() {

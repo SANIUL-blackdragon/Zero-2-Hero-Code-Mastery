@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZERO-2-MASTERY</title>
+    <title>BITEZ - ZERO-2-MASTERY</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -389,7 +389,7 @@
         /* Banner styles */
         .banner {
             width: 100%;
-            min-height: 1300px;
+            min-height: 600px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -420,7 +420,7 @@
             transform: translateZ(30px);
         }
         .banner-title {
-            font-size: 8rem;
+            font-size: 6rem;
             font-weight: 900;
             color: var(--scandal);
             margin-bottom: 20px;
@@ -428,28 +428,6 @@
             display: inline-block;
             transform-style: preserve-3d;
             transform: translateZ(50px);
-        }
-        .banner-title span {
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        .banner-title span:nth-child(1) { animation-delay: 0s; }
-        .banner-title span:nth-child(2) { animation-delay: 0.1s; }
-        .banner-title span:nth-child(3) { animation-delay: 0.2s; }
-        .banner-title span:nth-child(4) { animation-delay: 0.3s; }
-        .banner-title span:nth-child(5) { animation-delay: 0.4s; }
-        .banner-title span:nth-child(6) { animation-delay: 0.5s; }
-        .banner-title span:nth-child(7) { animation-delay: 0.6s; }
-        .banner-title span:nth-child(8) { animation-delay: 0.7s; }
-        .banner-title span:nth-child(9) { animation-delay: 0.8s; }
-        .banner-title span:nth-child(10) { animation-delay: 0.9s; }
-        .banner-title span:nth-child(11) { animation-delay: 1s; }
-        .banner-title span:nth-child(12) { animation-delay: 1.1s; }
-        .banner-title span:nth-child(13) { animation-delay: 1.2s; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-20px) translateZ(40px); }
         }
         .banner-subtitle {
             font-size: 1.8rem;
@@ -460,78 +438,6 @@
             margin-left: auto;
             margin-right: auto;
             transform: translateZ(30px);
-        }
-        .info-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 60px;
-            transform-style: preserve-3d;
-            transform: translateZ(30px);
-        }
-        .info-card {
-            width: 300px;
-            height: 200px;
-            background: rgba(33, 139, 194, 0.2);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(90, 208, 235, 0.3);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(90, 208, 235, 0.1) 0%, rgba(90, 208, 235, 0) 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            transform: translateZ(5px);
-        }
-        .info-card:hover::before {
-            opacity: 1;
-        }
-        .info-card:hover {
-            transform: translateY(-10px) rotateX(5deg) translateZ(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--turquoise-blue);
-            margin-bottom: 15px;
-            animation: iconPulse 2s infinite;
-            transform: translateZ(20px);
-        }
-        @keyframes iconPulse {
-            0% { transform: translateZ(20px) scale(1); }
-            50% { transform: translateZ(30px) scale(1.2); }
-            100% { transform: translateZ(20px) scale(1); }
-        }
-        .info-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--scandal);
-            margin-bottom: 10px;
-            transform: translateZ(15px);
-        }
-        .info-card p {
-            font-size: 0.9rem;
-            color: var(--gull-gray);
-            transform: translateZ(10px);
         }
         /* Main content styles */
         .main-content {
@@ -565,6 +471,106 @@
             border-radius: 2px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
+        /* Search bar styles */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+        }
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 50px;
+            background: rgba(19, 56, 84, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(90, 208, 235, 0.3);
+            color: var(--scandal);
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+            transform: translateZ(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .search-input:focus {
+            border-color: var(--turquoise-blue);
+            box-shadow: 0 0 20px rgba(90, 208, 235, 0.3), 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%) translateZ(20px);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
+            border: none;
+            color: var(--firefly);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .search-button:hover {
+            transform: translateY(-50%) translateZ(30px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(90, 208, 235, 0.4);
+        }
+        /* Filter styles */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+        }
+        .filter-button {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(19, 56, 84, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(90, 208, 235, 0.3);
+            color: var(--scandal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: translateZ(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .filter-button.active {
+            background: rgba(90, 208, 235, 0.3);
+            border-color: var(--turquoise-blue);
+        }
+        .filter-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 208, 235, 0.2);
+            transition: left 0.5s ease;
+            transform: translateZ(5px);
+        }
+        .filter-button:hover::before {
+            left: 0;
+        }
+        .filter-button:hover {
+            transform: translateZ(15px) translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        /* Cards container */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -646,6 +652,32 @@
             flex-grow: 1;
             transform: translateZ(10px);
         }
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            transform: translateZ(10px);
+        }
+        .card-difficulty {
+            display: flex;
+            align-items: center;
+            color: var(--gull-gray);
+            font-size: 0.9rem;
+        }
+        .card-difficulty i {
+            color: var(--turquoise-blue);
+            margin-right: 5px;
+        }
+        .card-duration {
+            display: flex;
+            align-items: center;
+            color: var(--gull-gray);
+            font-size: 0.9rem;
+        }
+        .card-duration i {
+            color: var(--turquoise-blue);
+            margin-right: 5px;
+        }
         .card-button {
             background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
             color: var(--firefly);
@@ -679,89 +711,6 @@
             left: 0;
         }
         .card-button:hover {
-            transform: translateZ(30px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(90, 208, 235, 0.4);
-        }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        .modal-content {
-            background: linear-gradient(145deg, var(--elephant), var(--downriver));
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(90, 208, 235, 0.3);
-            transform: scale(0.7) translateZ(-50px);
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-        }
-        .modal.active .modal-content {
-            transform: scale(1) translateZ(50px);
-            opacity: 1;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gull-gray);
-            transition: color 0.3s ease;
-            transform: translateZ(20px);
-        }
-        .modal-close:hover {
-            color: var(--turquoise-blue);
-        }
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--scandal);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Orbitron', sans-serif;
-            transform: translateZ(20px);
-        }
-        .modal-text {
-            font-size: 1.1rem;
-            color: var(--gull-gray);
-            margin-bottom: 30px;
-            line-height: 1.6;
-            transform: translateZ(15px);
-        }
-        .modal-button {
-            background: linear-gradient(90deg, var(--turquoise-blue), var(--curious-blue));
-            color: var(--firefly);
-            border: none;
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transform: translateZ(20px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        .modal-button:hover {
             transform: translateZ(30px) scale(1.05);
             box-shadow: 0 10px 25px rgba(90, 208, 235, 0.4);
         }
@@ -841,15 +790,6 @@
             
             .banner-subtitle {
                 font-size: 1.2rem;
-            }
-            
-            .info-cards {
-                gap: 15px;
-            }
-            
-            .info-card {
-                width: 100%;
-                max-width: 300px;
             }
             
             .section-title {
@@ -966,49 +906,6 @@
         .ai-card:hover {
             box-shadow: 0 0 30px rgba(155, 89, 182, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5);
             border-color: rgba(155, 89, 182, 0.5);
-        }
-        /* Floating animation for info cards */
-        .info-card:nth-child(1) {
-            animation: float1 6s ease-in-out infinite;
-        }
-        .info-card:nth-child(2) {
-            animation: float2 7s ease-in-out infinite;
-        }
-        .info-card:nth-child(3) {
-            animation: float3 8s ease-in-out infinite;
-        }
-        .info-card:nth-child(4) {
-            animation: float4 9s ease-in-out infinite;
-        }
-        .info-card:nth-child(5) {
-            animation: float5 10s ease-in-out infinite;
-        }
-        .info-card:nth-child(6) {
-            animation: float6 11s ease-in-out infinite;
-        }
-        @keyframes float1 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-15px) translateZ(40px); }
-        }
-        @keyframes float2 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-20px) translateZ(40px); }
-        }
-        @keyframes float3 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-10px) translateZ(40px); }
-        }
-        @keyframes float4 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-18px) translateZ(40px); }
-        }
-        @keyframes float5 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-12px) translateZ(40px); }
-        }
-        @keyframes float6 {
-            0%, 100% { transform: translateY(0) translateZ(20px); }
-            50% { transform: translateY(-22px) translateZ(40px); }
         }
         /* Interactive cursor effect */
         .cursor {
@@ -1147,6 +1044,9 @@
             <h2 class="sidebar-title">Navigation</h2>
         </div>
         <div class="sidebar-menu">
+            <a href="index.html" class="sidebar-item">
+                <i class="fas fa-home"></i> Home
+            </a>
             <a href="BITEZ.html" class="sidebar-item">
                 <i class="fas fa-book"></i> BITEZ
             </a>
@@ -1167,48 +1067,30 @@
     <header class="banner" id="banner">
         <div class="banner-image"></div>
         <div class="banner-content">
-            <h1 class="banner-title glitch" data-text="ZERO-2-MASTERY">
-                <span>Z</span><span>E</span><span>R</span><span>O</span><br><span>2</span><br><span>M</span><span>A</span><span>S</span><span>T</span><span>E</span><span>R</span><span>Y</span>
-            </h1>
-            <p class="banner-subtitle neon-text text-3d">Free fun school for learning skills that matter</p>
-            
-            <div class="info-cards">
-                <div class="info-card">
-                    <i class="fas fa-gift"></i>
-                    <h3>Free Access</h3>
-                    <p>Zero cost learning resources • Open-source platform • No permission to monetize • Barrier-free education</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Comprehensive Learning</h3>
-                    <p>Beginner to mastery path • Multiple programming languages • In-depth concept coverage • Structured curriculum</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Hands-On Approach</h3>
-                    <p>Practical projects • Real-world applications • Interactive exercises • Learn by doing methodology</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Community-Driven</h3>
-                    <p>Vibrant learner community • Expert contributions • Collaborative learning • Knowledge sharing</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Beginner-Friendly</h3>
-                    <p>No prior experience needed • Step-by-step guidance • Clear explanations • Gradual complexity increase</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Future-Ready Skills</h3>
-                    <p>In-demand technologies • AI/ML fundamentals • Industry-relevant skills • Career advancement</p>
-                </div>
-            </div>
+            <h1 class="banner-title glitch" data-text="BITEZ">BITEZ</h1>
+            <p class="banner-subtitle neon-text text-3d">Explore our comprehensive learning modules and master new skills</p>
         </div>
     </header>
     <!-- Main Content -->
     <main class="main-content">
-        <h2 class="section-title glitch" data-text="Explore Our BITEZ">Explore Our BITEZ</h2>
+        <h2 class="section-title glitch" data-text="Available BITEZ">Available BITEZ</h2>
+        
+        <!-- Search bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for BITEZ...">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <!-- Filter buttons -->
+        <div class="filter-container">
+            <button class="filter-button active">All</button>
+            <button class="filter-button">Web Development</button>
+            <button class="filter-button">Programming</button>
+            <button class="filter-button">Data Science</button>
+            <button class="filter-button">AI/ML</button>
+        </div>
         
         <div class="cards-container">
             <!-- HTML Card -->
@@ -1221,6 +1103,14 @@
                     <p class="card-description">
                         Master the foundation of web development with comprehensive HTML guides from basic structure to advanced semantic elements.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Beginner
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 4 weeks
+                        </div>
+                    </div>
                     <button class="card-button" id="html-button">
                         Start Learning <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -1242,6 +1132,14 @@
                     <p class="card-description">
                         Learn to style beautiful websites with CSS, including Flexbox, Grid, animations, and responsive design techniques.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Beginner
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 5 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="css">
                         Start Learning <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -1258,6 +1156,14 @@
                     <p class="card-description">
                         Dive into JavaScript programming, from basic syntax to advanced concepts like closures, async programming, and DOM manipulation.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Intermediate
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 8 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="javascript">
                         Start Learning <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -1274,6 +1180,14 @@
                     <p class="card-description">
                         Learn systems programming with C++, covering memory management, OOP concepts, STL, and performance optimization techniques.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Advanced
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 10 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="cpp">
                         Start Learning <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -1290,6 +1204,14 @@
                     <p class="card-description">
                         Master the fundamentals of programming with C, including pointers, memory allocation, and low-level system interactions.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Intermediate
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 8 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="c">
                         Coming Soon <i class="fas fa-clock ml-2"></i>
                     </button>
@@ -1306,6 +1228,14 @@
                     <p class="card-description">
                         Explore Python programming, from basic syntax to advanced topics like data structures, algorithms, and object-oriented design.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Beginner
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 6 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="python">
                         Start Learning <i class="fas fa-arrow-right ml-2"></i>
                     </button>
@@ -1322,6 +1252,14 @@
                     <p class="card-description">
                         Dive deep into artificial intelligence, machine learning algorithms, and neural network architectures from mathematical foundations to implementation.
                     </p>
+                    <div class="card-meta">
+                        <div class="card-difficulty">
+                            <i class="fas fa-signal"></i> Advanced
+                        </div>
+                        <div class="card-duration">
+                            <i class="fas fa-clock"></i> 12 weeks
+                        </div>
+                    </div>
                     <button class="card-button" data-target="ai">
                         Coming Soon <i class="fas fa-clock ml-2"></i>
                     </button>
@@ -1467,7 +1405,7 @@
             });
             
             // Add hover effect to interactive elements
-            const interactiveElements = document.querySelectorAll('button, a, .card, .sidebar-item, .social-link, .card-button, .modal-close, .modal-button, .hamburger');
+            const interactiveElements = document.querySelectorAll('button, a, .card, .sidebar-item, .social-link, .card-button, .modal-close, .modal-button, .hamburger, .filter-button');
             
             interactiveElements.forEach(element => {
                 element.addEventListener('mouseenter', function() {
@@ -1544,6 +1482,22 @@
                 item.addEventListener('click', function() {
                     // Close sidebar when a link is clicked
                     closeSidebar();
+                });
+            });
+            
+            // Filter button functionality
+            const filterButtons = document.querySelectorAll('.filter-button');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // In a real implementation, this would filter the cards
+                    const filter = this.textContent.toLowerCase();
+                    console.log(`Filtering by: ${filter}`);
                 });
             });
             

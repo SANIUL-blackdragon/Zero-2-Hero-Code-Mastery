@@ -36,10 +36,8 @@
     
     <script>
         const button = document.querySelector('.home-button');
-
         button.addEventListener('click', () => {
             const currentUrl = window.location.href;
-
             // GitHub Pages
             if (currentUrl.includes('github.io/Zero-2-Hero-Code-Mastery')) {
                 window.location.href = 'https://saniul-blackdragon.github.io/Zero-2-Hero-Code-Mastery/index.html';
@@ -51,17 +49,14 @@
                 pathParts.pop(); // remove current file
                 pathParts.pop(); // remove html folder
                 pathParts.push('index.html'); // add root index.html
-
                 // Rebuild path
                 const newPath = pathParts.join('/');
                 const newUrl = window.location.protocol + '//' + window.location.host + newPath;
-
                 window.location.href = newUrl;
             }
         });
     </script>
 </div>
-
     <!-- Header -->
     <header>
         <div class="container">
@@ -74,59 +69,66 @@
         </div>
     </header>
     <div class="container">
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('introduction')">
-                <i class="fas fa-home"></i>
-                Introduction
+        <!-- Navigation container with toggle button -->
+        <div class="nav-container">
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
             </button>
-            <button class="nav-tab" onclick="showSection('basics')">
-                <i class="fas fa-code"></i>
-                HTML Basics
-            </button>
-            <button class="nav-tab" onclick="showSection('elements')">
-                <i class="fas fa-th-large"></i>
-                Elements
-            </button>
-            <button class="nav-tab" onclick="showSection('attributes')">
-                <i class="fas fa-cogs"></i>
-                Attributes
-            </button>
-            <button class="nav-tab" onclick="showSection('forms')">
-                <i class="fas fa-keyboard"></i>
-                Forms
-            </button>
-            <button class="nav-tab" onclick="showSection('semantic')">
-                <i class="fas fa-sitemap"></i>
-                Semantic HTML
-            </button>
-            <button class="nav-tab" onclick="showSection('multimedia')">
-                <i class="fas fa-photo-video"></i>
-                Multimedia
-            </button>
-            <button class="nav-tab" onclick="showSection('advanced')">
-                <i class="fas fa-puzzle-piece"></i>
-                Advanced
-            </button>
-            <button class="nav-tab" onclick="showSection('best-practices')">
-                <i class="fas fa-star"></i>
-                Best Practices
-            </button>
-            <button class="nav-tab" onclick="showSection('accessibility')">
-                <i class="fas fa-universal-access"></i>
-                Accessibility
-            </button>
-            <button class="nav-tab" onclick="showSection('exercises')">
-                <i class="fas fa-dumbbell"></i>
-                Exercises
-            </button>
-            <button class="nav-tab" onclick="showSection('reference')">
-                <i class="fas fa-book"></i>
-                Reference
-            </button>
+            
+            <div class="nav-tabs" id="nav-tabs">
+                <button class="nav-tab active" data-section="introduction" onclick="showSection('introduction')">
+                    <i class="fas fa-home"></i>
+                    Introduction
+                </button>
+                <button class="nav-tab" data-section="basics" onclick="showSection('basics')">
+                    <i class="fas fa-code"></i>
+                    HTML Basics
+                </button>
+                <button class="nav-tab" data-section="elements" onclick="showSection('elements')">
+                    <i class="fas fa-th-large"></i>
+                    Elements
+                </button>
+                <button class="nav-tab" data-section="attributes" onclick="showSection('attributes')">
+                    <i class="fas fa-cogs"></i>
+                    Attributes
+                </button>
+                <button class="nav-tab" data-section="forms" onclick="showSection('forms')">
+                    <i class="fas fa-keyboard"></i>
+                    Forms
+                </button>
+                <button class="nav-tab" data-section="semantic" onclick="showSection('semantic')">
+                    <i class="fas fa-sitemap"></i>
+                    Semantic HTML
+                </button>
+                <button class="nav-tab" data-section="multimedia" onclick="showSection('multimedia')">
+                    <i class="fas fa-photo-video"></i>
+                    Multimedia
+                </button>
+                <button class="nav-tab" data-section="advanced" onclick="showSection('advanced')">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Advanced
+                </button>
+                <button class="nav-tab" data-section="best-practices" onclick="showSection('best-practices')">
+                    <i class="fas fa-star"></i>
+                    Best Practices
+                </button>
+                <button class="nav-tab" data-section="accessibility" onclick="showSection('accessibility')">
+                    <i class="fas fa-universal-access"></i>
+                    Accessibility
+                </button>
+                <button class="nav-tab" data-section="exercises" onclick="showSection('exercises')">
+                    <i class="fas fa-dumbbell"></i>
+                    Exercises
+                </button>
+                <button class="nav-tab" data-section="reference" onclick="showSection('reference')">
+                    <i class="fas fa-book"></i>
+                    Reference
+                </button>
+            </div>
         </div>
         
         <!-- Introduction Section -->
-        <div id="introduction" class="content-section active">
+        <div id="introduction" class="content-section active" data-section="introduction">
             <div class="section-status" id="introduction-status">
                 <i class="fas fa-circle incomplete"></i> Not Started
             </div>
@@ -216,25 +218,32 @@
                 </div>
             </div>
             
+            <!-- Task progress elements -->
+            <div class="task-progress-container">
+                <div class="task-progress-bar">
+                    <div class="task-progress-fill" id="task-progress">0%</div>
+                </div>
+            </div>
+            
+            <!-- Task number line with horizontal scrolling -->
+            <div class="task-number-line-container">
+                <div class="task-number-line" id="task-number-line">
+                    <!-- Task numbers will be dynamically added here -->
+                </div>
+            </div>
+            
             <div class="stats-container">
                 <div class="stat-card">
                     <div class="stat-number" id="sections-completed">0</div>
                     <div class="stat-label">Sections Completed</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="exercises-done">0</div>
-                    <div class="stat-label">Exercises Done</div>
+                    <div class="stat-number" id="tasks-completed">0</div>
+                    <div class="stat-label">Tasks Completed</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="current-streak">0</div>
                     <div class="stat-label">Day Streak</div>
-                </div>
-            </div>
-            
-            <!-- Dynamic Learning Path -->
-            <div class="learning-path-container">
-                <div class="learning-path" id="learning-path">
-                    <!-- Path steps will be dynamically generated here -->
                 </div>
             </div>
             
@@ -313,7 +322,11 @@
             </div>
             
             <div class="section-complete-container" style="text-align: center; margin-top: 2rem;">
-                <button class="complete-section-btn" id="complete-section-btn" onclick="BITEZProgress.completeSection('introduction')">
+                <button class="complete-section-btn" 
+                        id="complete-section-btn" 
+                        data-section="introduction"
+                        data-task="intro-read"
+                        onclick="TaskTracker.completeTask('intro-read', 'introduction')">
                     <i class="fas fa-check-circle"></i> Mark Introduction as Complete
                 </button>
             </div>

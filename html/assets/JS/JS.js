@@ -317,19 +317,20 @@ const BITEZProgress = {
         // Clear existing path steps
         learningPath.innerHTML = '';
         
-        // Get all section tabs
-        const sectionTabs = document.querySelectorAll('.nav-tab');
+        // Get all section tabs with data-section attribute
+        const sectionTabs = document.querySelectorAll('.nav-tab[data-section]');
         
         // Create path steps for each section
         sectionTabs.forEach((tab, index) => {
+            const sectionId = tab.getAttribute('data-section');
             const pathStep = document.createElement('div');
             pathStep.className = 'path-step';
             pathStep.textContent = index + 1;
             
             // Add appropriate class based on progress
-            if (index < progress.completedSections.length) {
+            if (progress.completedSections.includes(sectionId)) {
                 pathStep.classList.add('completed');
-            } else if (index === progress.completedSections.length) {
+            } else if (sectionId === progress.currentSection) {
                 pathStep.classList.add('active');
             }
             
@@ -343,14 +344,15 @@ const BITEZProgress = {
         if (!completeBtn) return;
         
         const progress = this.getProgress();
-        const currentSection = progress.currentSection;
+        const sectionId = completeBtn.getAttribute('data-section');
         
-        if (progress.completedSections.includes(currentSection)) {
+        if (sectionId && progress.completedSections.includes(sectionId)) {
             completeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Section Completed!';
             completeBtn.disabled = true;
             completeBtn.classList.add('disabled');
         } else {
-            completeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Mark Introduction as Complete';
+            const sectionName = sectionId ? sectionId.charAt(0).toUpperCase() + sectionId.slice(1) : 'Introduction';
+            completeBtn.innerHTML = `<i class="fas fa-check-circle"></i> Mark ${sectionName} as Complete`;
             completeBtn.disabled = false;
             completeBtn.classList.remove('disabled');
         }
@@ -538,6 +540,166 @@ const BITEZProgress = {
         return progress;
     }
 };
+
+// New TaskTracker object - completely separate from BITEZProgress
+const TaskTracker = {
+    // Storage key for task completion
+    STORAGE_KEY: 'htmlBitezTasks',
+    
+    // Initialize task tracking
+    initTasks: function() {
+        // Initialize task storage if not exists
+        if (!localStorage.getItem(this.STORAGE_KEY)) {
+            const defaultTasks = {
+                'intro-read': {
+                    name: 'Read Introduction',
+                    completed: false
+                }
+            };
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(defaultTasks));
+        }
+        
+        // Update task displays
+        this.updateTaskProgress();
+        this.updateTaskCounters();
+        this.updateTaskNumberLine();
+    },
+    
+    // Get current task data
+    getTasks: function() {
+        return JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || {};
+    },
+    
+    // Save task data
+    saveTasks: function(tasksData) {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(tasksData));
+        this.updateTaskProgress();
+        this.updateTaskCounters();
+        this.updateTaskNumberLine();
+    },
+    
+    // Mark a task as completed
+    completeTask: function(taskId, sectionId) {
+        const tasks = this.getTasks();
+        if (tasks[taskId]) {
+            tasks[taskId].completed = true;
+            this.saveTasks(tasks);
+            
+            // Mark the associated section as completed
+            if (sectionId) {
+                BITEZProgress.completeSection(sectionId);
+            }
+        }
+    },
+    
+    // Get task progress statistics
+    getTaskStats: function() {
+        const tasks = this.getTasks();
+        const taskIds = Object.keys(tasks);
+        
+        let totalTasks = taskIds.length;
+        let completedTasks = taskIds.filter(id => tasks[id].completed).length;
+        
+        return {
+            total: totalTasks,
+            completed: completedTasks,
+            percentage: totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0
+        };
+    },
+    
+    // Update task progress display
+    updateTaskProgress: function() {
+        const stats = this.getTaskStats();
+        const taskProgressElement = document.getElementById('task-progress');
+        
+        if (taskProgressElement) {
+            taskProgressElement.style.width = stats.percentage + '%';
+            taskProgressElement.textContent = stats.percentage + '%';
+        }
+    },
+    
+    // Update task counters
+    updateTaskCounters: function() {
+        const stats = this.getTaskStats();
+        const tasksCompletedElement = document.getElementById('tasks-completed');
+        
+        if (tasksCompletedElement) {
+            tasksCompletedElement.textContent = stats.completed;
+        }
+    },
+    
+    // Update task number line with horizontal scrolling
+    updateTaskNumberLine: function() {
+        const tasks = this.getTasks();
+        const taskNumberLine = document.getElementById('task-number-line');
+        
+        if (!taskNumberLine) return;
+        
+        // Clear existing number line
+        taskNumberLine.innerHTML = '';
+        
+        // Create a container for all task numbers
+        const numbersContainer = document.createElement('div');
+        numbersContainer.className = 'task-numbers-container';
+        
+        // Get all task IDs and sort them
+        const taskIds = Object.keys(tasks);
+        
+        // Create number indicators for each task
+        taskIds.forEach((taskId, index) => {
+            const task = tasks[taskId];
+            const taskNumber = document.createElement('div');
+            taskNumber.className = 'task-number';
+            taskNumber.textContent = index + 1;
+            taskNumber.title = task.name;
+            
+            if (task.completed) {
+                taskNumber.classList.add('completed');
+            } else if (!taskIds.slice(0, index).some(id => !tasks[id].completed)) {
+                // This is the next uncompleted task
+                taskNumber.classList.add('active');
+            }
+            
+            numbersContainer.appendChild(taskNumber);
+        });
+        
+        taskNumberLine.appendChild(numbersContainer);
+    },
+    
+    // Add a new task dynamically
+    addTask: function(taskId, taskName) {
+        const tasks = this.getTasks();
+        
+        // Only add if it doesn't already exist
+        if (!tasks[taskId]) {
+            tasks[taskId] = {
+                name: taskName,
+                completed: false
+            };
+            this.saveTasks(tasks);
+        }
+    },
+    
+    // Remove a task
+    removeTask: function(taskId) {
+        const tasks = this.getTasks();
+        
+        // Remove if it exists
+        if (tasks[taskId]) {
+            delete tasks[taskId];
+            this.saveTasks(tasks);
+        }
+    },
+    
+    // Reset all tasks
+    resetTasks: function() {
+        if (confirm('Are you sure you want to reset all task progress? This cannot be undone.')) {
+            localStorage.removeItem(this.STORAGE_KEY);
+            this.initTasks();
+        }
+    }
+};
+
 // Tab navigation
 function showSection(sectionId) {
     // Hide all sections
@@ -558,13 +720,53 @@ function showSection(sectionId) {
     // Add active class to clicked tab
     event.target.classList.add('active');
     
-    // Update progress
-    BITEZProgress.updateProgress(sectionId);
+    // Update progress using data-section attribute
+    const activeTab = document.querySelector('.nav-tab.active');
+    if (activeTab && activeTab.getAttribute('data-section')) {
+        BITEZProgress.updateProgress(activeTab.getAttribute('data-section'));
+    } else {
+        BITEZProgress.updateProgress(sectionId);
+    }
 }
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize progress tracking
+    // Initialize existing BITEZProgress
     BITEZProgress.initProgress();
+    
+    // Initialize new TaskTracker
+    TaskTracker.initTasks();
+    
+    // Setup navigation toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navTabs = document.getElementById('nav-tabs');
+    
+    if (navToggle && navTabs) {
+        navToggle.addEventListener('click', function() {
+            navTabs.classList.toggle('active');
+            
+            // Toggle icon between bars and times
+            const icon = navToggle.querySelector('i');
+            if (navTabs.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close nav when a tab is clicked
+        const tabs = navTabs.querySelectorAll('.nav-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                navTabs.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    }
     
     // Setup progress bar hover functionality
     BITEZProgress.setupProgressBarHover();
@@ -689,48 +891,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 // HTML Editor Preview
 function updatePreview() {
     const htmlCode = document.getElementById('html-editor').value;
     const preview = document.getElementById('html-preview');
     preview.innerHTML = htmlCode;
 }
+
 // Form Preview
 function updateFormPreview() {
     const formCode = document.getElementById('form-editor').value;
     const preview = document.getElementById('form-preview');
     preview.innerHTML = formCode;
 }
+
 // Semantic Preview
 function updateSemanticPreview() {
     const semanticCode = document.getElementById('semantic-editor').value;
     const preview = document.getElementById('semantic-preview');
     preview.innerHTML = semanticCode;
 }
+
 // Multimedia Preview
 function updateMultimediaPreview() {
     const multimediaCode = document.getElementById('multimedia-editor').value;
     const preview = document.getElementById('multimedia-preview');
     preview.innerHTML = multimediaCode;
 }
+
 // Advanced Preview
 function updateAdvancedPreview() {
     const advancedCode = document.getElementById('advanced-editor').value;
     const preview = document.getElementById('advanced-preview');
     preview.innerHTML = advancedCode;
 }
+
 // Best Practices Preview
 function updateBestPracticesPreview() {
     const bestPracticesCode = document.getElementById('best-practices-editor').value;
     const preview = document.getElementById('best-practices-preview');
     preview.innerHTML = bestPracticesCode;
 }
+
 // Accessibility Preview
 function updateAccessibilityPreview() {
     const accessibilityCode = document.getElementById('accessibility-editor').value;
     const preview = document.getElementById('accessibility-preview');
     preview.innerHTML = accessibilityCode;
 }
+
 // Exercise Preview
 function updateExercisePreview() {
     const exerciseCode = document.getElementById('exercise-editor').value;

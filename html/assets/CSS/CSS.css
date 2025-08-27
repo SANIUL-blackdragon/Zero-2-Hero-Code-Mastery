@@ -1,6 +1,5 @@
 /* CSS for HTML Master BITEZ Website */
 /* This file should be saved as root/assets/CSS/CSS.css */
-
 /* Import the new color palette */
 :root {
     --turquoise-blue: #5ad0eb;
@@ -14,7 +13,6 @@
     --gull-gray: #94acb6;
     --oxford-blue: #3c515c;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -82,6 +80,31 @@ h1 {
     position: relative;
     z-index: 1;
 }
+
+/* Navigation container and toggle */
+.nav-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+    background: linear-gradient(135deg, #91e3fc, #f80c0c);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
 .nav-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +113,7 @@ h1 {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 .nav-tab {
     flex: 1;
@@ -115,7 +139,7 @@ h1 {
     transform: translateY(-2px);
 }
 .nav-tab.active {
-    background: linear-gradient(135deg, #91e3fc 0%, #f80c0c 100%);
+    background: linear-gradient(135deg, #91e3fc, #f80c0c 100%);
     color: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -583,7 +607,6 @@ tr:hover {
     cursor: not-allowed;
     opacity: 0.7;
 }
-
 /* Reset/Save button styles */
 .reset-save-container {
     position: absolute;
@@ -591,7 +614,6 @@ tr:hover {
     right: 20px;
     z-index: 10;
 }
-
 .reset-save-btn {
     display: inline-flex;
     align-items: center;
@@ -606,17 +628,14 @@ tr:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     font-family: 'Poppins', sans-serif;
 }
-
 .reset-save-btn i {
     margin-right: 8px;
 }
-
 .reset-save-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     background: linear-gradient(135deg, #5a6268, #3d4142);
 }
-
 /* New styles for progress table layout */
 .progress-table-container {
     display: flex;
@@ -626,7 +645,6 @@ tr:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     max-height: 600px;
 }
-
 .vertical-progress-container {
     width: 40px;
     background: #f8f9fa;
@@ -637,7 +655,6 @@ tr:hover {
     position: relative;
     flex-shrink: 0;
 }
-
 .vertical-progress-bar {
     width: 20px;
     height: 100%;
@@ -648,7 +665,6 @@ tr:hover {
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     cursor: pointer;
 }
-
 .vertical-progress-fill {
     position: absolute;
     top: 0;
@@ -659,18 +675,15 @@ tr:hover {
     border-radius: 10px;
     transition: height 0.5s ease;
 }
-
 .skill-level-table-container {
     flex: 1;
     overflow: hidden;
 }
-
 .skill-level-table {
     width: 100%;
     border-collapse: collapse;
     height: 100%;
 }
-
 .skill-level-table th {
     background: linear-gradient(90deg, #91e3fc, #7fc8e5);
     color: white;
@@ -681,31 +694,25 @@ tr:hover {
     top: 0;
     z-index: 10;
 }
-
 .skill-level-table td {
     padding: 14px;
     border-bottom: 1px solid #e2e8f0;
 }
-
 .skill-level-table tr:last-child td {
     border-bottom: none;
 }
-
 .skill-level-table tr.active-row {
     background: rgba(145, 227, 252, 0.1);
     font-weight: 500;
 }
-
 .skill-level-table tr.completed-row {
     background: rgba(40, 167, 69, 0.05);
 }
-
 .skill-level-table tr.completed-row td:first-child::before {
     content: "✓ ";
     color: #28a745;
     font-weight: bold;
 }
-
 /* Enhanced Tooltip Styles */
 .enhanced-tooltip {
     position: fixed;
@@ -715,12 +722,10 @@ tr:hover {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .enhanced-tooltip.active {
     display: block;
     opacity: 1;
 }
-
 .tooltip-content {
     background: linear-gradient(135deg, #2d3748, #1a202c);
     color: white;
@@ -731,7 +736,6 @@ tr:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
     min-width: 200px;
 }
-
 .tooltip-title {
     font-weight: 600;
     font-size: 1rem;
@@ -740,26 +744,22 @@ tr:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .tooltip-description {
     font-size: 0.85rem;
     margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.8);
 }
-
 .tooltip-progress {
     font-size: 0.9rem;
     font-weight: 500;
     color: #91e3fc;
 }
-
 .tooltip-arrow {
     position: absolute;
     width: 0;
     height: 0;
     border-style: solid;
 }
-
 /* Position tooltip arrow based on direction */
 .tooltip-arrow.arrow-left {
     right: -8px;
@@ -768,7 +768,6 @@ tr:hover {
     border-width: 8px 0 8px 8px;
     border-color: transparent transparent transparent #2d3748;
 }
-
 .tooltip-arrow.arrow-right {
     left: -8px;
     top: 50%;
@@ -776,7 +775,6 @@ tr:hover {
     border-width: 8px 8px 8px 0;
     border-color: transparent #2d3748 transparent transparent;
 }
-
 .tooltip-arrow.arrow-top {
     bottom: -8px;
     left: 50%;
@@ -784,7 +782,6 @@ tr:hover {
     border-width: 0 8px 8px 8px;
     border-color: transparent transparent #2d3748 transparent;
 }
-
 .tooltip-arrow.arrow-bottom {
     top: -8px;
     left: 50%;
@@ -792,14 +789,12 @@ tr:hover {
     border-width: 8px 8px 0 8px;
     border-color: #2d3748 transparent transparent transparent;
 }
-
 /* Learning Path Styles */
 .learning-path-container {
     margin: 2rem 0;
     overflow-x: auto;
     padding-bottom: 10px;
 }
-
 .learning-path {
     display: flex;
     justify-content: flex-start;
@@ -808,7 +803,6 @@ tr:hover {
     min-width: max-content;
     padding: 0 20px;
 }
-
 .learning-path::before {
     content: "";
     position: absolute;
@@ -819,7 +813,6 @@ tr:hover {
     background: #e2e8f0;
     z-index: 0;
 }
-
 .path-step {
     position: relative;
     z-index: 1;
@@ -838,30 +831,25 @@ tr:hover {
     margin-right: 30px;
     flex-shrink: 0;
 }
-
 .path-step:last-child {
     margin-right: 0;
 }
-
 .path-step.active {
     background: linear-gradient(135deg, #91e3fc, #f80c0c);
     color: white;
     border-color: transparent;
     transform: scale(1.1);
 }
-
 .path-step.completed {
     background: #d4edda;
     border-color: #28a745;
     color: #28a745;
 }
-
 .path-step.completed::after {
     content: "✓";
     position: absolute;
     font-size: 1.2rem;
 }
-
 /* Home Button Styles */
 .home-button-container {
     position: fixed;
@@ -869,7 +857,6 @@ tr:hover {
     left: 20px;
     z-index: 1000;
 }
-
 .home-button {
     display: flex;
     align-items: center;
@@ -892,12 +879,10 @@ tr:hover {
     transform-style: preserve-3d;
     transform: translateZ(20px);
 }
-
 .home-button i {
     margin-right: 8px;
     font-size: 1.2rem;
 }
-
 .home-button::before {
     content: '';
     position: absolute;
@@ -909,14 +894,133 @@ tr:hover {
     transition: left 0.5s ease;
     transform: translateZ(5px);
 }
-
 .home-button:hover::before {
     left: 0;
 }
-
 .home-button:hover {
     transform: translateZ(30px) translateY(-3px) scale(1.05);
     box-shadow: 0 15px 30px rgba(90, 208, 235, 0.4);
+}
+
+/* Task progress bar styles */
+.task-progress-container {
+    margin: 1.5rem 0;
+}
+
+.task-progress-bar {
+    background: #e2e8f0;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-progress-fill {
+    background: linear-gradient(90deg, #48bb78, #38a169);
+    height: 100%;
+    width: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+/* Task number line with horizontal scrolling */
+.task-number-line-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--curious-blue) #f1f1f1;
+}
+
+.task-number-line-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.task-number-line-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.task-number-line-container::-webkit-scrollbar-thumb {
+    background: var(--curious-blue);
+    border-radius: 4px;
+}
+
+.task-number-line {
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    padding: 0 10px;
+}
+
+.task-numbers-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.task-numbers-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e2e8f0;
+    z-index: 0;
+}
+
+.task-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 15px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.task-number:last-child {
+    margin-right: 0;
+}
+
+.task-number:hover {
+    transform: scale(1.1);
+}
+
+.task-number.completed {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.task-number.completed::after {
+    content: "✓";
+    position: absolute;
+    font-size: 0.8rem;
+}
+
+.task-number.active {
+    background: linear-gradient(135deg, #91e3fc, #f80c0c);
+    border-color: transparent;
+    color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(145, 227, 252, 0.5);
 }
 
 /* Responsive design that keeps progress bar and table side by side */
@@ -933,14 +1037,41 @@ tr:hover {
         font-size: 1.1rem;
     }
     
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     .nav-tabs {
         flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 10px;
+        right: 10px;
+        max-height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        opacity: 0;
+        transform: translateY(-10px);
+        z-index: 1000;
+    }
+    
+    .nav-tabs.active {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
     }
     
     .nav-tab {
         flex-direction: row;
         justify-content: flex-start;
         padding: 0.8rem 1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav-tab:last-child {
+        border-bottom: none;
     }
     
     .nav-tab i {
@@ -1052,7 +1183,6 @@ tr:hover {
         margin-right: 20px;
     }
 }
-
 /* For very small screens */
 @media (max-width: 480px) {
     .skill-level-table-container {
