@@ -1111,7 +1111,72 @@
         <div class="loader-circle"></div>
     </div>
     <!-- Custom cursor -->
-    <div class="cursor"></div>
+    <div class="cursor"------- SEARCH
+            // Add click event to card buttons
+            const cardButtons = document.querySelectorAll('.card-button');
+            cardButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const status = card.getAttribute('data-status');
+                    
+                    if (status === 'available') {
+                        // Navigate to the BITEZ page (placeholder action)
+                        const target = this.getAttribute('data-target');
+                        console.log(`Navigating to ${target} BITEZ...`);
+                        // In a real implementation, this would navigate to the BITEZ page
+                    } else if (status === 'inprogress') {
+                        // Show modal with random text
+                        const randomText = modalTexts[Math.floor(Math.random() * modalTexts.length)];
+                        modalText.textContent = randomText;
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modal.classList.add('active');
+                        }, 10);
+                    }
+                });
+            });
+            // Add click event to card buttons
+            const cardButtons = document.querySelectorAll('.card-button');
+            cardButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const status = card.getAttribute('data-status');
+                    
+                    if (status === 'available') {
+                        const target = this.getAttribute('data-target');
+                        
+                        // Navigate to the appropriate guide
+                        switch(target) {
+                            case 'css':
+                                window.location.href = 'css/css-complete-guide.html';
+                                break;
+                            case 'javascript':
+                                window.location.href = 'js/javascript-master-BITEZ.html';
+                                break;
+                            case 'cpp':
+                                window.location.href = 'cpp/cpp-complete-guide.html';
+                                break;
+                            case 'python':
+                                window.location.href = 'py/python-mastery-guide.html';
+                                break;
+                            case 'c':
+                                window.location.href = 'c/c-programming-complete.html';
+                                break;
+                            default:
+                                console.log(`Navigation for ${target} not yet configured`);
+                        }
+                    } else if (status === 'inprogress') {
+                        // Show modal with random text
+                        const randomText = modalTexts[Math.floor(Math.random() * modalTexts.length)];
+                        modalText.textContent = randomText;
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modal.classList.add('active');
+                        }, 10);
+                    }
+                });
+            });
+</div>
     <div class="cursor-follower"></div>
     <!-- Animated background -->
     <div class="bg-animation">
