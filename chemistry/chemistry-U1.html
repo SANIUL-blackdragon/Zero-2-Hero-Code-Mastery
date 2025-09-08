@@ -1,0 +1,3947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Study Guide for Absolute Beginners - Unit 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --warning-color: #f39c12;
+            --info-color: #17a2b8;
+            --success-color: #28a745;
+            --purple-color: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .table-of-contents {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .table-of-contents h2 {
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .table-of-contents h2 i {
+            margin-right: 10px;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .toc-list li:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .toc-list a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .toc-list a i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .toc-list ul {
+            list-style-type: none;
+            margin-left: 30px;
+            margin-top: 8px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            margin: 25px 0 15px;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 15px;
+        }
+        
+        h3 {
+            font-size: 1.7rem;
+            color: var(--secondary-color);
+        }
+        
+        h4 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+        
+        h5 {
+            font-size: 1.2rem;
+            color: var(--warning-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        strong {
+            color: var(--dark-color);
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--light-color), transparent);
+            margin: 30px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-color);
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .success-box {
+            background-color: #eafaf1;
+            border-left: 4px solid var(--success-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .info-box {
+            background-color: #e1f5fe;
+            border-left: 4px solid var(--info-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .atom-visual {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .atom {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, var(--accent-color), var(--dark-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+        }
+        
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(52, 152, 219, 0.5);
+            border-radius: 50%;
+        }
+        
+        .orbit-1 {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .orbit-2 {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .electron {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--primary-color), var(--dark-color));
+            border-radius: 50%;
+            top: -10px;
+            left: calc(50% - 10px);
+        }
+        
+        .electron-2 {
+            top: calc(100% - 10px);
+        }
+        
+        .molecule-visual {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .molecule {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .atom-h2o {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        
+        .oxygen {
+            background: radial-gradient(circle, var(--accent-color), var(--dark-color));
+        }
+        
+        .hydrogen {
+            background: radial-gradient(circle, var(--info-color), var(--dark-color));
+        }
+        
+        .bond {
+            width: 40px;
+            height: 4px;
+            background-color: var(--dark-color);
+            transform: rotate(45deg);
+            position: absolute;
+        }
+        
+        .bond-2 {
+            transform: rotate(-45deg);
+        }
+        
+        .states-of-matter {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .state {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .state-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .solid {
+            color: var(--dark-color);
+        }
+        
+        .liquid {
+            color: var(--primary-color);
+        }
+        
+        .gas {
+            color: var(--info-color);
+        }
+        
+        .formula-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .mole-triangle {
+            width: 300px;
+            height: 260px;
+            margin: 30px auto;
+            position: relative;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 200px solid rgba(52, 152, 219, 0.2);
+            position: relative;
+        }
+        
+        .triangle-label {
+            position: absolute;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .mass-label {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .moles-label {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .particles-label {
+            bottom: 100px;
+            left: -60px;
+        }
+        
+        .scientific-method {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .method-step {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            margin: 0 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .method-step:not(:last-child):after {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .concept-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .concept-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .concept-title i {
+            margin-right: 10px;
+        }
+        
+        .memory-aid {
+            background-color: #fff8e1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .memory-aid-title {
+            font-weight: bold;
+            color: var(--warning-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .memory-aid-title i {
+            margin-right: 10px;
+        }
+        
+        .example-box {
+            background-color: #eafaf1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: var(--success-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-title i {
+            margin-right: 10px;
+        }
+        
+        .exam-tip {
+            background-color: #f0e6ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--purple-color);
+        }
+        
+        .exam-tip-title {
+            font-weight: bold;
+            color: var(--purple-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exam-tip-title i {
+            margin-right: 10px;
+        }
+        
+        .problem-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .problem-title {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .problem-title i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .solution {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .solution-title {
+            font-weight: bold;
+            color: var(--success-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .solution-title i {
+            margin-right: 10px;
+        }
+        
+        .key-concept {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+        }
+        
+        .key-concept i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .checklist {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .checklist li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background-color: #e9ecef;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            width: 65%;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--purple-color));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            margin-left: 60px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -45px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .states-of-matter {
+                flex-direction: column;
+            }
+            
+            .state {
+                margin: 10px 0;
+            }
+            
+            .scientific-method {
+                flex-direction: column;
+            }
+            
+            .method-step {
+                margin: 10px 0;
+            }
+            
+            .method-step:after {
+                content: '\f078';
+                top: auto;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .timeline:before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                margin-left: 40px;
+            }
+            
+            .timeline-item:before {
+                left: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-flask"></i> Chemistry Study Guide for Absolute Beginners - Unit 1</h1>
+            <p class="subtitle">This document will be continuously updated with chemistry content based on your specifications, starting from the very basics for someone new to science. All content in Unit 1 builds from ground zero to prepare students for formal exams.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="table-of-contents">
+            <h2><i class="fas fa-list"></i> Table of Contents</h2>
+            <ul class="toc-list">
+                <li><a href="#introduction-to-science"><i class="fas fa-microscope"></i> Introduction to Science</a></li>
+                <li><a href="#what-is-chemistry"><i class="fas fa-atom"></i> What is Chemistry?</a></li>
+                <li><a href="#topics-covered"><i class="fas fa-book"></i> Topics Covered</a>
+                    <ul>
+                        <li><a href="#unit-1-fundamental-chemistry-concepts"><i class="fas fa-graduation-cap"></i> Unit 1: Fundamental Chemistry Concepts</a>
+                            <ul>
+                                <li><a href="#module-11-basic-building-blocks-of-matter"><i class="fas fa-cubes"></i> Module 1.1: Basic Building Blocks of Matter</a></li>
+                                <li><a href="#module-12-the-mole-concept"><i class="fas fa-balance-scale"></i> Module 1.2: The Mole Concept</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#key-concepts"><i class="fas fa-lightbulb"></i> Key Concepts</a></li>
+                <li><a href="#practice-problems"><i class="fas fa-pencil-alt"></i> Practice Problems</a></li>
+                <li><a href="#resources"><i class="fas fa-tools"></i> Resources</a></li>
+                <li><a href="#test-preparation-focus"><i class="fas fa-clipboard-check"></i> Test Preparation Focus</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <section id="introduction-to-science" class="section">
+            <h2><i class="fas fa-microscope"></i> Introduction to Science</h2>
+            
+            <h3>What is Science?</h3>
+            <div class="highlight-box">
+                <p>Science is simply a way of learning about the world around us. It's like being a detective - you observe things, ask questions, and try to find answers through experiments and careful thinking.</p>
+            </div>
+            
+            <h3>The Scientific Method</h3>
+            <p>Before we learn chemistry, we need to understand how scientists think:</p>
+            
+            <div class="scientific-method">
+                <div class="method-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Observe</div>
+                    <p>Look at something interesting in the world</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Question</div>
+                    <p>Ask "why" or "how" about what you see</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Hypothesize</div>
+                    <p>Make an educated guess about the answer</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Experiment</div>
+                    <p>Test your guess</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Conclude</div>
+                    <p>Decide if your guess was right or wrong</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p>This is how all science works, including chemistry!</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="what-is-chemistry" class="section">
+            <h2><i class="fas fa-atom"></i> What is Chemistry?</h2>
+            
+            <h3>Chemistry in Simple Terms</h3>
+            <div class="highlight-box">
+                <p>Chemistry is the study of <strong>stuff</strong> and how <strong>stuff changes</strong>.</p>
+                <ul>
+                    <li><strong>Stuff</strong> = Matter (anything that takes up space and has weight)</li>
+                    <li><strong>Changes</strong> = What happens when stuff interacts with other stuff</li>
+                </ul>
+            </div>
+            
+            <h3>Why Study Chemistry?</h3>
+            <p>Chemistry is everywhere in your daily life:</p>
+            <div class="states-of-matter">
+                <div class="state">
+                    <div class="state-icon"><i class="fas fa-utensils"></i></div>
+                    <h4>Cooking food</h4>
+                    <p>Why does bread rise?</p>
+                </div>
+                <div class="state">
+                    <div class="state-icon"><i class="fas fa-soap"></i></div>
+                    <h4>Cleaning products</h4>
+                    <p>Why does soap remove dirt?</p>
+                </div>
+                <div class="state">
+                    <div class="state-icon"><i class="fas fa-wind"></i></div>
+                    <h4>Breathing</h4>
+                    <p>How does your body use oxygen?</p>
+                </div>
+                <div class="state">
+                    <div class="state-icon"><i class="fas fa-pills"></i></div>
+                    <h4>Medicine</h4>
+                    <p>How do pills make you feel better?</p>
+                </div>
+            </div>
+            
+            <h3>Basic Ideas You'll Need to Understand</h3>
+            
+            <h4>Matter</h4>
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cube"></i> Matter</div>
+                <p>Matter is anything that has mass (weight) and takes up space. If you can see it, touch it, or weigh it - it's matter!</p>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-check-circle"></i> Examples of matter:</div>
+                    <ul>
+                        <li>Water in a glass</li>
+                        <li>The air you breathe</li>
+                        <li>Your desk</li>
+                        <li>Your own body</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <div class="example-title"><i class="fas fa-times-circle"></i> Non-examples (not matter):</div>
+                    <ul>
+                        <li>Light</li>
+                        <li>Heat</li>
+                        <li>Thoughts</li>
+                        <li>Shadows</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>States of Matter</h4>
+            <p>Matter can exist in three main forms:</p>
+            
+            <div class="states-of-matter">
+                <div class="state">
+                    <div class="state-icon solid"><i class="fas fa-cube"></i></div>
+                    <h4>Solid</h4>
+                    <p>Keeps its shape (like ice, rocks, your phone)</p>
+                </div>
+                <div class="state">
+                    <div class="state-icon liquid"><i class="fas fa-tint"></i></div>
+                    <h4>Liquid</h4>
+                    <p>Takes the shape of its container (like water, milk, juice)</p>
+                </div>
+                <div class="state">
+                    <div class="state-icon gas"><i class="fas fa-cloud"></i></div>
+                    <h4>Gas</h4>
+                    <p>Fills whatever space it's in (like air, steam, helium in balloons)</p>
+                </div>
+            </div>
+            
+            <h4>Energy</h4>
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-bolt"></i> Energy</div>
+                <p>Energy is what makes things happen or change. It's not matter, but it affects matter.</p>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-check-circle"></i> Examples of energy:</div>
+                    <ul>
+                        <li>Heat from the sun</li>
+                        <li>Light from a lamp</li>
+                        <li>Electricity</li>
+                        <li>The energy in food</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="topics-covered" class="section">
+            <h2><i class="fas fa-book"></i> Topics Covered</h2>
+            
+            <h3 id="unit-1-fundamental-chemistry-concepts">Unit 1: Fundamental Chemistry Concepts</h3>
+            <div class="highlight-box">
+                <p><strong>Unit Overview:</strong> This unit covers the essential foundation concepts that all chemistry students must master. Starting from absolute zero science knowledge, we build up to the fundamental tools needed for understanding chemical reactions and preparing for formal examinations.</p>
+            </div>
+            
+            <h4 id="module-11-basic-building-blocks-of-matter-atom-element-ion-molecule-compound-and-formulas">Module 1.1: Basic Building Blocks of Matter - Atom, Element, Ion, Molecule, Compound, and Formulas</h4>
+            <div class="info-box">
+                <p><strong>Learning Objectives:</strong></p>
+                <ul>
+                    <li>Define and distinguish between atoms, elements, ions, molecules, and compounds</li>
+                    <li>Understand the relationship between these fundamental concepts</li>
+                    <li>Write and interpret empirical and molecular formulas</li>
+                    <li>Apply these concepts to solve basic chemistry problems</li>
+                    <li>Prepare for formal exam questions on these topics</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>ATOM: The Fundamental Building Block</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Formal Definition:</div>
+                <p>An atom is the smallest unit of matter that retains the chemical properties of an element. Atoms are the basic building blocks of all matter and cannot be broken down by chemical means.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>Think of an atom as the smallest possible LEGO brick that still counts as that specific type of brick. If you have a gold brick and keep cutting it smaller and smaller, eventually you reach a piece that's still gold but can't be cut smaller without losing its "gold-ness." That's an atom!</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-key"></i> Key Properties of Atoms:</div>
+                <ul>
+                    <li><strong>Incredibly small:</strong> About 100 million atoms could fit across the width of a human hair</li>
+                    <li><strong>Composed of smaller particles:</strong> Protons (+), neutrons (neutral), and electrons (-)</li>
+                    <li><strong>Identifiable by atomic number:</strong> Number of protons determines the element</li>
+                    <li><strong>Neutral overall:</strong> Equal numbers of protons and electrons in neutral atoms</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-eye"></i> Atomic Structure (Visual Description):</div>
+                
+                <div class="atom-visual">
+                    <div class="atom">
+                        <div class="nucleus">p+ n</div>
+                        <div class="orbit orbit-1">
+                            <div class="electron"></div>
+                            <div class="electron electron-2"></div>
+                        </div>
+                        <div class="orbit orbit-2">
+                            <div class="electron"></div>
+                            <div class="electron electron-2"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="formula-box">
+                    NUCLEUS (center)<br>
+                    ┌─────────────────┐<br>
+                    │  Protons (+)    │<br>
+                    │  Neutrons (0)   │<br>
+                    └─────────────────┘<br>
+                           ↑↓<br>
+                    Electrons (-) orbiting<br>
+                    in energy levels
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title"><i class="fas fa-flask"></i> Real-World Examples:</div>
+                <ul>
+                    <li>A gold ring contains billions of gold atoms</li>
+                    <li>The oxygen you breathe consists of oxygen atoms</li>
+                    <li>Your body is made of carbon, hydrogen, oxygen, nitrogen, and other atoms</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Tip:</div>
+                <p>Remember that atoms are neutral (equal protons and electrons) unless specified otherwise. Many exam questions try to trick you by asking about charged atoms (which are actually ions!).</p>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>ELEMENT: Pure Substances</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Formal Definition:</div>
+                <p>An element is a pure substance consisting of only one type of atom. Elements cannot be broken down into simpler substances by chemical reactions.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>An element is like having a box containing only identical LEGO bricks - all the same color, shape, and size. Every brick in the box is exactly the same, and you can't separate them into different types.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-key"></i> Key Properties of Elements:</div>
+                <ul>
+                    <li><strong>Pure substances:</strong> Only one type of atom present</li>
+                    <li><strong>Identified by symbols:</strong> One or two-letter abbreviations (H, O, Na, Au)</li>
+                    <li><strong>Organized in periodic table:</strong> Arranged by atomic number and properties</li>
+                    <li><strong>118 known elements:</strong> 94 occur naturally, 24 are synthetic</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-table"></i> Common Elements and Their Symbols:</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element Name</th>
+                            <th>Symbol</th>
+                            <th>Everyday Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hydrogen</td>
+                            <td>H</td>
+                            <td>Water, fuel</td>
+                        </tr>
+                        <tr>
+                            <td>Helium</td>
+                            <td>He</td>
+                            <td>Balloons, cooling</td>
+                        </tr>
+                        <tr>
+                            <td>Carbon</td>
+                            <td>C</td>
+                            <td>Diamonds, pencils</td>
+                        </tr>
+                        <tr>
+                            <td>Nitrogen</td>
+                            <td>N</td>
+                            <td>Air, fertilizers</td>
+                        </tr>
+                        <tr>
+                            <td>Oxygen</td>
+                            <td>O</td>
+                            <td>Breathing, water</td>
+                        </tr>
+                        <tr>
+                            <td>Sodium</td>
+                            <td>Na</td>
+                            <td>Table salt</td>
+                        </tr>
+                        <tr>
+                            <td>Gold</td>
+                            <td>Au</td>
+                            <td>Jewelry, electronics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Element vs. Compound (Critical Distinction):</div>
+                <ul>
+                    <li><strong>Element:</strong> Pure substance (only one type of atom)</li>
+                    <li><strong>Compound:</strong> Two or more different elements chemically bonded</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Strategy:</div>
+                <p>Always look at the chemical formula. If you see only one capital letter (or one capital letter followed by lowercase letters), it's an element. If you see two or more different capital letters, it's a compound.</p>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>ION: Charged Atoms</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Formal Definition:</div>
+                <p>An ion is an atom or molecule that has gained or lost one or more electrons, resulting in a net electrical charge.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>Think of an ion as an atom with an "accounting error." Normally, atoms have equal numbers of positive protons and negative electrons (balanced books). An ion has either lost electrons (now has more protons = positive charge) or gained electrons (now has more electrons = negative charge).</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-exclamation-triangle"></i> Why Ions Matter in Tests and Real Life:</div>
+                <p>Ions are incredibly important in chemistry and appear frequently on tests because:</p>
+                <ul>
+                    <li><strong>They're everywhere:</strong> Your body runs on ions, batteries work with ions, salt is made of ions</li>
+                    <li><strong>Test questions focus on ions:</strong> Many exam questions specifically test ion formation, charges, and properties</li>
+                    <li><strong>Chemical reactions depend on ions:</strong> Many reactions happen because of ion attractions</li>
+                    <li><strong>Biological processes:</strong> Your nerves, muscles, and heart all work because of ions</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-list"></i> Types of Ions:</div>
+                <ol>
+                    <li>
+                        <p><strong>Cations (Positive Ions):</strong></p>
+                        <ul>
+                            <li>Formed when atoms LOSE electrons</li>
+                            <li>Have more protons than electrons</li>
+                            <li>Common in metals (Na⁺, K⁺, Ca²⁺, Mg²⁺)</li>
+                            <li>Example: Sodium atom loses 1 electron → Sodium ion (Na⁺)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Anions (Negative Ions):</strong></p>
+                        <ul>
+                            <li>Formed when atoms GAIN electrons</li>
+                            <li>Have more electrons than protons</li>
+                            <li>Common in nonmetals (Cl⁻, O²⁻, F⁻)</li>
+                            <li>Example: Chlorine atom gains 1 electron → Chloride ion (Cl⁻)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> Ion Formation Process (Step-by-Step for Tests):</div>
+                <div class="formula-box">
+                    Step 1: Start with neutral atom (equal protons and electrons)<br>
+                    Step 2: Atom loses or gains electrons<br>
+                    Step 3: Result is ion with net charge<br>
+                    Neutral Atom → Loses Electrons → Positive Ion (Cation)<br>
+                    Example: Na (11p⁺, 11e⁻) → Na⁺ (11p⁺, 10e⁻)<br>
+                    Neutral Atom → Gains Electrons → Negative Ion (Anion)<br>
+                    Example: Cl (17p⁺, 17e⁻) → Cl⁻ (17p⁺, 18e⁻)
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-calculator"></i> How to Determine Ion Charges (Test-Critical Skill):</div>
+                <p><strong>For Main Group Elements:</strong></p>
+                <ul>
+                    <li><strong>Group 1 (Alkali Metals):</strong> Always lose 1 electron → +1 charge (Li⁺, Na⁺, K⁺)</li>
+                    <li><strong>Group 2 (Alkaline Earth Metals):</strong> Always lose 2 electrons → +2 charge (Mg²⁺, Ca²⁺)</li>
+                    <li><strong>Group 16 (Chalcogens):</strong> Usually gain 2 electrons → -2 charge (O²⁻, S²⁻)</li>
+                    <li><strong>Group 17 (Halogens):</strong> Usually gain 1 electron → -1 charge (F⁻, Cl⁻, Br⁻)</li>
+                </ul>
+                <p><strong>For Transition Metals:</strong> Can have multiple charges (common ones to memorize for tests):</p>
+                <ul>
+                    <li>Iron: Fe²⁺ or Fe³⁺</li>
+                    <li>Copper: Cu⁺ or Cu²⁺</li>
+                    <li>Zinc: Zn²⁺ (usually only +2)</li>
+                    <li>Silver: Ag⁺ (usually only +1)</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title"><i class="fas fa-flask"></i> Real-World Importance (Test Examples):</div>
+                <ul>
+                    <li><strong>Nerve function:</strong> Sodium ions (Na⁺) and potassium ions (K⁺) move in and out of cells</li>
+                    <li><strong>Table salt:</strong> Sodium ions (Na⁺) and chloride ions (Cl⁻) bonded together</li>
+                    <li><strong>Battery operation:</strong> Movement of ions creates electricity (tests often ask about this)</li>
+                    <li><strong>Bone health:</strong> Calcium ions (Ca²⁺) strengthen bones</li>
+                    <li><strong>Stomach acid:</strong> Hydrogen ions (H⁺) make things acidic</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Test Alert:</div>
+                <p>Watch for the charge symbols! Na is a neutral atom, Na⁺ is a sodium ion. The superscript tells you the charge. <strong>Common test mistake:</strong> forgetting that ions form to achieve stable electron configurations (usually 8 valence electrons). Tests often include questions about why atoms form ions with specific charges.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-chess"></i> Test Strategy for Ion Questions:</div>
+                <ol>
+                    <li><strong>Identify the element:</strong> What group is it in?</li>
+                    <li><strong>Determine charge tendency:</strong> Metals lose electrons (positive), nonmetals gain electrons (negative)</li>
+                    <li><strong>Count electrons transferred:</strong> Usually enough to get 8 valence electrons</li>
+                    <li><strong>Write the ion symbol:</strong> Element symbol with charge as superscript</li>
+                    <li><strong>Check your answer:</strong> Does it make sense for that element?</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-question-circle"></i> Common Test Questions About Ions:</div>
+                <ul>
+                    <li>"What is the charge on a magnesium ion?" (Answer: Mg²⁺)</li>
+                    <li>"How many electrons does a sodium ion have?" (Answer: 10, since Na has 11 protons and +1 charge)</li>
+                    <li>"Which of these is most likely to form a +2 ion?" (Answer: Group 2 elements like calcium)</li>
+                    <li>"Write the ion symbol for the ion formed when chlorine gains an electron" (Answer: Cl⁻)</li>
+                </ul>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Memory Aid for Tests:</div>
+                <ul>
+                    <li><strong>"LOSE POSITIVE, GAIN NEGATIVE"</strong> - This phrase will help you remember ion charges</li>
+                    <li><strong>"Metals lose, Nonmetals gain"</strong> - Most test questions follow this pattern</li>
+                    <li><strong>"Group number tells the story"</strong> - Group 1 = +1, Group 2 = +2, Group 16 = -2, Group 17 = -1</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>MOLECULE: Groups of Bonded Atoms</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Formal Definition:</div>
+                <p>A molecule is the smallest unit of a substance that retains the chemical properties of that substance, consisting of two or more atoms held together by chemical bonds.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>A molecule is like a small LEGO structure made by connecting individual LEGO bricks (atoms) together. The connected structure has its own properties that are different from the individual bricks.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-key"></i> Key Characteristics:</div>
+                <ul>
+                    <li><strong>Two or more atoms:</strong> Minimum requirement</li>
+                    <li><strong>Chemical bonds:</strong> Atoms are connected, not just mixed</li>
+                    <li><strong>Independent properties:</strong> The molecule behaves as a single unit</li>
+                    <li><strong>Can be same or different elements:</strong> O₂ (same) vs. H₂O (different)</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-list"></i> Types of Molecules:</div>
+                <ol>
+                    <li>
+                        <p><strong>Diatomic Molecules (Two atoms):</strong></p>
+                        <ul>
+                            <li>Same element: O₂, H₂, N₂, Cl₂, F₂, Br₂, I₂</li>
+                            <li>Different elements: CO, HCl, NO</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Polyatomic Molecules (Three or more atoms):</strong></p>
+                        <ul>
+                            <li>Same element: O₃ (ozone)</li>
+                            <li>Different elements: H₂O, CO₂, CH₄, C₆H₁₂O₆</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Molecular vs. Ionic Compounds:</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Molecular Compounds</th>
+                            <th>Ionic Compounds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bond type</td>
+                            <td>Covalent (shared electrons)</td>
+                            <td>Ionic (electron transfer)</td>
+                        </tr>
+                        <tr>
+                            <td>State at room temp</td>
+                            <td>Often gas/liquid</td>
+                            <td>Usually solid</td>
+                        </tr>
+                        <tr>
+                            <td>Examples</td>
+                            <td>H₂O, CO₂, CH₄</td>
+                            <td>NaCl, CaCO₃, MgO</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-eye"></i> Visual Representation of Common Molecules:</div>
+                
+                <div class="molecule-visual">
+                    <div class="molecule">
+                        <div class="atom-h2o hydrogen">H</div>
+                        <div class="bond"></div>
+                        <div class="atom-h2o oxygen">O</div>
+                        <div class="bond bond-2"></div>
+                        <div class="atom-h2o hydrogen">H</div>
+                    </div>
+                </div>
+                
+                <div class="formula-box">
+                    Water (H₂O):       Oxygen (O₂):          Carbon Dioxide (CO₂):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;H                   O = O              O = C = O<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;\                 /                     /<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O               O                     O<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;/<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;H
+                </div>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Strategy:</div>
+                <p>Remember that molecules can be elements (like O₂) or compounds (like H₂O). The key is that atoms are bonded together, not just mixed.</p>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>COMPOUND: Different Elements United</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Formal Definition:</div>
+                <p>A compound is a substance formed when two or more different elements are chemically bonded together in fixed proportions.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>A compound is like a recipe where you mix different ingredients (elements) to create something entirely new with its own properties. Just as mixing flour, sugar, and eggs creates a cake (not just a pile of ingredients), mixing hydrogen and oxygen creates water (not just hydrogen and oxygen gas).</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-key"></i> Essential Characteristics:</div>
+                <ul>
+                    <li><strong>Different elements:</strong> Must contain at least two different types of atoms</li>
+                    <li><strong>Chemical bonding:</strong> Elements are bonded, not physically mixed</li>
+                    <li><strong>Fixed composition:</strong> Always same ratio of elements (law of definite proportions)</li>
+                    <li><strong>New properties:</strong> Properties different from constituent elements</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Compound vs. Mixture (Critical Exam Distinction):</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Compound</th>
+                            <th>Mixture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Composition</td>
+                            <td>Fixed ratio</td>
+                            <td>Variable ratio</td>
+                        </tr>
+                        <tr>
+                            <td>Bonding</td>
+                            <td>Chemical bonds</td>
+                            <td>No chemical bonds</td>
+                        </tr>
+                        <tr>
+                            <td>Separation</td>
+                            <td>Chemical methods needed</td>
+                            <td>Physical separation possible</td>
+                        </tr>
+                        <tr>
+                            <td>Properties</td>
+                            <td>New properties</td>
+                            <td>Properties of components</td>
+                        </tr>
+                        <tr>
+                            <td>Examples</td>
+                            <td>H₂O, NaCl, CO₂</td>
+                            <td>Salt water, air, trail mix</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-list"></i> Types of Compounds:</div>
+                <ol>
+                    <li>
+                        <p><strong>Molecular Compounds:</strong> Covalent bonding (shared electrons)</p>
+                        <ul>
+                            <li>Examples: H₂O, CO₂, CH₄, C₆H₁₂O₆</li>
+                            <li>Often contain nonmetals only</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Ionic Compounds:</strong> Ionic bonding (electron transfer)</p>
+                        <ul>
+                            <li>Examples: NaCl, CaCO₃, MgO</li>
+                            <li>Usually contain metals and nonmetals</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Law of Definite Proportions:</div>
+                <p>A compound always contains the same elements in the same proportion by mass.</p>
+                <ul>
+                    <li>Example: Water is ALWAYS 11.2% hydrogen and 88.8% oxygen by mass</li>
+                    <li>This is why we write H₂O, not H₃O or HO₂</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Warning:</div>
+                <p>Many students confuse compounds with mixtures. Remember: compounds have chemical bonds and fixed ratios, mixtures don't!</p>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>EMPIRICAL FORMULA: Simplest Ratio</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-calculator"></i> Formal Definition:</div>
+                <p>An empirical formula is the simplest whole-number ratio of atoms of each element present in a compound.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>An empirical formula is like a simplified recipe. If a recipe calls for 4 cups of flour and 2 cups of sugar, the empirical formula would be 2:1 (simplified from 4:2). It shows the basic proportions, not the exact amounts.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> How to Find Empirical Formula:</div>
+                <ol>
+                    <li><strong>Find the mass of each element</strong> (usually given)</li>
+                    <li><strong>Convert to moles</strong> (divide by atomic mass)</li>
+                    <li><strong>Divide by smallest mole value</strong> to get ratio</li>
+                    <li><strong>Multiply to get whole numbers</strong> if needed</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-flask"></i> Step-by-Step Example:</div>
+                <p>A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen.</p>
+                <ol>
+                    <li><strong>Assume 100g sample:</strong> 40.0g C, 6.7g H, 53.3g O</li>
+                    <li><strong>Convert to moles:</strong>
+                        <ul>
+                            <li>C: 40.0g ÷ 12.0g/mol = 3.33 mol</li>
+                            <li>H: 6.7g ÷ 1.0g/mol = 6.7 mol</li>
+                            <li>O: 53.3g ÷ 16.0g/mol = 3.33 mol</li>
+                        </ul>
+                    </li>
+                    <li><strong>Divide by smallest (3.33):</strong>
+                        <ul>
+                            <li>C: 3.33 ÷ 3.33 = 1</li>
+                            <li>H: 6.7 ÷ 3.33 = 2</li>
+                            <li>O: 3.33 ÷ 3.33 = 1</li>
+                        </ul>
+                    </li>
+                    <li><strong>Empirical formula:</strong> CH₂O</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-table"></i> Common Examples:</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Compound</th>
+                            <th>Molecular Formula</th>
+                            <th>Empirical Formula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hydrogen peroxide</td>
+                            <td>H₂O₂</td>
+                            <td>HO</td>
+                        </tr>
+                        <tr>
+                            <td>Benzene</td>
+                            <td>C₆H₆</td>
+                            <td>CH</td>
+                        </tr>
+                        <tr>
+                            <td>Glucose</td>
+                            <td>C₆H₁₂O₆</td>
+                            <td>CH₂O</td>
+                        </tr>
+                        <tr>
+                            <td>Ethylene</td>
+                            <td>C₂H₄</td>
+                            <td>CH₂</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-equals"></i> When Empirical = Molecular:</div>
+                <ul>
+                    <li>Water: H₂O (both)</li>
+                    <li>Carbon dioxide: CO₂ (both)</li>
+                    <li>Ammonia: NH₃ (both)</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Strategy:</div>
+                <p>Empirical formulas are always simplified to the smallest whole numbers. If you get fractions, multiply all numbers by the same factor to get whole numbers.</p>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>MOLECULAR FORMULA: Exact Composition</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-calculator"></i> Formal Definition:</div>
+                <p>A molecular formula shows the exact number of atoms of each element in one molecule of a compound.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>A molecular formula is like the complete, detailed recipe. If a cookie recipe calls for exactly 2 cups of flour and 1 cup of sugar, that's the molecular formula - it shows the exact amounts needed to make one batch.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-equals"></i> Relationship to Empirical Formula:</div>
+                <p>Molecular Formula = (Empirical Formula) × n<br>
+                Where n is a whole number (1, 2, 3, ...)</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> How to Find Molecular Formula:</div>
+                <ol>
+                    <li><strong>Find empirical formula</strong> (as shown above)</li>
+                    <li><strong>Find molecular mass</strong> (usually given)</li>
+                    <li><strong>Calculate empirical mass</strong> (mass of empirical formula)</li>
+                    <li><strong>Divide molecular mass by empirical mass</strong> to get n</li>
+                    <li><strong>Multiply empirical formula by n</strong></li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-flask"></i> Step-by-Step Example:</div>
+                <p>A compound has empirical formula CH₂O and molecular mass 180 g/mol.</p>
+                <ol>
+                    <li><strong>Empirical mass:</strong> C(12) + H₂(2) + O(16) = 30 g/mol</li>
+                    <li><strong>n = Molecular mass ÷ Empirical mass = 180 ÷ 30 = 6</strong></li>
+                    <li><strong>Molecular formula:</strong> (CH₂O) × 6 = C₆H₁₂O₆</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-table"></i> Common Molecular Formulas:</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Compound</th>
+                            <th>Molecular Formula</th>
+                            <th>What it tells us</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Water</td>
+                            <td>H₂O</td>
+                            <td>2 H atoms, 1 O atom per molecule</td>
+                        </tr>
+                        <tr>
+                            <td>Carbon dioxide</td>
+                            <td>CO₂</td>
+                            <td>1 C atom, 2 O atoms per molecule</td>
+                        </tr>
+                        <tr>
+                            <td>Glucose</td>
+                            <td>C₆H₁₂O₆</td>
+                            <td>6 C, 12 H, 6 O atoms per molecule</td>
+                        </tr>
+                        <tr>
+                            <td>Aspirin</td>
+                            <td>C₉H₈O₄</td>
+                            <td>9 C, 8 H, 4 O atoms per molecule</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Molecular Formula Information:</div>
+                <ul>
+                    <li><strong>Exact atom count:</strong> Shows precise number of each atom</li>
+                    <li><strong>Molecular mass:</strong> Can calculate exact mass of one molecule</li>
+                    <li><strong>Types of atoms:</strong> Shows which elements are present</li>
+                    <li><strong>Bonding possibilities:</strong> Suggests how atoms might be arranged</li>
+                </ul>
+            </div>
+            
+            <div class="exam-tip">
+                <div class="exam-tip-title"><i class="fas fa-graduation-cap"></i> Exam Alert:</div>
+                <p>Remember that molecular formulas show actual numbers, while empirical formulas show ratios. Many exam questions give you one and ask for the other!</p>
+            </div>
+            
+            <hr>
+            
+            <h3><strong>Summary Table: Key Relationships</strong></h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                        <th>Key Feature</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Atom</strong></td>
+                        <td>Smallest unit of matter</td>
+                        <td>Fundamental building block</td>
+                        <td>Single gold atom</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Element</strong></td>
+                        <td>Pure substance with one atom type</td>
+                        <td>Cannot be broken down chemically</td>
+                        <td>Gold (Au), Oxygen (O)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ion</strong></td>
+                        <td>Charged atom or molecule</td>
+                        <td>Has gained/lost electrons</td>
+                        <td>Na⁺, Cl⁻</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Molecule</strong></td>
+                        <td>Group of bonded atoms</td>
+                        <td>Smallest unit with substance properties</td>
+                        <td>H₂O, O₂, CO₂</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compound</strong></td>
+                        <td>Different elements chemically bonded</td>
+                        <td>Fixed composition, new properties</td>
+                        <td>H₂O, NaCl, CO₂</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Empirical Formula</strong></td>
+                        <td>Simplest atom ratio</td>
+                        <td>Reduced to smallest whole numbers</td>
+                        <td>HO (from H₂O₂)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Molecular Formula</strong></td>
+                        <td>Exact atom count</td>
+                        <td>Shows actual numbers in molecule</td>
+                        <td>H₂O, C₆H₁₂O₆</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <hr>
+            
+            <h3><strong>Common Exam Questions and Strategies</strong></h3>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 1: Identification</div>
+                <p><em>"Is CO₂ an element, compound, or molecule?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Look for different elements (C and O = different) → Compound</li>
+                        <li>Also, it's a molecule (atoms bonded together)</li>
+                        <li><strong>Answer:</strong> Both a compound and a molecule</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 2: Formula Conversion</div>
+                <p><em>"A compound has molecular formula C₆H₁₂O₆. What is the empirical formula?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Find greatest common divisor (6,12,6) = 6</li>
+                        <li>Divide all subscripts by 6: C₁H₂O₁ = CH₂O</li>
+                        <li><strong>Answer:</strong> CH₂O</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 3: Ion Formation</div>
+                <p><em>"What is the charge of an atom that loses 3 electrons?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Losing electrons = positive charge</li>
+                        <li>Number lost = charge magnitude</li>
+                        <li><strong>Answer:</strong> 3+ charge</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 4: Distinguishing Concepts</div>
+                <p><em>"Explain the difference between a compound and a mixture."</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Focus on bonding and fixed ratios</li>
+                        <li><strong>Answer:</strong> Compounds have chemical bonds and fixed composition; mixtures have no bonds and variable composition</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <p><em>More topics will be added as specified...</em></p>
+            
+            <hr>
+            
+            <h4 id="module-1-2-the-mole-concept-understanding-amount-of-substance">Module 1.2: The Mole Concept - Understanding Amount of Substance</h4>
+            
+            <div class="info-box">
+                <p><strong>Learning Objectives:</strong></p>
+                <ul>
+                    <li>Define the mole (mol) as the unit for amount of substance</li>
+                    <li>Understand Avogadro's constant and its significance</li>
+                    <li>Perform calculations involving moles and number of particles</li>
+                    <li>Convert between moles, mass, and number of particles</li>
+                    <li>Apply mole concepts to solve chemistry problems</li>
+                    <li>Prepare for formal exam questions on mole calculations</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>THE MOLE (mol): The Chemist's Counting Unit</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Formal Definition:</div>
+                <p>The mole (symbol: mol) is the SI unit for the amount of substance. One mole contains exactly 6.02 × 10²³ elementary entities (atoms, molecules, ions, or other particles).</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>Think of the mole as a "chemist's dozen." Just as a dozen means 12 of something (12 eggs, 12 donuts), a mole means 6.02 × 10²³ of something (atoms, molecules, etc.). It's a way to count tiny things that are too small to see individually.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-question-circle"></i> Why Do We Need Moles?</div>
+                <ul>
+                    <li><strong>Atoms are incredibly tiny:</strong> You can't see or count individual atoms</li>
+                    <li><strong>We work with large numbers:</strong> Even a small sample contains billions of atoms</li>
+                    <li><strong>Chemical reactions happen in ratios:</strong> We need to know how many atoms/molecules are reacting</li>
+                    <li><strong>Practical measurements:</strong> We can measure mass, but we need to know how many atoms that mass represents</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-utensils"></i> Everyday Analogy:</div>
+                <div class="formula-box">
+                    If you wanted to buy rice for a recipe:<br>
+                    - You wouldn't count individual grains (too small and numerous)<br>
+                    - You'd measure by mass (grams or pounds)<br>
+                    - But you'd still need to know approximately how many grains you have<br>
+                    Chemists have the same problem with atoms!
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-key"></i> Key Properties of the Mole:</div>
+                <ul>
+                    <li><strong>Universal counting unit:</strong> Works for any type of particle</li>
+                    <li><strong>Bridge between atomic and macroscopic scales:</strong> Connects what we can't see to what we can measure</li>
+                    <li><strong>Based on carbon-12:</strong> 1 mole = mass of 12 grams of carbon-12</li>
+                    <li><strong>Enables chemical calculations:</strong> Makes stoichiometry possible</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>AVOGADRO'S CONSTANT: The Magic Number</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-calculator"></i> Formal Definition:</div>
+                <p>Avogadro's constant (L or Nₐ) is the number of particles in one mole of substance. Its value is 6.02 × 10²³ mol⁻¹.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-info-circle"></i> Beginner-Friendly Explanation:</div>
+                <p>Avogadro's constant is like a conversion factor between the "atomic world" and the "human world." It tells us how many atoms are in a mole, just like knowing that 12 inches are in a foot helps us convert between different measurement systems.</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-hashtag"></i> The Number: 6.02 × 10²³</div>
+                <p>Let's understand how big this number is:</p>
+                <ul>
+                    <li><strong>Written out:</strong> 602,000,000,000,000,000,000,000</li>
+                    <li><strong>In words:</strong> 602 billion trillion</li>
+                    <li><strong>Scale:</strong> If you had 6.02 × 10²³ grains of sand, you could cover the entire United States with a layer of sand several meters deep!</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-history"></i> Historical Context:</div>
+                <ul>
+                    <li>Named after <strong>Amedeo Avogadro</strong> (1776-1856)</li>
+                    <li>He proposed that equal volumes of gases contain equal numbers of molecules</li>
+                    <li>The constant was determined experimentally after his death</li>
+                    <li>It's one of the fundamental constants of nature</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-question-circle"></i> Why This Specific Number?</div>
+                <p>The number 6.02 × 10²³ was chosen so that:</p>
+                <ul>
+                    <li>1 mole of carbon-12 atoms has a mass of exactly 12 grams</li>
+                    <li>This connects the atomic mass unit (amu) to grams</li>
+                    <li>Makes calculations convenient for chemists</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Avogadro's Constant in Equations:</div>
+                <div class="formula-box">
+                    Number of particles = Number of moles × Avogadro's constant<br>
+                    N = n × L<br>
+                    Where:<br>
+                    N = number of particles<br>
+                    n = number of moles<br>
+                    L = 6.02 × 10²³ mol⁻¹
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>MOLE CALCULATIONS: Step-by-Step Methods</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-exchange-alt"></i> The Three Key Conversions:</div>
+                <ol>
+                    <li><strong>Moles ↔ Number of Particles</strong></li>
+                    <li><strong>Moles ↔ Mass</strong></li>
+                    <li><strong>Mass ↔ Number of Particles</strong></li>
+                </ol>
+                <p>Let's master each one!</p>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 1: Moles to Number of Particles</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Number of particles = Moles × Avogadro's constant<br>
+                    N = n × L
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> Step-by-Step Method:</div>
+                <ol>
+                    <li><strong>Identify what you know:</strong> Number of moles (n)</li>
+                    <li><strong>Write the formula:</strong> N = n × L</li>
+                    <li><strong>Substitute values:</strong> N = n × (6.02 × 10²³)</li>
+                    <li><strong>Calculate:</strong> Multiply and express in scientific notation</li>
+                </ol>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 1:</div>
+                <p><em>How many atoms are in 2.5 moles of iron (Fe)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> n = 2.5 mol</li>
+                        <li><strong>Formula:</strong> N = n × L</li>
+                        <li><strong>Substitute:</strong> N = 2.5 × (6.02 × 10²³)</li>
+                        <li><strong>Calculate:</strong> N = 1.505 × 10²⁴ atoms</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 1.505 × 10²⁴ atoms of iron</p>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 2:</div>
+                <p><em>How many molecules are in 0.75 moles of water (H₂O)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> n = 0.75 mol</li>
+                        <li><strong>Formula:</strong> N = n × L</li>
+                        <li><strong>Substitute:</strong> N = 0.75 × (6.02 × 10²³)</li>
+                        <li><strong>Calculate:</strong> N = 4.515 × 10²³ molecules</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 4.515 × 10²³ molecules of water</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 2: Number of Particles to Moles</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Number of moles = Number of particles ÷ Avogadro's constant<br>
+                    n = N ÷ L
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> Step-by-Step Method:</div>
+                <ol>
+                    <li><strong>Identify what you know:</strong> Number of particles (N)</li>
+                    <li><strong>Write the formula:</strong> n = N ÷ L</li>
+                    <li><strong>Substitute values:</strong> n = N ÷ (6.02 × 10²³)</li>
+                    <li><strong>Calculate:</strong> Divide and express in scientific notation</li>
+                </ol>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 1:</div>
+                <p><em>How many moles are in 3.01 × 10²³ atoms of zinc (Zn)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> N = 3.01 × 10²³ atoms</li>
+                        <li><strong>Formula:</strong> n = N ÷ L</li>
+                        <li><strong>Substitute:</strong> n = (3.01 × 10²³) ÷ (6.02 × 10²³)</li>
+                        <li><strong>Calculate:</strong> n = 0.5 mol</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 0.5 moles of zinc</p>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 2:</div>
+                <p><em>How many moles are in 1.204 × 10²⁴ molecules of carbon dioxide (CO₂)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> N = 1.204 × 10²⁴ molecules</li>
+                        <li><strong>Formula:</strong> n = N ÷ L</li>
+                        <li><strong>Substitute:</strong> n = (1.204 × 10²⁴) ÷ (6.02 × 10²³)</li>
+                        <li><strong>Calculate:</strong> n = 2.0 mol</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 2.0 moles of carbon dioxide</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 3: Moles to Mass (Using Molar Mass)</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Mass = Moles × Molar mass<br>
+                    m = n × M<br>
+                    Where:<br>
+                    m = mass in grams<br>
+                    n = number of moles<br>
+                    M = molar mass in g/mol
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-weight-hanging"></i> What is Molar Mass?</div>
+                <p>Molar mass is the mass of one mole of a substance. It's numerically equal to:</p>
+                <ul>
+                    <li><strong>Atomic mass</strong> (for elements)</li>
+                    <li><strong>Molecular mass</strong> (for compounds)</li>
+                    <li><strong>Formula mass</strong> (for ionic compounds)</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-search"></i> Finding Molar Mass:</div>
+                <ul>
+                    <li><strong>Elements:</strong> Use atomic mass from periodic table</li>
+                    <li><strong>Compounds:</strong> Sum of atomic masses of all atoms</li>
+                </ul>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 1:</div>
+                <p><em>What is the mass of 3.0 moles of aluminum (Al)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Find molar mass:</strong> Al = 27.0 g/mol (from periodic table)</li>
+                        <li><strong>Known:</strong> n = 3.0 mol, M = 27.0 g/mol</li>
+                        <li><strong>Formula:</strong> m = n × M</li>
+                        <li><strong>Substitute:</strong> m = 3.0 × 27.0</li>
+                        <li><strong>Calculate:</strong> m = 81.0 g</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 81.0 grams of aluminum</p>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 2:</div>
+                <p><em>What is the mass of 2.5 moles of water (H₂O)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Find molar mass:</strong> H₂O = 2(1.0) + 16.0 = 18.0 g/mol</li>
+                        <li><strong>Known:</strong> n = 2.5 mol, M = 18.0 g/mol</li>
+                        <li><strong>Formula:</strong> m = n × M</li>
+                        <li><strong>Substitute:</strong> m = 2.5 × 18.0</li>
+                        <li><strong>Calculate:</strong> m = 45.0 g</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 45.0 grams of water</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 4: Mass to Moles</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Number of moles = Mass ÷ Molar mass<br>
+                    n = m ÷ M
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> Step-by-Step Method:</div>
+                <ol>
+                    <li><strong>Identify what you know:</strong> Mass (m) and substance</li>
+                    <li><strong>Find molar mass:</strong> Use periodic table (for elements) or calculate (for compounds)</li>
+                    <li><strong>Write the formula:</strong> n = m ÷ M</li>
+                    <li><strong>Substitute values:</strong> n = mass ÷ molar mass</li>
+                    <li><strong>Calculate:</strong> Divide the numbers</li>
+                </ol>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 1:</div>
+                <p><em>How many moles are in 64 grams of oxygen gas (O₂)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> m = 64 g, substance = O₂</li>
+                        <li><strong>Find molar mass:</strong> O₂ = 2 × 16.0 = 32.0 g/mol</li>
+                        <li><strong>Formula:</strong> n = m ÷ M</li>
+                        <li><strong>Substitute:</strong> n = 64 ÷ 32.0</li>
+                        <li><strong>Calculate:</strong> n = 2.0 mol</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 2.0 moles of oxygen gas</p>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example 2:</div>
+                <p><em>How many moles are in 180 grams of glucose (C₆H₁₂O₆)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li><strong>Known:</strong> m = 180 g, substance = C₆H₁₂O₆</li>
+                        <li><strong>Find molar mass:</strong> C₆H₁₂O₆ = 6(12.0) + 12(1.0) + 6(16.0) = 180.0 g/mol</li>
+                        <li><strong>Formula:</strong> n = m ÷ M</li>
+                        <li><strong>Substitute:</strong> n = 180 ÷ 180.0</li>
+                        <li><strong>Calculate:</strong> n = 1.0 mol</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 1.0 mole of glucose</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 5: Mass to Number of Particles (Combined Conversion)</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-exchange-alt"></i> Method:</div>
+                <p>Mass → Moles → Number of particles<br>
+                Use both conversions in sequence!</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Number of particles = (Mass ÷ Molar mass) × Avogadro's constant<br>
+                    N = (m ÷ M) × L
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example:</div>
+                <p><em>How many molecules are in 90 grams of water (H₂O)?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <p><strong>Method 1: Step-by-Step</strong></p>
+                    <ol>
+                        <li><strong>Mass → Moles:</strong> n = m ÷ M = 90 ÷ 18.0 = 2.00 mol</li>
+                        <li><strong>Moles → Particles:</strong> N = n × L = 2.00 × (6.02 × 10²³) = 1.204 × 10²⁴ molecules</li>
+                    </ol>
+                    <p><strong>Method 2: Combined Formula</strong></p>
+                    <ol>
+                        <li><strong>Formula:</strong> N = (m ÷ M) × L</li>
+                        <li><strong>Substitute:</strong> N = (90 ÷ 18.0) × (6.02 × 10²³)</li>
+                        <li><strong>Calculate:</strong> N = 5.0 × (6.02 × 10²³) = 3.01 × 10²⁴ molecules</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 3.01 × 10²⁴ molecules of water</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h5><strong>Conversion 6: Number of Particles to Mass (Combined Conversion)</strong></h5>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-exchange-alt"></i> Method:</div>
+                <p>Number of particles → Moles → Mass<br>
+                Use both conversions in sequence!</p>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-square-root-alt"></i> Formula:</div>
+                <div class="formula-box">
+                    Mass = (Number of particles ÷ Avogadro's constant) × Molar mass<br>
+                    m = (N ÷ L) × M
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-flask"></i> Example:</div>
+                <p><em>What is the mass of 1.204 × 10²⁴ atoms of carbon?</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <p><strong>Method 1: Step-by-Step</strong></p>
+                    <ol>
+                        <li><strong>Particles → Moles:</strong> n = N ÷ L = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = 2.0 mol</li>
+                        <li><strong>Moles → Mass:</strong> m = n × M = 2.0 × 12.0 = 24.0 g</li>
+                    </ol>
+                    <p><strong>Method 2: Combined Formula</strong></p>
+                    <ol>
+                        <li><strong>Formula:</strong> m = (N ÷ L) × M</li>
+                        <li><strong>Substitute:</strong> m = (1.204 × 10²⁴ ÷ 6.02 × 10²³) × 12.0</li>
+                        <li><strong>Calculate:</strong> m = 2.0 × 12.0 = 24.0 g</li>
+                    </ol>
+                    <p><strong>Answer:</strong> 24.0 grams of carbon</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>PRACTICAL APPLICATIONS: Why Moles Matter</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-flask"></i> In Chemical Reactions:</div>
+                <p>Chemical reactions happen in specific ratios of molecules, not masses. Moles allow us to:</p>
+                <ul>
+                    <li><strong>Balance chemical equations:</strong> 2H₂ + O₂ → 2H₂O means 2 moles H₂ + 1 mole O₂ → 2 moles H₂O</li>
+                    <li><strong>Predict products:</strong> Know exactly how much product will form</li>
+                    <li><strong>Calculate reactants:</strong> Know exactly how much reactant is needed</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-globe"></i> In Everyday Life:</div>
+                <ul>
+                    <li><strong>Medicine:</strong> Drug dosages are calculated using moles</li>
+                    <li><strong>Food chemistry:</strong> Nutrition labels use mole-based calculations</li>
+                    <li><strong>Environmental science:</strong> Pollution measurements use mole concepts</li>
+                    <li><strong>Manufacturing:</strong> Chemical production relies on mole calculations</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-microscope"></i> In Laboratory Work:</div>
+                <ul>
+                    <li><strong>Solution preparation:</strong> Making solutions of specific concentration</li>
+                    <li><strong>Titration:</strong> Determining unknown concentrations</li>
+                    <li><strong>Analysis:</strong> Finding composition of unknown substances</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>COMMON MISTAKES TO AVOID</strong></h4>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 1: Confusing Moles and Molecules</div>
+                <ul>
+                    <li><strong>Wrong:</strong> "2 moles of water means 2 molecules"</li>
+                    <li><strong>Right:</strong> "2 moles of water means 2 × 6.02 × 10²³ molecules"</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 2: Incorrect Unit Conversion</div>
+                <ul>
+                    <li><strong>Wrong:</strong> Forgetting to use scientific notation with large numbers</li>
+                    <li><strong>Right:</strong> Always use scientific notation for Avogadro's constant calculations</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 3: Molar Mass Errors</div>
+                <ul>
+                    <li><strong>Wrong:</strong> Using atomic number instead of atomic mass</li>
+                    <li><strong>Right:</strong> Using atomic mass from periodic table for molar mass</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 4: Formula Errors</div>
+                <ul>
+                    <li><strong>Wrong:</strong> N = n ÷ L (dividing instead of multiplying)</li>
+                    <li><strong>Right:</strong> N = n × L (multiplying moles by Avogadro's constant)</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 5: Significant Figures</div>
+                <ul>
+                    <li><strong>Wrong:</strong> Reporting too many or too few significant figures</li>
+                    <li><strong>Right:</strong> Match significant figures to the least precise measurement</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>EXAM STRATEGIES</strong></h4>
+            
+            <h5><strong>Strategy 1: Identify What You Know and What You Need</strong></h5>
+            <ol>
+                <li><strong>List given information:</strong> Mass? Moles? Number of particles?</li>
+                <li><strong>Identify unknown:</strong> What is the question asking for?</li>
+                <li><strong>Choose the right formula:</strong> Based on what you know and what you need</li>
+            </ol>
+            
+            <h5><strong>Strategy 2: Use the Mole Triangle</strong></h5>
+            
+            <div class="mole-triangle">
+                <div class="triangle"></div>
+                <div class="triangle-label mass-label">Mass</div>
+                <div class="triangle-label moles-label">Moles</div>
+                <div class="triangle-label particles-label">Number of Particles</div>
+            </div>
+            
+            <ul>
+                <li><strong>Mass ↔ Moles:</strong> Use molar mass</li>
+                <li><strong>Moles ↔ Particles:</strong> Use Avogadro's constant</li>
+                <li><strong>Mass ↔ Particles:</strong> Use both (go through moles)</li>
+            </ul>
+            
+            <h5><strong>Strategy 3: Show Your Work</strong></h5>
+            <ol>
+                <li><strong>Write the formula:</strong> Always start with the correct formula</li>
+                <li><strong>Substitute values:</strong> Show numbers and units</li>
+                <li><strong>Calculate:</strong> Show the mathematical steps</li>
+                <li><strong>Box your answer:</strong> Make it clear what your final answer is</li>
+            </ol>
+            
+            <h5><strong>Strategy 4: Check Your Answer</strong></h5>
+            <ol>
+                <li><strong>Does it make sense?:</strong> Should the number be larger or smaller?</li>
+                <li><strong>Are units correct?:</strong> Did you include the right units?</li>
+                <li><strong>Significant figures:</strong> Did you use the right number of significant figures?</li>
+            </ol>
+            
+            <hr>
+            
+            <h3><strong>Summary Table: Mole Calculations</strong></h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conversion</th>
+                        <th>Formula</th>
+                        <th>What You Need</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Moles → Particles</strong></td>
+                        <td>N = n × L</td>
+                        <td>Moles</td>
+                        <td>2 mol × 6.02×10²³ = 1.204×10²⁴ particles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Particles → Moles</strong></td>
+                        <td>n = N ÷ L</td>
+                        <td>Number of particles</td>
+                        <td>3.01×10²³ ÷ 6.02×10²³ = 0.5 mol</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moles → Mass</strong></td>
+                        <td>m = n × M</td>
+                        <td>Moles, molar mass</td>
+                        <td>3 mol × 27 g/mol = 81 g</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mass → Moles</strong></td>
+                        <td>n = m ÷ M</td>
+                        <td>Mass, molar mass</td>
+                        <td>54 g ÷ 27 g/mol = 2 mol</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mass → Particles</strong></td>
+                        <td>N = (m ÷ M) × L</td>
+                        <td>Mass, molar mass</td>
+                        <td>(90g ÷ 18g/mol) × 6.02×10²³ = 3.01×10²⁴</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Particles → Mass</strong></td>
+                        <td>m = (N ÷ L) × M</td>
+                        <td>Particles, molar mass</td>
+                        <td>(1.204×10²⁴ ÷ 6.02×10²³) × 12g = 24g</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <hr>
+            
+            <h3><strong>Common Exam Questions and Strategies</strong></h3>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 1: Basic Conversion</div>
+                <p><em>"How many atoms are in 0.5 moles of copper?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Use N = n × L</li>
+                        <li><strong>Solution:</strong> N = 0.5 × (6.02 × 10²³) = 3.01 × 10²³ atoms</li>
+                        <li><strong>Answer:</strong> 3.01 × 10²³ atoms</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 2: Reverse Conversion</div>
+                <p><em>"How many moles contain 1.204 × 10²⁴ molecules?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Use n = N ÷ L</li>
+                        <li><strong>Solution:</strong> n = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = 2.0 moles</li>
+                        <li><strong>Answer:</strong> 2.0 moles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 3: Mass to Moles</div>
+                <p><em>"How many moles are in 58.5 grams of NaCl?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Find molar mass, then n = m ÷ M</li>
+                        <li><strong>Solution:</strong> M = 23.0 + 35.5 = 58.5 g/mol, n = 58.5 ÷ 58.5 = 1.0 mol</li>
+                        <li><strong>Answer:</strong> 1.0 mole</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 4: Combined Conversion</div>
+                <p><em>"What is the mass of 3.01 × 10²³ molecules of CO₂?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Particles → Moles → Mass</li>
+                        <li><strong>Solution:</strong> n = 3.01×10²³ ÷ 6.02×10²³ = 0.5 mol, m = 0.5 × 44 = 22 g</li>
+                        <li><strong>Answer:</strong> 22 grams</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Question Type 5: Conceptual</div>
+                <p><em>"Why do chemists use moles instead of counting individual atoms?"</em></p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Strategy & Answer:</div>
+                    <ul>
+                        <li><strong>Strategy:</strong> Explain the scale problem and need for practical measurement</li>
+                        <li><strong>Answer:</strong> Atoms are too small and numerous to count individually; moles provide a practical way to work with measurable quantities while maintaining the correct ratios for chemical reactions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <p><em>More topics will be added as specified...</em></p>
+            
+            <hr>
+        </section>
+
+        <section id="key-concepts" class="section">
+            <h2><i class="fas fa-lightbulb"></i> Key Concepts</h2>
+            
+            <h3>Module 1.1: Fundamental Chemistry Terms - Key Takeaways</h3>
+            
+            <h4><strong>Core Definitions (Must Know for Exams):</strong></h4>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Atom:</strong> Smallest unit of matter that retains element properties
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Element:</strong> Pure substance with only one type of atom
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Ion:</strong> Charged atom (gained/lost electrons)
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Molecule:</strong> Two or more atoms bonded together
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Compound:</strong> Different elements chemically bonded in fixed ratios
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Empirical Formula:</strong> Simplest whole-number ratio of atoms
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <strong>Molecular Formula:</strong> Exact number of atoms in a molecule
+                </div>
+            </div>
+            
+            <h4><strong>Critical Relationships:</strong></h4>
+            <ol>
+                <li><strong>Hierarchy:</strong> Atoms → Elements/Molecules → Compounds</li>
+                <li><strong>Formulas:</strong> Molecular Formula = (Empirical Formula) × n</li>
+                <li><strong>Charges:</strong> Lose electrons = positive ion; Gain electrons = negative ion</li>
+                <li><strong>Bonding:</strong> Chemical bonds create new properties (compounds vs. mixtures)</li>
+            </ol>
+            
+            <h4><strong>Exam-Critical Distinctions:</strong></h4>
+            <ul>
+                <li><strong>Element vs. Compound:</strong> One atom type vs. different atom types</li>
+                <li><strong>Compound vs. Mixture:</strong> Chemical bonds vs. physical mixing</li>
+                <li><strong>Atom vs. Ion:</strong> Neutral vs. charged</li>
+                <li><strong>Empirical vs. Molecular:</strong> Ratio vs. exact count</li>
+            </ul>
+            
+            <h4><strong>Memory Aids:</strong></h4>
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> LEGO Analogy:</div>
+                <p>Atoms = individual bricks, Molecules = connected structures, Compounds = different colored bricks bonded together</p>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Charge Rule:</div>
+                <p>"LOSE = POSITIVE, GAIN = NEGATIVE"</p>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Formula Tip:</div>
+                <p>Empirical is always simplified, Molecular is exact</p>
+            </div>
+            
+            <hr>
+            
+            <h3>Module 1.2: The Mole Concept - Key Takeaways</h3>
+            
+            <h4><strong>Core Definitions (Must Know for Exams):</strong></h4>
+            <div class="key-concept">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <strong>Mole (mol):</strong> SI unit for amount of substance; contains 6.02 × 10²³ particles
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-calculator"></i>
+                <div>
+                    <strong>Avogadro's Constant (L):</strong> 6.02 × 10²³ mol⁻¹; particles per mole
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-weight-hanging"></i>
+                <div>
+                    <strong>Molar Mass (M):</strong> Mass of one mole; numerically equal to atomic/molecular mass
+                </div>
+            </div>
+            <div class="key-concept">
+                <i class="fas fa-cubes"></i>
+                <div>
+                    <strong>Amount of Substance:</strong> Quantity measured in moles
+                </div>
+            </div>
+            
+            <h4><strong>Essential Formulas:</strong></h4>
+            <ol>
+                <li><strong>Moles ↔ Particles:</strong> N = n × L and n = N ÷ L</li>
+                <li><strong>Moles ↔ Mass:</strong> m = n × M and n = m ÷ M</li>
+                <li><strong>Mass ↔ Particles:</strong> N = (m ÷ M) × L and m = (N ÷ L) × M</li>
+            </ol>
+            
+            <h4><strong>Key Relationships:</strong></h4>
+            <ol>
+                <li><strong>Scale Bridge:</strong> Moles connect atomic scale (particles) to macroscopic scale (grams)</li>
+                <li><strong>Universal Counting:</strong> Same mole concept works for atoms, molecules, ions</li>
+                <li><strong>Chemical Ratios:</strong> Reactions happen in mole ratios, not mass ratios</li>
+                <li><strong>Practical Measurement:</strong> Allows us to measure what we can't see</li>
+            </ol>
+            
+            <h4><strong>Calculation Strategies:</strong></h4>
+            <ol>
+                <li><strong>Mole Triangle:</strong> Mass ↔ Moles ↔ Particles (go through moles for mass-particle conversions)</li>
+                <li><strong>Unit Analysis:</strong> Always track units to ensure correct formula usage</li>
+                <li><strong>Scientific Notation:</strong> Essential for working with Avogadro's constant</li>
+                <li><strong>Step-by-Step:</strong> Break complex conversions into simple steps</li>
+            </ol>
+            
+            <h4><strong>Common Mistakes to Avoid:</strong></h4>
+            <ul>
+                <li><strong>Confusing moles and molecules:</strong> 1 mole = 6.02 × 10²³ molecules</li>
+                <li><strong>Formula errors:</strong> N = n × L (not n ÷ L)</li>
+                <li><strong>Unit confusion:</strong> Always include units (mol, g, atoms, molecules)</li>
+                <li><strong>Molar mass mistakes:</strong> Use atomic mass, not atomic number</li>
+            </ul>
+            
+            <h4><strong>Memory Aids:</strong></h4>
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Chemist's Dozen:</div>
+                <p>Mole is like a dozen, but much larger (6.02 × 10²³)</p>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Mole Triangle:</div>
+                <p>Visual triangle showing mass-moles-particles relationships</p>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-brain"></i> Scale Analogy:</div>
+                <p>Rice grains = atoms, measuring cups = moles, kitchen scale = mass</p>
+            </div>
+            
+            <h4><strong>Real-World Applications:</strong></h4>
+            <ul>
+                <li><strong>Chemical Reactions:</strong> Balancing equations and predicting products</li>
+                <li><strong>Medicine:</strong> Drug dosage calculations</li>
+                <li><strong>Laboratory:</strong> Solution preparation and analysis</li>
+                <li><strong>Industry:</strong> Chemical manufacturing and quality control</li>
+            </ul>
+            
+            <hr>
+            
+            <p><em>More key concepts will be added as specified...</em></p>
+        </section>
+
+        <section id="practice-problems" class="section">
+            <h2><i class="fas fa-pencil-alt"></i> Practice Problems</h2>
+            
+            <h3>Module 1.1: Fundamental Chemistry Terms - Exam Preparation</h3>
+            
+            <h4><strong>Basic Identification Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 1:</div>
+                <p>Classify each of the following as an element, compound, or molecule:</p>
+                <ul>
+                    <li>a) O₂</li>
+                    <li>b) H₂O</li>
+                    <li>c) Fe (iron)</li>
+                    <li>d) CO₂</li>
+                    <li>e) NaCl</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) O₂: <strong>Element and Molecule</strong> (only oxygen atoms, but bonded together)</li>
+                        <li>b) H₂O: <strong>Compound and Molecule</strong> (different elements H and O, chemically bonded)</li>
+                        <li>c) Fe: <strong>Element</strong> (only iron atoms, not bonded to other atoms)</li>
+                        <li>d) CO₂: <strong>Compound and Molecule</strong> (different elements C and O, chemically bonded)</li>
+                        <li>e) NaCl: <strong>Compound</strong> (different elements Na and Cl, chemically bonded)</li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Remember that elements can be molecules (like O₂) if atoms of the same element are bonded. Compounds are always molecules (or formula units for ionic compounds).</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Ion Formation Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 2:</div>
+                <p>Determine the charge and write the ion symbol for each:</p>
+                <ul>
+                    <li>a) Sodium atom loses 1 electron</li>
+                    <li>b) Chlorine atom gains 1 electron</li>
+                    <li>c) Calcium atom loses 2 electrons</li>
+                    <li>d) Oxygen atom gains 2 electrons</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) Loses 1 electron → <strong>+1 charge</strong> → <strong>Na⁺</strong></li>
+                        <li>b) Gains 1 electron → <strong>-1 charge</strong> → <strong>Cl⁻</strong></li>
+                        <li>c) Loses 2 electrons → <strong>+2 charge</strong> → <strong>Ca²⁺</strong></li>
+                        <li>d) Gains 2 electrons → <strong>-2 charge</strong> → <strong>O²⁻</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Use the rule: "LOSE = POSITIVE, GAIN = NEGATIVE". The number of electrons gained or lost equals the magnitude of the charge.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Formula Conversion Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 3:</div>
+                <p>For each molecular formula, determine the empirical formula:</p>
+                <ul>
+                    <li>a) C₂H₄</li>
+                    <li>b) C₆H₆</li>
+                    <li>c) H₂O₂</li>
+                    <li>d) C₆H₁₂O₆</li>
+                    <li>e) N₂O₄</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) C₂H₄: Divide by 2 → <strong>CH₂</strong></li>
+                        <li>b) C₆H₆: Divide by 6 → <strong>CH</strong></li>
+                        <li>c) H₂O₂: Divide by 2 → <strong>HO</strong></li>
+                        <li>d) C₆H₁₂O₆: Divide by 6 → <strong>CH₂O</strong></li>
+                        <li>e) N₂O₄: Divide by 2 → <strong>NO₂</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Find the greatest common divisor of all subscripts and divide each subscript by that number.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Molecular Formula from Empirical Formula</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 4:</div>
+                <p>Find the molecular formula given:</p>
+                <ul>
+                    <li>Empirical formula: CH₂O</li>
+                    <li>Molecular mass: 180 g/mol</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li>Calculate empirical mass: C(12) + H₂(2) + O(16) = 30 g/mol</li>
+                        <li>Find n: Molecular mass ÷ Empirical mass = 180 ÷ 30 = 6</li>
+                        <li>Multiply empirical formula by n: (CH₂O) × 6 = <strong>C₆H₁₂O₆</strong></li>
+                    </ol>
+                    <p><strong>Answer:</strong> C₆H₁₂O₆ (glucose)</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Empirical Formula from Percentage Composition</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 5:</div>
+                <p>A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass. Find the empirical formula.</p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li>Assume 100g sample: 40.0g C, 6.7g H, 53.3g O</li>
+                        <li>Convert to moles:
+                            <ul>
+                                <li>C: 40.0g ÷ 12.0g/mol = 3.33 mol</li>
+                                <li>H: 6.7g ÷ 1.0g/mol = 6.7 mol</li>
+                                <li>O: 53.3g ÷ 16.0g/mol = 3.33 mol</li>
+                            </ul>
+                        </li>
+                        <li>Divide by smallest (3.33):
+                            <ul>
+                                <li>C: 3.33 ÷ 3.33 = 1</li>
+                                <li>H: 6.7 ÷ 3.33 = 2</li>
+                                <li>O: 3.33 ÷ 3.33 = 1</li>
+                            </ul>
+                        </li>
+                        <li>Empirical formula: <strong>CH₂O</strong></li>
+                    </ol>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Comprehensive Concept Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 6:</div>
+                <p>Explain why water (H₂O) is considered a compound, while oxygen gas (O₂) is considered an element.</p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>
+                            <p><strong>Water (H₂O)</strong> is a compound because:</p>
+                            <ul>
+                                <li>It contains two different elements (hydrogen and oxygen)</li>
+                                <li>The elements are chemically bonded together</li>
+                                <li>It has fixed composition (always 2:1 ratio of H:O)</li>
+                                <li>It has properties different from its constituent elements</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>Oxygen gas (O₂)</strong> is an element because:</p>
+                            <ul>
+                                <li>It contains only one type of atom (oxygen)</li>
+                                <li>Although the atoms are bonded together, they're the same element</li>
+                                <li>It cannot be broken down into simpler substances by chemical means</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p><strong>Key Point:</strong> The distinction is based on the number of different elements present, not whether atoms are bonded together.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Multiple Choice Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 7:</div>
+                <p>Choose the best answer for each question:</p>
+                <p>a) Which of the following is NOT an element?</p>
+                <ul>
+                    <li>A) Fe</li>
+                    <li>B) O₂</li>
+                    <li>C) NaCl</li>
+                    <li>D) He</li>
+                </ul>
+                <p>b) What is the empirical formula of C₄H₁₀?</p>
+                <ul>
+                    <li>A) C₄H₁₀</li>
+                    <li>B) C₂H₅</li>
+                    <li>C) CH₂</li>
+                    <li>D) CH₂.₅</li>
+                </ul>
+                <p>c) An atom that gains 3 electrons becomes:</p>
+                <ul>
+                    <li>A) A +3 ion</li>
+                    <li>B) A -3 ion</li>
+                    <li>C) Neutral</li>
+                    <li>D) A molecule</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <p>a) <strong>C) NaCl</strong> - Contains two different elements (Na and Cl), so it's a compound</p>
+                    <p>b) <strong>B) C₂H₅</strong> - Divide both subscripts by 2 to get the simplest ratio</p>
+                    <p>c) <strong>B) A -3 ion</strong> - Gaining electrons results in negative charge</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Word Problems</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 8:</div>
+                <p>A compound has a molecular mass of 92 g/mol and contains 52.2% carbon and 13.0% hydrogen by mass. The remainder is oxygen. Find both the empirical and molecular formulas.</p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li>Find oxygen percentage: 100% - 52.2% - 13.0% = 34.8% oxygen</li>
+                        <li>Assume 100g sample: 52.2g C, 13.0g H, 34.8g O</li>
+                        <li>Convert to moles:
+                            <ul>
+                                <li>C: 52.2g ÷ 12.0g/mol = 4.35 mol</li>
+                                <li>H: 13.0g ÷ 1.0g/mol = 13.0 mol</li>
+                                <li>O: 34.8g ÷ 16.0g/mol = 2.175 mol</li>
+                            </ul>
+                        </li>
+                        <li>Divide by smallest (2.175):
+                            <ul>
+                                <li>C: 4.35 ÷ 2.175 = 2</li>
+                                <li>H: 13.0 ÷ 2.175 = 6</li>
+                                <li>O: 2.175 ÷ 2.175 = 1</li>
+                            </ul>
+                        </li>
+                        <li>Empirical formula: <strong>C₂H₆O</strong></li>
+                        <li>Empirical mass: C₂(24) + H₆(6) + O(16) = 46 g/mol</li>
+                        <li>Find n: 92 ÷ 46 = 2</li>
+                        <li>Molecular formula: (C₂H₆O) × 2 = <strong>C₄H₁₂O₂</strong></li>
+                    </ol>
+                    <p><strong>Answer:</strong> Empirical formula = C₂H₆O, Molecular formula = C₄H₁₂O₂</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Challenge Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 9:</div>
+                <p>A compound contains only nitrogen and oxygen. A 10.0g sample contains 3.5g of nitrogen. If the molecular mass is 92 g/mol, what is the molecular formula?</p>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ol>
+                        <li>Find oxygen mass: 10.0g - 3.5g = 6.5g oxygen</li>
+                        <li>Convert to moles:
+                            <ul>
+                                <li>N: 3.5g ÷ 14.0g/mol = 0.25 mol</li>
+                                <li>O: 6.5g ÷ 16.0g/mol = 0.40625 mol</li>
+                            </ul>
+                        </li>
+                        <li>Ratio N:O = 0.25 : 0.40625 = 1 : 1.625 = 8 : 13</li>
+                        <li>But empirical mass N₈O₁₃ = 320 g/mol > 92 g/mol</li>
+                        <li>Let me try a different approach. The molecular mass given is 92 g/mol</li>
+                        <li>Empirical mass for N₂O₄: 28 + 64 = 92 g/mol</li>
+                        <li>This matches the molecular mass exactly!</li>
+                        <li>So the molecular formula is <strong>N₂O₄</strong> (dinitrogen tetroxide)</li>
+                    </ol>
+                    <p><strong>Answer:</strong> Molecular formula = N₂O₄</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <p><em>More practice problems will be added as specified...</em></p>
+            
+            <hr>
+            
+            <h3>Module 1.2: The Mole Concept - Exam Preparation</h3>
+            
+            <h4><strong>Basic Mole Conversions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 1:</div>
+                <p>Calculate the number of atoms in each of the following:</p>
+                <ul>
+                    <li>a) 2.5 moles of iron (Fe)</li>
+                    <li>b) 0.75 moles of aluminum (Al)</li>
+                    <li>c) 3.0 moles of carbon (C)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) N = n × L = 2.5 × (6.02 × 10²³) = <strong>1.505 × 10²⁴ atoms</strong></li>
+                        <li>b) N = n × L = 0.75 × (6.02 × 10²³) = <strong>4.515 × 10²³ atoms</strong></li>
+                        <li>c) N = n × L = 3.0 × (6.02 × 10²³) = <strong>1.806 × 10²⁴ atoms</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Use the formula N = n × L, where N = number of particles, n = moles, L = Avogadro's constant.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Particles to Moles Conversions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 2:</div>
+                <p>Calculate the number of moles in each of the following:</p>
+                <ul>
+                    <li>a) 3.01 × 10²³ atoms of zinc (Zn)</li>
+                    <li>b) 1.204 × 10²⁴ molecules of water (H₂O)</li>
+                    <li>c) 9.03 × 10²³ atoms of sodium (Na)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) n = N ÷ L = (3.01 × 10²³) ÷ (6.02 × 10²³) = <strong>0.500 moles</strong></li>
+                        <li>b) n = N ÷ L = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = <strong>2.00 moles</strong></li>
+                        <li>c) n = N ÷ L = (9.03 × 10²³) ÷ (6.02 × 10²³) = <strong>1.50 moles</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Use the formula n = N ÷ L to convert from number of particles to moles.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Moles to Mass Conversions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 3:</div>
+                <p>Calculate the mass in grams for each of the following:</p>
+                <ul>
+                    <li>a) 3.0 moles of aluminum (Al)</li>
+                    <li>b) 2.5 moles of water (H₂O)</li>
+                    <li>c) 0.5 moles of carbon dioxide (CO₂)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) M = 27.0 g/mol, m = n × M = 3.0 × 27.0 = <strong>81.0 g</strong></li>
+                        <li>b) M = 2(1.0) + 16.0 = 18.0 g/mol, m = 2.5 × 18.0 = <strong>45.0 g</strong></li>
+                        <li>c) M = 12.0 + 2(16.0) = 44.0 g/mol, m = 0.5 × 44.0 = <strong>22.0 g</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> First find molar mass, then use m = n × M.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Mass to Moles Conversions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 4:</div>
+                <p>Calculate the number of moles in each of the following:</p>
+                <ul>
+                    <li>a) 54 grams of aluminum (Al)</li>
+                    <li>b) 90 grams of water (H₂O)</li>
+                    <li>c) 88 grams of carbon dioxide (CO₂)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) M = 27.0 g/mol, n = m ÷ M = 54 ÷ 27.0 = <strong>2.00 moles</strong></li>
+                        <li>b) M = 18.0 g/mol, n = m ÷ M = 90 ÷ 18.0 = <strong>5.00 moles</strong></li>
+                        <li>c) M = 44.0 g/mol, n = m ÷ M = 88 ÷ 44.0 = <strong>2.00 moles</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> First find molar mass, then use n = m ÷ M.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Combined Conversions: Mass to Particles</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 5:</div>
+                <p>Calculate the number of molecules in each of the following:</p>
+                <ul>
+                    <li>a) 36 grams of water (H₂O)</li>
+                    <li>b) 88 grams of carbon dioxide (CO₂)</li>
+                    <li>c) 180 grams of glucose (C₆H₁₂O₆)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) M = 18.0 g/mol, n = 36 ÷ 18.0 = 2.00 mol, N = 2.00 × (6.02 × 10²³) = <strong>1.204 × 10²⁴ molecules</strong></li>
+                        <li>b) M = 44.0 g/mol, n = 88 ÷ 44.0 = 2.00 mol, N = 2.00 × (6.02 × 10²³) = <strong>1.204 × 10²⁴ molecules</strong></li>
+                        <li>c) M = 180.0 g/mol, n = 180 ÷ 180.0 = 1.00 mol, N = 1.00 × (6.02 × 10²³) = <strong>6.02 × 10²³ molecules</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Use two-step conversion: mass → moles → particles.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Combined Conversions: Particles to Mass</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 6:</div>
+                <p>Calculate the mass in grams for each of the following:</p>
+                <ul>
+                    <li>a) 3.01 × 10²³ molecules of water (H₂O)</li>
+                    <li>b) 1.204 × 10²⁴ molecules of carbon dioxide (CO₂)</li>
+                    <li>c) 6.02 × 10²³ atoms of carbon (C)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) n = (3.01 × 10²³) ÷ (6.02 × 10²³) = 0.500 mol, m = 0.500 × 18.0 = <strong>9.00 g</strong></li>
+                        <li>b) n = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = 2.00 mol, m = 2.00 × 44.0 = <strong>88.0 g</strong></li>
+                        <li>c) n = (6.02 × 10²³) ÷ (6.02 × 10²³) = 1.00 mol, m = 1.00 × 12.0 = <strong>12.0 g</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Use two-step conversion: particles → moles → mass.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Molar Mass Calculations</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 7:</div>
+                <p>Calculate the molar mass for each of the following compounds:</p>
+                <ul>
+                    <li>a) Sodium chloride (NaCl)</li>
+                    <li>b) Sulfuric acid (H₂SO₄)</li>
+                    <li>c) Calcium carbonate (CaCO₃)</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) NaCl = 23.0 + 35.5 = <strong>58.5 g/mol</strong></li>
+                        <li>b) H₂SO₄ = 2(1.0) + 32.1 + 4(16.0) = 2.0 + 32.1 + 64.0 = <strong>98.1 g/mol</strong></li>
+                        <li>c) CaCO₃ = 40.1 + 12.0 + 3(16.0) = 40.1 + 12.0 + 48.0 = <strong>100.1 g/mol</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Sum the atomic masses of all atoms in the formula.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Word Problems with Multiple Steps</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 8:</div>
+                <p>A sample of iron(III) oxide (Fe₂O₃) has a mass of 160 grams. Calculate:</p>
+                <ul>
+                    <li>a) The number of moles of Fe₂O₃</li>
+                    <li>b) The number of formula units of Fe₂O₃</li>
+                    <li>c) The number of iron atoms</li>
+                    <li>d) The number of oxygen atoms</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) M = 2(55.8) + 3(16.0) = 111.6 + 48.0 = 159.6 g/mol, n = 160 ÷ 159.6 = <strong>1.00 moles</strong></li>
+                        <li>b) N = 1.00 × (6.02 × 10²³) = <strong>6.02 × 10²³ formula units</strong></li>
+                        <li>c) Each formula unit has 2 Fe atoms, so Fe atoms = 2 × 6.02 × 10²³ = <strong>1.204 × 10²⁴ atoms</strong></li>
+                        <li>d) Each formula unit has 3 O atoms, so O atoms = 3 × 6.02 × 10²³ = <strong>1.806 × 10²⁴ atoms</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Work step by step, using the chemical formula to determine atom ratios.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Real-World Application Problems</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 9:</div>
+                <p>Aspirin has the chemical formula C₉H₄O₄. A standard aspirin tablet contains 325 mg of aspirin. Calculate:</p>
+                <ul>
+                    <li>a) The molar mass of aspirin</li>
+                    <li>b) The number of moles in one tablet</li>
+                    <li>c) The number of aspirin molecules in one tablet</li>
+                    <li>d) The number of carbon atoms in one tablet</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) C₉H₄O₄ = 9(12.0) + 4(1.0) + 4(16.0) = 108.0 + 4.0 + 64.0 = <strong>176.0 g/mol</strong></li>
+                        <li>b) Convert mg to g: 325 mg = 0.325 g, n = 0.325 ÷ 176.0 = <strong>0.001847 moles</strong></li>
+                        <li>c) N = 0.001847 × (6.02 × 10²³) = <strong>1.111 × 10²¹ molecules</strong></li>
+                        <li>d) Each molecule has 9 C atoms, so C atoms = 9 × 1.111 × 10²¹ = <strong>9.999 × 10²¹ atoms</strong></li>
+                    </ul>
+                    <p><strong>Explanation:</strong> Apply mole concepts to real-world pharmaceutical calculations.</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Challenge Problems</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 10:</div>
+                <p>A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass. If 0.1 mole of this compound has a mass of 18.0 grams, calculate:</p>
+                <ul>
+                    <li>a) The molar mass of the compound</li>
+                    <li>b) The molecular formula</li>
+                    <li>c) The number of molecules in 36.0 grams of the compound</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <ul>
+                        <li>a) If 0.1 mole = 18.0 g, then 1 mole = 18.0 ÷ 0.1 = <strong>180.0 g/mol</strong></li>
+                        <li>b) From percentage composition, empirical formula = CH₂O
+                            Empirical mass = 12.0 + 2(1.0) + 16.0 = 30.0 g/mol
+                            n = 180.0 ÷ 30.0 = 6
+                            Molecular formula = (CH₂O) × 6 = <strong>C₆H₁₂O₆</strong></li>
+                        <li>c) n = 36.0 ÷ 180.0 = 0.200 moles
+                            N = 0.200 × (6.02 × 10²³) = <strong>1.204 × 10²³ molecules</strong></li>
+                    </ul>
+                    <p><strong>Answer:</strong> a) 180.0 g/mol, b) C₆H₁₂O₆, c) 1.204 × 10²³ molecules</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <h4><strong>Multiple Choice Questions</strong></h4>
+            
+            <div class="problem-box">
+                <div class="problem-title"><i class="fas fa-question-circle"></i> Problem 11:</div>
+                <p>Choose the best answer for each question:</p>
+                <p>a) How many atoms are in 2.0 moles of helium?</p>
+                <ul>
+                    <li>A) 2.0 atoms</li>
+                    <li>B) 6.02 × 10²³ atoms</li>
+                    <li>C) 1.204 × 10²⁴ atoms</li>
+                    <li>D) 12.04 × 10²³ atoms</li>
+                </ul>
+                <p>b) What is the mass of 0.5 moles of water (H₂O)?</p>
+                <ul>
+                    <li>A) 9.0 g</li>
+                    <li>B) 18.0 g</li>
+                    <li>C) 27.0 g</li>
+                    <li>D) 36.0 g</li>
+                </ul>
+                <p>c) How many moles contain 3.01 × 10²³ molecules of CO₂?</p>
+                <ul>
+                    <li>A) 0.5 moles</li>
+                    <li>B) 1.0 moles</li>
+                    <li>C) 2.0 moles</li>
+                    <li>D) 5.0 moles</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title"><i class="fas fa-lightbulb"></i> Solution:</div>
+                    <p>a) <strong>C) 1.204 × 10²⁴ atoms</strong> - N = 2.0 × (6.02 × 10²³) = 1.204 × 10²⁴</p>
+                    <p>b) <strong>A) 9.0 g</strong> - M = 18.0 g/mol, m = 0.5 × 18.0 = 9.0 g</p>
+                    <p>c) <strong>A) 0.5 moles</strong> - n = (3.01 × 10²³) ÷ (6.02 × 10²³) = 0.5 moles</p>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <p><em>More practice problems will be added as specified...</em></p>
+        </section>
+
+        <section id="resources" class="section">
+            <h2><i class="fas fa-tools"></i> Resources</h2>
+            
+            <h3>Module 1.1: Fundamental Chemistry Terms - Study Resources</h3>
+            
+            <h4><strong>Recommended Study Strategies</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-book-reader"></i> For Absolute Beginners:</div>
+                <ol>
+                    <li><strong>Start with analogies:</strong> Use the LEGO analogies to build mental models</li>
+                    <li><strong>Create flashcards:</strong> Make physical or digital flashcards for each term</li>
+                    <li><strong>Draw diagrams:</strong> Sketch atoms, molecules, and compounds to visualize concepts</li>
+                    <li><strong>Use everyday examples:</strong> Connect each concept to things you see daily</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-graduation-cap"></i> For Exam Preparation:</div>
+                <ol>
+                    <li><strong>Practice daily:</strong> Spend 15-20 minutes each day reviewing concepts</li>
+                    <li><strong>Solve problems systematically:</strong> Follow the step-by-step methods shown</li>
+                    <li><strong>Create summary tables:</strong> Like the one in the Key Concepts section</li>
+                    <li><strong>Teach others:</strong> Explain concepts to friends or family to reinforce learning</li>
+                </ol>
+            </div>
+            
+            <h4><strong>Memory Aids and Mnemonics</strong></h4>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-bolt"></i> For Ion Charges:</div>
+                <ul>
+                    <li><strong>"LOSE POSITIVE, GAIN NEGATIVE"</strong> - Remember this phrase</li>
+                    <li><strong>Metals lose, Nonmetals gain</strong> - Most metals form positive ions, nonmetals form negative ions</li>
+                </ul>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-bolt"></i> For Formula Types:</div>
+                <ul>
+                    <li><strong>"E for Easy, M for More"</strong> - Empirical formulas are simpler (easy), Molecular formulas show more detail</li>
+                    <li><strong>"Empirical = Ratio, Molecular = Reality"</strong> - One shows proportions, one shows actual numbers</li>
+                </ul>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-bolt"></i> For Element Classification:</div>
+                <ul>
+                    <li><strong>"One Capital Letter = Element"</strong> - If you see only one capital letter (like O, Fe, He), it's an element</li>
+                    <li><strong>"Multiple Capitals = Compound"</strong> - If you see multiple capital letters (like H₂O, NaCl), it's a compound</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Common Mistakes to Avoid</strong></h4>
+            <ol>
+                <li><strong>Confusing atoms and ions:</strong> Remember atoms are neutral, ions are charged</li>
+                <li><strong>Mixing up compounds and mixtures:</strong> Compounds have chemical bonds, mixtures don't</li>
+                <li><strong>Forgetting that elements can be molecules:</strong> O₂ is both an element and a molecule</li>
+                <li><strong>Incorrect formula simplification:</strong> Always reduce to smallest whole numbers for empirical formulas</li>
+                <li><strong>Calculation errors:</strong> Double-check your math in empirical formula problems</li>
+            </ol>
+            
+            <h4><strong>Practice Problem Types to Master</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Basic Level:</div>
+                <ul>
+                    <li>Identification questions (element vs. compound)</li>
+                    <li>Simple ion formation (single electron transfers)</li>
+                    <li>Basic formula conversions (molecular to empirical)</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Intermediate Level:</div>
+                <ul>
+                    <li>Empirical formula from percentage composition</li>
+                    <li>Molecular formula from empirical formula and mass</li>
+                    <li>Concept explanation questions</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Advanced Level:</div>
+                <ul>
+                    <li>Complex word problems with multiple steps</li>
+                    <li>Challenge problems with unusual ratios</li>
+                    <li>Comprehensive analysis questions</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Self-Testing Checklist</strong></h4>
+            <p>After studying this module, you should be able to:</p>
+            <ul class="checklist">
+                <li>Define all 7 terms without looking at notes</li>
+                <li>Classify any given chemical formula as element/compound/molecule</li>
+                <li>Predict ion charges for common elements</li>
+                <li>Convert between molecular and empirical formulas</li>
+                <li>Calculate empirical formulas from percentage data</li>
+                <li>Explain the difference between compounds and mixtures</li>
+                <li>Solve all practice problems without referring to solutions</li>
+            </ul>
+            
+            <h4><strong>Additional Practice Resources</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-globe"></i> Online Resources (when available):</div>
+                <ul>
+                    <li>Khan Academy Chemistry section</li>
+                    <li>Chemistry LibreTexts</li>
+                    <li>YouTube channels for visual learners (search "chemistry basics")</li>
+                    <li>Interactive periodic table websites</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-tools"></i> Study Tools:</div>
+                <ul>
+                    <li>Create a personal formula reference sheet</li>
+                    <li>Make a "cheat sheet" with all key relationships</li>
+                    <li>Use spaced repetition apps for memorization</li>
+                    <li>Form study groups to discuss concepts</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-clipboard-check"></i> Exam Preparation Tips:</div>
+                <ol>
+                    <li><strong>Time management:</strong> Allocate specific time for each question type</li>
+                    <li><strong>Read carefully:</strong> Pay attention to key words like "empirical" vs. "molecular"</li>
+                    <li><strong>Show your work:</strong> Even on multiple choice, write down your reasoning</li>
+                    <li><strong>Check units:</strong> Make sure masses are in grams, percentages add to 100%</li>
+                    <li><strong>Review systematically:</strong> Go through each concept area before the exam</li>
+                </ol>
+            </div>
+            
+            <h4><strong>Progress Tracking</strong></h4>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 1</div>
+                    <div class="timeline-content">Master definitions and basic identification</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 2</div>
+                    <div class="timeline-content">Practice ion formation and simple conversions</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 3</div>
+                    <div class="timeline-content">Work on empirical formula calculations</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 4</div>
+                    <div class="timeline-content">Tackle molecular formula problems</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 5</div>
+                    <div class="timeline-content">Review and practice comprehensive problems</div>
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-trophy"></i> Success Indicators:</div>
+                <ul>
+                    <li>Can explain concepts to someone else</li>
+                    <li>Score 80%+ on practice problems without notes</li>
+                    <li>Can solve problems faster than time limits</li>
+                    <li>Feel confident explaining relationships between concepts</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <h3>Module 1.2: The Mole Concept - Study Resources</h3>
+            
+            <h4><strong>Recommended Study Strategies</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> For Understanding the Mole Concept:</div>
+                <ol>
+                    <li><strong>Start with the "chemist's dozen" analogy:</strong> Build understanding of why we need moles</li>
+                    <li><strong>Visualize the scale:</strong> Understand how large Avogadro's number really is</li>
+                    <li><strong>Practice unit conversions:</strong> Master the three key conversions systematically</li>
+                    <li><strong>Use real-world examples:</strong> Connect moles to everyday measurements</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-graduation-cap"></i> For Exam Preparation:</div>
+                <ol>
+                    <li><strong>Memorize Avogadro's constant:</strong> 6.02 × 10²³ mol⁻¹ (know it cold!)</li>
+                    <li><strong>Master the formulas:</strong> N = n × L, m = n × M, and their variations</li>
+                    <li><strong>Practice dimensional analysis:</strong> Always track your units</li>
+                    <li><strong>Work through problems step-by-step:</strong> Don't skip steps in your calculations</li>
+                </ol>
+            </div>
+            
+            <h4><strong>Memory Aids and Mnemonics</strong></h4>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-calculator"></i> For Avogadro's Constant:</div>
+                <ul>
+                    <li><strong>"Six point oh two times ten to the twenty-three"</strong> - Memorize the exact value</li>
+                    <li><strong>Chemist's Dozen:</strong> Like a dozen (12), but much larger</li>
+                    <li><strong>Scale Analogy:</strong> If atoms were marbles, 1 mole would cover Earth several meters deep</li>
+                </ul>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-project-diagram"></i> For the Mole Triangle:</div>
+                <div class="mole-triangle">
+                    <div class="triangle"></div>
+                    <div class="triangle-label mass-label">Mass</div>
+                    <div class="triangle-label moles-label">Moles</div>
+                    <div class="triangle-label particles-label">Particles</div>
+                </div>
+                <ul>
+                    <li><strong>Mass ↔ Moles:</strong> Use molar mass (M)</li>
+                    <li><strong>Moles ↔ Particles:</strong> Use Avogadro's constant (L)</li>
+                    <li><strong>Mass ↔ Particles:</strong> Go through moles (both steps)</li>
+                </ul>
+            </div>
+            
+            <div class="memory-aid">
+                <div class="memory-aid-title"><i class="fas fa-square-root-alt"></i> For Formula Selection:</div>
+                <ul>
+                    <li><strong>"KNOW × GOAL = FORMULA"</strong> - What you know × what you need = which formula to use</li>
+                    <li><strong>"Units Don't Lie"</strong> - Check units to verify you're using the right formula</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Common Mistakes to Avoid</strong></h4>
+            <ol>
+                <li><strong>Confusing moles and molecules:</strong> 1 mole = 6.02 × 10²³ molecules (not 1 molecule)</li>
+                <li><strong>Formula errors:</strong> N = n × L (not n ÷ L), m = n × M (not n ÷ M)</li>
+                <li><strong>Unit confusion:</strong> Always include units (mol, g, atoms, molecules)</li>
+                <li><strong>Scientific notation errors:</strong> Use proper scientific notation for large numbers</li>
+                <li><strong>Molar mass mistakes:</strong> Use atomic mass from periodic table, not atomic number</li>
+                <li><strong>Significant figures:</strong> Match significant figures to the given data</li>
+            </ol>
+            
+            <h4><strong>Practice Problem Types to Master</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Basic Level:</div>
+                <ul>
+                    <li>Moles ↔ Number of particles (atoms/molecules)</li>
+                    <li>Moles ↔ Mass (using molar mass)</li>
+                    <li>Basic molar mass calculations</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Intermediate Level:</div>
+                <ul>
+                    <li>Combined conversions (mass ↔ particles)</li>
+                    <li>Multi-step word problems</li>
+                    <li>Real-world applications</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-star"></i> Advanced Level:</div>
+                <ul>
+                    <li>Complex stoichiometry problems</li>
+                    <li>Molecular formula determination</li>
+                    <li>Challenge problems with multiple unknowns</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Self-Testing Checklist</strong></h4>
+            <p>After studying this module, you should be able to:</p>
+            <ul class="checklist">
+                <li>Define mole, Avogadro's constant, and molar mass without notes</li>
+                <li>Convert between moles and number of particles for any substance</li>
+                <li>Convert between moles and mass for elements and compounds</li>
+                <li>Calculate molar mass for any compound given its formula</li>
+                <li>Solve combined conversion problems (mass ↔ particles)</li>
+                <li>Apply mole concepts to real-world situations</li>
+                <li>Solve all practice problems without referring to solutions</li>
+                <li>Explain why chemists use moles instead of counting individual atoms</li>
+            </ul>
+            
+            <h4><strong>Calculation Mastery Strategies</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-cogs"></i> Step-by-Step Approach:</div>
+                <ol>
+                    <li><strong>Identify given information:</strong> What do you know? (mass, moles, particles?)</li>
+                    <li><strong>Identify what you need:</strong> What is the question asking for?</li>
+                    <li><strong>Choose the right formula:</strong> Based on what you know and need</li>
+                    <li><strong>Find necessary values:</strong> Molar mass, Avogadro's constant</li>
+                    <li><strong>Set up the calculation:</strong> Write formula with units</li>
+                    <li><strong>Calculate carefully:</strong> Use calculator, check significant figures</li>
+                    <li><strong>Verify your answer:</strong> Does it make sense? Are units correct?</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-ruler"></i> Unit Analysis Method:</div>
+                <ul>
+                    <li><strong>Write units for all values:</strong> 2.5 mol, 6.02 × 10²³ particles/mol, etc.</li>
+                    <li><strong>Cancel units as you go:</strong> Make sure unwanted units cancel out</li>
+                    <li><strong>Check final units:</strong> Should match what the question asks for</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Additional Practice Resources</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-globe"></i> Online Resources (when available):</div>
+                <ul>
+                    <li>Mole concept tutorials and videos</li>
+                    <li>Interactive mole calculators</li>
+                    <li>Practice worksheets with solutions</li>
+                    <li>Virtual laboratory simulations</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-tools"></i> Study Tools:</div>
+                <ul>
+                    <li>Create a formula cheat sheet for all mole conversions</li>
+                    <li>Make flashcards for common molar masses</li>
+                    <li>Use calculator practice for scientific notation</li>
+                    <li>Form study groups for problem-solving sessions</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-flask"></i> Real-World Practice:</div>
+                <ul>
+                    <li><strong>Kitchen chemistry:</strong> Calculate molecules in a glass of water</li>
+                    <li><strong>Pharmacy calculations:</strong> Practice drug dosage problems</li>
+                    <li><strong>Environmental science:</strong> Calculate pollutant concentrations</li>
+                    <li><strong>Industrial applications:</strong> Chemical manufacturing calculations</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Exam Preparation Tips</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-clock"></i> Time Management:</div>
+                <ul>
+                    <li><strong>Basic conversions:</strong> 1-2 minutes each</li>
+                    <li><strong>Combined conversions:</strong> 2-3 minutes each</li>
+                    <li><strong>Word problems:</strong> 3-5 minutes each</li>
+                    <li><strong>Challenge problems:</strong> 5-7 minutes each</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-chess"></i> Problem-Solving Strategy:</div>
+                <ol>
+                    <li><strong>Read the question carefully:</strong> Underline key information</li>
+                    <li><strong>Draw a mole triangle:</strong> Visualize the conversion path</li>
+                    <li><strong>Write down known values:</strong> Include units</li>
+                    <li><strong>Select the formula:</strong> Based on your mole triangle</li>
+                    <li><strong>Show all steps:</strong> Even simple calculations</li>
+                    <li><strong>Check your work:</strong> Verify units and significant figures</li>
+                </ol>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-exclamation-triangle"></i> Common Exam Traps:</div>
+                <ul>
+                    <li><strong>Unit tricks:</strong> Questions that give mixed units (mg vs. g)</li>
+                    <li><strong>Formula confusion:</strong> Similar-looking formulas (N = n × L vs. n = N ÷ L)</li>
+                    <li><strong>Significant figures:</strong> Questions that test attention to detail</li>
+                    <li><strong>Conceptual questions:</strong> Testing understanding, not just calculation</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Progress Tracking</strong></h4>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 1</div>
+                    <div class="timeline-content">Master mole definition and Avogadro's constant</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 2</div>
+                    <div class="timeline-content">Practice basic conversions (moles ↔ particles, moles ↔ mass)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 3</div>
+                    <div class="timeline-content">Work on combined conversions and molar mass calculations</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 4</div>
+                    <div class="timeline-content">Tackle word problems and real-world applications</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 5</div>
+                    <div class="timeline-content">Review and practice comprehensive problems</div>
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-trophy"></i> Success Indicators:</div>
+                <ul>
+                    <li><strong>Level 1 (Basic):</strong> Can perform simple conversions without hesitation</li>
+                    <li><strong>Level 2 (Intermediate):</strong> Can solve combined conversions reliably</li>
+                    <li><strong>Level 3 (Advanced):</strong> Can tackle complex word problems confidently</li>
+                    <li><strong>Level 4 (Mastery):</strong> Can teach mole concepts to others and solve novel problems</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Building Confidence</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-seedling"></i> Start Simple:</div>
+                <ul>
+                    <li>Begin with basic element calculations (single atoms)</li>
+                    <li>Progress to simple compounds (H₂O, CO₂)</li>
+                    <li>Work up to complex molecules (glucose, proteins)</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-redo"></i> Practice Regularly:</div>
+                <ul>
+                    <li><strong>Daily drills:</strong> 5-10 basic conversion problems</li>
+                    <li><strong>Weekly challenges:</strong> 2-3 complex word problems</li>
+                    <li><strong>Monthly reviews:</strong> Comprehensive practice tests</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-lightbulb"></i> Apply Knowledge:</div>
+                <ul>
+                    <li><strong>Laboratory scenarios:</strong> Solution preparation, analysis</li>
+                    <li><strong>Everyday life:</strong> Cooking, cleaning, health products</li>
+                    <li><strong>Current events:</strong> Environmental issues, medical advances</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <p><em>More resources will be added as specified...</em></p>
+        </section>
+
+        <section id="test-preparation-focus" class="section">
+            <h2><i class="fas fa-clipboard-check"></i> Test Preparation Focus</h2>
+            
+            <h3><strong>Unit 1 Test Preparation Strategy</strong></h3>
+            <div class="highlight-box">
+                <p><strong>Overview:</strong> This section specifically focuses on preparing you for formal chemistry tests and exams. Every concept taught from the ground up in Unit 1 is designed to appear on chemistry tests, and this section shows you exactly how to apply that knowledge in test situations.</p>
+            </div>
+            
+            <h4><strong>Why Test Preparation is Built Into Every Lesson</strong></h4>
+            <p>In this study guide, every concept is taught with test preparation in mind because:</p>
+            <ul>
+                <li><strong>Tests build on fundamentals:</strong> You can't answer test questions about ions if you don't understand atoms first</li>
+                <li><strong>Test questions follow patterns:</strong> Most chemistry tests ask similar types of questions</li>
+                <li><strong>Confidence comes from mastery:</strong> When you know concepts from the ground up, test questions become manageable</li>
+                <li><strong>Real success = Understanding + Test Skills:</strong> You need both to excel in chemistry</li>
+            </ul>
+            
+            <h4><strong>Test Question Types for Unit 1 Concepts</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-atom"></i> Module 1.1 Test Questions:</div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Atom Questions on Tests:</div>
+                    <ul>
+                        <li>"What is the smallest unit of matter that retains chemical properties?"</li>
+                        <li>"How many protons does a neutral atom of carbon have?"</li>
+                        <li>"What particles are found in the nucleus of an atom?"</li>
+                        <li>"Why are atoms neutral in their natural state?"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Element Questions on Tests:</div>
+                    <ul>
+                        <li>"Classify each of the following as an element or compound: O₂, H₂O, Fe, CO₂"</li>
+                        <li>"What is the chemical symbol for gold?"</li>
+                        <li>"How many elements are in the compound NaCl?"</li>
+                        <li>"Why can elements be broken down but compounds cannot?"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Ion Questions on Tests:</div>
+                    <ul>
+                        <li>"What is the charge on a calcium ion?"</li>
+                        <li>"How many electrons does a sodium ion (Na⁺) have?"</li>
+                        <li>"Which element is most likely to form a -2 ion?"</li>
+                        <li>"Write the ion symbol for the ion formed when aluminum loses 3 electrons"</li>
+                        <li>"Why do atoms form ions with specific charges?"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Molecule Questions on Tests:</div>
+                    <ul>
+                        <li>"What is the difference between a molecule and a compound?"</li>
+                        <li>"Is O₂ an element, molecule, or compound? Explain your answer."</li>
+                        <li>"How many atoms are in one molecule of water (H₂O)?"</li>
+                        <li>"Draw a simple diagram of a water molecule"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Compound Questions on Tests:</div>
+                    <ul>
+                        <li>"Explain the difference between a compound and a mixture"</li>
+                        <li>"What is the law of definite proportions?"</li>
+                        <li>"Why does water have different properties than hydrogen and oxygen?"</li>
+                        <li>"Classify each as compound or mixture: salt water, air, NaCl, CO₂"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Formula Questions on Tests:</div>
+                    <ul>
+                        <li>"What is the empirical formula of benzene (C₆H₆)?"</li>
+                        <li>"A compound has molecular formula C₄H₁₀. What is its empirical formula?"</li>
+                        <li>"What is the difference between empirical and molecular formulas?"</li>
+                        <li>"Find the molecular formula if empirical formula is CH₂O and molecular mass is 180 g/mol"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-balance-scale"></i> Module 1.2 Test Questions:</div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Mole Concept Questions on Tests:</div>
+                    <ul>
+                        <li>"What is Avogadro's constant and what does it represent?"</li>
+                        <li>"How many atoms are in 2.5 moles of iron?"</li>
+                        <li>"Calculate the number of moles in 3.01 × 10²³ molecules of water"</li>
+                        <li>"Why do chemists use moles instead of counting individual atoms?"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Molar Mass Questions on Tests:</div>
+                    <ul>
+                        <li>"Calculate the molar mass of sulfuric acid (H₂SO₄)"</li>
+                        <li>"What is the mass of 0.5 moles of carbon dioxide?"</li>
+                        <li>"How many moles are in 90 grams of water?"</li>
+                        <li>"Find the molar mass of glucose (C₆H₁₂O₆)"</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-question-circle"></i> Conversion Questions on Tests:</div>
+                    <ul>
+                        <li>"Calculate the number of molecules in 36 grams of water"</li>
+                        <li>"What is the mass of 3.01 × 10²³ atoms of carbon?"</li>
+                        <li>"How many atoms are in 2 moles of oxygen gas (O₂)?"</li>
+                        <li>"Convert 5 grams of sodium chloride to number of formula units"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4><strong>Test-Taking Strategies for Unit 1</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-search"></i> Strategy 1: Read Questions Carefully</div>
+                <ul>
+                    <li><strong>Look for key words:</strong> "empirical" vs "molecular", "atoms" vs "molecules", "element" vs "compound"</li>
+                    <li><strong>Identify what's given:</strong> Mass? Moles? Number of particles?</li>
+                    <li><strong>Determine what's asked:</strong> Charge? Formula? Number of particles?</li>
+                    <li><strong>Watch for tricks:</strong> Tests often include similar-sounding questions with different requirements</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-pencil-alt"></i> Strategy 2: Show All Your Work</div>
+                <ul>
+                    <li><strong>Write formulas:</strong> Always start with the correct formula (N = n × L, m = n × M)</li>
+                    <li><strong>Include units:</strong> Write units for all values (2.5 mol, 6.02 × 10²³ particles/mol)</li>
+                    <li><strong>Show calculations:</strong> Even simple steps should be written out</li>
+                    <li><strong>Box final answers:</strong> Make it clear what your final answer is</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-ruler"></i> Strategy 3: Use Unit Analysis</div>
+                <ul>
+                    <li><strong>Write units for everything:</strong> This helps catch errors</li>
+                    <li><strong>Cancel units as you go:</strong> Make sure unwanted units cancel out</li>
+                    <li><strong>Check final units:</strong> Should match what the question asks for</li>
+                    <li><strong>Example:</strong> If asked for mass, final answer should be in grams</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-brain"></i> Strategy 4: Memorize Key Information</div>
+                <ul>
+                    <li><strong>Avogadro's constant:</strong> 6.02 × 10²³ mol⁻¹ (know it perfectly)</li>
+                    <li><strong>Common ion charges:</strong> Group 1 = +1, Group 2 = +2, Group 16 = -2, Group 17 = -1</li>
+                    <li><strong>Atomic masses:</strong> Know common elements (H=1, C=12, O=16, Na=23, etc.)</li>
+                    <li><strong>Formulas:</strong> N = n × L, m = n × M, n = m ÷ M, n = N ÷ L</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-clock"></i> Strategy 5: Practice Time Management</div>
+                <ul>
+                    <li><strong>Basic questions:</strong> 1-2 minutes each</li>
+                    <li><strong>Formula questions:</strong> 2-3 minutes each</li>
+                    <li><strong>Conversion problems:</strong> 2-3 minutes each</li>
+                    <li><strong>Word problems:</strong> 3-5 minutes each</li>
+                    <li><strong>Review time:</strong> Save 5-10 minutes at the end to check answers</li>
+                </ul>
+            </div>
+            
+            <h4><strong>Common Test Mistakes and How to Avoid Them</strong></h4>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 1: Confusing Similar Terms</div>
+                <ul>
+                    <li><strong>Atoms vs. Ions:</strong> Atoms are neutral, ions have charges</li>
+                    <li><strong>Elements vs. Compounds:</strong> Elements have one type of atom, compounds have different types</li>
+                    <li><strong>Molecules vs. Compounds:</strong> Molecules can be elements (O₂) or compounds (H₂O)</li>
+                    <li><strong>Empirical vs. Molecular:</strong> Empirical shows ratio, molecular shows exact count</li>
+                </ul>
+                <p><strong>How to Avoid:</strong> Create flashcards with definitions and examples. Test yourself regularly.</p>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 2: Formula Errors</div>
+                <ul>
+                    <li><strong>Wrong formula:</strong> Using N = n ÷ L instead of N = n × L</li>
+                    <li><strong>Formula confusion:</strong> Mixing up mole and mass formulas</li>
+                    <li><strong>Unit errors:</strong> Forgetting to include or cancel units properly</li>
+                </ul>
+                <p><strong>How to Avoid:</strong> Write the formula first, then substitute values. Always include units.</p>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 3: Calculation Errors</div>
+                <ul>
+                    <li><strong>Scientific notation:</strong> Errors with large numbers like 6.02 × 10²³</li>
+                    <li><strong>Significant figures:</strong> Not matching the precision of given data</li>
+                    <li><strong>Simple arithmetic:</strong> Basic math mistakes under pressure</li>
+                </ul>
+                <p><strong>How to Avoid:</strong> Use calculator carefully, double-check calculations, practice with scientific notation.</p>
+            </div>
+            
+            <div class="warning-box">
+                <div class="example-title"><i class="fas fa-exclamation-triangle"></i> Mistake 4: Conceptual Misunderstandings</div>
+                <ul>
+                    <li><strong>Why ions form:</strong> Not understanding the electron configuration goal</li>
+                    <li><strong>Mole concept:</strong> Not grasping why we need moles instead of counting atoms</li>
+                    <li><strong>Chemical bonding:</strong> Confusing ionic and covalent bonding</li>
+                </ul>
+                <p><strong>How to Avoid:</strong> Focus on the "why" behind each concept, not just the "how."</p>
+            </div>
+            
+            <h4><strong>Test Preparation Study Plan</strong></h4>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 1: Master Module 1.1 Basics</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Days 1-2:</strong> Atoms and elements (definitions, examples)</li>
+                            <li><strong>Days 3-4:</strong> Ions and molecules (formation, types)</li>
+                            <li><strong>Days 5-6:</strong> Compounds and formulas (empirical vs molecular)</li>
+                            <li><strong>Day 7:</strong> Review and practice problems</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 2: Master Module 1.2 Concepts</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Days 1-2:</strong> Mole definition and Avogadro's constant</li>
+                            <li><strong>Days 3-4:</strong> Molar mass calculations</li>
+                            <li><strong>Days 5-6:</strong> Conversions (moles ↔ particles, moles ↔ mass)</li>
+                            <li><strong>Day 7:</strong> Combined conversions and review</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 3: Practice Test Questions</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Days 1-2:</strong> Basic identification and definition questions</li>
+                            <li><strong>Days 3-4:</strong> Calculation problems (formulas, moles, mass)</li>
+                            <li><strong>Days 5-6:</strong> Word problems and applications</li>
+                            <li><strong>Day 7:</strong> Full practice test under timed conditions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Week 4: Review and Strengthen</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Days 1-2:</strong> Review weak areas identified in practice tests</li>
+                            <li><strong>Days 3-4:</strong> Focus on common mistakes and tricky questions</li>
+                            <li><strong>Days 5-6:</strong> Time management and test-taking strategies</li>
+                            <li><strong>Day 7:</strong> Final review and confidence building</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h4><strong>Self-Assessment for Test Readiness</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-check-circle"></i> Can you answer these questions without looking at notes?</div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-book"></i> Module 1.1 Check:</div>
+                    <ul>
+                        <li>What is an atom and what are its main components?</li>
+                        <li>How do elements differ from compounds?</li>
+                        <li>Why do atoms form ions and how do you determine ion charges?</li>
+                        <li>What is the difference between empirical and molecular formulas?</li>
+                        <li>Can you classify any chemical formula as element/compound/molecule?</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-balance-scale"></i> Module 1.2 Check:</div>
+                    <ul>
+                        <li>What is a mole and why do chemists use it?</li>
+                        <li>What is Avogadro's constant and what does it represent?</li>
+                        <li>Can you convert between moles, mass, and number of particles?</li>
+                        <li>How do you calculate molar mass for any compound?</li>
+                        <li>Can you solve combined conversion problems step by step?</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <div class="example-title"><i class="fas fa-clipboard-check"></i> Test Skills Check:</div>
+                    <ul>
+                        <li>Can you identify what type of question is being asked?</li>
+                        <li>Do you know which formula to use for each situation?</li>
+                        <li>Can you show your work clearly with proper units?</li>
+                        <li>Are you comfortable with scientific notation?</li>
+                        <li>Can you manage your time effectively during tests?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4><strong>Final Test Tips</strong></h4>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-bed"></i> Before the Test:</div>
+                <ul>
+                    <li><strong>Sleep well:</strong> Rested brain performs better</li>
+                    <li><strong>Eat properly:</strong> Your brain needs energy</li>
+                    <li><strong>Arrive early:</strong> Reduce stress by being prepared</li>
+                    <li><strong>Bring supplies:</strong> Calculator, pencils, erasers, water</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-pencil-alt"></i> During the Test:</div>
+                <ul>
+                    <li><strong>Read directions:</strong> Understand what's being asked</li>
+                    <li><strong>Scan all questions:</strong> Plan your time allocation</li>
+                    <li><strong>Start with what you know:</strong> Build confidence with easier questions</li>
+                    <li><strong>Show all work:</strong> Partial credit is better than no credit</li>
+                    <li><strong>Check units:</strong> Make sure your answers have correct units</li>
+                    <li><strong>Review if time allows:</strong> Catch careless mistakes</li>
+                </ul>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-title"><i class="fas fa-chart-line"></i> After the Test:</div>
+                <ul>
+                    <li><strong>Review your performance:</strong> What went well, what needs improvement</li>
+                    <li><strong>Learn from mistakes:</strong> Identify areas for additional study</li>
+                    <li><strong>Celebrate progress:</strong> Acknowledge your hard work and improvement</li>
+                </ul>
+            </div>
+            
+            <hr>
+            
+            <p><em>This Test Preparation Focus section will be expanded with additional modules and practice questions as they are added to the study guide.</em></p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Chemistry Study Guide for Absolute Beginners - Unit 1</p>
+            <p>This document will be continuously updated with chemistry content based on your specifications.</p>
+        </div>
+    </footer>
+</body>
+</html>
