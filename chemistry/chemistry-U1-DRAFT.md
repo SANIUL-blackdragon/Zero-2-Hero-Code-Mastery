@@ -2,7 +2,9 @@
 
 *This document will be continuously updated with chemistry content based on your specifications, starting from the very basics for someone new to science. All content in Unit 1 builds from ground zero to prepare students for formal examinations.*
 
-## Table of Contents
+## CONTENT
+
+### Table of Contents
 
 - [Introduction to Science](#introduction-to-science)
 - [What is Chemistry?](#what-is-chemistry)
@@ -23,13 +25,13 @@
 
 ---
 
-## Introduction to Science
+### Introduction to Science
 
-### What is Science?
+#### What is Science?
 
 Science is simply a way of learning about the world around us. It's like being a detective - you observe things, ask questions, and try to find answers through experiments and careful thinking.
 
-### The Scientific Method
+#### The Scientific Method
 
 Before we learn chemistry, we need to understand how scientists think:
 
@@ -38,20 +40,21 @@ Before we learn chemistry, we need to understand how scientists think:
 3. **Hypothesize**: Make an educated guess about the answer
 4. **Experiment**: Test your guess
 5. **Conclude**: Decide if your guess was right or wrong
+
 This is how all science works, including chemistry!
 
 ---
 
-## What is Chemistry?
+### What is Chemistry?
 
-### Chemistry in Simple Terms
+#### Chemistry in Simple Terms
 
 Chemistry is the study of **stuff** and how **stuff changes**.
 
 - **Stuff** = Matter (anything that takes up space and has weight)
 - **Changes** = What happens when stuff interacts with other stuff
 
-### Why Study Chemistry?
+#### Why Study Chemistry?
 
 Chemistry is everywhere in your daily life:
 
@@ -60,24 +63,25 @@ Chemistry is everywhere in your daily life:
 - Breathing (how does your body use oxygen?)
 - Medicine (how do pills make you feel better?)
 
-### Basic Ideas You'll Need to Understand
+#### Basic Ideas You'll Need to Understand
 
-#### Matter
+##### Matter
 
 Matter is anything that has mass (weight) and takes up space. If you can see it, touch it, or weigh it - it's matter!
-**Examples of matter:**
 
+**Examples of matter:**
 - Water in a glass
 - The air you breathe
 - Your desk
 - Your own body
+
 **Non-examples (not matter):**
 - Light
 - Heat
 - Thoughts
 - Shadows
 
-#### States of Matter
+##### States of Matter
 
 Matter can exist in three main forms:
 
@@ -85,17 +89,15 @@ Matter can exist in three main forms:
 2. **Liquid**: Takes the shape of its container (like water, milk, juice)
 3. **Gas**: Fills whatever space it's in (like air, steam, helium in balloons)
 
-#### Energy
+##### Energy
 
 Energy is what makes things happen or change. It's not matter, but it affects matter.
-**Examples of energy:**
 
+**Examples of energy:**
 - Heat from the sun
 - Light from a lamp
 - Electricity
 - The energy in food
-
----
 
 ## Topics Covered
 
@@ -106,7 +108,6 @@ Energy is what makes things happen or change. It's not matter, but it affects ma
 #### Module 1.1: Basic Building Blocks of Matter - Atom, Element, Ion, Molecule, Compound, and Formulas
 
 **Learning Objectives:**
-
 - Define and distinguish between atoms, elements, ions, molecules, and compounds
 - Understand the relationship between these fundamental concepts
 - Write and interpret empirical and molecular formulas
@@ -115,21 +116,22 @@ Energy is what makes things happen or change. It's not matter, but it affects ma
 
 ---
 
-#### **ATOM: The Fundamental Building Block**
+##### ATOM: The Fundamental Building Block
 
 **Formal Definition:**
 An atom is the smallest unit of matter that retains the chemical properties of an element. Atoms are the basic building blocks of all matter and cannot be broken down by chemical means.
+
 **Beginner-Friendly Explanation:**
 Think of an atom as the smallest possible LEGO brick that still counts as that specific type of brick. If you have a gold brick and keep cutting it smaller and smaller, eventually you reach a piece that's still gold but can't be cut smaller without losing its "gold-ness." That's an atom!
-**Key Properties of Atoms:**
 
+**Key Properties of Atoms:**
 - **Incredibly small:** About 100 million atoms could fit across the width of a human hair
 - **Composed of smaller particles:** Protons (+), neutrons (neutral), and electrons (-)
 - **Identifiable by atomic number:** Number of protons determines the element
 - **Neutral overall:** Equal numbers of protons and electrons in neutral atoms
-**Atomic Structure (Visual Description):**
 
-```text
+**Atomic Structure (Visual Description):**
+```
     NUCLEUS (center)
     ┌─────────────────┐
     │  Protons (+)    │
@@ -141,26 +143,28 @@ Think of an atom as the smallest possible LEGO brick that still counts as that s
 ```
 
 **Real-World Examples:**
-
 - A gold ring contains billions of gold atoms
 - The oxygen you breathe consists of oxygen atoms
 - Your body is made of carbon, hydrogen, oxygen, nitrogen, and other atoms
+
 **Exam Tip:** Remember that atoms are neutral (equal protons and electrons) unless specified otherwise. Many exam questions try to trick you by asking about charged atoms (which are actually ions!).
 
 ---
 
-#### **ELEMENT: Pure Substances**
+##### ELEMENT: Pure Substances
 
 **Formal Definition:**
 An element is a pure substance consisting of only one type of atom. Elements cannot be broken down into simpler substances by chemical reactions.
+
 **Beginner-Friendly Explanation:**
 An element is like having a box containing only identical LEGO bricks - all the same color, shape, and size. Every brick in the box is exactly the same, and you can't separate them into different types.
-**Key Properties of Elements:**
 
+**Key Properties of Elements:**
 - **Pure substances:** Only one type of atom present
 - **Identified by symbols:** One or two-letter abbreviations (H, O, Na, Au)
 - **Organized in periodic table:** Arranged by atomic number and properties
 - **118 known elements:** 94 occur naturally, 24 are synthetic
+
 **Common Elements and Their Symbols:**
 | Element Name | Symbol | Everyday Use         |
 |--------------|--------|----------------------|
@@ -171,41 +175,45 @@ An element is like having a box containing only identical LEGO bricks - all the 
 | Oxygen       | O      | Breathing, water     |
 | Sodium       | Na     | Table salt           |
 | Gold         | Au     | Jewelry, electronics |
+
 **Element vs. Compound (Critical Distinction):**
 - **Element:** Pure substance (only one type of atom) - **CANNOT be broken down** by chemical means
 - **Compound:** Two or more different elements chemically bonded - **CAN be broken down** into simpler substances
+
 **Exam Strategy:** Always look at the chemical formula. If you see only one capital letter (or one capital letter followed by lowercase letters), it's an element. If you see two or more different capital letters, it's a compound.
 
 ---
 
-#### **ION: Charged Atoms**
+##### ION: Charged Atoms
 
 **Formal Definition:**
 An ion is an atom or molecule that has gained or lost one or more electrons, resulting in a net electrical charge.
+
 **Beginner-Friendly Explanation:**
 Think of an ion as an atom with an "accounting error." Normally, atoms have equal numbers of positive protons and negative electrons (balanced books). An ion has either lost electrons (now has more protons = positive charge) or gained electrons (now has more electrons = negative charge).
+
 **Why Ions Matter in Tests and Real Life:**
 Ions are incredibly important in chemistry and appear frequently on tests because:
-
 - **They're everywhere:** Your body runs on ions, batteries work with ions, salt is made of ions
 - **Test questions focus on ions:** Many exam questions specifically test ion formation, charges, and properties
 - **Chemical reactions depend on ions:** Many reactions happen because of ion attractions
 - **Biological processes:** Your nerves, muscles, and heart all work because of ions
-**Types of Ions:**
 
+**Types of Ions:**
 1. **Cations (Positive Ions):**
    - Formed when atoms LOSE electrons
    - Have more protons than electrons
    - Common in metals (Na⁺, K⁺, Ca²⁺, Mg²⁺)
    - Example: Sodium atom loses 1 electron → Sodium ion (Na⁺)
+
 2. **Anions (Negative Ions):**
    - Formed when atoms GAIN electrons
    - Have more electrons than protons
    - Common in nonmetals (Cl⁻, O²⁻, F⁻)
    - Example: Chlorine atom gains 1 electron → Chloride ion (Cl⁻)
-**Ion Formation Process (Step-by-Step for Tests):**
 
-```text
+**Ion Formation Process (Step-by-Step for Tests):**
+```
 Step 1: Start with neutral atom (equal protons and electrons)
 Step 2: Atom loses or gains electrons
 Step 3: Result is ion with net charge
@@ -216,37 +224,41 @@ Example: Cl (17p⁺, 17e⁻) → Cl⁻ (17p⁺, 18e⁻)
 ```
 
 **How to Determine Ion Charges (Test-Critical Skill):**
-**For Main Group Elements:**
 
+**For Main Group Elements:**
 - **Group 1 (Alkali Metals):** Always lose 1 electron → +1 charge (Li⁺, Na⁺, K⁺)
 - **Group 2 (Alkaline Earth Metals):** Always lose 2 electrons → +2 charge (Mg²⁺, Ca²⁺)
 - **Group 16 (Chalcogens):** Usually gain 2 electrons → -2 charge (O²⁻, S²⁻)
 - **Group 17 (Halogens):** Usually gain 1 electron → -1 charge (F⁻, Cl⁻, Br⁻)
+
 **For Transition Metals:** Can have multiple charges (common ones to memorize for tests):
 - Iron: Fe²⁺ or Fe³⁺
 - Copper: Cu⁺ or Cu²⁺
 - Zinc: Zn²⁺ (usually only +2)
 - Silver: Ag⁺ (usually only +1)
+
 **Real-World Importance (Test Examples):**
 - **Nerve function:** Sodium ions (Na⁺) and potassium ions (K⁺) move in and out of cells
 - **Table salt:** Sodium ions (Na⁺) and chloride ions (Cl⁻) bonded together
 - **Battery operation:** Movement of ions creates electricity (tests often ask about this)
 - **Bone health:** Calcium ions (Ca²⁺) strengthen bones
 - **Stomach acid:** Hydrogen ions (H⁺) make things acidic
-**Test Alert:** Watch for the charge symbols! Na is a neutral atom, Na⁺ is a sodium ion. The superscript tells you the charge. **Common test mistake:** forgetting that ions form to achieve stable electron configurations (usually 8 valence electrons). Tests often include questions about why atoms form ions with specific charges.
-**Test Strategy for Ion Questions:**
 
+**Test Alert:** Watch for the charge symbols! Na is a neutral atom, Na⁺ is a sodium ion. The superscript tells you the charge. **Common test mistake:** forgetting that ions form to achieve stable electron configurations (usually 8 valence electrons). Tests often include questions about why atoms form ions with specific charges.
+
+**Test Strategy for Ion Questions:**
 1. **Identify the element:** What group is it in?
 2. **Determine charge tendency:** Metals lose electrons (positive), nonmetals gain electrons (negative)
 3. **Count electrons transferred:** Usually enough to get 8 valence electrons
 4. **Write the ion symbol:** Element symbol with charge as superscript
 5. **Check your answer:** Does it make sense for that element?
-**Common Test Questions About Ions:**
 
+**Common Test Questions About Ions:**
 - "What is the charge on a magnesium ion?" (Answer: Mg²⁺)
 - "How many electrons does a sodium ion have?" (Answer: 10, since Na has 11 protons and +1 charge)
 - "Which of these is most likely to form a +2 ion?" (Answer: Group 2 elements like calcium)
 - "Write the ion symbol for the ion formed when chlorine gains an electron" (Answer: Cl⁻)
+
 **Memory Aid for Tests:**
 - **"LOSE POSITIVE, GAIN NEGATIVE"** - This phrase will help you remember ion charges
 - **"Metals lose, Nonmetals gain"** - Most test questions follow this pattern
@@ -254,35 +266,38 @@ Example: Cl (17p⁺, 17e⁻) → Cl⁻ (17p⁺, 18e⁻)
 
 ---
 
-#### **MOLECULE: Groups of Bonded Atoms**
+##### MOLECULE: Groups of Bonded Atoms
 
 **Formal Definition:**
 A molecule is the smallest unit of a substance that retains the chemical properties of that substance, consisting of two or more atoms held together by chemical bonds.
+
 **Beginner-Friendly Explanation:**
 A molecule is like a small LEGO structure made by connecting individual LEGO bricks (atoms) together. The connected structure has its own properties that are different from the individual bricks.
-**Key Characteristics:**
 
+**Key Characteristics:**
 - **Two or more atoms:** Minimum requirement
 - **Chemical bonds:** Atoms are connected, not just mixed
 - **Independent properties:** The molecule behaves as a single unit
 - **Can be same or different elements:** O₂ (same) vs. H₂O (different)
-**Types of Molecules:**
 
+**Types of Molecules:**
 1. **Diatomic Molecules (Two atoms):**
    - Same element: O₂, H₂, N₂, Cl₂, F₂, Br₂, I₂
    - Different elements: CO, HCl, NO
+
 2. **Polyatomic Molecules (Three or more atoms):**
    - Same element: O₃ (ozone)
    - Different elements: H₂O, CO₂, CH₄, C₆H₁₂O₆
+
 **Molecular vs. Ionic Compounds:**
 | Property         | Molecular Compounds          | Ionic Compounds             |
 |------------------|------------------------------|-----------------------------|
 | Bond type        | Covalent (shared electrons)  | Ionic (electron transfer)   |
 | State at room temp | Often gas/liquid           | Usually solid               |
 | Examples         | H₂O, CO₂, CH₄               | NaCl, CaCO₃, MgO            |
-**Visual Representation of Common Molecules:**
 
-```text
+**Visual Representation of Common Molecules:**
+```
 Water (H₂O):       Oxygen (O₂):          Carbon Dioxide (CO₂):
     H                   O = O              O = C = O
      \                 /                     /
@@ -291,21 +306,24 @@ Water (H₂O):       Oxygen (O₂):          Carbon Dioxide (CO₂):
     H
 ```
 
-**Exam Strategy:** Remember that molecules can be elements (like O₂) or compounds (like H₂O). The key is that atoms are bonded together, not just mixed
+**Exam Strategy:** Remember that molecules can be elements (like O₂) or compounds (like H₂O). The key is that atoms are bonded together, not just mixed.
+
 ---
 
-#### **COMPOUND: Different Elements United**
+##### COMPOUND: Different Elements United
 
 **Formal Definition:**
 A compound is a substance formed when two or more different elements are chemically bonded together in fixed proportions.
+
 **Beginner-Friendly Explanation:**
 A compound is like a recipe where you mix different ingredients (elements) to create something entirely new with its own properties. Just as mixing flour, sugar, and eggs creates a cake (not just a pile of ingredients), mixing hydrogen and oxygen creates water (not just hydrogen and oxygen gas).
-**Essential Characteristics:**
 
+**Essential Characteristics:**
 - **Different elements:** Must contain at least two different types of atoms
 - **Chemical bonding:** Elements are bonded, not physically mixed
 - **Fixed composition:** Always same ratio of elements (law of definite proportions)
 - **New properties:** Properties different from constituent elements
+
 **Compound vs. Mixture (Critical Exam Distinction):**
 | Property     | Compound                     | Mixture                     |
 |--------------|------------------------------|-----------------------------|
@@ -314,36 +332,41 @@ A compound is like a recipe where you mix different ingredients (elements) to cr
 | Separation   | Chemical methods needed      | Physical separation possible|
 | Properties   | New properties               | Properties of components    |
 | Examples     | H₂O, NaCl, CO₂              | Salt water, air, trail mix  |
-**Types of Compounds:**
 
+**Types of Compounds:**
 1. **Molecular Compounds:** Covalent bonding (shared electrons)
    - Examples: H₂O, CO₂, CH₄, C₆H₁₂O₆
    - Often contain nonmetals only
+
 2. **Ionic Compounds:** Ionic bonding (electron transfer)
    - Examples: NaCl, CaCO₃, MgO
    - Usually contain metals and nonmetals
+
 **Law of Definite Proportions:**
 A compound always contains the same elements in the same proportion by mass.
-
 - Example: Water is ALWAYS 11.2% hydrogen and 88.8% oxygen by mass
 - This is why we write H₂O, not H₃O or HO₂
+
 **Exam Warning:** Many students confuse compounds with mixtures. Remember: compounds have chemical bonds and fixed ratios, mixtures don't!
+
 **Important Correction:** The question "Why can elements be broken down but compounds cannot?" is incorrect. The correct statement is: **Elements cannot be broken down by chemical means, but compounds can be broken down into simpler substances.** This is a critical distinction that often appears on tests.
 
 ---
 
-#### **EMPIRICAL FORMULA: Simplest Ratio**
+##### EMPIRICAL FORMULA: Simplest Ratio
 
 **Formal Definition:**
 An empirical formula is the simplest whole-number ratio of atoms of each element present in a compound.
+
 **Beginner-Friendly Explanation:**
 An empirical formula is like a simplified recipe. If a recipe calls for 4 cups of flour and 2 cups of sugar, the empirical formula would be 2:1 (simplified from 4:2). It shows the basic proportions, not the exact amounts.
-**How to Find Empirical Formula:**
 
+**How to Find Empirical Formula:**
 1. **Find the mass of each element** (usually given)
 2. **Convert to moles** (divide by atomic mass)
 3. **Divide by smallest mole value** to get ratio
 4. **Multiply to get whole numbers** if needed
+
 **Step-by-Step Example:**
 A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen.
 1. **Assume 100g sample:** 40.0g C, 6.7g H, 53.3g O
@@ -356,6 +379,7 @@ A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen.
    - H: 6.7 ÷ 3.33 = 2
    - O: 3.33 ÷ 3.33 = 1
 4. **Empirical formula:** CH₂O
+
 **Common Examples:**
 | Compound         | Molecular Formula | Empirical Formula |
 |------------------|-------------------|-------------------|
@@ -363,36 +387,41 @@ A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen.
 | Benzene          | C₆H₆             | CH                |
 | Glucose          | C₆H₁₂O₆          | CH₂O              |
 | Ethylene         | C₂H₄             | CH₂               |
-**When Empirical = Molecular:**
 
+**When Empirical = Molecular:**
 - Water: H₂O (both)
 - Carbon dioxide: CO₂ (both)
 - Ammonia: NH₃ (both)
+
 **Exam Strategy:** Empirical formulas are always simplified to the smallest whole numbers. If you get fractions, multiply all numbers by the same factor to get whole numbers.
 
 ---
 
-#### **MOLECULAR FORMULA: Exact Composition**
+##### MOLECULAR FORMULA: Exact Composition
 
 **Formal Definition:**
 A molecular formula shows the exact number of atoms of each element in one molecule of a compound.
+
 **Beginner-Friendly Explanation:**
 A molecular formula is like the complete, detailed recipe. If a cookie recipe calls for exactly 2 cups of flour and 1 cup of sugar, that's the molecular formula - it shows the exact amounts needed to make one batch.
+
 **Relationship to Empirical Formula:**
 Molecular Formula = (Empirical Formula) × n
 Where n is a whole number (1, 2, 3, ...)
-**How to Find Molecular Formula:**
 
+**How to Find Molecular Formula:**
 1. **Find empirical formula** (as shown above)
 2. **Find molecular mass** (usually given)
 3. **Calculate empirical mass** (mass of empirical formula)
 4. **Divide molecular mass by empirical mass** to get n
 5. **Multiply empirical formula by n**
+
 **Step-by-Step Example:**
 A compound has empirical formula CH₂O and molecular mass 180 g/mol.
 1. **Empirical mass:** C(12) + H₂(2) + O(16) = 30 g/mol
 2. **n = Molecular mass ÷ Empirical mass = 180 ÷ 30 = 6**
 3. **Molecular formula:** (CH₂O) × 6 = C₆H₁₂O₆
+
 **Common Molecular Formulas:**
 | Compound       | Molecular Formula | What it tells us                     |
 |----------------|-------------------|--------------------------------------|
@@ -400,17 +429,18 @@ A compound has empirical formula CH₂O and molecular mass 180 g/mol.
 | Carbon dioxide | CO₂               | 1 C atom, 2 O atoms per molecule     |
 | Glucose        | C₆H₁₂O₆           | 6 C, 12 H, 6 O atoms per molecule    |
 | Aspirin        | C₉H₈O₄            | 9 C, 8 H, 4 O atoms per molecule     |
-**Molecular Formula Information:**
 
+**Molecular Formula Information:**
 - **Exact atom count:** Shows precise number of each atom
 - **Molecular mass:** Can calculate exact mass of one molecule
 - **Types of atoms:** Shows which elements are present
 - **Bonding possibilities:** Suggests how atoms might be arranged
+
 **Exam Alert:** Remember that molecular formulas show actual numbers, while empirical formulas show ratios. Many exam questions give you one and ask for the other!
 
 ---
 
-### **Summary Table: Key Relationships**
+##### Summary Table: Key Relationships
 
 | Term               | Definition                              | Key Feature                          | Example                  |
 |--------------------|-----------------------------------------|--------------------------------------|--------------------------|
@@ -424,28 +454,31 @@ A compound has empirical formula CH₂O and molecular mass 180 g/mol.
 
 ---
 
-### **Common Exam Questions and Strategies**
+##### Common Exam Questions and Strategies
 
 **Question Type 1: Identification**
 *"Is CO₂ an element, compound, or molecule?"*
-
 - **Strategy:** Look for different elements (C and O = different) → Compound
 - Also, it's a molecule (atoms bonded together)
 - **Answer:** Both a compound and a molecule
+
 **Question Type 2: Formula Conversion**
 *"A compound has molecular formula C₆H₁₂O₆. What is the empirical formula?"*
 - **Strategy:** Find greatest common divisor (6,12,6) = 6
 - Divide all subscripts by 6: C₁H₂O₁ = CH₂O
 - **Answer:** CH₂O
+
 **Question Type 3: Ion Formation**
 *"What is the charge of an atom that loses 3 electrons?"*
 - **Strategy:** Losing electrons = positive charge
 - Number lost = charge magnitude
 - **Answer:** 3+ charge
+
 **Question Type 4: Distinguishing Concepts**
 *"Explain the difference between a compound and a mixture."*
 - **Strategy:** Focus on bonding and fixed ratios
 - **Answer:** Compounds have chemical bonds and fixed composition; mixtures have no bonds and variable composition
+
 **Question Type 5: Element vs Compound Properties**
 *"Why can elements not be broken down but compounds can be broken down?"*
 - **Strategy:** Focus on the fundamental difference in their composition
@@ -454,12 +487,12 @@ A compound has empirical formula CH₂O and molecular mass 180 g/mol.
 ---
 
 *More topics will be added as specified...*
+
 ---
 
 #### Module 1.2: The Mole Concept - Understanding Amount of Substance
 
 **Learning Objectives:**
-
 - Define the mole (mol) as the unit for amount of substance
 - Understand Avogadro's constant and its significance
 - Perform calculations involving moles and number of particles
@@ -469,21 +502,22 @@ A compound has empirical formula CH₂O and molecular mass 180 g/mol.
 
 ---
 
-#### **THE MOLE (mol): The Chemist's Counting Unit**
+##### THE MOLE (mol): The Chemist's Counting Unit
 
 **Formal Definition:**
 The mole (symbol: mol) is the SI unit for the amount of substance. One mole contains exactly 6.02 × 10²³ elementary entities (atoms, molecules, ions, or other particles).
+
 **Beginner-Friendly Explanation:**
 Think of the mole as a "chemist's dozen." Just as a dozen means 12 of something (12 eggs, 12 donuts), a mole means 6.02 × 10²³ of something (atoms, molecules, etc.). It's a way to count tiny things that are too small to see individually.
-**Why Do We Need Moles?**
 
+**Why Do We Need Moles?**
 - **Atoms are incredibly tiny:** You can't see or count individual atoms
 - **We work with large numbers:** Even a small sample contains billions of atoms
 - **Chemical reactions happen in ratios:** We need to know how many atoms/molecules are reacting
 - **Practical measurements:** We can measure mass, but we need to know how many atoms that mass represents
-**Everyday Analogy:**
 
-```text
+**Everyday Analogy:**
+```
 If you wanted to buy rice for a recipe:
 - You wouldn't count individual grains (too small and numerous)
 - You'd measure by mass (grams or pounds)
@@ -492,7 +526,6 @@ Chemists have the same problem with atoms!
 ```
 
 **Key Properties of the Mole:**
-
 - **Universal counting unit:** Works for any type of particle
 - **Bridge between atomic and macroscopic scales:** Connects what we can't see to what we can measure
 - **Based on carbon-12:** 1 mole = mass of 12 grams of carbon-12
@@ -500,31 +533,34 @@ Chemists have the same problem with atoms!
 
 ---
 
-#### **AVOGADRO'S CONSTANT: The Magic Number**
+##### AVOGADRO'S CONSTANT: The Magic Number
 
 **Formal Definition:**
 Avogadro's constant (L or Nₐ) is the number of particles in one mole of substance. Its value is 6.02 × 10²³ mol⁻¹.
+
 **Beginner-Friendly Explanation:**
 Avogadro's constant is like a conversion factor between the "atomic world" and the "human world." It tells us how many atoms are in a mole, just like knowing that 12 inches are in a foot helps us convert between different measurement systems.
+
 **The Number: 6.02 × 10²³**
 Let's understand how big this number is:
-
 - **Written out:** 602,000,000,000,000,000,000,000
 - **In words:** 602 billion trillion
 - **Scale:** If you had 6.02 × 10²³ grains of sand, you could cover the entire United States with a layer of sand several meters deep!
+
 **Historical Context:**
 - Named after **Amedeo Avogadro** (1776-1856)
 - He proposed that equal volumes of gases contain equal numbers of molecules
 - The constant was determined experimentally after his death
 - It's one of the fundamental constants of nature
+
 **Why This Specific Number?**
 The number 6.02 × 10²³ was chosen so that:
 - 1 mole of carbon-12 atoms has a mass of exactly 12 grams
 - This connects the atomic mass unit (amu) to grams
 - Makes calculations convenient for chemists
-**Avogadro's Constant in Equations:**
 
-```text
+**Avogadro's Constant in Equations:**
+```
 Number of particles = Number of moles × Avogadro's constant
 N = n × L
 Where:
@@ -535,32 +571,31 @@ L = 6.02 × 10²³ mol⁻¹
 
 ---
 
-#### **MOLE CALCULATIONS: Step-by-Step Methods**
+###### MOLE CALCULATIONS: Step-by-Step Methods
 
 **The Three Key Conversions:**
-
 1. **Moles ↔ Number of Particles**
 2. **Moles ↔ Mass**
 3. **Mass ↔ Number of Particles**
+
 Let's master each one!
 
 ---
 
-##### **Conversion 1: Moles to Number of Particles**
+####### Conversion 1: Moles to Number of Particles
 
 **Formula:**
-
-```text
+```
 Number of particles = Moles × Avogadro's constant
 N = n × L
 ```
 
 **Step-by-Step Method:**
-
 1. **Identify what you know:** Number of moles (n)
 2. **Write the formula:** N = n × L
 3. **Substitute values:** N = n × (6.02 × 10²³)
 4. **Calculate:** Multiply and express in scientific notation
+
 **Example 1:**
 *How many atoms are in 2.5 moles of iron (Fe)?*
 **Solution:**
@@ -569,6 +604,7 @@ N = n × L
 3. **Substitute:** N = 2.5 × (6.02 × 10²³)
 4. **Calculate:** N = 1.505 × 10²⁴ atoms
 **Answer:** 1.505 × 10²⁴ atoms of iron
+
 **Example 2:**
 *How many molecules are in 0.75 moles of water (H₂O)?*
 **Solution:**
@@ -580,21 +616,20 @@ N = n × L
 
 ---
 
-##### **Conversion 2: Number of Particles to Moles**
+####### Conversion 2: Number of Particles to Moles
 
 **Formula:**
-
-```text
+```
 Number of moles = Number of particles ÷ Avogadro's constant
 n = N ÷ L
 ```
 
 **Step-by-Step Method:**
-
 1. **Identify what you know:** Number of particles (N)
 2. **Write the formula:** n = N ÷ L
 3. **Substitute values:** n = N ÷ (6.02 × 10²³)
 4. **Calculate:** Divide and express in scientific notation
+
 **Example 1:**
 *How many moles are in 3.01 × 10²³ atoms of zinc (Zn)?*
 **Solution:**
@@ -603,6 +638,7 @@ n = N ÷ L
 3. **Substitute:** n = (3.01 × 10²³) ÷ (6.02 × 10²³)
 4. **Calculate:** n = 0.5 mol
 **Answer:** 0.5 moles of zinc
+
 **Example 2:**
 *How many moles are in 1.204 × 10²⁴ molecules of carbon dioxide (CO₂)?*
 **Solution:**
@@ -614,11 +650,10 @@ n = N ÷ L
 
 ---
 
-##### **Conversion 3: Moles to Mass (Using Molar Mass)**
+####### Conversion 3: Moles to Mass (Using Molar Mass)
 
 **Formula:**
-
-```text
+```
 Mass = Moles × Molar mass
 m = n × M
 Where:
@@ -629,23 +664,24 @@ M = molar mass in g/mol
 
 **What is Molar Mass?**
 Molar mass is the mass of one mole of a substance. It's numerically equal to:
-
 - **Atomic mass** (for elements)
 - **Molecular mass** (for compounds)
 - **Formula mass** (for ionic compounds)
+
 **Finding Molar Mass:**
 - **Elements:** Use atomic mass from periodic table
 - **Compounds:** Sum of atomic masses of all atoms
+
 **Example 1:**
 *What is the mass of 3.0 moles of aluminum (Al)?*
 **Solution:**
-
 1. **Find molar mass:** Al = 27.0 g/mol (from periodic table)
 2. **Known:** n = 3.0 mol, M = 27.0 g/mol
 3. **Formula:** m = n × M
 4. **Substitute:** m = 3.0 × 27.0
 5. **Calculate:** m = 81.0 g
 **Answer:** 81.0 grams of aluminum
+
 **Example 2:**
 *What is the mass of 2.5 moles of water (H₂O)?*
 **Solution:**
@@ -658,22 +694,21 @@ Molar mass is the mass of one mole of a substance. It's numerically equal to:
 
 ---
 
-##### **Conversion 4: Mass to Moles**
+####### Conversion 4: Mass to Moles
 
 **Formula:**
-
-```text
+```
 Number of moles = Mass ÷ Molar mass
 n = m ÷ M
 ```
 
 **Step-by-Step Method:**
-
 1. **Identify what you know:** Mass (m) and substance
 2. **Find molar mass:** Use periodic table (for elements) or calculate (for compounds)
 3. **Write the formula:** n = m ÷ M
 4. **Substitute values:** n = mass ÷ molar mass
 5. **Calculate:** Divide the numbers
+
 **Example 1:**
 *How many moles are in 64 grams of oxygen gas (O₂)?*
 **Solution:**
@@ -683,6 +718,7 @@ n = m ÷ M
 4. **Substitute:** n = 64 ÷ 32.0
 5. **Calculate:** n = 2.0 mol
 **Answer:** 2.0 moles of oxygen gas
+
 **Example 2:**
 *How many moles are in 180 grams of glucose (C₆H₁₂O₆)?*
 **Solution:**
@@ -695,14 +731,14 @@ n = m ÷ M
 
 ---
 
-##### **Conversion 5: Mass to Number of Particles (Combined Conversion)**
+####### Conversion 5: Mass to Number of Particles (Combined Conversion)
 
 **Method:**
 Mass → Moles → Number of particles
 Use both conversions in sequence!
-**Formula:**
 
-```text
+**Formula:**
+```
 Number of particles = (Mass ÷ Molar mass) × Avogadro's constant
 N = (m ÷ M) × L
 ```
@@ -711,9 +747,9 @@ N = (m ÷ M) × L
 *How many molecules are in 90 grams of water (H₂O)?*
 **Solution:**
 **Method 1: Step-by-Step**
-
 1. **Mass → Moles:** n = m ÷ M = 90 ÷ 18.0 = 2.00 mol
 2. **Moles → Particles:** N = n × L = 2.00 × (6.02 × 10²³) = 1.204 × 10²⁴ molecules
+
 **Method 2: Combined Formula**
 1. **Formula:** N = (m ÷ M) × L
 2. **Substitute:** N = (90 ÷ 18.0) × (6.02 × 10²³)
@@ -722,14 +758,14 @@ N = (m ÷ M) × L
 
 ---
 
-##### **Conversion 6: Number of Particles to Mass (Combined Conversion)**
+####### Conversion 6: Number of Particles to Mass (Combined Conversion)
 
 **Method:**
 Number of particles → Moles → Mass
 Use both conversions in sequence!
-**Formula:**
 
-```text
+**Formula:**
+```
 Mass = (Number of particles ÷ Avogadro's constant) × Molar mass
 m = (N ÷ L) × M
 ```
@@ -738,9 +774,9 @@ m = (N ÷ L) × M
 *What is the mass of 1.204 × 10²⁴ atoms of carbon?*
 **Solution:**
 **Method 1: Step-by-Step**
-
 1. **Particles → Moles:** n = N ÷ L = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = 2.0 mol
 2. **Moles → Mass:** m = n × M = 2.0 × 12.0 = 24.0 g
+
 **Method 2: Combined Formula**
 1. **Formula:** m = (N ÷ L) × M
 2. **Substitute:** m = (1.204 × 10²⁴ ÷ 6.02 × 10²³) × 12.0
@@ -749,19 +785,20 @@ m = (N ÷ L) × M
 
 ---
 
-#### **PRACTICAL APPLICATIONS: Why Moles Matter**
+###### PRACTICAL APPLICATIONS: Why Moles Matter
 
 **In Chemical Reactions:**
 Chemical reactions happen in specific ratios of molecules, not masses. Moles allow us to:
-
 - **Balance chemical equations:** 2H₂ + O₂ → 2H₂O means 2 moles H₂ + 1 mole O₂ → 2 moles H₂O
 - **Predict products:** Know exactly how much product will form
 - **Calculate reactants:** Know exactly how much reactant is needed
+
 **In Everyday Life:**
 - **Medicine:** Drug dosages are calculated using moles
 - **Food chemistry:** Nutrition labels use mole-based calculations
 - **Environmental science:** Pollution measurements use mole concepts
 - **Manufacturing:** Chemical production relies on mole calculations
+
 **In Laboratory Work:**
 - **Solution preparation:** Making solutions of specific concentration
 - **Titration:** Determining unknown concentrations
@@ -769,65 +806,63 @@ Chemical reactions happen in specific ratios of molecules, not masses. Moles all
 
 ---
 
-#### **COMMON MISTAKES TO AVOID**
+###### COMMON MISTAKES TO AVOID
 
 **Mistake 1: Confusing Moles and Molecules**
-
 - **Wrong:** "2 moles of water means 2 molecules"
 - **Right:** "2 moles of water means 2 × 6.02 × 10²³ molecules"
+
 **Mistake 2: Incorrect Unit Conversion**
 - **Wrong:** Forgetting to use scientific notation with large numbers
 - **Right:** Always use scientific notation for Avogadro's constant calculations
+
 **Mistake 3: Molar Mass Errors**
 - **Wrong:** Using atomic number instead of atomic mass
 - **Right:** Using atomic mass from periodic table for molar mass
+
 **Mistake 4: Formula Errors**
 - **Wrong:** N = n ÷ L (dividing instead of multiplying)
 - **Right:** N = n × L (multiplying moles by Avogadro's constant)
+
 **Mistake 5: Significant Figures**
 - **Wrong:** Reporting too many or too few significant figures
 - **Right:** Match significant figures to the least precise measurement
 
 ---
 
-#### **EXAM STRATEGIES**
+###### EXAM STRATEGIES
 
-##### **Strategy 1: Identify What You Know and What You Need**
-
+####### Strategy 1: Identify What You Know and What You Need
 1. **List given information:** Mass? Moles? Number of particles?
 2. **Identify unknown:** What is the question asking for?
 3. **Choose the right formula:** Based on what you know and what you need
 
-##### **Strategy 2: Use the Mole Triangle**
-
-```text
+####### Strategy 2: Use the Mole Triangle
+```
         Mass
          / \
         /   \
        /     \
     Moles ---- Number of Particles
 ```
-
 - **Mass ↔ Moles:** Use molar mass
 - **Moles ↔ Particles:** Use Avogadro's constant
 - **Mass ↔ Particles:** Use both (go through moles)
 
-##### **Strategy 3: Show Your Work**
-
+####### Strategy 3: Show Your Work
 1. **Write the formula:** Always start with the correct formula
 2. **Substitute values:** Show numbers and units
 3. **Calculate:** Show the mathematical steps
 4. **Box your answer:** Make it clear what your final answer is
 
-##### **Strategy 4: Check Your Answer**
-
+####### Strategy 4: Check Your Answer
 1. **Does it make sense?:** Should the number be larger or smaller?
 2. **Are units correct?:** Did you include the right units?
 3. **Significant figures:** Did you use the right number of significant figures?
 
 ---
 
-### **Summary Table: Mole Calculations**
+##### Summary Table: Mole Calculations
 
 | Conversion            | Formula            | What You Need        | Example                                  |
 |-----------------------|--------------------|----------------------|------------------------------------------|
@@ -840,29 +875,32 @@ Chemical reactions happen in specific ratios of molecules, not masses. Moles all
 
 ---
 
-### **Common Exam Questions and Strategies**
+##### Common Exam Questions and Strategies
 
 **Question Type 1: Basic Conversion**
 *"How many atoms are in 0.5 moles of copper?"*
-
 - **Strategy:** Use N = n × L
 - **Solution:** N = 0.5 × (6.02 × 10²³) = 3.01 × 10²³ atoms
 - **Answer:** 3.01 × 10²³ atoms
+
 **Question Type 2: Reverse Conversion**
 *"How many moles contain 1.204 × 10²⁴ molecules?"*
 - **Strategy:** Use n = N ÷ L
 - **Solution:** n = (1.204 × 10²⁴) ÷ (6.02 × 10²³) = 2.0 moles
 - **Answer:** 2.0 moles
+
 **Question Type 3: Mass to Moles**
 *"How many moles are in 58.5 grams of NaCl?"*
 - **Strategy:** Find molar mass, then n = m ÷ M
 - **Solution:** M = 23.0 + 35.5 = 58.5 g/mol, n = 58.5 ÷ 58.5 = 1.0 mol
 - **Answer:** 1.0 mole
+
 **Question Type 4: Combined Conversion**
 *"What is the mass of 3.01 × 10²³ molecules of CO₂?"*
 - **Strategy:** Particles → Moles → Mass
 - **Solution:** n = 3.01×10²³ ÷ 6.02×10²³ = 0.5 mol, m = 0.5 × 44 = 22 g
 - **Answer:** 22 grams
+
 **Question Type 5: Conceptual**
 *"Why do chemists use moles instead of counting individual atoms?"*
 - **Strategy:** Explain the scale problem and need for practical measurement
@@ -871,12 +909,12 @@ Chemical reactions happen in specific ratios of molecules, not masses. Moles all
 ---
 
 *More topics will be added as specified...*
+
 ---
 
 #### Module 1.3: Chemical Equations and Reactions
 
 **Learning Objectives:**
-
 - Understand what chemical reactions are and how they occur
 - Identify reactants and products in chemical reactions
 - Write and balance chemical equations
@@ -887,41 +925,46 @@ Chemical reactions happen in specific ratios of molecules, not masses. Moles all
 
 ---
 
-#### **CHEMICAL REACTIONS: When Matter Changes**
+##### CHEMICAL REACTIONS: When Matter Changes
 
 **Formal Definition:**
 A chemical reaction is a process that leads to the transformation of one set of chemical substances to another. During a chemical reaction, bonds between atoms are broken and new bonds are formed, resulting in different substances with different properties.
+
 **Beginner-Friendly Explanation:**
 Think of a chemical reaction like rearranging LEGO blocks. You start with certain structures (reactants), break them apart, and then rebuild them into completely new structures (products). The individual blocks (atoms) remain the same, but how they're connected changes dramatically.
+
 **Why Chemical Reactions Matter:**
 Chemical reactions are happening all around us and inside us all the time:
-
 - **Cooking:** When you bake a cake, ingredients react to form something completely different
 - **Breathing:** Your body uses oxygen and converts it to carbon dioxide
 - **Battery power:** Chemical reactions inside batteries produce electricity
 - **Digestion:** Food is broken down and converted to energy your body can use
+
 **Key Features of Chemical Reactions:**
 - **Reactants:** The substances you start with (before the reaction)
 - **Products:** The substances you end up with (after the reaction)
 - **Energy changes:** Reactions either release energy (exothermic) or absorb energy (endothermic)
 - **Irreversibility:** Most reactions don't easily reverse themselves
+
 **Real-World Examples:**
 - **Burning wood:** Wood (reactant) + Oxygen → Ash, smoke, heat (products)
 - **Rusting iron:** Iron (reactant) + Oxygen + Water → Rust (product)
 - **Baking soda and vinegar:** Baking soda + Vinegar → Carbon dioxide gas + Water
+
 **Test Alert:** Understanding chemical reactions is fundamental to chemistry. Test questions often ask you to identify reactants and products or predict what will happen in a reaction.
 
 ---
 
-#### **CHEMICAL EQUATIONS: The Language of Reactions**
+##### CHEMICAL EQUATIONS: The Language of Reactions
 
 **Formal Definition:**
 A chemical equation is a symbolic representation of a chemical reaction in which the reactants are on the left side and the products are on the right side, with an arrow between them indicating the direction of the reaction.
+
 **Beginner-Friendly Explanation:**
 A chemical equation is like a recipe written in a special language. It tells you exactly what ingredients (reactants) you need and what you'll make (products). Just like a recipe might say "flour + sugar → cake," a chemical equation uses symbols to show the same thing.
-**Parts of a Chemical Equation:**
 
-```text
+**Parts of a Chemical Equation:**
+```
 Reactants → Products
    ↑          ↑
 Starting    Ending
@@ -929,43 +972,43 @@ materials   materials
 ```
 
 **Why We Need Chemical Equations:**
-
 - **Precision:** They tell us exactly what reacts and what is produced
 - **Proportions:** They show the ratios in which substances react and form
 - **Universal understanding:** Chemists worldwide can understand the same equation
 - **Prediction:** They help us predict what will happen in new reactions
-**Simple Example:**
 
-```text
+**Simple Example:**
+```
 Hydrogen + Oxygen → Water
 ```
-
 In chemical symbols:
-
-```text
+```
 H₂ + O₂ → H₂O
 ```
 
-**Test Strategy:** When you see a chemical equation, always identify the reactants (left side) and products (right side). Many test questions ask you to do this
+**Test Strategy:** When you see a chemical equation, always identify the reactants (left side) and products (right side). Many test questions ask you to do this.
+
 ---
 
-#### **BALANCING EQUATIONS: Following the Rules**
+##### BALANCING EQUATIONS: Following the Rules
 
 **Formal Definition:**
 Balancing a chemical equation means adjusting the coefficients (numbers in front of formulas) so that the number of atoms of each element is the same on both sides of the equation, following the Law of Conservation of Mass.
+
 **Beginner-Friendly Explanation:**
 Balancing an equation is like making sure you have the same number of LEGO blocks before and after you rebuild something. You can't create or destroy blocks (atoms), you just rearrange them. Balancing ensures you account for every atom!
+
 **The Law of Conservation of Mass:**
 This fundamental law states that matter cannot be created or destroyed in a chemical reaction. In simpler terms: **What goes in must come out!** This means:
-
 - The number of atoms of each element must be the same on both sides
 - The total mass of reactants must equal the total mass of products
+
 **Why Balancing Matters:**
 - **Accurate representation:** Shows what really happens in the reaction
 - **Calculations:** Needed for all stoichiometric calculations
 - **Test requirements:** Most chemistry tests include balancing questions
-**Step-by-Step Method for Balancing Equations:**
 
+**Step-by-Step Method for Balancing Equations:**
 1. **Write the unbalanced equation** with correct formulas
 2. **Count atoms** of each element on both sides
 3. **Pick an element** to balance first (usually start with metals)
@@ -973,6 +1016,7 @@ This fundamental law states that matter cannot be created or destroyed in a chem
 5. **Update atom counts** after each change
 6. **Continue** until all elements are balanced
 7. **Check your work** by counting atoms again
+
 **Example: Balancing H₂ + O₂ → H₂O**
 1. **Unbalanced equation:** H₂ + O₂ → H₂O
 2. **Count atoms:**
@@ -989,103 +1033,110 @@ This fundamental law states that matter cannot be created or destroyed in a chem
    - Left: 4 H, 2 O
    - Right: 4 H, 2 O
 7. **Balanced!** ✓
-**Balancing Tips for Tests:**
 
+**Balancing Tips for Tests:**
 - **Never change subscripts** (the small numbers in formulas) - this changes the compound!
 - **Start with elements** that appear in only one compound on each side
 - **Save hydrogen and oxygen for last** if possible
 - **Treat polyatomic ions** (like SO₄²⁻) as single units if they appear unchanged
 - **Use fractions temporarily** if needed, then multiply to eliminate them
+
 **Common Test Mistakes:**
 - **Changing subscripts instead of coefficients**
 - **Forgetting to count atoms** after adding a coefficient
 - **Missing elements** that appear in multiple compounds
 - **Not checking the final balance**
+
 **Test Alert:** Balancing equations is a fundamental chemistry skill that appears on almost every chemistry test. Practice until you can balance simple equations quickly and accurately!
 
 ---
 
-#### **STATE SYMBOLS: Showing Physical States**
+##### STATE SYMBOLS: Showing Physical States
 
 **Formal Definition:**
 State symbols are notations used in chemical equations to indicate the physical state of each reactant and product. They provide important information about the conditions of the reaction.
+
 **Beginner-Friendly Explanation:**
 State symbols are like labels that tell you whether each substance in a reaction is a solid, liquid, gas, or dissolved in water. They're important because the physical state affects how substances behave and react.
-**The Four State Symbols:**
 
+**The Four State Symbols:**
 | Symbol | State          | Description                     | Examples               |
 |--------|----------------|---------------------------------|------------------------|
 | (s)    | Solid          | Fixed shape and volume          | Salt, iron, sugar     |
 | (l)    | Liquid         | Fixed volume, shape of container | Water, alcohol, oil    |
 | (g)    | Gas            | No fixed shape or volume       | Oxygen, carbon dioxide |
 | (aq)   | Aqueous        | Dissolved in water             | Salt water, acid solutions |
-**Why State Symbols Matter:**
 
+**Why State Symbols Matter:**
 - **Complete information:** They provide a fuller picture of the reaction
 - **Reaction conditions:** They indicate the physical conditions needed
 - **Test requirements:** Many tests require state symbols for full credit
 - **Ionic equations:** They're essential for writing ionic equations
+
 **When to Use Each State Symbol:**
 - **(s) Solids:** Most metals, minerals, ionic compounds at room temperature
 - **(l) Liquids:** Water, mercury, bromine, and other liquids at room temperature
 - **(g) Gases:** Oxygen, nitrogen, hydrogen, carbon dioxide, chlorine
 - **(aq) Aqueous:** Substances dissolved in water (acids, bases, salts)
-**Example with State Symbols:**
 
-```text
+**Example with State Symbols:**
+```
 2H₂(g) + O₂(g) → 2H₂O(l)
 ```
-
 This shows hydrogen gas and oxygen gas reacting to form liquid water.
-**Special Cases and Rules:**
 
+**Special Cases and Rules:**
 - **Water:** Can be (l) for liquid, (g) for steam, or (s) for ice
 - **Precipitates:** Solids that form during reactions in solution are marked (s)
 - **Gases produced:** Often indicated with an upward arrow (↑) in addition to (g)
 - **Precipitates formed:** Sometimes indicated with a downward arrow (↓) in addition to (s)
-**Test Strategy for State Symbols:**
 
+**Test Strategy for State Symbols:**
 1. **Memorize the four symbols** and what they represent
 2. **Look for clues** in the problem description (words like "dissolved," "solution," etc.)
 3. **Remember common states:** Water is usually (l), metals are usually (s), gases like O₂ and CO₂ are (g)
 4. **Include all state symbols** when writing equations for tests
-**Common Test Questions About State Symbols:**
 
+**Common Test Questions About State Symbols:**
 - "What does (aq) mean in a chemical equation?"
 - "Write the balanced equation with state symbols for..."
 - "Predict the state symbol for [substance] in the following reaction"
 - "Explain why state symbols are important in chemical equations"
+
 **Test Alert:** Many students lose points on tests by forgetting state symbols or using the wrong ones. Always include them when asked for a "complete" equation!
 
 ---
 
-#### **IONIC EQUATIONS: Showing What's Really Happening**
+##### IONIC EQUATIONS: Showing What's Really Happening
 
 **Formal Definition:**
 Ionic equations are chemical equations that show ionic compounds dissociated into their ions in solution. There are two types: full ionic equations (showing all ions) and net ionic equations (showing only ions that participate in the reaction).
+
 **Beginner-Friendly Explanation:**
 Ionic equations are like zooming in on a reaction to see what's happening at the level of individual charged particles (ions). Some ions are just "spectators" that don't actually change - they're like people watching a sports game. The net ionic equation focuses only on the players actually participating in the game.
-**Why We Need Ionic Equations:**
 
+**Why We Need Ionic Equations:**
 - **Show actual participants:** They reveal which substances are actually reacting
 - **Simplify complex reactions:** They focus on what's important
 - **Predict precipitates:** They help identify when solids will form
 - **Test importance:** They're frequently tested in chemistry exams
-**Types of Ionic Equations:**
 
+**Types of Ionic Equations:**
 1. **Molecular Equation:** Shows complete, undissociated formulas (what we've learned so far)
    - Example: AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq)
+
 2. **Full Ionic Equation:** Shows all soluble ionic compounds dissociated into ions
    - Example: Ag⁺(aq) + NO₃⁻(aq) + Na⁺(aq) + Cl⁻(aq) → AgCl(s) + Na⁺(aq) + NO₃⁻(aq)
+
 3. **Net Ionic Equation:** Shows only ions that participate in the reaction (excludes spectator ions)
    - Example: Ag⁺(aq) + Cl⁻(aq) → AgCl(s)
+
 **Spectator Ions:**
 Spectator ions are ions that appear unchanged on both sides of the equation. They don't participate in the actual reaction - they're just present in the solution.
-
 - In the example above: Na⁺ and NO₃⁻ are spectator ions
 - They're canceled out when going from full ionic to net ionic equations
-**Step-by-Step Method for Writing Ionic Equations:**
 
+**Step-by-Step Method for Writing Ionic Equations:**
 1. **Write the balanced molecular equation** with state symbols
 2. **Identify strong electrolytes** that dissociate in water:
    - All soluble salts (most ionic compounds)
@@ -1096,31 +1147,37 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
    - Soluble ionic compounds, strong acids, and strong bases dissociate into ions
 4. **Identify spectator ions** (appear unchanged on both sides)
 5. **Write the net ionic equation** by removing spectator ions
+
 **Example: Writing Ionic Equations for AgNO₃ + NaCl → AgCl + NaNO₃**
 1. **Balanced molecular equation:**
    - AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq)
+
 2. **Identify strong electrolytes:**
    - AgNO₃, NaCl, and NaNO₃ are all soluble salts (strong electrolytes)
    - AgCl is a solid precipitate (not dissociated)
+
 3. **Write full ionic equation:**
    - Ag⁺(aq) + NO₃⁻(aq) + Na⁺(aq) + Cl⁻(aq) → AgCl(s) + Na⁺(aq) + NO₃⁻(aq)
+
 4. **Identify spectator ions:**
    - Na⁺ and NO₃⁻ appear unchanged on both sides
+
 5. **Write net ionic equation:**
    - Ag⁺(aq) + Cl⁻(aq) → AgCl(s)
-**Rules for What Dissociates:**
 
+**Rules for What Dissociates:**
 - **Always dissociated (write as ions):**
   - Soluble salts (check solubility rules)
   - Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄
   - Strong bases: Group 1 hydroxides, Ca(OH)₂, Sr(OH)₂, Ba(OH)₂
+
 - **Never dissociated (keep as complete formulas):**
   - Solids (s), liquids (l), gases (g)
   - Weak acids (acetic acid, carbonic acid)
   - Weak bases (NH₃, amines)
   - Insoluble salts
-**Common Solubility Rules for Tests:**
 
+**Common Solubility Rules for Tests:**
 1. **All Group 1 and NH₄⁺ compounds are soluble**
 2. **All nitrates (NO₃⁻) are soluble**
 3. **Most chlorides (Cl⁻) are soluble** (except AgCl, PbCl₂, Hg₂Cl₂)
@@ -1128,23 +1185,25 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
 5. **Most hydroxides (OH⁻) are insoluble** (except Group 1 and Ca(OH)₂, Sr(OH)₂, Ba(OH)₂)
 6. **Most sulfides (S²⁻) are insoluble** (except Group 1 and 2)
 7. **Most carbonates (CO₃²⁻) and phosphates (PO₄³⁻) are insoluble** (except Group 1 and NH₄⁺)
+
 **Test Strategy for Ionic Equations:**
 1. **Memorize solubility rules** - they're essential for writing ionic equations
 2. **Remember strong acids and bases** - these always dissociate
 3. **Practice identifying spectator ions** - look for ions that don't change
 4. **Check your work** - make sure atoms and charges balance in net ionic equations
-**Common Test Questions About Ionic Equations:**
 
+**Common Test Questions About Ionic Equations:**
 - "Write the full ionic equation for..."
 - "Write the net ionic equation for..."
 - "Identify the spectator ions in this reaction"
 - "What is the net ionic equation for the formation of a precipitate?"
 - "Explain why the net ionic equation is simpler than the molecular equation"
+
 **Test Alert:** Ionic equations are a major focus of chemistry tests, especially precipitation and acid-base reactions. Make sure you can write all three types of equations (molecular, full ionic, and net ionic) for common reactions!
 
 ---
 
-### **Summary Table: Types of Chemical Equations**
+##### Summary Table: Types of Chemical Equations
 
 | Equation Type      | What It Shows                          | When to Use                  | Example                                      |
 |--------------------|---------------------------------------|------------------------------|----------------------------------------------|
@@ -1154,13 +1213,13 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
 
 ---
 
-### **Common Exam Questions and Strategies**
+##### Common Exam Questions and Strategies
 
 **Question Type 1: Identifying Reactants and Products**
 *"In the reaction 2H₂ + O₂ → 2H₂O, identify the reactants and products."*
-
 - **Strategy:** Reactants are on the left side (before arrow), products are on the right side (after arrow)
 - **Answer:** Reactants: H₂ and O₂; Products: H₂O
+
 **Question Type 2: Balancing Equations**
 *"Balance the equation: CH₄ + O₂ → CO₂ + H₂O"*
 - **Strategy:** Count atoms of each element and add coefficients to balance
@@ -1172,6 +1231,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
   5. Balance O: Add coefficient 2 to O₂ → CH₄ + 2O₂ → CO₂ + 2H₂O
   6. Final count: Left: 1 C, 4 H, 4 O; Right: 1 C, 4 H, 4 O ✓
 - **Answer:** CH₄ + 2O₂ → CO₂ + 2H₂O
+
 **Question Type 3: Adding State Symbols**
 *"Write the balanced equation with state symbols for the reaction between magnesium metal and hydrochloric acid to produce magnesium chloride and hydrogen gas."*
 - **Strategy:** Determine the physical state of each substance and add the appropriate symbol
@@ -1185,6 +1245,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
      - H₂ is a gas → (g)
   4. Final equation: Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)
 - **Answer:** Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)
+
 **Question Type 4: Writing Full Ionic Equations**
 *"Write the full ionic equation for: Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)"*
 - **Strategy:** Dissociate all soluble ionic compounds into ions, keeping solids as complete formulas
@@ -1197,6 +1258,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
   2. Write full ionic equation:
      - Pb²⁺(aq) + 2NO₃⁻(aq) + 2K⁺(aq) + 2I⁻(aq) → PbI₂(s) + 2K⁺(aq) + 2NO₃⁻(aq)
 - **Answer:** Pb²⁺(aq) + 2NO₃⁻(aq) + 2K⁺(aq) + 2I⁻(aq) → PbI₂(s) + 2K⁺(aq) + 2NO₃⁻(aq)
+
 **Question Type 5: Writing Net Ionic Equations**
 *"Write the net ionic equation for: Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)"*
 - **Strategy:** Start with the full ionic equation and remove spectator ions
@@ -1205,6 +1267,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
   2. Identify spectator ions: NO₃⁻ and K⁺ appear unchanged on both sides
   3. Remove spectator ions: Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)
 - **Answer:** Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)
+
 **Question Type 6: Identifying Spectator Ions**
 *"In the reaction between solutions of silver nitrate and sodium chloride, identify the spectator ions."*
 - **Strategy:** Write the full ionic equation and identify ions that don't change
@@ -1213,6 +1276,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
   2. Full ionic equation: Ag⁺(aq) + NO₃⁻(aq) + Na⁺(aq) + Cl⁻(aq) → AgCl(s) + Na⁺(aq) + NO₃⁻(aq)
   3. Spectator ions: Na⁺ and NO₃⁻ appear unchanged on both sides
 - **Answer:** Na⁺ and NO₃⁻ are the spectator ions
+
 **Question Type 7: Predicting Reaction Products**
 *"Predict the products and write the balanced equation for the reaction between aqueous solutions of barium chloride and sodium sulfate."*
 - **Strategy:** Identify the type of reaction and predict products based on patterns
@@ -1225,6 +1289,7 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
   6. Unbalanced equation: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + NaCl(aq)
   7. Balance: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)
 - **Answer:** BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)
+
 **Question Type 8: Conceptual Understanding**
 *"Explain why the net ionic equation for the reaction between HCl(aq) and NaOH(aq) is H⁺(aq) + OH⁻(aq) → H₂O(l)."*
 - **Strategy:** Explain the process of writing ionic equations and identifying spectator ions
@@ -1233,12 +1298,12 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
 ---
 
 *More topics will be added as specified...*
+
 ---
 
 #### Module 1.4: Understanding Mass Terms in Chemistry
 
 **Learning Objectives:**
-
 - Understand relative atomic mass and how it's calculated
 - Differentiate between relative molecular mass and relative formula mass
 - Calculate molar mass and use it in chemical calculations
@@ -1248,21 +1313,21 @@ Spectator ions are ions that appear unchanged on both sides of the equation. The
 
 ---
 
-### Introduction to Atoms and Elements
+##### Introduction to Mass Terms
 
-Before we dive into mass terms, let's start with the absolute basics. Everything around us is made of tiny particles called atoms. Think of atoms as the building blocks of matter - just like how LEGO blocks can be used to build different structures, atoms combine to form everything we see and touch.
+In this module, we'll explore different ways to express the mass of substances in chemistry, building on the fundamental concepts introduced in Module 1.1.
 
-**Elements** are substances made of only one type of atom. For example, gold is made of only gold atoms, and oxygen is made of only oxygen atoms. There are about 118 different elements, and each has its own unique type of atom.
+---
 
-### i. Relative Atomic Mass
+##### i. Relative Atomic Mass
 
-#### What is Relative Atomic Mass?
+###### What is Relative Atomic Mass?
 
 Every atom has a mass, but atoms are so incredibly small that their actual masses are difficult to work with. For example, a single hydrogen atom weighs about 0.00000000000000000000000167 grams! That's a lot of zeros to keep track of.
 
 To make things easier, scientists use a comparison scale called the **relative atomic mass**. This scale compares the mass of atoms to a standard reference atom.
 
-#### The Carbon-12 Scale
+###### The Carbon-12 Scale
 
 Scientists chose a particular type of carbon atom called **Carbon-12** (written as ¹²C) as the standard reference. Here's why:
 
@@ -1279,7 +1344,7 @@ For example:
 - If an atom is 12 times heavier than 1/12 of a Carbon-12 atom, its relative atomic mass is 12
 - If an atom is 16 times heavier than 1/12 of a Carbon-12 atom, its relative atomic mass is 16
 
-#### Isotopes and Why Relative Atomic Mass Isn't Always a Whole Number
+###### Isotopes and Why Relative Atomic Mass Isn't Always a Whole Number
 
 **Isotopes** are atoms of the same element that have different numbers of neutrons. For example:
 
@@ -1298,15 +1363,17 @@ Since most elements exist as a mixture of isotopes, the relative atomic mass is 
   (35 × 75/100) + (37 × 25/100) = 26.25 + 9.25 = 35.5
 - So, the relative atomic mass of chlorine is 35.5
 
-#### Finding Relative Atomic Mass
+###### Finding Relative Atomic Mass
 
 You don't need to calculate relative atomic masses yourself - they're given in the periodic table. The number usually shown at the bottom of each element's box is the relative atomic mass.
 
 **Test Tip:** In exams, you'll be given a periodic table with relative atomic masses. Make sure you know how to find and use these values!
 
-### ii. Relative Molecular Mass and Relative Formula Mass
+---
 
-#### What are Molecules and Compounds?
+##### ii. Relative Molecular Mass and Relative Formula Mass
+
+###### What are Molecules and Compounds?
 
 When atoms join together, they form **molecules**. A **compound** is a substance made from two or more different elements chemically bonded together.
 
@@ -1316,7 +1383,7 @@ For example:
 - Carbon dioxide (CO₂) is a compound made of carbon and oxygen atoms
 - Oxygen gas (O₂) is a molecule made of oxygen atoms (but not a compound because it only has one type of atom)
 
-#### Relative Molecular Mass
+###### Relative Molecular Mass
 
 The **relative molecular mass (Mr)** is the total mass of a molecule compared to 1/12 of the mass of a Carbon-12 atom.
 
@@ -1340,7 +1407,7 @@ To calculate the relative molecular mass:
 - Carbon dioxide has 1 carbon atom and 2 oxygen atoms
 - Relative molecular mass of carbon dioxide = (1 × 12) + (2 × 16) = 12 + 32 = 44
 
-#### Relative Formula Mass
+###### Relative Formula Mass
 
 Some substances don't exist as simple molecules but have **giant structures**. These include:
 
@@ -1365,63 +1432,17 @@ For these substances, we use the term **relative formula mass** instead of relat
 
 **Test Tip:** In exams, you'll need to calculate relative molecular/formula masses. Practice these calculations until you can do them quickly and accurately!
 
-### iii. Molar Mass
+---
 
-#### What is a Mole?
+##### iii. Molar Mass
 
-In chemistry, we often need to count atoms and molecules, but they're so small that it's impossible to count them individually. Instead, we use a special unit called the **mole**.
+The molar mass is the mass of one mole of a substance. It is numerically equal to the relative atomic mass (for elements) or relative formula mass (for compounds), but its unit is grams per mole (g mol⁻¹).
 
-One mole of any substance contains **6.022 × 10²³** particles (atoms, molecules, ions, etc.). This number is called **Avogadro's number**.
+---
 
-Think of it like this:
+##### iv. Parts Per Million (ppm)
 
-- If you buy eggs by the dozen, you get 12 eggs
-- If you buy paper by the ream, you get 500 sheets
-- If you buy atoms by the mole, you get 6.022 × 10²³ atoms
-
-#### What is Molar Mass?
-
-**Molar mass** is the mass of one mole of a substance. It's measured in grams per mole (g mol⁻¹).
-
-The good news is that the molar mass of a substance has the same numerical value as its relative molecular mass or relative formula mass - just with different units.
-
-**Example: Water (H₂O)**
-
-- Relative molecular mass of water = 18
-- Molar mass of water = 18 g mol⁻¹
-- This means that one mole of water molecules has a mass of 18 grams
-
-**Example: Sodium Chloride (NaCl)**
-
-- Relative formula mass of sodium chloride = 58.5
-- Molar mass of sodium chloride = 58.5 g mol⁻¹
-- This means that one mole of sodium chloride has a mass of 58.5 grams
-
-#### Using Molar Mass in Calculations
-
-Molar mass helps us convert between mass and number of moles:
-
-**Number of moles = Mass (in grams) ÷ Molar mass**
-
-**Mass (in grams) = Number of moles × Molar mass**
-
-**Example 1:**
-
-- How many moles are there in 36 grams of water?
-- Molar mass of water = 18 g mol⁻¹
-- Number of moles = 36 ÷ 18 = 2 moles
-
-**Example 2:**
-
-- What is the mass of 0.5 moles of sodium chloride?
-- Molar mass of sodium chloride = 58.5 g mol⁻¹
-- Mass = 0.5 × 58.5 = 29.25 grams
-
-**Test Tip:** Moles calculations are very common in chemistry exams. Make sure you understand how to convert between mass and moles using molar mass!
-
-### iv. Parts Per Million (ppm)
-
-#### What is Parts Per Million?
+###### What is Parts Per Million?
 
 **Parts per million (ppm)** is a way to express very small concentrations of substances. It tells us how many parts of a substance there are for every million parts of the total mixture.
 
@@ -1432,7 +1453,7 @@ Think of it like percentages:
 
 So, 1 ppm = 1/1,000,000 = 0.0001%
 
-#### Why Use ppm?
+###### Why Use ppm?
 
 We use ppm when dealing with very small amounts of substances, such as:
 
@@ -1441,7 +1462,7 @@ We use ppm when dealing with very small amounts of substances, such as:
 - Impurities in chemicals
 - Gases in the atmosphere
 
-#### Calculating ppm
+###### Calculating ppm
 
 For solids and liquids in water:
 **ppm = (mass of substance ÷ total mass of solution) × 1,000,000**
@@ -1460,7 +1481,7 @@ For gases in air:
 - If 0.4 L of carbon dioxide is found in 1000 L of air, what is the concentration in ppm?
 - ppm = (0.4 ÷ 1000) × 1,000,000 = 400 ppm
 
-#### ppm and Atmospheric Gases
+###### ppm and Atmospheric Gases
 
 The Earth's atmosphere is made up of several gases, with some present in very small amounts. Here are some approximate concentrations:
 
@@ -1476,7 +1497,9 @@ As you can see, even gases like carbon dioxide that we hear a lot about are pres
 
 **Test Tip:** In exams, you may be asked to calculate concentrations in ppm or convert between ppm and other units. Make sure you understand these calculations and can work with very small numbers.
 
-### Summary of Key Points
+---
+
+##### Summary of Key Points
 
 1. **Relative Atomic Mass**: The mass of an atom compared to 1/12 of the mass of a Carbon-12 atom. It's usually not a whole number because elements exist as mixtures of isotopes.
 
@@ -1488,7 +1511,9 @@ As you can see, even gases like carbon dioxide that we hear a lot about are pres
 
 5. **Parts Per Million (ppm)**: A way to express very small concentrations, meaning "parts per million." It's commonly used for pollutants, trace elements, and atmospheric gases.
 
-### Practice Problems
+---
+
+##### Practice Problems
 
 Try these problems to test your understanding:
 
@@ -1513,7 +1538,9 @@ Try these problems to test your understanding:
 
 5. The concentration of sulfur dioxide in a city's air is 0.05 ppm. If the total volume of air in the city is 5 × 10¹² L, what volume of sulfur dioxide is present?
 
-### Answers to Practice Problems
+---
+
+##### Answers to Practice Problems
 
 1. a) Methane (CH₄): (1 × 12) + (4 × 1) = 16
    b) Ammonia (NH₃): (1 × 14) + (3 × 1) = 17
@@ -1541,10 +1568,11 @@ Try these problems to test your understanding:
 
 ---
 
+---
+
 #### Module 1.5: Calculate the concentration of a solution in mol dm⁻³ and g dm⁻³
 
 **Learning Objectives:**
-
 - Understand what a solution is and its components
 - Define concentration and its importance in chemistry
 - Calculate concentration in mol dm⁻³ (molarity)
@@ -1555,150 +1583,107 @@ Try these problems to test your understanding:
 
 ---
 
-### 1.5.1 What is a Solution?
+##### 1.5.1 What is a Solution?
 
 Before we can calculate concentration, we need to understand what a solution is. In chemistry, a solution is a mixture where one substance (called the **solute**) is dissolved completely in another substance (called the **solvent**).
 
 **Examples:**
-
 - Salt water: Salt is the solute, water is the solvent
 - Sugar in tea: Sugar is the solute, tea is the solvent
 - Carbonated water: Carbon dioxide gas is the solute, water is the solvent
 
 When we dissolve a solute in a solvent, we create a solution. The amount of solute in a given amount of solution is called the **concentration**.
 
-### 1.5.2 Understanding Concentration
+---
+
+##### 1.5.2 Understanding Concentration
 
 Concentration tells us how much of a substance is present in a certain volume of solution. Think about making orange juice from concentrate:
-
 - If you use a little concentrate in a lot of water, the juice is weak (low concentration)
 - If you use a lot of concentrate in a little water, the juice is strong (high concentration)
 
 In chemistry, we need precise ways to measure concentration. The two most common ways are:
-
 1. Moles per cubic decimeter (mol dm⁻³)
 2. Grams per cubic decimeter (g dm⁻³)
 
-### 1.5.3 Understanding Units
+---
 
-#### Volume Units
+##### 1.5.3 Understanding Units
 
+###### Volume Units
 In chemistry, we often measure volume in cubic decimeters (dm³).
 
 **Important conversions:**
-
 - 1 dm³ = 1000 cm³
 - 1 dm³ = 1000 mL
 - 1 dm³ = 1 L (liter)
 
 So when we say "per dm³", we mean "per liter".
 
-#### Mass Units
-
+###### Mass Units
 We measure mass in grams (g).
 
-#### Amount of Substance - The Mole Concept
+###### Amount of Substance
+For concentration calculations, we need to understand the relationship between mass, amount of substance (in moles), and molar mass.
 
-This is a new concept that might seem confusing at first, but it's very important.
+---
 
-**What is a mole?**
-A mole (symbol: mol) is a unit that measures the amount of a substance. Just like:
-
-- 1 dozen = 12 items
-- 1 pair = 2 items
-- 1 mole = 6.02 × 10²³ particles (atoms, molecules, ions, etc.)
-
-This number (6.02 × 10²³) is called Avogadro's number.
-
-**Why do we use moles?**
-Atoms and molecules are incredibly tiny. It would be impossible to count them individually. Using moles allows us to work with reasonable numbers when dealing with atoms and molecules.
-
-**Relative Atomic Mass (Ar) and Relative Formula Mass (Mr)**
-
-- The **relative atomic mass (Ar)** is the average mass of an atom compared to 1/12 of the mass of a carbon-12 atom.
-- The **relative formula mass (Mr)** is the sum of the relative atomic masses of all atoms in a formula.
-
-For example:
-
-- Carbon has an Ar of 12
-- Oxygen has an Ar of 16
-- Carbon dioxide (CO₂) has an Mr of 12 + 16 + 16 = 44
-
-**The molar mass**
-The molar mass is the mass of 1 mole of a substance. It is numerically equal to the relative atomic mass (for elements) or relative formula mass (for compounds), but its unit is grams per mole (g mol⁻¹).
-
-For example:
-
-- Carbon has a molar mass of 12 g mol⁻¹
-- Carbon dioxide has a molar mass of 44 g mol⁻¹
-
-This means:
-
-- 1 mole of carbon atoms has a mass of 12 grams
-- 1 mole of carbon dioxide molecules has a mass of 44 grams
-
-### 1.5.4 Calculating Concentration in mol dm⁻³
+##### 1.5.4 Calculating Concentration in mol dm⁻³
 
 Concentration in mol dm⁻³ (also called molarity) tells us how many moles of solute are present in 1 dm³ of solution.
 
 **Formula:**
-
 ```
 Concentration (mol dm⁻³) = Amount of solute (mol) ÷ Volume of solution (dm³)
 ```
-
 Or:
-
 ```
 c = n ÷ V
 ```
-
 where:
-
 - c = concentration in mol dm⁻³
 - n = amount of solute in moles (mol)
 - V = volume of solution in dm³
 
 **Example calculation:**
 If we dissolve 0.5 moles of sodium chloride in enough water to make 2 dm³ of solution, what is the concentration?
-
 ```
 Concentration = Amount of solute ÷ Volume of solution
 Concentration = 0.5 mol ÷ 2 dm³
 Concentration = 0.25 mol dm⁻³
 ```
 
-### 1.5.5 Calculating Concentration in g dm⁻³
+---
+
+##### 1.5.5 Calculating Concentration in g dm⁻³
 
 Concentration in g dm⁻³ tells us how many grams of solute are present in 1 dm³ of solution.
 
 **Formula:**
-
 ```
 Concentration (g dm⁻³) = Mass of solute (g) ÷ Volume of solution (dm³)
 ```
 
 **Example calculation:**
 If we dissolve 10 grams of sugar in enough water to make 0.5 dm³ of solution, what is the concentration?
-
 ```
 Concentration = Mass of solute ÷ Volume of solution
 Concentration = 10 g ÷ 0.5 dm³
 Concentration = 20 g dm⁻³
 ```
 
-### 1.5.6 Converting Between mol dm⁻³ and g dm⁻³
+---
+
+##### 1.5.6 Converting Between mol dm⁻³ and g dm⁻³
 
 Sometimes we need to convert between these two concentration units. To do this, we need to know the molar mass of the solute.
 
 **To convert from mol dm⁻³ to g dm⁻³:**
-
 ```
 Concentration (g dm⁻³) = Concentration (mol dm⁻³) × Molar mass (g mol⁻¹)
 ```
 
 **To convert from g dm⁻³ to mol dm⁻³:**
-
 ```
 Concentration (mol dm⁻³) = Concentration (g dm⁻³) ÷ Molar mass (g mol⁻¹)
 ```
@@ -1707,24 +1692,23 @@ Concentration (mol dm⁻³) = Concentration (g dm⁻³) ÷ Molar mass (g mol⁻�
 A solution of sodium hydroxide (NaOH) has a concentration of 0.1 mol dm⁻³. What is this in g dm⁻³?
 
 First, we need the molar mass of NaOH:
-
 - Na (sodium) has Ar = 23
 - O (oxygen) has Ar = 16
 - H (hydrogen) has Ar = 1
 - Molar mass of NaOH = 23 + 16 + 1 = 40 g mol⁻¹
 
 Now we can convert:
-
 ```
 Concentration (g dm⁻³) = Concentration (mol dm⁻³) × Molar mass (g mol⁻¹)
 Concentration (g dm⁻³) = 0.1 mol dm⁻³ × 40 g mol⁻¹
 Concentration (g dm⁻³) = 4 g dm⁻³
 ```
 
-### 1.5.7 Step-by-Step Problem Solving
+---
+
+##### 1.5.7 Step-by-Step Problem Solving
 
 When solving concentration problems, follow these steps:
-
 1. Identify what you know and what you need to find
 2. Write down the relevant formula
 3. Check that your units are consistent (convert if necessary)
@@ -1738,78 +1722,61 @@ a) The concentration in g dm⁻³
 b) The concentration in mol dm⁻³
 
 **Solution:**
-
 a) Concentration in g dm⁻³:
-
 1. We know:
    - Mass of solute = 5.85 g
    - Volume of solution = 250 cm³
-
 2. We need to find concentration in g dm⁻³
-
 3. Check units:
    - Mass is in grams (good)
    - Volume is in cm³, but we need dm³
    - Since 1 dm³ = 1000 cm³, then 250 cm³ = 250 ÷ 1000 = 0.25 dm³
-
 4. Formula:
-
    ```
    Concentration (g dm⁻³) = Mass of solute (g) ÷ Volume of solution (dm³)
    ```
-
 5. Calculate:
-
    ```
    Concentration = 5.85 g ÷ 0.25 dm³
    Concentration = 23.4 g dm⁻³
    ```
 
 b) Concentration in mol dm⁻³:
-
 1. We know:
    - Mass of solute = 5.85 g
    - Volume of solution = 0.25 dm³
-
 2. We need to find concentration in mol dm⁻³
-
 3. First, we need to find the number of moles of NaCl:
    - Molar mass of NaCl = Ar(Na) + Ar(Cl) = 23 + 35.5 = 58.5 g mol⁻¹
    - Number of moles = Mass ÷ Molar mass = 5.85 g ÷ 58.5 g mol⁻¹ = 0.1 mol
-
 4. Formula:
-
    ```
    Concentration (mol dm⁻³) = Amount of solute (mol) ÷ Volume of solution (dm³)
    ```
-
 5. Calculate:
-
    ```
    Concentration = 0.1 mol ÷ 0.25 dm³
    Concentration = 0.4 mol dm⁻³
    ```
 
-### 1.5.8 Practice Problems
+---
+
+##### 1.5.8 Practice Problems
 
 **Test yourself on concentration calculations:**
-
 1. Calculate the concentration in mol dm⁻³ when 2 moles of sulfuric acid (H₂SO₄) are dissolved in water to make 5 dm³ of solution.
-
 2. What is the concentration in g dm⁻³ of a solution made by dissolving 15 grams of potassium nitrate (KNO₃) in water to make 0.75 dm³ of solution?
-
 3. A solution contains 20 grams of sodium hydroxide (NaOH) in 500 cm³ of solution. Calculate:
    a) The concentration in g dm⁻³
    b) The concentration in mol dm⁻³
-
 4. Convert 0.2 mol dm⁻³ of magnesium sulfate (MgSO₄) to g dm⁻³.
-
 5. A solution of hydrochloric acid (HCl) has a concentration of 7.3 g dm⁻³. What is this in mol dm⁻³?
 
-### 1.5.9 Solutions to Practice Problems
+---
+
+##### 1.5.9 Solutions to Practice Problems
 
 1. Calculate the concentration in mol dm⁻³ when 2 moles of sulfuric acid (H₂SO₄) are dissolved in water to make 5 dm³ of solution.
-
    ```
    Concentration (mol dm⁻³) = Amount of solute (mol) ÷ Volume of solution (dm³)
    Concentration = 2 mol ÷ 5 dm³
@@ -1817,7 +1784,6 @@ b) Concentration in mol dm⁻³:
    ```
 
 2. What is the concentration in g dm⁻³ of a solution made by dissolving 15 grams of potassium nitrate (KNO₃) in water to make 0.75 dm³ of solution?
-
    ```
    Concentration (g dm⁻³) = Mass of solute (g) ÷ Volume of solution (dm³)
    Concentration = 15 g ÷ 0.75 dm³
@@ -1825,25 +1791,18 @@ b) Concentration in mol dm⁻³:
    ```
 
 3. A solution contains 20 grams of sodium hydroxide (NaOH) in 500 cm³ of solution. Calculate:
-
    a) The concentration in g dm⁻³
-
    First, convert volume to dm³:
    500 cm³ = 500 ÷ 1000 = 0.5 dm³
-
    ```
    Concentration (g dm⁻³) = Mass of solute (g) ÷ Volume of solution (dm³)
    Concentration = 20 g ÷ 0.5 dm³
    Concentration = 40 g dm⁻³
    ```
-
    b) The concentration in mol dm⁻³
-
    First, find the molar mass of NaOH:
    Molar mass = Ar(Na) + Ar(O) + Ar(H) = 23 + 16 + 1 = 40 g mol⁻¹
-
    Number of moles = Mass ÷ Molar mass = 20 g ÷ 40 g mol⁻¹ = 0.5 mol
-
    ```
    Concentration (mol dm⁻³) = Amount of solute (mol) ÷ Volume of solution (dm³)
    Concentration = 0.5 mol ÷ 0.5 dm³
@@ -1851,10 +1810,8 @@ b) Concentration in mol dm⁻³:
    ```
 
 4. Convert 0.2 mol dm⁻³ of magnesium sulfate (MgSO₄) to g dm⁻³.
-
    First, find the molar mass of MgSO₄:
    Molar mass = Ar(Mg) + Ar(S) + 4 × Ar(O) = 24 + 32 + (4 × 16) = 24 + 32 + 64 = 120 g mol⁻¹
-
    ```
    Concentration (g dm⁻³) = Concentration (mol dm⁻³) × Molar mass (g mol⁻¹)
    Concentration = 0.2 mol dm⁻³ × 120 g mol⁻¹
@@ -1862,17 +1819,17 @@ b) Concentration in mol dm⁻³:
    ```
 
 5. A solution of hydrochloric acid (HCl) has a concentration of 7.3 g dm⁻³. What is this in mol dm⁻³?
-
    First, find the molar mass of HCl:
    Molar mass = Ar(H) + Ar(Cl) = 1 + 35.5 = 36.5 g mol⁻¹
-
    ```
    Concentration (mol dm⁻³) = Concentration (g dm⁻³) ÷ Molar mass (g mol⁻¹)
    Concentration = 7.3 g dm⁻³ ÷ 36.5 g mol⁻¹
    Concentration = 0.2 mol dm⁻¹
    ```
 
-### 1.5.10 Summary of Key Points
+---
+
+##### 1.5.10 Summary of Key Points
 
 - A solution is a mixture where a solute is dissolved in a solvent
 - Concentration measures how much solute is present in a given volume of solution
@@ -1885,10 +1842,11 @@ b) Concentration in mol dm⁻³:
 
 ---
 
+---
+
 #### Module 1.6: Using Experimental Data to Calculate Empirical and Molecular Formulae
 
 **Learning Objectives:**
-
 - Understand the difference between empirical and molecular formulae
 - Calculate empirical formulae from experimental data
 - Calculate molecular formulae from empirical formulae and molecular mass
@@ -1898,39 +1856,39 @@ b) Concentration in mol dm⁻³:
 
 ---
 
-### Introduction to Chemical Formulae
+##### Introduction to Chemical Formulae
 
 Before we learn how to calculate formulae, let's understand what chemical formulae are. A chemical formula is a way to represent what a substance is made of using symbols for the elements and numbers to show how many atoms of each element are present.
 
 For example:
-
 - H₂O means a water molecule contains 2 hydrogen atoms and 1 oxygen atom
 - CO₂ means a carbon dioxide molecule contains 1 carbon atom and 2 oxygen atoms
 
-### Empirical Formula vs. Molecular Formula
+---
 
-#### What is an Empirical Formula?
+##### Empirical Formula vs. Molecular Formula
+
+###### What is an Empirical Formula?
 
 The empirical formula is the simplest whole-number ratio of atoms of each element in a compound. It shows the basic proportion of elements in the compound.
 
 For example:
-
 - The empirical formula of hydrogen peroxide is HO (1:1 ratio of H to O)
 - The empirical formula of glucose is CH₂O (1:2:1 ratio of C to H to O)
 
-#### What is a Molecular Formula?
+###### What is a Molecular Formula?
 
 The molecular formula shows the actual number of atoms of each element in a molecule. It might be the same as the empirical formula or a multiple of it.
 
 For example:
-
 - The molecular formula of hydrogen peroxide is H₂O₂ (2:2 ratio, which simplifies to 1:1)
 - The molecular formula of glucose is C₆H₁₂O₆ (6:12:6 ratio, which simplifies to 1:2:1)
 
-### Prerequisite Knowledge
+---
+
+##### Prerequisite Knowledge
 
 Before calculating formulae, you need to understand:
-
 1. **Atoms and Elements**: Matter is made of tiny particles called atoms. Each element has its own type of atom.
 2. **Chemical Symbols**: Each element has a one or two-letter symbol (e.g., H for hydrogen, O for oxygen, C for carbon).
 3. **Relative Atomic Mass**: The average mass of an atom of an element compared to carbon-12. For example:
@@ -1939,9 +1897,11 @@ Before calculating formulae, you need to understand:
    - Oxygen (O) ≈ 16
 4. **Moles**: The mole is a unit that represents 6.02 × 10²³ particles (atoms, molecules, etc.). One mole of an element has a mass in grams equal to its relative atomic mass.
 
-### Calculating Empirical Formulae from Experimental Data
+---
 
-#### Method for Calculating Empirical Formulae
+##### Calculating Empirical Formulae from Experimental Data
+
+###### Method for Calculating Empirical Formulae
 
 1. **Convert percentage composition to masses** (if working with percentages)
 2. **Convert masses to moles** using the relative atomic masses
@@ -1949,143 +1909,131 @@ Before calculating formulae, you need to understand:
 4. **Convert to whole numbers** (if necessary, multiply by a small integer to get whole numbers)
 5. **Write the empirical formula** using these whole numbers as subscripts
 
-#### Example 1: Calculating Empirical Formula from Mass Data
+###### Example 1: Calculating Empirical Formula from Mass Data
 
 Let's say we have a compound that contains 4.8g of carbon and 1.2g of hydrogen. Let's find its empirical formula.
 
 **Step 1: Convert masses to moles**
-
 - Moles of carbon = mass ÷ relative atomic mass = 4.8g ÷ 12 = 0.4 moles
 - Moles of hydrogen = mass ÷ relative atomic mass = 1.2g ÷ 1 = 1.2 moles
 
 **Step 2: Find the simplest mole ratio**
-
 - Divide both by the smallest value (0.4):
   - Carbon: 0.4 ÷ 0.4 = 1
   - Hydrogen: 1.2 ÷ 0.4 = 3
 
 **Step 3: Write the empirical formula**
-
 - The ratio is 1:3, so the empirical formula is CH₃
 
-#### Example 2: Calculating Empirical Formula from Percentage Composition
+###### Example 2: Calculating Empirical Formula from Percentage Composition
 
 A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass. Let's find its empirical formula.
 
 **Step 1: Convert percentages to masses**
 Assume we have 100g of the compound:
-
 - Carbon = 40.0g
 - Hydrogen = 6.7g
 - Oxygen = 53.3g
 
 **Step 2: Convert masses to moles**
-
 - Moles of carbon = 40.0g ÷ 12 = 3.33 moles
 - Moles of hydrogen = 6.7g ÷ 1 = 6.7 moles
 - Moles of oxygen = 53.3g ÷ 16 = 3.33 moles
 
 **Step 3: Find the simplest mole ratio**
-
 - Divide all by the smallest value (3.33):
   - Carbon: 3.33 ÷ 3.33 = 1
   - Hydrogen: 6.7 ÷ 3.33 ≈ 2
   - Oxygen: 3.33 ÷ 3.33 = 1
 
 **Step 4: Write the empirical formula**
-
 - The ratio is 1:2:1, so the empirical formula is CH₂O
 
-### Calculating Molecular Formulae
+---
 
-#### Method for Calculating Molecular Formulae
+##### Calculating Molecular Formulae
+
+###### Method for Calculating Molecular Formulae
 
 1. **Calculate the empirical formula** (as shown above)
 2. **Calculate the empirical formula mass** (sum of atomic masses in the empirical formula)
 3. **Find the multiple** by dividing the molecular mass by the empirical formula mass
 4. **Multiply the subscripts** in the empirical formula by this multiple to get the molecular formula
 
-#### Example: Calculating Molecular Formula
+###### Example: Calculating Molecular Formula
 
 A compound has an empirical formula of CH₂O and a molecular mass of 180 g/mol. Let's find its molecular formula.
 
 **Step 1: Calculate the empirical formula mass**
-
 - CH₂O = 12 + (2 × 1) + 16 = 30 g/mol
 
 **Step 2: Find the multiple**
-
 - Multiple = molecular mass ÷ empirical formula mass = 180 ÷ 30 = 6
 
 **Step 3: Multiply the subscripts**
-
 - C: 1 × 6 = 6
 - H: 2 × 6 = 12
 - O: 1 × 6 = 6
 
 **Step 4: Write the molecular formula**
-
 - The molecular formula is C₆H₁₂O₆ (which is glucose)
 
-### Working with Combustion Analysis Data
+---
+
+##### Working with Combustion Analysis Data
 
 In experiments, we often determine the composition of compounds containing carbon and hydrogen by burning them in oxygen and measuring the amounts of carbon dioxide and water produced.
 
-#### Example: Combustion Analysis
+###### Example: Combustion Analysis
 
 A 0.250g sample of a hydrocarbon (contains only C and H) produces 0.771g of CO₂ and 0.315g of H₂O when burned completely. Let's find its empirical formula.
 
 **Step 1: Calculate masses of C and H in the original sample**
-
 - Mass of C in CO₂ = (12/44) × 0.771g = 0.210g
 - Mass of H in H₂O = (2/18) × 0.315g = 0.035g
 
 **Step 2: Convert masses to moles**
-
 - Moles of C = 0.210g ÷ 12 = 0.0175 moles
 - Moles of H = 0.035g ÷ 1 = 0.035 moles
 
 **Step 3: Find the simplest mole ratio**
-
 - Divide by the smaller value (0.0175):
   - C: 0.0175 ÷ 0.0175 = 1
   - H: 0.035 ÷ 0.0175 = 2
 
 **Step 4: Write the empirical formula**
-
 - The empirical formula is CH₂
 
-### Special Cases and Tips
+---
 
-#### When You Get Fractional Ratios
+##### Special Cases and Tips
+
+###### When You Get Fractional Ratios
 
 Sometimes, after dividing by the smallest number of moles, you get fractional values. In these cases, multiply all values by a small integer to get whole numbers.
 
 For example, if you get a ratio of C:H:O = 1:1.5:0.5, multiply all by 2 to get C:H:O = 2:3:1.
 
-#### Hydrates
+###### Hydrates
 
 Hydrates are compounds that contain water molecules in their crystal structure. When calculating the formula of a hydrate:
-
 1. Find the mass of water lost when the hydrate is heated
 2. Calculate the moles of water and the moles of the anhydrous (dry) compound
 3. Find the ratio of moles of water to moles of compound
 
-### Test Your Understanding
+---
 
-#### Test Questions on Empirical and Molecular Formulae
+##### Test Your Understanding
+
+###### Test Questions on Empirical and Molecular Formulae
 
 1. A compound contains 75% carbon and 25% hydrogen by mass. Calculate its empirical formula.
-
 2. 2.50g of a compound contains 0.900g of calcium, 1.16g of chlorine, and 0.440g of oxygen. Calculate its empirical formula.
-
 3. A compound has the empirical formula CH₂O and a molecular mass of 60 g/mol. What is its molecular formula?
-
 4. When 5.00g of a compound containing only carbon, hydrogen, and oxygen is burned, 7.33g of CO₂ and 3.00g of H₂O are produced. Calculate the empirical formula of the compound.
-
 5. A hydrate of magnesium sulfate has the formula MgSO₄·xH₂O. When 5.06g of the hydrate is heated, 2.48g of water is lost. Calculate the value of x.
 
-#### Answers to Test Questions
+###### Answers to Test Questions
 
 1. **Answer: CH₄**
    - Masses: C = 75g, H = 25g (in 100g sample)
@@ -2121,26 +2069,27 @@ Hydrates are compounds that contain water molecules in their crystal structure. 
    - Ratio H₂O:MgSO₄ = 0.138:0.0215 = 6.42:1 ≈ 7:1
    - Therefore, x = 7 and the formula is MgSO₄·7H₂O
 
-### Real-World Applications
+---
+
+##### Real-World Applications
 
 Understanding how to calculate empirical and molecular formulae is important in many fields:
-
 1. **Pharmaceuticals**: Determining the exact composition of new drugs
 2. **Environmental Science**: Analyzing pollutants and their composition
 3. **Materials Science**: Developing new compounds with specific properties
 4. **Forensics**: Identifying unknown substances found at crime scenes
 5. **Food Science**: Analyzing the composition of food additives and nutrients
 
-### Summary
+---
+
+##### Summary
 
 To calculate empirical and molecular formulae from experimental data:
-
 1. For empirical formulae:
    - Convert experimental data to masses of each element
    - Convert masses to moles
    - Find the simplest whole-number ratio of moles
    - Write the empirical formula using these ratios
-
 2. For molecular formulae:
    - Calculate the empirical formula first
    - Find the empirical formula mass
@@ -2165,20 +2114,8 @@ These calculations are fundamental skills in chemistry that allow us to determin
 
 ---
 
-### 1. Introduction to Matter and Elements
-
-**What is Matter?**
-
-- Matter is everything around us that has mass and takes up space.
-- Matter can exist in three states: solid, liquid, and gas.
-- All matter is made up of tiny particles called atoms.
-
-**What are Elements?**
-
-- Elements are pure substances that cannot be broken down into simpler substances by chemical means.
-- There are 118 known elements, each with unique properties.
-- Elements are represented by symbols (e.g., H for hydrogen, O for oxygen, C for carbon).
-- Elements are organized in the Periodic Table.
+#### 1. Introduction to Reacting Mass Calculations
+In this module, we'll apply the mole concept to calculate masses in chemical reactions, using balanced equations to determine the quantitative relationships between reactants and products.
 
 **TEST: Elements and Their Symbols**
 
@@ -2186,7 +2123,7 @@ These calculations are fundamental skills in chemistry that allow us to determin
 2. What element does 'Na' represent?
 3. Name three elements that exist as gases at room temperature.
 
-### 2. Atoms, Molecules, and Compounds
+#### 2. Atoms, Molecules, and Compounds
 
 **Atoms**
 
@@ -2217,7 +2154,7 @@ These calculations are fundamental skills in chemistry that allow us to determin
 2. Is water (H₂O) an element or a compound? Explain why.
 3. In the reaction 2H₂ + O₂ → 2H₂O, identify the reactants and products.
 
-### 3. Chemical Equations
+#### 3. Chemical Equations
 
 **What are Chemical Equations?**
 
@@ -2258,32 +2195,12 @@ This equation shows that two molecules of hydrogen react with one molecule of ox
 2. What does the arrow (→) represent in a chemical equation?
 3. Why do we need to balance chemical equations?
 
-### 4. The Mole Concept
+#### 4. The Mole Concept
+For stoichiometric calculations, we use the mole concept covered in Module 1.2. Remember the key relationships:
+- Amount of substance (moles) = mass ÷ molar mass
+- Mass = amount of substance (moles) × molar mass
 
-**What is a Mole?**
-
-- In chemistry, a mole (symbol: mol) is a unit of measurement, just like a dozen means 12.
-- One mole contains exactly 6.022 × 10²³ particles (atoms, molecules, ions, etc.).
-- This number is called Avogadro's number (named after the scientist Amedeo Avogadro).
-
-**Why Do We Use Moles?**
-
-- Atoms and molecules are extremely small, so we can't count them individually.
-- The mole allows us to count particles by weighing.
-- It connects the microscopic world (atoms and molecules) to the macroscopic world (grams and kilograms).
-
-**Analogy:**
-
-- Just as a dozen eggs contains 12 eggs, one mole of carbon contains 6.022 × 10²³ carbon atoms.
-- Just as a ream of paper contains 500 sheets, one mole of water contains 6.022 × 10²³ water molecules.
-
-**TEST: The Mole Concept**
-
-1. How many particles are in one mole?
-2. If you have 2 moles of sodium atoms, how many sodium atoms do you have?
-3. Why is the mole concept useful in chemistry?
-
-### 5. Molar Mass
+#### 5. Molar Mass
 
 **What is Molar Mass?**
 
@@ -2315,7 +2232,7 @@ This equation shows that two molecules of hydrogen react with one molecule of ox
 2. What is the molar mass of methane (CH₄)?
 3. If a compound has a molar mass of 98.08 g/mol and contains sulfur (S, 32.06 g/mol) and oxygen (O, 16.00 g/mol), and has the formula SO₃, is this correct? Show your calculation.
 
-### 6. Amount of Substance
+#### 6. Amount of Substance
 
 **What is Amount of Substance?**
 
@@ -2357,7 +2274,7 @@ This equation shows that two molecules of hydrogen react with one molecule of ox
 2. What is the mass of 2.5 moles of oxygen gas (O₂, molar mass = 32.00 g/mol)?
 3. If 4 moles of a compound have a mass of 292 g, what is the molar mass of the compound?
 
-### 7. Using Chemical Equations to Calculate Reacting Masses
+#### 7. Using Chemical Equations to Calculate Reacting Masses
 
 **Stoichiometry**
 
@@ -2452,7 +2369,7 @@ Answer: 88.0 g of carbon dioxide are produced.
 3. In the reaction 2H₂ + O₂ → 2H₂O, if 32 g of oxygen react completely, what mass of water is produced?
    (Molar masses: H₂ = 2.02 g/mol, O₂ = 32.00 g/mol, H₂O = 18.02 g/mol)
 
-### 8. Advanced Calculations: Limiting Reactants and Percentage Yield
+#### 8. Advanced Calculations: Limiting Reactants and Percentage Yield
 
 **Limiting Reactants**
 
@@ -2511,7 +2428,7 @@ Answer: The percentage yield is 90.2%.
 
 3. When 12 g of carbon react with 32 g of oxygen to form carbon dioxide (C + O₂ → CO₂), the theoretical yield is 44 g. If the actual yield is 38 g, what is the percentage yield?
 
-### 9. Summary and Key Points
+#### 9. Summary and Key Points
 
 **Key Concepts:**
 
@@ -2543,7 +2460,7 @@ Answer: The percentage yield is 90.2%.
 2. In the reaction 2H₂ + O₂ → 2H₂O, if 4 g of hydrogen react with excess oxygen, what mass of water is produced?
 3. Define the term "limiting reactant" and explain its importance in chemical reactions.
 
-### 10. Exam-Style Questions
+#### 10. Exam-Style Questions
 
 **Multiple Choice:**
 
@@ -2589,7 +2506,7 @@ Answer: The percentage yield is 90.2%.
    c) If the actual yield of copper is 10 g, calculate the percentage yield.
    (Molar masses: Al = 26.98 g/mol, CuCl₂ = 134.45 g/mol, Cu = 63.55 g/mol)
 
-### 11. Answers to Tests
+#### 11. Answers to Tests
 
 **TEST: Elements and Their Symbols**
 
@@ -2733,19 +2650,19 @@ Answer: The percentage yield is 90.2%.
 
 ---
 
-### 1. Introduction to Chemical Calculations
+#### 1. Introduction to Chemical Calculations
 
 Before we dive into calculating volumes of gases, let's understand some fundamental concepts that form the foundation of these calculations.
 
-#### 1.1 What is Matter?
+##### 1.1 What is Matter?
 
 Everything around us is made of matter. Matter is anything that has mass and takes up space. Matter can exist in three main states: solid, liquid, and gas. In this section, we'll focus on gases and how to calculate their volumes in chemical reactions.
 
-#### 1.2 Atoms and Molecules
+##### 1.2 Atoms and Molecules
 
 All matter is made up of tiny particles called atoms. When atoms combine, they form molecules. For example, hydrogen gas (H₂) is made up of molecules, each containing two hydrogen atoms.
 
-#### 1.3 Chemical Reactions
+##### 1.3 Chemical Reactions
 
 Chemical reactions involve the rearrangement of atoms to form new substances. We represent chemical reactions using chemical equations. For example:
 
@@ -2755,15 +2672,12 @@ Chemical reactions involve the rearrangement of atoms to form new substances. We
 
 This equation tells us that two molecules of hydrogen react with one molecule of oxygen to produce two molecules of water.
 
-### 2. Amount of Substance (Moles)
+#### 2. Amount of Substance (Moles)
+For gas volume calculations, we apply the mole concept from Module 1.2. The key relationships remain:
+- Amount of substance (moles) = mass ÷ molar mass
+- Mass = amount of substance (moles) × molar mass
 
-#### 2.1 What is a Mole?
-
-In chemistry, we need a way to count atoms and molecules because they are extremely small. The mole is the unit we use for this purpose.
-
-One mole is defined as the amount of substance that contains as many particles (atoms, molecules, ions, etc.) as there are atoms in exactly 12 grams of carbon-12.
-
-#### 2.2 Avogadro's Number
+##### 2.2 Avogadro's Number
 
 The number of particles in one mole is called Avogadro's number, which is approximately 6.022 × 10²³ particles per mole.
 
@@ -2772,7 +2686,7 @@ The number of particles in one mole is called Avogadro's number, which is approx
 - 1 mole of hydrogen molecules (H₂) contains 6.022 × 10²³ H₂ molecules
 - 1 mole of carbon atoms (C) contains 6.022 × 10²³ C atoms
 
-#### 2.3 Molar Mass
+##### 2.3 Molar Mass
 
 The molar mass of a substance is the mass of one mole of that substance. It is expressed in grams per mole (g/mol).
 
@@ -2788,7 +2702,7 @@ The molar mass of a substance is the mass of one mole of that substance. It is e
 - Atomic mass of O = 16 g/mol
 - Molar mass of H₂O = (2 × 1) + 16 = 18 g/mol
 
-#### 2.4 Calculating Moles from Mass
+##### 2.4 Calculating Moles from Mass
 
 We can calculate the number of moles in a given mass of a substance using the formula:
 
@@ -2801,7 +2715,7 @@ moles = mass (g) ÷ molar mass (g/mol)
 - Molar mass of H₂O = 18 g/mol
 - moles = 36 g ÷ 18 g/mol = 2 moles
 
-#### 2.5 Calculating Mass from Moles
+##### 2.5 Calculating Mass from Moles
 
 We can also calculate the mass of a given number of moles using:
 
@@ -2814,7 +2728,7 @@ mass (g) = moles × molar mass (g/mol)
 - Molar mass of CO₂ = 12 + (2 × 16) = 44 g/mol
 - mass = 3 moles × 44 g/mol = 132 grams
 
-#### 2.6 Calculating Moles from Concentration and Volume
+##### 2.6 Calculating Moles from Concentration and Volume
 
 When dealing with solutions, we can calculate moles using concentration and volume:
 
@@ -2827,13 +2741,13 @@ moles = concentration (mol/L) × volume (L)
 - First, convert mL to L: 250 mL = 0.25 L
 - moles = 2 mol/L × 0.25 L = 0.5 moles
 
-### 3. Molar Volume of Gases
+#### 3. Molar Volume of Gases
 
-#### 3.1 What is Molar Volume?
+##### 3.1 What is Molar Volume?
 
 The molar volume of a gas is the volume occupied by one mole of that gas. At specific conditions of temperature and pressure, all gases have the same molar volume.
 
-#### 3.2 Standard Conditions
+##### 3.2 Standard Conditions
 
 There are two commonly used sets of standard conditions:
 
@@ -2847,7 +2761,7 @@ There are two commonly used sets of standard conditions:
    - Pressure = 1 atmosphere (atm)
    - At RTP, 1 mole of any gas occupies 24.0 liters
 
-#### 3.3 Calculating Volume from Moles using Molar Volume
+##### 3.3 Calculating Volume from Moles using Molar Volume
 
 We can calculate the volume of a gas using the number of moles and the molar volume:
 
@@ -2863,7 +2777,7 @@ volume (L) = moles × molar volume (L/mol)
 
 - volume = 0.5 moles × 24.0 L/mol = 12.0 L
 
-#### 3.4 Calculating Moles from Volume using Molar Volume
+##### 3.4 Calculating Moles from Volume using Molar Volume
 
 We can also calculate the number of moles from the volume of a gas:
 
@@ -2879,9 +2793,9 @@ moles = volume (L) ÷ molar volume (L/mol)
 
 - moles = 12 L ÷ 24.0 L/mol = 0.5 moles
 
-### 4. The Ideal Gas Law (pV = nRT)
+#### 4. The Ideal Gas Law (pV = nRT)
 
-#### 4.1 Introduction to the Ideal Gas Law
+##### 4.1 Introduction to the Ideal Gas Law
 
 The ideal gas law is an equation that relates the pressure, volume, temperature, and number of moles of a gas. It is more versatile than using molar volume because it can be used at any temperature and pressure, not just at standard conditions.
 
@@ -2899,7 +2813,7 @@ Where:
 - R = ideal gas constant (0.0821 L·atm·mol⁻¹·K⁻¹)
 - T = temperature (in Kelvin, K)
 
-#### 4.2 Temperature Conversion
+##### 4.2 Temperature Conversion
 
 When using the ideal gas law, temperature must be in Kelvin. To convert from Celsius to Kelvin:
 
@@ -2911,7 +2825,7 @@ K = °C + 273
 
 - K = 25 + 273 = 298 K
 
-#### 4.3 Using the Ideal Gas Law to Find Volume
+##### 4.3 Using the Ideal Gas Law to Find Volume
 
 We can rearrange the ideal gas law to solve for volume:
 
@@ -2925,7 +2839,7 @@ V = nRT ÷ p
 - V = (2 moles × 0.0821 L·atm·mol⁻¹·K⁻¹ × 303 K) ÷ 1.5 atm
 - V = 33.2 L
 
-#### 4.4 Using the Ideal Gas Law to Find Pressure
+##### 4.4 Using the Ideal Gas Law to Find Pressure
 
 We can rearrange the ideal gas law to solve for pressure:
 
@@ -2939,7 +2853,7 @@ p = nRT ÷ V
 - p = (0.5 moles × 0.0821 L·atm·mol⁻¹·K⁻¹ × 298 K) ÷ 10 L
 - p = 1.22 atm
 
-#### 4.5 Using the Ideal Gas Law to Find Temperature
+##### 4.5 Using the Ideal Gas Law to Find Temperature
 
 We can rearrange the ideal gas law to solve for temperature:
 
@@ -2953,7 +2867,7 @@ T = pV ÷ nR
 - T = 243.6 K
 - Convert to Celsius: °C = 243.6 - 273 = -29.4°C
 
-#### 4.6 Using the Ideal Gas Law to Find Moles
+##### 4.6 Using the Ideal Gas Law to Find Moles
 
 We can rearrange the ideal gas law to solve for moles:
 
@@ -2967,7 +2881,7 @@ n = pV ÷ RT
 - n = (3 atm × 5 L) ÷ (0.0821 L·atm·mol⁻¹·K⁻¹ × 293 K)
 - n = 0.62 moles
 
-#### 4.7 Application to Volatile Liquids
+##### 4.7 Application to Volatile Liquids
 
 Volatile liquids are liquids that easily evaporate at room temperature. We can use the ideal gas law to study the vapor of these liquids.
 
@@ -2977,9 +2891,9 @@ Volatile liquids are liquids that easily evaporate at room temperature. We can u
 - n = (0.8 atm × 2 L) ÷ (0.0821 L·atm·mol⁻¹·K⁻¹ × 298 K)
 - n = 0.065 moles
 
-### 5. Using Chemical Equations to Calculate Volumes of Gases
+#### 5. Using Chemical Equations to Calculate Volumes of Gases
 
-#### 5.1 Stoichiometry and Chemical Equations
+##### 5.1 Stoichiometry and Chemical Equations
 
 Stoichiometry is the calculation of the quantities of reactants and products in chemical reactions. Chemical equations provide the mole ratios of reactants and products.
 
@@ -2989,7 +2903,7 @@ Stoichiometry is the calculation of the quantities of reactants and products in 
 - The mole ratio of H₂ to O₂ is 2:1
 - The mole ratio of H₂ to H₂O is 2:2 or 1:1
 
-#### 5.2 Calculating Volume from Mass using Chemical Equations
+##### 5.2 Calculating Volume from Mass using Chemical Equations
 
 We can combine the concepts of moles, molar mass, and molar volume to solve problems involving chemical equations and gases.
 
@@ -3019,7 +2933,7 @@ Step 4: Convert moles of O₂ to volume at STP
 - At STP, 1 mole of gas occupies 22.4 L
 - volume of O₂ = 0.1224 moles × 22.4 L/mol = 2.74 L
 
-#### 5.3 Calculating Mass from Volume using Chemical Equations
+##### 5.3 Calculating Mass from Volume using Chemical Equations
 
 We can also work in the opposite direction, starting with the volume of a gas and finding the mass of another substance.
 
@@ -3042,7 +2956,7 @@ Step 4: Convert moles of Al to mass
 - Molar mass of Al = 27 g/mol
 - mass of Al = 0.167 moles × 27 g/mol = 4.5 grams
 
-#### 5.4 Calculating Volume from Volume using Chemical Equations
+##### 5.4 Calculating Volume from Volume using Chemical Equations
 
 When both the given and desired substances are gases, we can use a direct volume relationship based on the mole ratio from the balanced equation.
 
@@ -3056,7 +2970,7 @@ Step 2: Use the volume ratio based on the mole ratio
 - At the same temperature and pressure, the volume ratio is the same as the mole ratio
 - volume of O₂ = 10 L C₃H₈ × (5 L O₂ ÷ 1 L C₃H₈) = 50 L
 
-#### 5.5 Using the Ideal Gas Law with Chemical Equations
+##### 5.5 Using the Ideal Gas Law with Chemical Equations
 
 When conditions are not at STP or RTP, we need to use the ideal gas law in our calculations.
 
@@ -3082,35 +2996,35 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - V = (0.05 moles × 0.0821 L·atm·mol⁻¹·K⁻¹ × 303 K) ÷ 2 atm
 - V = 0.62 L
 
-### 6. Practice Problems
+#### 6. Practice Problems
 
-#### 6.1 Problems on Amount of Substance
+##### 6.1 Problems on Amount of Substance
 
 1. Calculate the number of moles in 46 grams of sodium chloride (NaCl).
 2. What is the mass of 2.5 moles of sulfuric acid (H₂SO₄)?
 3. How many moles are in 500 mL of a 0.5 mol/L solution of potassium hydroxide (KOH)?
 
-#### 6.2 Problems on Molar Volume
+##### 6.2 Problems on Molar Volume
 
 1. What is the volume of 3 moles of nitrogen gas at STP?
 2. How many moles are in 60 liters of oxygen gas at RTP?
 3. Calculate the volume of 0.2 moles of carbon dioxide gas at STP.
 
-#### 6.3 Problems on Ideal Gas Law
+##### 6.3 Problems on Ideal Gas Law
 
 1. What is the volume of 1.5 moles of helium gas at a pressure of 1.2 atm and a temperature of 20°C?
 2. Calculate the pressure of 0.8 moles of argon gas in a 5 L container at 25°C.
 3. What is the temperature of 2 moles of neon gas at a pressure of 1.5 atm in a 10 L container?
 
-#### 6.4 Problems on Chemical Equations and Gas Volumes
+##### 6.4 Problems on Chemical Equations and Gas Volumes
 
 1. What volume of hydrogen gas (at STP) is produced when 7.3 grams of hydrochloric acid reacts with excess zinc according to the equation: Zn + 2HCl → ZnCl₂ + H₂?
 2. What mass of sodium hydrogen carbonate (NaHCO₃) is needed to produce 10 L of carbon dioxide gas at RTP according to the equation: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂?
 3. What volume of oxygen gas (at 1.5 atm and 40°C) is required to completely burn 8 grams of methane gas (CH₄) according to the equation: CH₄ + 2O₂ → CO₂ + 2H₂O?
 
-### 7. Test Examples
+#### 7. Test Examples
 
-#### 7.1 Multiple Choice Questions
+##### 7.1 Multiple Choice Questions
 
 1. At STP, what is the volume of 0.5 moles of oxygen gas?
    a) 5.6 L
@@ -3130,7 +3044,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    c) 1.0 moles
    d) 1.2 moles
 
-#### 7.2 Structured Questions
+##### 7.2 Structured Questions
 
 1. Ammonia gas is produced by the reaction: N₂ + 3H₂ → 2NH₃
    a) Calculate the volume of nitrogen gas required to produce 100 L of ammonia gas at RTP.
@@ -3141,7 +3055,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    b) Calculate the number of moles of carbon dioxide collected.
    c) If the mass of marble chips used was 0.5 grams, calculate the percentage purity of the marble chips.
 
-#### 7.3 Practical Test Examples
+##### 7.3 Practical Test Examples
 
 1. **Test for Gases**: In a laboratory experiment, you are given three unlabeled gas jars containing hydrogen, oxygen, and carbon dioxide. Describe tests you would carry out to identify each gas.
 
@@ -3149,9 +3063,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 3. **Molar Volume Experiment**: Design an experiment to determine the molar volume of oxygen gas at RTP. You have access to hydrogen peroxide solution, manganese dioxide as a catalyst, and standard laboratory equipment. Explain the measurements you would take and the calculations you would perform.
 
-### 8. Solutions to Practice Problems
+#### 8. Solutions to Practice Problems
 
-#### 8.1 Solutions to Amount of Substance Problems
+##### 8.1 Solutions to Amount of Substance Problems
 
 1. Calculate the number of moles in 46 grams of sodium chloride (NaCl).
    - Molar mass of NaCl = 23 + 35.5 = 58.5 g/mol
@@ -3165,7 +3079,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - Volume in liters = 500 mL ÷ 1000 = 0.5 L
    - moles = 0.5 mol/L × 0.5 L = 0.25 moles
 
-#### 8.2 Solutions to Molar Volume Problems
+##### 8.2 Solutions to Molar Volume Problems
 
 1. What is the volume of 3 moles of nitrogen gas at STP?
    - At STP, 1 mole of gas occupies 22.4 L
@@ -3179,7 +3093,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - At STP, 1 mole of gas occupies 22.4 L
    - volume = 0.2 moles × 22.4 L/mol = 4.48 L
 
-#### 8.3 Solutions to Ideal Gas Law Problems
+##### 8.3 Solutions to Ideal Gas Law Problems
 
 1. What is the volume of 1.5 moles of helium gas at a pressure of 1.2 atm and a temperature of 20°C?
    - Temperature in Kelvin: K = 20 + 273 = 293 K
@@ -3199,7 +3113,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - T = 91.4 K
    - In Celsius: °C = 91.4 - 273 = -181.6°C
 
-#### 8.4 Solutions to Chemical Equations and Gas Volumes Problems
+##### 8.4 Solutions to Chemical Equations and Gas Volumes Problems
 
 1. What volume of hydrogen gas (at STP) is produced when 7.3 grams of hydrochloric acid reacts with excess zinc according to the equation: Zn + 2HCl → ZnCl₂ + H₂?
    - Molar mass of HCl = 1 + 35.5 = 36.5 g/mol
@@ -3227,7 +3141,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - V = (1 mole × 0.0821 L·atm·mol⁻¹·K⁻¹ × 313 K) ÷ 1.5 atm
    - V = 17.1 L
 
-### 9. Summary and Key Points
+#### 9. Summary and Key Points
 
 - The mole is the unit for amount of substance, with 1 mole containing 6.022 × 10²³ particles (Avogadro's number).
 - Molar mass is the mass of 1 mole of a substance, expressed in g/mol.
@@ -3245,11 +3159,11 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-## Key Concepts
+### Key Concepts
 
-### Module 1.1: Fundamental Chemistry Terms - Key Takeaways
+#### Module 1.1: Fundamental Chemistry Terms - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Atom:** Smallest unit of matter that retains element properties
 - **Element:** Pure substance with only one type of atom - **CANNOT be broken down** by chemical means
@@ -3259,21 +3173,21 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Empirical Formula:** Simplest whole-number ratio of atoms
 - **Molecular Formula:** Exact number of atoms in a molecule
 
-#### **Critical Relationships:**
+##### **Critical Relationships:**
 
 1. **Hierarchy:** Atoms → Elements/Molecules → Compounds
 2. **Formulas:** Molecular Formula = (Empirical Formula) × n
 3. **Charges:** Lose electrons = positive ion; Gain electrons = negative ion
 4. **Bonding:** Chemical bonds create new properties (compounds vs. mixtures)
 
-#### **Exam-Critical Distinctions:**
+##### **Exam-Critical Distinctions:**
 
 - **Element vs. Compound:** One atom type vs. different atom types; Elements cannot be broken down, compounds can
 - **Compound vs. Mixture:** Chemical bonds vs. physical mixing
 - **Atom vs. Ion:** Neutral vs. charged
 - **Empirical vs. Molecular:** Ratio vs. exact count
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **LEGO Analogy:** Atoms = individual bricks, Molecules = connected structures, Compounds = different colored bricks bonded together
 - **Charge Rule:** "LOSE POSITIVE, GAIN NEGATIVE"
@@ -3282,49 +3196,49 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.2: The Mole Concept - Key Takeaways
+#### Module 1.2: The Mole Concept - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Mole (mol):** SI unit for amount of substance; contains 6.02 × 10²³ particles
 - **Avogadro's Constant (L):** 6.02 × 10²³ mol⁻¹; particles per mole
 - **Molar Mass (M):** Mass of one mole; numerically equal to atomic/molecular mass
 - **Amount of Substance:** Quantity measured in moles
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Moles ↔ Particles:** N = n × L and n = N ÷ L
 2. **Moles ↔ Mass:** m = n × M and n = m ÷ M
 3. **Mass ↔ Particles:** N = (m ÷ M) × L and m = (N ÷ L) × M
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Scale Bridge:** Moles connect atomic scale (particles) to macroscopic scale (grams)
 2. **Universal Counting:** Same mole concept works for atoms, molecules, ions
 3. **Chemical Ratios:** Reactions happen in mole ratios, not mass ratios
 4. **Practical Measurement:** Allows us to measure what we can't see
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Mole Triangle:** Mass ↔ Moles ↔ Particles (go through moles for mass-particle conversions)
 2. **Unit Analysis:** Always track units to ensure correct formula usage
 3. **Scientific Notation:** Essential for working with Avogadro's constant
 4. **Step-by-Step:** Break complex conversions into simple steps
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Confusing moles and molecules:** 1 mole = 6.02 × 10²³ molecules (not 1 molecule)
 - **Formula errors:** N = n × L (not n ÷ L), m = n × M (not n ÷ M)
 - **Unit confusion:** Always include units (mol, g, atoms, molecules)
 - **Molar mass mistakes:** Use atomic mass, not atomic number
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Chemist's Dozen:** Mole is like a dozen, but much larger (6.02 × 10²³)
 - **Mole Triangle:** Visual triangle showing mass-moles-particles relationships
 - **Scale Analogy:** Rice grains = atoms, measuring cups = moles, kitchen scale = mass
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Chemical Reactions:** Balancing equations and predicting products
 - **Medicine:** Drug dosage calculations
@@ -3333,9 +3247,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.3: Chemical Equations and Reactions - Key Takeaways
+#### Module 1.3: Chemical Equations and Reactions - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Chemical Reaction:** Process that transforms one set of substances to another
 - **Reactants:** Starting materials in a chemical reaction (left side of equation)
@@ -3347,7 +3261,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Net Ionic Equation:** Shows only ions that participate in the reaction
 - **Spectator Ions:** Ions that appear unchanged on both sides of the equation
 
-#### **Essential Skills for Tests:**
+##### **Essential Skills for Tests:**
 
 1. **Balancing Equations:**
    - Count atoms of each element on both sides
@@ -3361,7 +3275,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - Write full ionic equation with all dissociated ions
    - Identify and remove spectator ions to get net ionic equation
 
-#### **Critical Rules and Patterns:**
+##### **Critical Rules and Patterns:**
 
 1. **Law of Conservation of Mass:** Atoms cannot be created or destroyed
 2. **Solubility Rules:** Know which compounds are soluble (form aqueous solutions)
@@ -3369,7 +3283,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 4. **Weak Electrolytes:** Do not fully dissociate (weak acids, weak bases)
 5. **Molecular, Ionic, and Net Ionic Equations:** Different levels of detail for the same reaction
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **"Reactants → Products"**: Arrow shows direction of reaction
 - **"Same atoms, different arrangement"**: Atoms rearrange but aren't created or destroyed
@@ -3377,7 +3291,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **"Spectator Ions Just Watch"**: They don't participate in the actual reaction
 - **"Net Ionic Shows the Action"**: Focuses only on what's really changing
 
-#### **Test-Taking Strategies:**
+##### **Test-Taking Strategies:**
 
 1. **Always balance equations** by adjusting coefficients, not subscripts
 2. **Include state symbols** when specifically asked for complete equations
@@ -3385,7 +3299,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 4. **Practice identifying spectator ions** by comparing both sides of full ionic equations
 5. **Check your work** by counting atoms and ensuring charges balance
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 1. **Changing subscripts** instead of coefficients when balancing
 2. **Forgetting state symbols** when required
@@ -3393,7 +3307,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 4. **Missing spectator ions** when writing net ionic equations
 5. **Not checking** that atoms and charges balance in final equations
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Precipitation reactions:** Formation of solids in solution (used in water treatment)
 - **Acid-base reactions:** Neutralization (important in biology and industry)
@@ -3402,9 +3316,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.4: Understanding Mass Terms in Chemistry - Key Takeaways
+#### Module 1.4: Understanding Mass Terms in Chemistry - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Relative Atomic Mass:** Mass of an atom compared to 1/12 of the mass of a Carbon-12 atom
 - **Relative Molecular Mass:** Total mass of a molecule compared to 1/12 of the mass of a Carbon-12 atom
@@ -3412,7 +3326,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Molar Mass:** Mass of one mole of a substance in g mol⁻¹
 - **Parts Per Million (ppm):** Way to express very small concentrations (parts per million)
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Relative Molecular Mass:** Sum of relative atomic masses of all atoms in a molecule
 2. **Molar Mass:** Same numerical value as relative molecular/formula mass, but in g mol⁻¹
@@ -3420,35 +3334,35 @@ Step 4: Use the ideal gas law to find volume of CO₂
 4. **Mass:** mass = number of moles × molar mass
 5. **ppm:** (mass of substance ÷ total mass) × 1,000,000
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Carbon-12 Standard:** All atomic masses are compared to 1/12 of the mass of a Carbon-12 atom
 2. **Isotopes:** Elements exist as mixtures of isotopes, which is why relative atomic masses aren't whole numbers
 3. **Mole Connection:** Molar mass connects the microscopic (atoms/molecules) to the macroscopic (grams)
 4. **Concentration Scales:** ppm is used for very small concentrations where percentages would be awkward
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Finding Relative Atomic Mass:** Use the periodic table (already calculated for you)
 2. **Calculating Relative Molecular Mass:** Add up the relative atomic masses of all atoms
 3. **Working with Molar Mass:** Same numerical value as relative molecular mass, but with units g mol⁻¹
 4. **Converting to ppm:** Multiply by 1,000,000 for very small concentrations
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Confusing relative atomic mass with atomic number:** Use the larger number from the periodic table
 - **Forgetting units:** Molar mass must have units of g mol⁻¹
 - **Misidentifying molecular vs. formula mass:** Use molecular mass for simple molecules, formula mass for giant structures
 - **ppm calculation errors:** Remember to multiply by 1,000,000, not 100 or 10,000
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Carbon-12 Standard:** "Carbon-12 is the king, all masses are compared to it"
 - **Isotopes Impact:** "Isotopes make atomic masses decimal, not simple whole numbers"
 - **Molar Mass Shortcut:** "Same number as relative mass, just add g mol⁻¹"
 - **ppm Visual:** "Imagine a million tiny dots, ppm tells how many are the special ones"
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Environmental Science:** Measuring pollutant concentrations in air and water
 - **Medicine:** Calculating drug dosages and concentrations
@@ -3457,9 +3371,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.5: Calculate the concentration of a solution in mol dm⁻³ and g dm⁻³ - Key Takeaways
+#### Module 1.5: Calculate the concentration of a solution in mol dm⁻³ and g dm⁻³ - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Solution:** Mixture where a solute is dissolved in a solvent
 - **Solute:** Substance that is dissolved
@@ -3468,7 +3382,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Molarity (mol dm⁻³):** Moles of solute per cubic decimeter of solution
 - **g dm⁻³:** Grams of solute per cubic decimeter of solution
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Concentration in mol dm⁻³:** c = n ÷ V (concentration = moles ÷ volume)
 2. **Concentration in g dm⁻³:** concentration = mass ÷ volume
@@ -3476,34 +3390,34 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - mol dm⁻³ to g dm⁻³: concentration (g dm⁻³) = concentration (mol dm⁻³) × molar mass
    - g dm⁻³ to mol dm⁻³: concentration (mol dm⁻³) = concentration (g dm⁻³) ÷ molar mass
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Volume Units:** 1 dm³ = 1000 cm³ = 1000 mL = 1 L
 2. **Mole Connection:** Concentration in mol dm⁻³ connects to the mole concept from Module 1.2
 3. **Mass Connection:** Concentration in g dm⁻³ connects to mass terms from Module 1.4
 4. **Conversion Bridge:** Molar mass is the bridge between the two concentration units
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Unit Consistency:** Always ensure volumes are in dm³ before calculating concentration
 2. **Step-by-Step Approach:** Identify known values, select appropriate formula, substitute, calculate
 3. **Conversion Path:** To convert between concentration types, always go through molar mass
 4. **Check Your Answer:** Verify that units make sense and magnitude is reasonable
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Unit Confusion:** Forgetting to convert cm³ or mL to dm³
 - **Formula Selection:** Using the wrong formula for the type of concentration needed
 - **Molar Mass Errors:** Using atomic number instead of atomic mass for molar mass
 - **Significant Figures:** Not matching the precision of the given data
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Volume Conversion:** "Think of dm³ as liters, they're exactly the same"
 - **Concentration Visual:** "Imagine dissolving sugar in water - more sugar = stronger taste = higher concentration"
 - **Unit Bridge:** "Molar mass is the translator between moles and grams for concentrations"
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Medicine:** Preparing intravenous drips with precise drug concentrations
 - **Chemical Manufacturing:** Quality control of products
@@ -3512,15 +3426,15 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.6: Using Experimental Data to Calculate Empirical and Molecular Formulae - Key Takeaways
+#### Module 1.6: Using Experimental Data to Calculate Empirical and Molecular Formulae - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Empirical Formula:** Simplest whole-number ratio of atoms of each element in a compound
 - **Molecular Formula:** Actual number of atoms of each element in a molecule
 - **Combustion Analysis:** Experimental method to determine composition of compounds by burning them
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Empirical Formula from Mass Data:**
    - Convert masses to moles
@@ -3534,34 +3448,34 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - Mass of C in CO₂ = (12/44) × mass of CO₂
    - Mass of H in H₂O = (2/18) × mass of H₂O
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Formula Relationship:** Molecular Formula = (Empirical Formula) × n
 2. **Mass-Mole Connection:** Convert experimental masses to moles to find ratios
 3. **Combustion Products:** CO₂ contains all carbon from original compound, H₂O contains all hydrogen
 4. **Oxygen Determination:** Mass of O = total mass - (mass of C + mass of H)
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Empirical Formula Steps:** Mass → Moles → Simplest Ratio → Whole Numbers → Formula
 2. **Molecular Formula Steps:** Empirical Formula → Empirical Mass → Multiple → Molecular Formula
 3. **Combustion Analysis:** Find masses of C and H from products, determine O by difference
 4. **Fractional Ratios:** Multiply by small integer to get whole numbers
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Changing Subscripts:** Never change subscripts in formulas, only coefficients in equations
 - **Incorrect Mass Conversion:** Using atomic number instead of atomic mass
 - **Missing Elements:** Forgetting to account for all elements present
 - **Ratio Simplification:** Not reducing to simplest whole-number ratio
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Formula Relationship:** "Empirical is simple, Molecular is actual"
 - **Combustion Memory:** "CO₂ traps carbon, H₂O holds hydrogen"
 - **Ratio Handling:** "When you get fractions, multiply to make whole"
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Pharmaceuticals:** Determining exact composition of new drugs
 - **Forensics:** Identifying unknown substances
@@ -3570,9 +3484,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.7: Using Chemical Equations to Calculate Reacting Masses - Key Takeaways
+#### Module 1.7: Using Chemical Equations to Calculate Reacting Masses - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Stoichiometry:** Calculation of quantities in chemical reactions
 - **Limiting Reactant:** Reactant that is completely used up, determining the amount of product
@@ -3581,40 +3495,40 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Actual Yield:** Amount of product actually obtained
 - **Percentage Yield:** (Actual Yield ÷ Theoretical Yield) × 100%
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Mole-Mass Relationship:** n = m ÷ M and m = n × M
 2. **Percentage Yield:** (Actual Yield ÷ Theoretical Yield) × 100%
 3. **Limiting Reactant Determination:** Calculate amount of product from each reactant, smaller amount is limiting
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Mole Ratios:** Coefficients in balanced equations give mole ratios of reactants and products
 2. **Conservation of Mass:** Total mass of reactants equals total mass of products
 3. **Yield Relationship:** Actual yield is usually less than theoretical yield due to practical limitations
 4. **Limiting Reactant Impact:** The amount of limiting reactant determines the maximum amount of product
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Mass Calculation Steps:** Balanced equation → Mass to moles → Mole ratio → Moles to mass
 2. **Limiting Reactant Steps:** Calculate moles of each reactant → Determine which produces less product
 3. **Percentage Yield Steps:** Calculate theoretical yield → Divide actual yield by theoretical yield
 4. **Unit Consistency:** Always check that units are consistent throughout calculations
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Unbalanced Equations:** Always start with a properly balanced equation
 - **Incorrect Mole Ratios:** Using coefficients incorrectly in mole ratio calculations
 - **Limiting Reactant Errors:** Not properly identifying which reactant limits the reaction
 - **Yield Confusion:** Mixing up theoretical and actual yield in percentage calculations
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Calculation Flow:** "Balance → Convert → Ratio → Convert → Calculate"
 - **Limiting Reactant:** "The one that runs out first determines the finish line"
 - **Yield Concept:** "Theoretical is perfect, actual is reality"
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Chemical Manufacturing:** Optimizing reactant quantities for maximum efficiency
 - **Environmental Science:** Calculating pollutant formation and removal
@@ -3623,9 +3537,9 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-### Module 1.8: Using Chemical Equations to Calculate Volumes of Gases - Key Takeaways
+#### Module 1.8: Using Chemical Equations to Calculate Volumes of Gases - Key Takeaways
 
-#### **Core Definitions (Must Know for Exams):**
+##### **Core Definitions (Must Know for Exams):**
 
 - **Molar Volume:** Volume occupied by one mole of gas at specific conditions
 - **STP (Standard Temperature and Pressure):** 0°C (273 K) and 1 atm; 1 mole = 22.4 L
@@ -3633,7 +3547,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 - **Ideal Gas Law:** pV = nRT, relating pressure, volume, temperature, and moles
 - **Gas Constant (R):** 0.0821 L·atm·mol⁻¹·K⁻¹
 
-#### **Essential Formulas:**
+##### **Essential Formulas:**
 
 1. **Molar Volume Calculations:**
    - Volume = moles × molar volume
@@ -3646,35 +3560,35 @@ Step 4: Use the ideal gas law to find volume of CO₂
    - n = pV ÷ RT
 3. **Temperature Conversion:** K = °C + 273
 
-#### **Key Relationships:**
+##### **Key Relationships:**
 
 1. **Standard Conditions:** Different reference points (STP vs. RTP) with different molar volumes
 2. **Gas Behavior:** All gases have the same molar volume at the same temperature and pressure
 3. **Equation Applications:** Chemical equations provide mole ratios that can be converted to volume ratios for gases
 4. **Non-Standard Conditions:** Use ideal gas law when conditions are not at STP or RTP
 
-#### **Calculation Strategies:**
+##### **Calculation Strategies:**
 
 1. **Standard Conditions:** Use molar volume directly for calculations at STP or RTP
 2. **Non-Standard Conditions:** Apply ideal gas law for calculations at other temperatures and pressures
 3. **Chemical Equations:** Convert volume to moles, use mole ratios, then convert back to volume
 4. **Unit Consistency:** Always ensure temperature is in Kelvin for ideal gas law calculations
 
-#### **Common Mistakes to Avoid:**
+##### **Common Mistakes to Avoid:**
 
 - **Wrong Molar Volume:** Using 22.4 L/mol at RTP or 24.0 L/mol at STP
 - **Temperature Units:** Forgetting to convert Celsius to Kelvin in ideal gas law
 - **Pressure Units:** Using incorrect pressure units (must use atm with R = 0.0821)
 - **Volume Ratios:** Assuming volume ratios apply only at the same temperature and pressure
 
-#### **Memory Aids:**
+##### **Memory Aids:**
 
 - **Standard Conditions:** "STP is freezing (0°C), RTP is room temperature (25°C)"
 - **Molar Volume Values:** "22.4 at STP, 24.0 at RTP"
 - **Ideal Gas Law:** "Pressure × Volume = number × R × Temperature"
 - **Gas Collection:** "Upward delivery for hydrogen, downward for carbon dioxide"
 
-#### **Real-World Applications:**
+##### **Real-World Applications:**
 
 - **Industrial Gas Storage:** Calculating volumes for storage tanks
 - **Environmental Monitoring:** Measuring gas concentrations in air
@@ -3683,11 +3597,11 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-## Practice Problems
+### Practice Problems
 
-### Module 1.1: Fundamental Chemistry Terms - Exam Preparation
+#### Module 1.1: Fundamental Chemistry Terms - Exam Preparation
 
-#### **Basic Identification Questions**
+##### **Basic Identification Questions**
 
 **Problem 1:** Classify each of the following as an element, compound, or molecule:
 
@@ -3706,7 +3620,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Ion Formation Questions**
+##### **Ion Formation Questions**
 
 **Problem 2:** Determine the charge and write the ion symbol for each:
 
@@ -3723,7 +3637,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Formula Conversion Questions**
+##### **Formula Conversion Questions**
 
 **Problem 3:** For each molecular formula, determine the empirical formula:
 
@@ -3742,7 +3656,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Molecular Formula from Empirical Formula**
+##### **Molecular Formula from Empirical Formula**
 
 **Problem 4:** Find the molecular formula given:
 
@@ -3757,7 +3671,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Empirical Formula from Percentage Composition**
+##### **Empirical Formula from Percentage Composition**
 
 **Problem 5:** A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass. Find the empirical formula.
 **Solution:**
@@ -3775,7 +3689,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Comprehensive Concept Questions**
+##### **Comprehensive Concept Questions**
 
 **Problem 6:** Explain why water (H₂O) is considered a compound, while oxygen gas (O₂) is considered an element.
 **Solution:**
@@ -3794,7 +3708,7 @@ Step 4: Use the ideal gas law to find volume of CO₂
 
 ---
 
-#### **Multiple Choice Questions**
+##### **Multiple Choice Questions**
 
 **Problem 7:** Choose the best answer for each question:
 a) Which of the following is NOT an element?
@@ -3826,7 +3740,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Word Problems**
+##### **Word Problems**
 
 **Problem 8:** A compound has a molecular mass of 92 g/mol and contains 52.2% carbon and 13.0% hydrogen by mass. The remainder is oxygen. Find both the empirical and molecular formulas.
 **Solution:**
@@ -3849,7 +3763,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Challenge Questions**
+##### **Challenge Questions**
 
 **Problem 9:** A compound contains only nitrogen and oxygen. A 10.0g sample contains 3.5g of nitrogen. If the molecular mass is 92 g/mol, what is the molecular formula?
 **Solution:**
@@ -3871,9 +3785,9 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 *More practice problems will be added as specified...*
 ---
 
-### Module 1.2: The Mole Concept - Exam Preparation
+#### Module 1.2: The Mole Concept - Exam Preparation
 
-#### **Basic Mole Conversions**
+##### **Basic Mole Conversions**
 
 **Problem 1:** Calculate the number of atoms in each of the following:
 
@@ -3888,7 +3802,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Particles to Moles Conversions**
+##### **Particles to Moles Conversions**
 
 **Problem 2:** Calculate the number of moles in each of the following:
 
@@ -3903,7 +3817,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Moles to Mass Conversions**
+##### **Moles to Mass Conversions**
 
 **Problem 3:** Calculate the mass in grams for each of the following:
 
@@ -3918,7 +3832,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Mass to Moles Conversions**
+##### **Mass to Moles Conversions**
 
 **Problem 4:** Calculate the number of moles in each of the following:
 
@@ -3933,7 +3847,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Combined Conversions: Mass to Particles**
+##### **Combined Conversions: Mass to Particles**
 
 **Problem 5:** Calculate the number of molecules in each of the following:
 
@@ -3948,7 +3862,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Combined Conversions: Particles to Mass**
+##### **Combined Conversions: Particles to Mass**
 
 **Problem 6:** Calculate the mass in grams for each of the following:
 
@@ -3963,7 +3877,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Molar Mass Calculations**
+##### **Molar Mass Calculations**
 
 **Problem 7:** Calculate the molar mass for each of the following compounds:
 
@@ -3978,7 +3892,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Word Problems with Multiple Steps**
+##### **Word Problems with Multiple Steps**
 
 **Problem 8:** A sample of iron(III) oxide (Fe₂O₃) has a mass of 160 grams. Calculate:
 
@@ -3995,7 +3909,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Real-World Application Problems**
+##### **Real-World Application Problems**
 
 **Problem 9:** Aspirin has the chemical formula C₉H₈O₄. A standard aspirin tablet contains 325 mg of aspirin. Calculate:
 
@@ -4012,7 +3926,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Challenge Problems**
+##### **Challenge Problems**
 
 **Problem 10:** A compound contains 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass. If 0.1 mole of this compound has a mass of 18.0 grams, calculate:
 
@@ -4031,7 +3945,7 @@ d) **A) Elements contain only one type of atom, compounds contain different type
 
 ---
 
-#### **Multiple Choice Questions**
+##### **Multiple Choice Questions**
 
 **Problem 11:** Choose the best answer for each question:
 a) How many atoms are in 2.0 moles of helium?
@@ -4066,9 +3980,9 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 *More practice problems will be added as specified...*
 ---
 
-### Module 1.3: Chemical Equations and Reactions - Exam Preparation
+#### Module 1.3: Chemical Equations and Reactions - Exam Preparation
 
-#### **Basic Identification Questions**
+##### **Basic Identification Questions**
 
 **Problem 1:** In each equation, identify the reactants and products:
 
@@ -4083,7 +3997,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Balancing Simple Equations**
+##### **Balancing Simple Equations**
 
 **Problem 2:** Balance each of the following equations:
 
@@ -4118,7 +4032,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Adding State Symbols**
+##### **Adding State Symbols**
 
 **Problem 3:** Add state symbols to each balanced equation:
 
@@ -4146,7 +4060,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Writing Full Ionic Equations**
+##### **Writing Full Ionic Equations**
 
 **Problem 4:** Write the full ionic equation for each reaction:
 
@@ -4186,7 +4100,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Writing Net Ionic Equations**
+##### **Writing Net Ionic Equations**
 
 **Problem 5:** Write the net ionic equation for each reaction in Problem 4.
 **Solution:**
@@ -4210,7 +4124,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Identifying Spectator Ions**
+##### **Identifying Spectator Ions**
 
 **Problem 6:** Identify the spectator ions in each reaction:
 
@@ -4234,7 +4148,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Complete Reaction Problems**
+##### **Complete Reaction Problems**
 
 **Problem 7:** For each reaction, write the balanced molecular equation with state symbols, the full ionic equation, and the net ionic equation:
 
@@ -4258,7 +4172,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Predicting Reaction Products**
+##### **Predicting Reaction Products**
 
 **Problem 8:** Predict the products and write the balanced molecular equation with state symbols for each reaction:
 
@@ -4297,7 +4211,7 @@ d) **B) Atoms are too small and numerous to count individually** - This is the f
 
 ---
 
-#### **Multiple Choice Questions**
+##### **Multiple Choice Questions**
 
 **Problem 9:** Choose the best answer for each question:
 a) What is the balanced equation for the reaction between hydrogen and oxygen to form water?
@@ -4329,7 +4243,7 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 
 ---
 
-#### **Challenge Questions**
+##### **Challenge Questions**
 
 **Problem 10:** A 25.0 mL sample of 0.100 M calcium chloride solution is mixed with a 15.0 mL sample of 0.150 M silver nitrate solution. A white precipitate of silver chloride forms. Write the balanced molecular equation with state symbols, the full ionic equation, and the net ionic equation for this reaction.
 **Solution:**
@@ -4359,11 +4273,11 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 *More practice problems will be added as specified...*
 ---
 
-## Resources
+### Resources
 
-### Module 1.1: Fundamental Chemistry Terms - Study Resources
+#### Module 1.1: Fundamental Chemistry Terms - Study Resources
 
-#### **Recommended Study Strategies**
+##### **Recommended Study Strategies**
 
 **For Absolute Beginners:**
 
@@ -4377,7 +4291,7 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 3. **Create summary tables:** Like the one in the Key Concepts section
 4. **Teach others:** Explain concepts to friends or family to reinforce learning
 
-#### **Memory Aids and Mnemonics**
+##### **Memory Aids and Mnemonics**
 
 **For Ion Charges:**
 
@@ -4392,7 +4306,7 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 **For Element vs Compound Properties:**
 - **"Elements are Elementary (simple), Compounds are Complex (breakable)"** - Elements cannot be broken down, compounds can
 
-#### **Common Mistakes to Avoid**
+##### **Common Mistakes to Avoid**
 
 1. **Confusing atoms and ions:** Remember atoms are neutral, ions are charged
 2. **Mixing up compounds and mixtures:** Compounds have chemical bonds, mixtures don't
@@ -4401,7 +4315,7 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 5. **Calculation errors:** Double-check your math in empirical formula problems
 6. **Misunderstanding element vs compound properties:** Remember elements CANNOT be broken down, compounds CAN
 
-#### **Practice Problem Types to Master**
+##### **Practice Problem Types to Master**
 
 **Basic Level:**
 
@@ -4417,7 +4331,7 @@ d) **C) H⁺(aq) + OH⁻(aq) → H₂O(l)** - This is the net ionic equation aft
 - Challenge problems with unusual ratios
 - Comprehensive analysis questions
 
-#### **Self-Testing Checklist**
+##### **Self-Testing Checklist**
 
 After studying this module, you should be able to:
 
@@ -4430,7 +4344,7 @@ After studying this module, you should be able to:
 - [ ] Explain why elements cannot be broken down but compounds can be broken down
 - [ ] Solve all practice problems without referring to solutions
 
-#### **Additional Practice Resources**
+##### **Additional Practice Resources**
 
 **Online Resources (when available):**
 
@@ -4451,7 +4365,7 @@ After studying this module, you should be able to:
 4. **Check units:** Make sure masses are in grams, percentages add to 100%
 5. **Review systematically:** Go through each concept area before the exam
 
-#### **Progress Tracking**
+##### **Progress Tracking**
 
 **Weekly Goals:**
 
@@ -4468,9 +4382,9 @@ After studying this module, you should be able to:
 
 ---
 
-### Module 1.2: The Mole Concept - Study Resources
+#### Module 1.2: The Mole Concept - Study Resources
 
-#### **Recommended Study Strategies**
+##### **Recommended Study Strategies**
 
 **For Understanding the Mole Concept:**
 
@@ -4484,7 +4398,7 @@ After studying this module, you should be able to:
 3. **Practice dimensional analysis:** Always track your units
 4. **Work through problems step-by-step:** Don't skip steps in your calculations
 
-#### **Memory Aids and Mnemonics**
+##### **Memory Aids and Mnemonics**
 
 **For Avogadro's Constant:**
 
@@ -4508,7 +4422,7 @@ After studying this module, you should be able to:
 - **"KNOW × GOAL = FORMULA"** - What you know × what you need = which formula to use
 - **"Units Don't Lie"** - Check units to verify you're using the right formula
 
-#### **Common Mistakes to Avoid**
+##### **Common Mistakes to Avoid**
 
 1. **Confusing moles and molecules:** 1 mole = 6.02 × 10²³ molecules (not 1 molecule)
 2. **Formula errors:** N = n × L (not n ÷ L), m = n × M (not n ÷ M)
@@ -4517,7 +4431,7 @@ After studying this module, you should be able to:
 5. **Molar mass mistakes:** Use atomic mass from periodic table, not atomic number
 6. **Significant figures:** Match significant figures to the given data
 
-#### **Practice Problem Types to Master**
+##### **Practice Problem Types to Master**
 
 **Basic Level:**
 
@@ -4533,7 +4447,7 @@ After studying this module, you should be able to:
 - Molecular formula determination
 - Challenge problems with multiple unknowns
 
-#### **Self-Testing Checklist**
+##### **Self-Testing Checklist**
 
 After studying this module, you should be able to:
 
@@ -4546,7 +4460,7 @@ After studying this module, you should be able to:
 - [ ] Solve all practice problems without referring to solutions
 - [ ] Explain why chemists use moles instead of counting individual atoms
 
-#### **Calculation Mastery Strategies**
+##### **Calculation Mastery Strategies**
 
 **Step-by-Step Approach:**
 
@@ -4563,7 +4477,7 @@ After studying this module, you should be able to:
 - **Cancel units as you go:** Make sure unwanted units cancel out
 - **Check final units:** Should match what the question asks for
 
-#### **Additional Practice Resources**
+##### **Additional Practice Resources**
 
 **Online Resources (when available):**
 
@@ -4582,7 +4496,7 @@ After studying this module, you should be able to:
 - **Environmental science:** Calculate pollutant concentrations
 - **Industrial applications:** Chemical manufacturing calculations
 
-#### **Exam Preparation Tips**
+##### **Exam Preparation Tips**
 
 **Time Management:**
 
@@ -4605,7 +4519,7 @@ After studying this module, you should be able to:
 - **Significant figures:** Questions that test attention to detail
 - **Conceptual questions:** Testing understanding, not just calculation
 
-#### **Progress Tracking**
+##### **Progress Tracking**
 
 **Weekly Goals:**
 
@@ -4620,7 +4534,7 @@ After studying this module, you should be able to:
 - **Level 3 (Advanced):** Can tackle complex word problems confidently
 - **Level 4 (Mastery):** Can teach mole concepts to others and solve novel problems
 
-#### **Building Confidence**
+##### **Building Confidence**
 
 **Start Simple:**
 
@@ -4638,9 +4552,9 @@ After studying this module, you should be able to:
 
 ---
 
-### Module 1.3: Chemical Equations and Reactions - Study Resources
+#### Module 1.3: Chemical Equations and Reactions - Study Resources
 
-#### **Recommended Study Strategies**
+##### **Recommended Study Strategies**
 
 **For Absolute Beginners:**
 
@@ -4654,7 +4568,7 @@ After studying this module, you should be able to:
 3. **Master solubility rules:** These are essential for writing ionic equations
 4. **Work through all three equation types:** Molecular, full ionic, and net ionic
 
-#### **Memory Aids and Mnemonics**
+##### **Memory Aids and Mnemonics**
 
 **For State Symbols:**
 
@@ -4668,7 +4582,7 @@ After studying this module, you should be able to:
 - **"Count, Change, Check"** → Count atoms, Change coefficients, Check balance
 - **"Metals First, Hydrogen Last"** → A general strategy for balancing order
 
-#### **Common Mistakes to Avoid**
+##### **Common Mistakes to Avoid**
 
 1. **Changing subscripts instead of coefficients:** This changes the compound itself
 2. **Forgetting state symbols:** Many tests require them for full credit
@@ -4676,7 +4590,7 @@ After studying this module, you should be able to:
 4. **Missing spectator ions:** Carefully compare both sides of the full ionic equation
 5. **Not checking the final balance:** Always verify atoms and charges balance
 
-#### **Practice Problem Types to Master**
+##### **Practice Problem Types to Master**
 
 **Basic Level:**
 
@@ -4692,7 +4606,7 @@ After studying this module, you should be able to:
 - Writing complete reaction sequences
 - Solving stoichiometry problems with equations
 
-#### **Self-Testing Checklist**
+##### **Self-Testing Checklist**
 
 After studying this module, you should be able to:
 
@@ -4705,7 +4619,7 @@ After studying this module, you should be able to:
 - [ ] Predict products of simple precipitation reactions
 - [ ] Solve all practice problems without referring to solutions
 
-#### **Additional Practice Resources**
+##### **Additional Practice Resources**
 
 **Online Resources (when available):**
 
@@ -4724,7 +4638,7 @@ After studying this module, you should be able to:
 - **Industrial processes:** Many manufacturing processes rely on specific reactions
 - **Environmental chemistry:** Understanding pollutant reactions
 
-#### **Progress Tracking**
+##### **Progress Tracking**
 
 **Weekly Goals:**
 
@@ -4744,13 +4658,13 @@ After studying this module, you should be able to:
 *More resources will be added as specified...*
 ---
 
-## Test Preparation Focus
+### Test Preparation Focus
 
-### **Unit 1 Test Preparation Strategy**
+#### **Unit 1 Test Preparation Strategy**
 
 **Overview:** This section specifically focuses on preparing you for formal chemistry tests and exams. Every concept taught from the ground up in Unit 1 is designed to appear on chemistry tests, and this section shows you exactly how to apply that knowledge in test situations.
 
-#### **Why Test Preparation is Built Into Every Lesson**
+##### **Why Test Preparation is Built Into Every Lesson**
 
 In this study guide, every concept is taught with test preparation in mind because:
 
@@ -4759,7 +4673,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - **Confidence comes from mastery:** When you know concepts from the ground up, test questions become manageable
 - **Real success = Understanding + Test Skills:** You need both to excel in chemistry
 
-#### **Test Question Types for Unit 1 Concepts**
+##### **Test Question Types for Unit 1 Concepts**
 
 **Module 1.1 Test Questions:**
 **Atom Questions on Tests:**
@@ -4912,7 +4826,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - "Calculate the volume of oxygen required to completely burn 16 g of methane gas at STP."
 - "What volume of carbon dioxide (at 2 atm and 40°C) is produced when 10 g of calcium carbonate decomposes?"
 
-#### **Test-Taking Strategies for Unit 1**
+##### **Test-Taking Strategies for Unit 1**
 
 **Strategy 1: Read Questions Carefully**
 
@@ -4942,7 +4856,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - **Word problems:** 3-5 minutes each
 - **Review time:** Save 5-10 minutes at the end to check answers
 
-#### **Common Test Mistakes and How to Avoid Them**
+##### **Common Test Mistakes and How to Avoid Them**
 
 **Mistake 1: Confusing Similar Terms**
 
@@ -4999,7 +4913,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - **Volume ratios:** Assuming volume ratios apply only at the same temperature and pressure
 **How to Avoid:** Remember the correct molar volume for each condition, always convert temperature to Kelvin, use consistent pressure units, and only use volume ratios when conditions are the same.
 
-#### **Test Preparation Study Plan**
+##### **Test Preparation Study Plan**
 
 **Week 1: Master Module 1.1 Basics**
 
@@ -5053,7 +4967,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - **Days 5-6:** Time management and test-taking strategies
 - **Day 7:** Final review and confidence building
 
-#### **Self-Assessment for Test Readiness**
+##### **Self-Assessment for Test Readiness**
 
 **Can you answer these questions without looking at notes?**
 **Module 1.1 Check:**
@@ -5123,7 +5037,7 @@ In this study guide, every concept is taught with test preparation in mind becau
 - Are you comfortable with scientific notation?
 - Can you manage your time effectively during tests?
 
-#### **Final Test Tips**
+##### **Final Test Tips**
 
 **Before the Test:**
 
