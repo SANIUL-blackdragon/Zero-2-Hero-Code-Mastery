@@ -2101,9 +2101,7 @@ These calculations are fundamental skills in chemistry that allow us to determin
 ---
 
 #### Module 1.7: Using Chemical Equations to Calculate Reacting Masses
-
 **Learning Objectives:**
-
 - Understand the concept of stoichiometry and its importance
 - Use balanced chemical equations to calculate reacting masses
 - Apply mole concepts to chemical reactions
@@ -2112,76 +2110,62 @@ These calculations are fundamental skills in chemistry that allow us to determin
 - Apply these skills to solve chemistry problems
 - Prepare for formal exam questions on reacting masses
 
----
-
-#### 1. Introduction to Reacting Mass Calculations
+##### 1. Introduction to Reacting Mass Calculations
 In this module, we'll apply the mole concept to calculate masses in chemical reactions, using balanced equations to determine the quantitative relationships between reactants and products.
 
 **TEST: Elements and Their Symbols**
-
 1. What is the symbol for gold?
 2. What element does 'Na' represent?
 3. Name three elements that exist as gases at room temperature.
 
-#### 2. Atoms, Molecules, and Compounds
-
-**Atoms**
-
+##### 2. Atoms, Molecules, and Compounds
+###### Atoms
 - Atoms are the basic building blocks of matter.
 - Each atom consists of a nucleus (containing protons and neutrons) and electrons.
 - The number of protons in an atom determines which element it is.
 
-**Molecules**
-
+###### Molecules
 - Molecules are formed when two or more atoms join together.
 - Molecules can be made of the same type of atom (e.g., O₂ - oxygen gas) or different types of atoms (e.g., H₂O - water).
 
-**Compounds**
-
+###### Compounds
 - Compounds are substances formed when two or more different elements chemically combine.
 - Compounds have different properties from the elements that make them up.
 - Examples: Water (H₂O), Carbon Dioxide (CO₂), Sodium Chloride (NaCl - table salt).
 
-**Chemical Reactions**
-
+###### Chemical Reactions
 - Chemical reactions occur when substances interact to form new substances.
 - In a chemical reaction, bonds between atoms are broken and new bonds are formed.
 - The starting substances are called reactants, and the new substances formed are called products.
 
 **TEST: Atoms, Molecules, and Compounds**
-
 1. What is the difference between an atom and a molecule?
 2. Is water (H₂O) an element or a compound? Explain why.
 3. In the reaction 2H₂ + O₂ → 2H₂O, identify the reactants and products.
 
-#### 3. Chemical Equations
-
-**What are Chemical Equations?**
-
+##### 3. Chemical Equations
+###### What are Chemical Equations?
 - Chemical equations are a way to represent chemical reactions using symbols and formulas.
 - They show the reactants (starting substances) on the left and the products (substances formed) on the right.
 - The arrow (→) indicates the direction of the reaction.
 
-**Example:**
+###### Example:
 2H₂ + O₂ → 2H₂O
 This equation shows that two molecules of hydrogen react with one molecule of oxygen to form two molecules of water.
 
-**Balancing Chemical Equations**
-
+###### Balancing Chemical Equations
 - Chemical equations must obey the Law of Conservation of Mass: matter cannot be created or destroyed.
 - This means the number of atoms of each element must be the same on both sides of the equation.
 - We balance equations by adding coefficients (numbers in front of formulas) but never change the formulas themselves.
 
-**Steps to Balance Chemical Equations:**
-
+###### Steps to Balance Chemical Equations:
 1. Write the unbalanced equation with correct formulas.
 2. Count the atoms of each element on both sides.
 3. Add coefficients to balance one element at a time.
 4. Check that all elements are balanced.
 5. Ensure the coefficients are in the simplest whole-number ratio.
 
-**Example: Balancing the equation for the reaction between hydrogen and oxygen:**
-
+###### Example: Balancing the equation for the reaction between hydrogen and oxygen:
 - Unbalanced: H₂ + O₂ → H₂O
 - Count atoms: Left: 2 H, 2 O; Right: 2 H, 1 O
 - Add coefficient to balance oxygen: H₂ + O₂ → 2H₂O
@@ -2190,26 +2174,22 @@ This equation shows that two molecules of hydrogen react with one molecule of ox
 - Final check: Left: 4 H, 2 O; Right: 4 H, 2 O (Balanced!)
 
 **TEST: Chemical Equations**
-
 1. Balance the following equation: Al + O₂ → Al₂O₃
 2. What does the arrow (→) represent in a chemical equation?
 3. Why do we need to balance chemical equations?
 
-#### 4. The Mole Concept
+##### 4. The Mole Concept
 For stoichiometric calculations, we use the mole concept covered in Module 1.2. Remember the key relationships:
 - Amount of substance (moles) = mass ÷ molar mass
 - Mass = amount of substance (moles) × molar mass
 
-#### 5. Molar Mass
-
-**What is Molar Mass?**
-
+##### 5. Molar Mass
+###### What is Molar Mass?
 - Molar mass is the mass of one mole of a substance.
 - It is measured in grams per mole (g/mol).
 - The molar mass of an element in grams per mole is numerically equal to its atomic mass in atomic mass units (u).
 
-**Calculating Molar Mass**
-
+###### Calculating Molar Mass
 - For elements: The molar mass is the atomic mass found on the periodic table.
   - Example: Carbon has an atomic mass of 12.01 u, so its molar mass is 12.01 g/mol.
   
@@ -2219,89 +2199,72 @@ For stoichiometric calculations, we use the mole concept covered in Module 1.2. 
     - Oxygen: 16.00 g/mol × 1 = 16.00 g/mol
     - Total molar mass of H₂O = 2.02 + 16.00 = 18.02 g/mol
 
-**Examples of Molar Masses:**
-
+###### Examples of Molar Masses:
 - Carbon (C): 12.01 g/mol
 - Oxygen (O₂): 32.00 g/mol (16.00 × 2)
 - Sodium chloride (NaCl): 58.44 g/mol (22.99 + 35.45)
 - Glucose (C₆H₁₂O₆): 180.16 g/mol [(12.01 × 6) + (1.01 × 12) + (16.00 × 6)]
 
 **TEST: Molar Mass**
-
 1. Calculate the molar mass of carbon dioxide (CO₂).
 2. What is the molar mass of methane (CH₄)?
 3. If a compound has a molar mass of 98.08 g/mol and contains sulfur (S, 32.06 g/mol) and oxygen (O, 16.00 g/mol), and has the formula SO₃, is this correct? Show your calculation.
 
-#### 6. Amount of Substance
-
-**What is Amount of Substance?**
-
+##### 6. Amount of Substance
+###### What is Amount of Substance?
 - Amount of substance is a measure of how many particles (atoms, molecules, ions, etc.) are present.
 - It is measured in moles (mol).
 - The symbol for amount of substance is 'n'.
 
-**Relationship Between Mass, Molar Mass, and Amount of Substance**
-
+###### Relationship Between Mass, Molar Mass, and Amount of Substance
 - The amount of substance (n) can be calculated using the formula:
   n = mass ÷ molar mass
   or
   n = m ÷ M
-
 - Rearranging this formula gives:
   mass = amount of substance × molar mass
   or
   m = n × M
-
 - And:
   molar mass = mass ÷ amount of substance
   or
   M = m ÷ n
 
-**Example Calculations:**
-
+###### Example Calculations:
 1. Calculate the amount of substance in 36 g of water (H₂O, molar mass = 18.02 g/mol).
    n = m ÷ M = 36 g ÷ 18.02 g/mol = 2.0 mol
-
 2. Calculate the mass of 0.5 moles of carbon dioxide (CO₂, molar mass = 44.01 g/mol).
    m = n × M = 0.5 mol × 44.01 g/mol = 22.0 g
-
 3. Calculate the molar mass of a substance if 3 moles have a mass of 240 g.
    M = m ÷ n = 240 g ÷ 3 mol = 80 g/mol
 
 **TEST: Amount of Substance**
-
 1. Calculate the amount of substance in 58.5 g of sodium chloride (NaCl, molar mass = 58.44 g/mol).
 2. What is the mass of 2.5 moles of oxygen gas (O₂, molar mass = 32.00 g/mol)?
 3. If 4 moles of a compound have a mass of 292 g, what is the molar mass of the compound?
 
-#### 7. Using Chemical Equations to Calculate Reacting Masses
-
-**Stoichiometry**
-
+##### 7. Using Chemical Equations to Calculate Reacting Masses
+###### Stoichiometry
 - Stoichiometry is the calculation of quantities in chemical reactions.
 - Chemical equations tell us the ratios in which substances react and are produced.
 - These ratios can be used to calculate masses of reactants and products.
 
-**Mole Ratios in Chemical Equations**
-
+###### Mole Ratios in Chemical Equations
 - The coefficients in a balanced chemical equation give us the mole ratios of reactants and products.
 - For example, in the equation: 2H₂ + O₂ → 2H₂O
   - 2 moles of hydrogen react with 1 mole of oxygen to produce 2 moles of water.
   - The mole ratio of H₂:O₂:H₂O is 2:1:2
 
-**Steps for Calculating Reacting Masses:**
-
+###### Steps for Calculating Reacting Masses:
 1. Write the balanced chemical equation.
 2. Convert the given mass to amount of substance (moles) using n = m ÷ M.
 3. Use the mole ratio from the balanced equation to find the amount of the other substance.
 4. Convert the amount of substance back to mass using m = n × M.
 
-**Example 1: Calculating Product Mass**
+###### Example 1: Calculating Product Mass
 Problem: What mass of water is produced when 8 g of hydrogen reacts completely with oxygen?
 Equation: 2H₂ + O₂ → 2H₂O
-
 Solution:
-
 1. The equation is already balanced.
 2. Convert mass of hydrogen to moles:
    Molar mass of H₂ = 2.02 g/mol
@@ -2313,15 +2276,12 @@ Solution:
 4. Convert moles of water to mass:
    Molar mass of H₂O = 18.02 g/mol
    m(H₂O) = n × M = 3.96 mol × 18.02 g/mol = 71.4 g
-
 Answer: 71.4 g of water are produced.
 
-**Example 2: Calculating Reactant Mass**
+###### Example 2: Calculating Reactant Mass
 Problem: What mass of oxygen is needed to react completely with 10 g of hydrogen?
 Equation: 2H₂ + O₂ → 2H₂O
-
 Solution:
-
 1. The equation is already balanced.
 2. Convert mass of hydrogen to moles:
    Molar mass of H₂ = 2.02 g/mol
@@ -2333,15 +2293,12 @@ Solution:
 4. Convert moles of oxygen to mass:
    Molar mass of O₂ = 32.00 g/mol
    m(O₂) = n × M = 2.48 mol × 32.00 g/mol = 79.4 g
-
 Answer: 79.4 g of oxygen are needed.
 
-**Example 3: Calculating Mass from a Different Reactant**
+###### Example 3: Calculating Mass from a Different Reactant
 Problem: What mass of carbon dioxide is produced when 24 g of carbon are burned in excess oxygen?
 Equation: C + O₂ → CO₂
-
 Solution:
-
 1. The equation is already balanced.
 2. Convert mass of carbon to moles:
    Molar mass of C = 12.01 g/mol
@@ -2353,85 +2310,65 @@ Solution:
 4. Convert moles of carbon dioxide to mass:
    Molar mass of CO₂ = 44.01 g/mol
    m(CO₂) = n × M = 2.00 mol × 44.01 g/mol = 88.0 g
-
 Answer: 88.0 g of carbon dioxide are produced.
 
 **TEST: Using Chemical Equations to Calculate Reacting Masses**
-
 1. Calculate the mass of oxygen needed to react completely with 12 g of magnesium to form magnesium oxide (MgO).
    Equation: 2Mg + O₂ → 2MgO
    (Molar masses: Mg = 24.31 g/mol, O₂ = 32.00 g/mol, MgO = 40.31 g/mol)
-
 2. What mass of aluminum oxide is produced when 10.8 g of aluminum react with excess oxygen?
    Equation: 4Al + 3O₂ → 2Al₂O₃
    (Molar masses: Al = 26.98 g/mol, O₂ = 32.00 g/mol, Al₂O₃ = 101.96 g/mol)
-
 3. In the reaction 2H₂ + O₂ → 2H₂O, if 32 g of oxygen react completely, what mass of water is produced?
    (Molar masses: H₂ = 2.02 g/mol, O₂ = 32.00 g/mol, H₂O = 18.02 g/mol)
 
-#### 8. Advanced Calculations: Limiting Reactants and Percentage Yield
-
-**Limiting Reactants**
-
+##### 8. Advanced Calculations: Limiting Reactants and Percentage Yield
+###### Limiting Reactants
 - In many reactions, one reactant gets used up before the others.
 - The reactant that is completely used up is called the limiting reactant.
 - The other reactants are said to be in excess.
 - The amount of product formed is determined by the amount of the limiting reactant.
 
-**Example: Limiting Reactant Calculation**
+###### Example: Limiting Reactant Calculation
 Problem: If 10 g of hydrogen react with 64 g of oxygen to form water, which reactant is limiting, and what mass of water is produced?
 Equation: 2H₂ + O₂ → 2H₂O
-
 Solution:
-
 1. Convert masses to moles:
    n(H₂) = 10 g ÷ 2.02 g/mol = 4.95 mol
    n(O₂) = 64 g ÷ 32.00 g/mol = 2.00 mol
-
 2. Determine which reactant is limiting:
    From the equation, 2 moles of H₂ react with 1 mole of O₂
    So, 4.95 moles of H₂ would require 4.95 ÷ 2 = 2.48 moles of O₂
    But we only have 2.00 moles of O₂, so oxygen is the limiting reactant.
-
 3. Calculate the amount of water produced from the limiting reactant:
    From the equation, 1 mole of O₂ produces 2 moles of H₂O
    So, 2.00 moles of O₂ would produce 2.00 × 2 = 4.00 moles of H₂O
-
 4. Convert moles of water to mass:
    m(H₂O) = 4.00 mol × 18.02 g/mol = 72.1 g
-
 Answer: Oxygen is the limiting reactant, and 72.1 g of water are produced.
 
-**Percentage Yield**
-
+###### Percentage Yield
 - In real experiments, the amount of product obtained is often less than the theoretical amount.
 - The percentage yield tells us how efficient the reaction was.
 - Percentage yield = (actual yield ÷ theoretical yield) × 100%
 
-**Example: Percentage Yield Calculation**
+###### Example: Percentage Yield Calculation
 Problem: In the reaction between hydrogen and oxygen, the theoretical yield of water is 72.1 g. If the actual yield obtained in the experiment is 65.0 g, what is the percentage yield?
-
 Solution:
 Percentage yield = (actual yield ÷ theoretical yield) × 100%
 Percentage yield = (65.0 g ÷ 72.1 g) × 100% = 90.2%
-
 Answer: The percentage yield is 90.2%.
 
 **TEST: Advanced Calculations**
-
 1. In the reaction 2Al + 3CuCl₂ → 2AlCl₃ + 3Cu, if 5.4 g of aluminum react with 20.2 g of copper(II) chloride:
    a) Which reactant is limiting?
    b) What mass of copper is produced?
    (Molar masses: Al = 26.98 g/mol, CuCl₂ = 134.45 g/mol, Cu = 63.55 g/mol)
-
 2. In the preparation of aspirin, the theoretical yield is 10.5 g. If the actual yield obtained is 8.7 g, what is the percentage yield?
-
 3. When 12 g of carbon react with 32 g of oxygen to form carbon dioxide (C + O₂ → CO₂), the theoretical yield is 44 g. If the actual yield is 38 g, what is the percentage yield?
 
-#### 9. Summary and Key Points
-
-**Key Concepts:**
-
+##### 9. Summary and Key Points
+###### Key Concepts:
 1. Chemical equations represent chemical reactions and must be balanced to satisfy the Law of Conservation of Mass.
 2. The mole is a unit that represents 6.022 × 10²³ particles.
 3. Molar mass is the mass of one mole of a substance, measured in g/mol.
@@ -2440,172 +2377,138 @@ Answer: The percentage yield is 90.2%.
 6. The limiting reactant determines the amount of product formed in a reaction.
 7. Percentage yield measures the efficiency of a reaction.
 
-**Important Formulas:**
-
+###### Important Formulas:
 - n = m ÷ M (amount of substance = mass ÷ molar mass)
 - m = n × M (mass = amount of substance × molar mass)
 - M = m ÷ n (molar mass = mass ÷ amount of substance)
 - Percentage yield = (actual yield ÷ theoretical yield) × 100%
 
-**Steps for Calculating Reacting Masses:**
-
+###### Steps for Calculating Reacting Masses:
 1. Write the balanced chemical equation.
 2. Convert the given mass to moles using n = m ÷ M.
 3. Use the mole ratio from the balanced equation to find the moles of the other substance.
 4. Convert the moles back to mass using m = n × M.
 
 **TEST: Module Summary**
-
 1. Explain the difference between actual yield and theoretical yield.
 2. In the reaction 2H₂ + O₂ → 2H₂O, if 4 g of hydrogen react with excess oxygen, what mass of water is produced?
 3. Define the term "limiting reactant" and explain its importance in chemical reactions.
 
-#### 10. Exam-Style Questions
-
-**Multiple Choice:**
-
+##### 10. Exam-Style Questions
+###### Multiple Choice:
 1. What is the molar mass of water (H₂O)?
    a) 16.00 g/mol
    b) 18.02 g/mol
    c) 20.02 g/mol
    d) 2.02 g/mol
-
 2. In the balanced equation 2H₂ + O₂ → 2H₂O, what is the mole ratio of hydrogen to oxygen?
    a) 1:1
    b) 2:1
    c) 1:2
    d) 2:2
-
 3. How many moles are there in 66 g of carbon dioxide (CO₂, molar mass = 44 g/mol)?
    a) 1.0 mol
    b) 1.5 mol
    c) 2.0 mol
    d) 2.5 mol
 
-**Short Answer:**
-
+###### Short Answer:
 1. Balance the following equation: Al + O₂ → Al₂O₃
-
 2. Calculate the mass of oxygen needed to react completely with 10 g of hydrogen to form water.
    Equation: 2H₂ + O₂ → 2H₂O
    (Molar masses: H₂ = 2.02 g/mol, O₂ = 32.00 g/mol)
-
 3. In the reaction C + O₂ → CO₂, if 12 g of carbon produce 40 g of carbon dioxide, what is the percentage yield?
    (Molar masses: C = 12.01 g/mol, O₂ = 32.00 g/mol, CO₂ = 44.01 g/mol)
 
-**Extended Response:**
-
+###### Extended Response:
 1. In the reaction between magnesium and oxygen: 2Mg + O₂ → 2MgO
    a) Calculate the mass of magnesium oxide produced when 24 g of magnesium react completely with oxygen.
    b) If the actual yield of magnesium oxide is 35 g, calculate the percentage yield.
    (Molar masses: Mg = 24.31 g/mol, O₂ = 32.00 g/mol, MgO = 40.31 g/mol)
-
 2. In the reaction 2Al + 3CuCl₂ → 2AlCl₃ + 3Cu, 5.4 g of aluminum react with 20.2 g of copper(II) chloride.
    a) Determine which reactant is limiting.
    b) Calculate the mass of copper produced.
    c) If the actual yield of copper is 10 g, calculate the percentage yield.
    (Molar masses: Al = 26.98 g/mol, CuCl₂ = 134.45 g/mol, Cu = 63.55 g/mol)
 
-#### 11. Answers to Tests
-
-**TEST: Elements and Their Symbols**
-
+##### 11. Answers to Tests
+###### TEST: Elements and Their Symbols
 1. Au
 2. Sodium
 3. Hydrogen (H₂), Oxygen (O₂), Nitrogen (N₂), Chlorine (Cl₂), Fluorine (F₂), etc.
 
-**TEST: Atoms, Molecules, and Compounds**
-
+###### TEST: Atoms, Molecules, and Compounds
 1. An atom is the basic building block of matter, consisting of a nucleus and electrons. A molecule is formed when two or more atoms join together.
 2. Water (H₂O) is a compound because it is made of two different elements (hydrogen and oxygen) chemically combined.
 3. Reactants: 2H₂ and O₂; Products: 2H₂O
 
-**TEST: Chemical Equations**
-
+###### TEST: Chemical Equations
 1. 4Al + 3O₂ → 2Al₂O₃
 2. The arrow represents the direction of the reaction, showing that reactants are converted to products.
 3. We need to balance chemical equations to satisfy the Law of Conservation of Mass, which states that matter cannot be created or destroyed in a chemical reaction.
 
-**TEST: The Mole Concept**
-
+###### TEST: The Mole Concept
 1. One mole contains 6.022 × 10²³ particles.
 2. 2 moles of sodium atoms contain 2 × 6.022 × 10²³ = 1.2044 × 10²⁴ sodium atoms.
 3. The mole concept is useful in chemistry because it allows us to count particles by weighing, connecting the microscopic world of atoms and molecules to the macroscopic world we can measure.
 
-**TEST: Molar Mass**
-
+###### TEST: Molar Mass
 1. Molar mass of CO₂ = 12.01 + (2 × 16.00) = 44.01 g/mol
 2. Molar mass of CH₄ = 12.01 + (4 × 1.01) = 16.05 g/mol
 3. Molar mass of SO₃ = 32.06 + (3 × 16.00) = 80.06 g/mol
    This is very close to the given molar mass of 98.08 g/mol, so the formula is not correct. The correct formula might be H₂SO₄ (sulfuric acid), which has a molar mass of 98.08 g/mol.
 
-**TEST: Amount of Substance**
-
+###### TEST: Amount of Substance
 1. n(NaCl) = 58.5 g ÷ 58.44 g/mol = 1.001 mol
 2. m(O₂) = 2.5 mol × 32.00 g/mol = 80.0 g
 3. M = 292 g ÷ 4 mol = 73 g/mol
 
-**TEST: Using Chemical Equations to Calculate Reacting Masses**
-
+###### TEST: Using Chemical Equations to Calculate Reacting Masses
 1. n(Mg) = 12 g ÷ 24.31 g/mol = 0.494 mol
    From the equation, 2 moles of Mg react with 1 mole of O₂
    So, n(O₂) = 0.494 mol ÷ 2 = 0.247 mol
    m(O₂) = 0.247 mol × 32.00 g/mol = 7.90 g
-
 2. n(Al) = 10.8 g ÷ 26.98 g/mol = 0.400 mol
    From the equation, 4 moles of Al produce 2 moles of Al₂O₃
    So, n(Al₂O₃) = 0.400 mol × (2 ÷ 4) = 0.200 mol
    m(Al₂O₃) = 0.200 mol × 101.96 g/mol = 20.4 g
-
 3. n(O₂) = 32 g ÷ 32.00 g/mol = 1.00 mol
    From the equation, 1 mole of O₂ produces 2 moles of H₂O
    So, n(H₂O) = 1.00 mol × 2 = 2.00 mol
    m(H₂O) = 2.00 mol × 18.02 g/mol = 36.0 g
 
-**TEST: Advanced Calculations**
-
+###### TEST: Advanced Calculations
 1. a) n(Al) = 5.4 g ÷ 26.98 g/mol = 0.200 mol
    n(CuCl₂) = 20.2 g ÷ 134.45 g/mol = 0.150 mol
    From the equation, 2 moles of Al react with 3 moles of CuCl₂
    So, 0.200 mol of Al would require 0.200 × (3 ÷ 2) = 0.300 mol of CuCl₂
    But we only have 0.150 mol of CuCl₂, so copper(II) chloride is the limiting reactant.
-
    b) From the equation, 3 moles of CuCl₂ produce 3 moles of Cu
    So, 0.150 mol of CuCl₂ would produce 0.150 mol of Cu
    m(Cu) = 0.150 mol × 63.55 g/mol = 9.53 g
-
 2. Percentage yield = (8.7 g ÷ 10.5 g) × 100% = 82.9%
-
 3. Percentage yield = (38 g ÷ 44 g) × 100% = 86.4%
 
-**TEST: Module Summary**
-
+###### TEST: Module Summary
 1. Theoretical yield is the maximum amount of product that can be formed from the given amounts of reactants, calculated using stoichiometry. Actual yield is the amount of product actually obtained in an experiment, which is often less than the theoretical yield due to incomplete reactions, side reactions, or losses during purification.
-
 2. n(H₂) = 4 g ÷ 2.02 g/mol = 1.98 mol
    From the equation, 2 moles of H₂ produce 2 moles of H₂O
    So, n(H₂O) = 1.98 mol
    m(H₂O) = 1.98 mol × 18.02 g/mol = 35.7 g
-
 3. The limiting reactant is the reactant that is completely used up in a chemical reaction, thus determining the maximum amount of product that can be formed. It's important because it allows us to calculate the theoretical yield of a reaction and to determine how much of the other reactants will be left over.
 
-**Exam-Style Questions - Answers**
-
-**Multiple Choice:**
-
+###### Exam-Style Questions - Answers
+####### Multiple Choice:
 1. b) 18.02 g/mol
 2. b) 2:1
 3. b) 1.5 mol
 
-**Short Answer:**
-
+####### Short Answer:
 1. 4Al + 3O₂ → 2Al₂O₃
-
 2. n(H₂) = 10 g ÷ 2.02 g/mol = 4.95 mol
    From the equation, 2 moles of H₂ react with 1 mole of O₂
    So, n(O₂) = 4.95 mol ÷ 2 = 2.48 mol
    m(O₂) = 2.48 mol × 32.00 g/mol = 79.4 g
-
 3. Theoretical yield:
    n(C) = 12 g ÷ 12.01 g/mol = 1.00 mol
    From the equation, 1 mole of C produces 1 mole of CO₂
@@ -2613,34 +2516,27 @@ Answer: The percentage yield is 90.2%.
    Theoretical m(CO₂) = 1.00 mol × 44.01 g/mol = 44.0 g
    Percentage yield = (40 g ÷ 44.0 g) × 100% = 90.9%
 
-**Extended Response:**
-
+####### Extended Response:
 1. a) n(Mg) = 24 g ÷ 24.31 g/mol = 0.987 mol
    From the equation, 2 moles of Mg produce 2 moles of MgO
    So, n(MgO) = 0.987 mol
    Theoretical m(MgO) = 0.987 mol × 40.31 g/mol = 39.8 g
-
    b) Percentage yield = (35 g ÷ 39.8 g) × 100% = 87.9%
-
 2. a) n(Al) = 5.4 g ÷ 26.98 g/mol = 0.200 mol
    n(CuCl₂) = 20.2 g ÷ 134.45 g/mol = 0.150 mol
    From the equation, 2 moles of Al react with 3 moles of CuCl₂
    So, 0.200 mol of Al would require 0.200 × (3 ÷ 2) = 0.300 mol of CuCl₂
    But we only have 0.150 mol of CuCl₂, so copper(II) chloride is the limiting reactant.
-
    b) From the equation, 3 moles of CuCl₂ produce 3 moles of Cu
    So, 0.150 mol of CuCl₂ would produce 0.150 mol of Cu
    Theoretical m(Cu) = 0.150 mol × 63.55 g/mol = 9.53 g
-
    c) Percentage yield = (10 g ÷ 9.53 g) × 100% = 105%
    (Note: A percentage yield over 100% suggests experimental error, such as impurities in the product or incomplete drying.)
 
 ---
 
 #### Module 1.8: Using Chemical Equations to Calculate Volumes of Gases
-
 **Learning Objectives:**
-
 - Understand the relationship between moles and volume of gases
 - Use molar volume to calculate gas volumes at standard conditions
 - Apply the ideal gas law to calculate gas volumes at various conditions
@@ -2648,29 +2544,321 @@ Answer: The percentage yield is 90.2%.
 - Apply these skills to solve chemistry problems
 - Prepare for formal exam questions on gas volumes
 
+##### 1. Introduction to Gas Volume Calculations
+In this module, we'll apply our knowledge of chemical equations and stoichiometry to calculate volumes of gaseous substances. Unlike solids and liquids, gases have a predictable relationship between moles and volume under specific conditions of temperature and pressure. This module will teach you how to use this relationship to solve problems involving gases in chemical reactions.
+
+###### 1.1 The Unique Behavior of Gases
+Gases behave differently from solids and liquids because their molecules are far apart and in constant motion. This means that:
+- Gases expand to fill their containers
+- The volume of a gas is highly affected by temperature and pressure
+- Equal volumes of different gases at the same temperature and pressure contain the same number of molecules (Avogadro's Law)
+
+###### 1.2 The Mole-Volume Relationship
+For gases, there's a direct relationship between the number of moles and the volume they occupy. This relationship is expressed through:
+- Molar volume: the volume occupied by one mole of a gas
+- Standard conditions: reference points for temperature and pressure (STP and RTP)
+- The ideal gas law: a mathematical relationship connecting pressure, volume, temperature, and moles
+
+###### 1.3 Applications in Chemical Reactions
+When gases are involved in chemical reactions, we can use balanced equations to:
+- Predict volumes of gaseous products formed from given volumes of reactants
+- Determine volumes of gaseous reactants needed to produce specific volumes of products
+- Solve stoichiometry problems involving gases at various conditions
+
+##### 2. Using the Concepts of Amount of Substance
+###### 2.1 Review of the Mole Concept
+- The mole (mol) is the SI unit for amount of substance
+- One mole contains exactly 6.02 × 10²³ elementary entities (Avogadro's constant)
+- For gases, the mole provides a bridge between the microscopic world of molecules and the macroscopic world of measurable volumes
+
+###### 2.2 Calculating Amount of Substance for Gases
+- The amount of substance (n) can be calculated from:
+  - Mass: n = mass ÷ molar mass
+  - Number of particles: n = number of particles ÷ Avogadro's constant
+  - Volume: n = volume ÷ molar volume (at standard conditions)
+  - Using the ideal gas law: n = pV ÷ RT
+
+###### 2.3 Practical Applications
+- Determining the amount of gas produced or consumed in a reaction
+- Calculating the amount of gas needed for a specific reaction
+- Converting between different measures of amount of substance
+
+##### 3. Using the Molar Volume of Gases
+###### 3.1 Definition of Molar Volume
+- Molar volume is the volume occupied by one mole of any gas at a specific temperature and pressure
+- At the same temperature and pressure, all gases have the same molar volume
+- Units: dm³/mol or L/mol (1 dm³ = 1 L)
+
+###### 3.2 Standard Conditions
+- **STP (Standard Temperature and Pressure)**:
+  - Temperature = 0°C (273 K)
+  - Pressure = 1 atmosphere (atm) = 101.3 kPa
+  - At STP, 1 mole of any gas occupies 22.4 dm³ (or 22.4 L)
+  
+- **RTP (Room Temperature and Pressure)**:
+  - Temperature = 25°C (298 K)
+  - Pressure = 1 atmosphere (atm) = 101.3 kPa
+  - At RTP, 1 mole of any gas occupies 24.0 dm³ (or 24.0 L)
+
+###### 3.3 Calculations Using Molar Volume
+- **Converting moles to volume at standard conditions**:
+  - Volume = moles × molar volume
+  - At STP: V = n × 22.4 dm³/mol
+  - At RTP: V = n × 24.0 dm³/mol
+
+- **Converting volume to moles at standard conditions**:
+  - Moles = volume ÷ molar volume
+  - At STP: n = V ÷ 22.4 dm³/mol
+  - At RTP: n = V ÷ 24.0 dm³/mol
+
+###### 3.4 Example Calculations
+**Example 1:** Calculate the volume of 2.5 moles of oxygen gas at STP.
+- Solution: V = 2.5 mol × 22.4 dm³/mol = 56.0 dm³
+
+**Example 2:** How many moles are present in 60 dm³ of nitrogen gas at RTP?
+- Solution: n = 60 dm³ ÷ 24.0 dm³/mol = 2.5 mol
+
+##### 4. Using the Ideal Gas Law (pV = nRT)
+###### 4.1 Introduction to the Ideal Gas Law
+- The ideal gas law relates the pressure, volume, temperature, and amount of gas
+- Equation: pV = nRT
+- Where:
+  - p = pressure (in atmospheres, atm)
+  - V = volume (in dm³ or L)
+  - n = number of moles
+  - R = ideal gas constant (0.0821 dm³·atm·mol⁻¹·K⁻¹)
+  - T = temperature (in Kelvin, K)
+
+###### 4.2 The Ideal Gas Constant (R)
+- The value of R depends on the units used:
+  - R = 0.0821 dm³·atm·mol⁻¹·K⁻¹ (when pressure is in atm and volume in dm³)
+  - R = 8.314 J·mol⁻¹·K⁻¹ (SI units)
+  - R = 8.314 dm³·kPa·mol⁻¹·K⁻¹ (when pressure is in kPa and volume in dm³)
+
+###### 4.3 Temperature Conversion
+- Temperature in the ideal gas law must be in Kelvin
+- Conversion from Celsius to Kelvin: K = °C + 273
+- Example: 25°C = 25 + 273 = 298 K
+
+###### 4.4 Using the Ideal Gas Law to Find Different Variables
+- **Finding volume**: V = nRT ÷ p
+- **Finding pressure**: p = nRT ÷ V
+- **Finding temperature**: T = pV ÷ nR
+- **Finding moles**: n = pV ÷ RT
+
+###### 4.5 Example Calculations
+**Example 1:** Calculate the volume of 3.0 moles of oxygen gas at 2.0 atm pressure and 25°C.
+- Solution:
+  - T = 25 + 273 = 298 K
+  - V = nRT ÷ p = (3.0 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 298 K) ÷ 2.0 atm
+  - V = 36.7 dm³
+
+**Example 2:** What pressure is exerted by 0.5 moles of nitrogen gas in a 10 dm³ container at 30°C?
+- Solution:
+  - T = 30 + 273 = 303 K
+  - p = nRT ÷ V = (0.5 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 303 K) ÷ 10 dm³
+  - p = 1.24 atm
+
+##### 5. Applying the Ideal Gas Law to Volatile Liquids
+###### 5.1 What are Volatile Liquids?
+- Volatile liquids are liquids that easily evaporate at room temperature
+- Examples: ethanol, acetone, diethyl ether
+- When volatile liquids evaporate, they form gases that obey the ideal gas law
+
+###### 5.2 Determining Molar Mass of Volatile Liquids
+- The ideal gas law can be used to determine the molar mass of a volatile liquid
+- Method:
+  1. Measure a small volume of the volatile liquid
+  2. Allow it to evaporate in a container of known volume
+  3. Measure the mass of the vapor and the temperature and pressure
+  4. Use the ideal gas law to calculate moles
+  5. Calculate molar mass = mass ÷ moles
+
+###### 5.3 Example Calculation
+**Example:** A 0.15 mL sample of a volatile liquid is vaporized in a 250 mL flask at 99°C and 748 mmHg pressure. The mass of the vapor is found to be 0.38 g. Calculate the molar mass of the liquid.
+- Solution:
+  - Convert units:
+    - V = 250 mL = 0.250 L
+    - T = 99 + 273 = 372 K
+    - p = 748 mmHg ÷ 760 mmHg/atm = 0.984 atm
+  - Calculate moles: n = pV ÷ RT = (0.984 atm × 0.250 L) ÷ (0.0821 L·atm·mol⁻¹·K⁻¹ × 372 K) = 0.00804 mol
+  - Calculate molar mass: M = mass ÷ moles = 0.38 g ÷ 0.00804 mol = 47.3 g/mol
+
+##### 6. Using Chemical Equations to Calculate Volumes of Gases
+###### 6.1 Stoichiometry with Gases
+- Chemical equations provide mole ratios for reactants and products
+- For gases, volume ratios are the same as mole ratios when measured at the same temperature and pressure
+- This allows us to directly relate volumes of gases in a reaction
+
+###### 6.2 Calculating Gas Volumes from Chemical Equations
+**Step-by-step method:**
+1. Write the balanced chemical equation
+2. Convert the given quantity to moles (if necessary)
+3. Use the mole ratio from the balanced equation to find moles of the desired substance
+4. Convert moles to volume (if necessary)
+
+###### 6.3 Example Calculations
+**Example 1:** What volume of oxygen gas (at STP) is needed to completely burn 10 g of methane gas (CH₄)?
+- Balanced equation: CH₄ + 2O₂ → CO₂ + 2H₂O
+- Solution:
+  - Moles of CH₄ = mass ÷ molar mass = 10 g ÷ 16 g/mol = 0.625 mol
+  - From the equation, 1 mole of CH₄ reacts with 2 moles of O₂
+  - Moles of O₂ = 0.625 mol × 2 = 1.25 mol
+  - Volume of O₂ at STP = 1.25 mol × 22.4 dm³/mol = 28.0 dm³
+
+**Example 2:** What volume of carbon dioxide gas (at 25°C and 1.5 atm pressure) is produced when 50 g of calcium carbonate decomposes?
+- Balanced equation: CaCO₃ → CaO + CO₂
+- Solution:
+  - Moles of CaCO₃ = mass ÷ molar mass = 50 g ÷ 100 g/mol = 0.5 mol
+  - From the equation, 1 mole of CaCO₃ produces 1 mole of CO₂
+  - Moles of CO₂ = 0.5 mol
+  - Use ideal gas law: V = nRT ÷ p
+  - T = 25 + 273 = 298 K
+  - V = (0.5 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 298 K) ÷ 1.5 atm = 8.15 dm³
+
+###### 6.4 Volume-Volume Calculations
+When all substances are gases at the same temperature and pressure:
+- Volume ratios are the same as mole ratios
+- No need to convert to moles
+
+**Example:** What volume of oxygen gas is required to completely burn 10 dm³ of propane gas (C₃H₈) at the same temperature and pressure?
+- Balanced equation: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O
+- Solution:
+  - From the equation, 1 volume of C₃H₈ requires 5 volumes of O₂
+  - Volume of O₂ = 10 dm³ × 5 = 50 dm³
+
+##### 7. Practice Problems
+###### 7.1 Molar Volume Calculations
+1. Calculate the volume of 3.0 moles of nitrogen gas at STP.
+2. How many moles are present in 60 dm³ of oxygen gas at RTP?
+3. Calculate the volume of 0.2 moles of carbon dioxide gas at STP.
+
+###### 7.2 Ideal Gas Law Calculations
+1. What is the volume of 1.5 moles of helium gas at a pressure of 1.2 atm and a temperature of 20°C?
+2. Calculate the pressure of 0.8 moles of argon gas in a 5 dm³ container at 25°C.
+3. What is the temperature of 2 moles of neon gas at a pressure of 1.5 atm in a 10 dm³ container?
+
+###### 7.3 Volatile Liquids Calculations
+1. A 0.10 mL sample of a volatile liquid is vaporized in a 200 mL flask at 100°C and 750 mmHg pressure. The mass of the vapor is found to be 0.25 g. Calculate the molar mass of the liquid.
+
+###### 7.4 Chemical Equations and Gas Volumes
+1. What volume of hydrogen gas (at STP) is produced when 7.3 g of hydrochloric acid reacts with excess zinc according to the equation: Zn + 2HCl → ZnCl₂ + H₂?
+2. What mass of sodium hydrogen carbonate (NaHCO₃) is needed to produce 10 dm³ of carbon dioxide gas at RTP according to the equation: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂?
+3. What volume of oxygen gas (at 1.5 atm and 40°C) is required to completely burn 8 g of methane gas (CH₄) according to the equation: CH₄ + 2O₂ → CO₂ + 2H₂O?
+
+##### 8. Summary and Key Points
+- **Amount of Substance**: The mole is the key unit for measuring amount of substance, allowing us to count particles by weighing or measuring volume.
+- **Molar Volume**: At standard conditions (STP or RTP), one mole of any gas occupies a fixed volume (22.4 dm³ at STP, 24.0 dm³ at RTP).
+- **Ideal Gas Law**: The equation pV = nRT relates pressure, volume, temperature, and moles for any gas.
+- **Volatile Liquids**: The ideal gas law can be used to determine the molar mass of volatile liquids by vaporizing a known mass and measuring the resulting gas.
+- **Chemical Equations**: For gases, volume ratios are the same as mole ratios when measured at the same temperature and pressure, allowing direct volume-volume calculations.
+
+##### 9. Exam-Style Questions
+###### Multiple Choice:
+1. At STP, what is the volume of 0.5 moles of oxygen gas?
+   a) 5.6 dm³
+   b) 11.2 dm³
+   c) 22.4 dm³
+   d) 44.8 dm³
+
+2. In the reaction 2H₂ + O₂ → 2H₂O, what volume of hydrogen gas at STP is required to produce 36 g of water?
+   a) 22.4 dm³
+   b) 44.8 dm³
+   c) 67.2 dm³
+   d) 89.6 dm³
+
+3. A sample of gas occupies 10 dm³ at 2 atm and 27°C. What is the number of moles in this sample?
+   a) 0.5 mol
+   b) 0.8 mol
+   c) 1.0 mol
+   d) 1.2 mol
+
+###### Short Answer:
+1. Ammonia gas is produced by the reaction: N₂ + 3H₂ → 2NH₃
+   a) Calculate the volume of nitrogen gas required to produce 100 dm³ of ammonia gas at RTP.
+   b) If the reaction is carried out at a pressure of 2 atm and a temperature of 50°C, what volume of nitrogen gas would be required?
+
+2. A student carries out an experiment to determine the molar volume of a gas at RTP. She collects 120 cm³ of carbon dioxide gas by reacting marble chips (calcium carbonate) with hydrochloric acid.
+   a) Write a balanced equation for the reaction.
+   b) Calculate the number of moles of carbon dioxide collected.
+   c) If the mass of marble chips used was 0.5 g, calculate the percentage purity of the marble chips.
+
+###### Extended Response:
+1. **Test for Gases**: In a laboratory experiment, you are given three unlabeled gas jars containing hydrogen, oxygen, and carbon dioxide. Describe tests you would carry out to identify each gas.
+
+2. **Collection of Gases**: Describe how you would collect a sample of dry carbon dioxide gas prepared by reacting calcium carbonate with hydrochloric acid. Include a labeled diagram of the apparatus you would use.
+
+3. **Molar Volume Experiment**: Design an experiment to determine the molar volume of oxygen gas at RTP. You have access to hydrogen peroxide solution, manganese dioxide as a catalyst, and standard laboratory equipment. Explain the measurements you would take and the calculations you would perform.
+
+##### 10. Answers to Practice Problems and Exam Questions
+###### Solutions to Practice Problems:
+1. **Molar Volume Calculations**:
+   a) Volume = 3.0 mol × 22.4 dm³/mol = 67.2 dm³
+   b) Moles = 60 dm³ ÷ 24.0 dm³/mol = 2.5 mol
+   c) Volume = 0.2 mol × 22.4 dm³/mol = 4.48 dm³
+
+2. **Ideal Gas Law Calculations**:
+   a) V = nRT ÷ p = (1.5 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 293 K) ÷ 1.2 atm = 30.1 dm³
+   b) p = nRT ÷ V = (0.8 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 298 K) ÷ 5 dm³ = 3.91 atm
+   c) T = pV ÷ nR = (1.5 atm × 10 dm³) ÷ (2 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹) = 91.4 K (-181.6°C)
+
+3. **Volatile Liquids Calculation**:
+   - Convert units: V = 200 mL = 0.200 L, T = 100 + 273 = 373 K, p = 750 ÷ 760 = 0.987 atm
+   - n = pV ÷ RT = (0.987 atm × 0.200 L) ÷ (0.0821 L·atm·mol⁻¹·K⁻¹ × 373 K) = 0.00643 mol
+   - Molar mass = 0.25 g ÷ 0.00643 mol = 38.9 g/mol
+
+4. **Chemical Equations and Gas Volumes**:
+   a) Moles of HCl = 7.3 g ÷ 36.5 g/mol = 0.2 mol
+      From equation: 2HCl → 1H₂, so moles of H₂ = 0.2 ÷ 2 = 0.1 mol
+      Volume of H₂ at STP = 0.1 mol × 22.4 dm³/mol = 2.24 dm³
+   b) Moles of CO₂ = 10 dm³ ÷ 24.0 dm³/mol = 0.417 mol
+      From equation: 2NaHCO₃ → 1CO₂, so moles of NaHCO₃ = 0.417 × 2 = 0.834 mol
+      Mass of NaHCO₃ = 0.834 mol × 84 g/mol = 70.1 g
+   c) Moles of CH₄ = 8 g ÷ 16 g/mol = 0.5 mol
+      From equation: 1CH₄ → 2O₂, so moles of O₂ = 0.5 × 2 = 1.0 mol
+      V = nRT ÷ p = (1.0 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 313 K) ÷ 1.5 atm = 17.1 dm³
+
+###### Answers to Exam-Style Questions:
+**Multiple Choice**:
+1. b) 11.2 dm³
+2. b) 44.8 dm³
+3. b) 0.8 mol
+
+**Short Answer**:
+1. a) From equation: 1N₂ → 2NH₃, so volume ratio N₂:NH₃ = 1:2
+   Volume of N₂ = 100 dm³ ÷ 2 = 50 dm³
+   b) Using ideal gas law: n = pV ÷ RT
+   At RTP: n(NH₃) = 100 dm³ ÷ 24.0 dm³/mol = 4.17 mol
+   From equation: 1N₂ → 2NH₃, so n(N₂) = 4.17 ÷ 2 = 2.085 mol
+   At new conditions: V = nRT ÷ p = (2.085 mol × 0.0821 dm³·atm·mol⁻¹·K⁻¹ × 323 K) ÷ 2 atm = 27.6 dm³
+
+2. a) CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂
+   b) n(CO₂) = 120 cm³ ÷ 24,000 cm³/mol = 0.005 mol
+   c) If pure, n(CaCO₃) = 0.005 mol (from equation)
+      Mass of pure CaCO₃ = 0.005 mol × 100 g/mol = 0.5 g
+      Since 0.5 g was used, the marble chips are 100% pure
+
+**Extended Response**:
+1. **Test for Gases**:
+   - Hydrogen: Burns with a "pop" sound when a flame is applied
+   - Oxygen: Relights a glowing splint
+   - Carbon dioxide: Turns limewater milky and extinguishes a flame
+
+2. **Collection of Gases**:
+   - Set up apparatus with marble chips in a flask connected to a delivery tube
+   - Add hydrochloric acid to the flask to produce CO₂
+   - Pass the gas through water to remove any HCl impurities
+   - Collect the gas by upward delivery or over water
+   - Test the gas with limewater to confirm it's CO₂
+
+3. **Molar Volume Experiment**:
+   - Set up apparatus to collect oxygen gas from the decomposition of H₂O₂
+   - Measure the volume of oxygen gas collected at RTP
+   - Calculate moles of oxygen using the ideal gas law
+   - Calculate molar volume = volume ÷ moles
+   - Compare with the accepted value of 24.0 dm³/mol at RTP
+
 ---
-
-#### 1. Introduction to Chemical Calculations
-
-Before we dive into calculating volumes of gases, let's understand some fundamental concepts that form the foundation of these calculations.
-
-##### 1.1 What is Matter?
-
-Everything around us is made of matter. Matter is anything that has mass and takes up space. Matter can exist in three main states: solid, liquid, and gas. In this section, we'll focus on gases and how to calculate their volumes in chemical reactions.
-
-##### 1.2 Atoms and Molecules
-
-All matter is made up of tiny particles called atoms. When atoms combine, they form molecules. For example, hydrogen gas (H₂) is made up of molecules, each containing two hydrogen atoms.
-
-##### 1.3 Chemical Reactions
-
-Chemical reactions involve the rearrangement of atoms to form new substances. We represent chemical reactions using chemical equations. For example:
-
-```
-2H₂ + O₂ → 2H₂O
-```
-
-This equation tells us that two molecules of hydrogen react with one molecule of oxygen to produce two molecules of water.
 
 #### 2. Amount of Substance (Moles)
 For gas volume calculations, we apply the mole concept from Module 1.2. The key relationships remain:
